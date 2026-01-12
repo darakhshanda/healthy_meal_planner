@@ -378,14 +378,32 @@ Designed for health, freshness, and clarity.
 
 ---
 
-## 🧱 Wireframes
+<details>
+<summary>🧱 Wireframes</summary>
 
-- [![All devices](mealapp/static/images/wireframe_all_in_one.png)](mealapp/static/images/wireframe_all_in_one.png)
-- [![Homepage](mealapp/static/images/wireframe_home.png)](mealapp/static/images/wireframe_home.png)
-- [![Dashboard](mealapp/static/images/wireframe_profile.png)](mealapp/static/images/wireframe_profile.png)
-- [![Help page](mealapp/static/images/wireframe_help.png)](mealapp/static/images/wireframe_help.png)
-- [![Sign up page](mealapp/static/images/wireframe_signup.png)](mealapp/static/images/wireframe_signup.png)
+[![All devices](mealapp/static/images/wireframe_all_in_one.png)](mealapp/static/images/wireframe_all_in_one.png)
 
+```ruby
+ Homepage
+```
+
+[![Homepage](mealapp/static/images/wireframe_home.png)](mealapp/static/images/wireframe_home.png)
+
+```ruby
+ Dashboard for user profile
+```
+
+[![Dashboard](mealapp/static/images/wireframe_profile.png)](mealapp/static/images/wireframe_profile.png)
+
+Help page
+
+[![Help page](mealapp/static/images/wireframe_help.png)](mealapp/static/images/wireframe_help.png)
+
+Sign up page
+
+[![Sign up page](mealapp/static/images/wireframe_signup.png)](mealapp/static/images/wireframe_signup.png)
+
+</details>
 
 **Planned Views:**
 
