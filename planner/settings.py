@@ -55,8 +55,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'django_summernote',
     'bootstrap5',
-    'mealapp',
-    'recipes',
+    'mealapp.apps.MealappConfig',
+
 ]
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'

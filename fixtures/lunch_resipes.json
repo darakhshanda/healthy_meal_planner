@@ -1,0 +1,543 @@
+
+[
+  {
+    "model": "mealapp.recipe",
+    "pk": 21,
+    "fields": {
+      "title": "Grilled Chicken Caesar Salad",
+      "description": "Classic Caesar salad with grilled chicken breast, romaine lettuce, parmesan cheese, and homemade dressing.",
+      "instructions": "1. Grill chicken breast with herbs and olive oil\n2. Chop romaine lettuce\n3. Make dressing with Greek yogurt, lemon, and garlic\n4. Toss lettuce with dressing\n5. Slice grilled chicken\n6. Top with chicken, parmesan, and croutons",
+      "image_url": "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15,
+      "ingredients": [
+        {"name":  "Chicken breast", "quantity": "150g"},
+        {"name": "Romaine lettuce", "quantity": "200g"},
+        {"name": "Parmesan cheese", "quantity": "30g"},
+        {"name": "Greek yogurt", "quantity": "50g"},
+        {"name": "Whole grain croutons", "quantity": "30g"},
+        {"name": "Lemon juice", "quantity": "2 tbsp"}
+      ],
+      "total_calories": 425.0,
+      "protein":  42.5,
+      "carbs": 28.0,
+      "fat": 15.5,
+      "category": "lunch",
+      "created_by":  1
+    }
+  },
+  {
+    "model":  "mealapp.recipe",
+    "pk": 22,
+    "fields": {
+      "title": "Quinoa Buddha Bowl",
+      "description": "Colorful bowl with quinoa, roasted chickpeas, sweet potato, avocado, and tahini dressing.",
+      "instructions": "1. Cook quinoa according to package\n2. Roast chickpeas with spices\n3. Roast diced sweet potato\n4. Prepare tahini dressing\n5. Arrange all ingredients in bowl\n6. Drizzle with dressing and garnish",
+      "image_url": "placeholder",
+      "servings":  1,
+      "prep_time_minutes": 15,
+      "cook_time_minutes":  30,
+      "ingredients": [
+        {"name": "Quinoa", "quantity": "80g"},
+        {"name": "Chickpeas", "quantity":  "100g"},
+        {"name": "Sweet potato", "quantity": "150g"},
+        {"name": "Avocado", "quantity":  "60g"},
+        {"name": "Spinach", "quantity": "50g"},
+        {"name": "Tahini", "quantity": "2 tbsp"}
+      ],
+      "total_calories": 520.0,
+      "protein":  18.5,
+      "carbs": 72.0,
+      "fat": 19.5,
+      "category":  "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 23,
+    "fields": {
+      "title": "Mediterranean Wrap",
+      "description": "Whole wheat wrap filled with hummus, falafel, fresh vegetables, and tzatziki sauce.",
+      "instructions": "1. Warm whole wheat tortilla\n2. Spread hummus evenly\n3. Add falafel pieces\n4. Layer with cucumber, tomato, and lettuce\n5. Drizzle with tzatziki\n6. Roll tightly and cut in half",
+      "image_url": "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 5,
+      "ingredients": [
+        {"name": "Whole wheat tortilla", "quantity": "1 large"},
+        {"name": "Hummus", "quantity": "60g"},
+        {"name": "Falafel", "quantity":  "100g"},
+        {"name": "Cucumber", "quantity":  "50g"},
+        {"name": "Tomato", "quantity": "50g"},
+        {"name": "Tzatziki sauce", "quantity": "40g"}
+      ],
+      "total_calories": 465.0,
+      "protein":  18.0,
+      "carbs": 58.0,
+      "fat": 18.5,
+      "category": "lunch",
+      "created_by":  1
+    }
+  },
+  {
+    "model":  "mealapp.recipe",
+    "pk": 24,
+    "fields": {
+      "title": "Tuna Avocado Salad",
+      "description": "Protein-rich salad with tuna, avocado, mixed greens, and a lemon vinaigrette.",
+      "instructions": "1. Drain canned tuna\n2. Mix tuna with diced avocado\n3. Prepare mixed greens\n4. Make lemon vinaigrette\n5. Combine all ingredients\n6. Top with cherry tomatoes and olives",
+      "image_url": "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 0,
+      "ingredients": [
+        {"name": "Canned tuna in water", "quantity": "150g"},
+        {"name": "Avocado", "quantity": "80g"},
+        {"name": "Mixed greens", "quantity": "100g"},
+        {"name":  "Cherry tomatoes", "quantity":  "80g"},
+        {"name": "Olives", "quantity": "30g"},
+        {"name": "Olive oil", "quantity": "1 tbsp"}
+      ],
+      "total_calories": 395.0,
+      "protein":  36.5,
+      "carbs": 15.0,
+      "fat":  23.5,
+      "category":  "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 25,
+    "fields": {
+      "title": "Lentil Vegetable Soup",
+      "description": "Hearty soup with red lentils, vegetables, and aromatic spices.  Perfect for meal prep.",
+      "instructions": "1. Sauté onions, carrots, and celery\n2. Add garlic and spices\n3. Add lentils and vegetable broth\n4. Add diced tomatoes\n5. Simmer for 25-30 minutes\n6. Garnish with fresh parsley",
+      "image_url": "placeholder",
+      "servings": 4,
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 35,
+      "ingredients": [
+        {"name": "Red lentils", "quantity": "200g"},
+        {"name": "Carrots", "quantity": "150g"},
+        {"name": "Celery", "quantity": "100g"},
+        {"name":  "Onion", "quantity": "100g"},
+        {"name": "Vegetable broth", "quantity": "1000ml"},
+        {"name": "Diced tomatoes", "quantity": "200g"}
+      ],
+      "total_calories": 285.0,
+      "protein":  16.5,
+      "carbs": 48.0,
+      "fat":  2.5,
+      "category":  "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 26,
+    "fields": {
+      "title": "Caprese Sandwich",
+      "description": "Italian-style sandwich with fresh mozzarella, tomatoes, basil, and balsamic glaze on ciabatta.",
+      "instructions": "1. Slice ciabatta bread\n2. Layer fresh mozzarella slices\n3. Add thick tomato slices\n4. Add fresh basil leaves\n5. Drizzle with balsamic glaze\n6. Season with salt and pepper",
+      "image_url": "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 8,
+      "cook_time_minutes": 0,
+      "ingredients": [
+        {"name": "Ciabatta bread", "quantity": "100g"},
+        {"name": "Fresh mozzarella", "quantity": "80g"},
+        {"name": "Tomato", "quantity": "100g"},
+        {"name": "Fresh basil", "quantity": "10g"},
+        {"name": "Balsamic glaze", "quantity": "1 tbsp"},
+        {"name": "Olive oil", "quantity": "1 tsp"}
+      ],
+      "total_calories": 415.0,
+      "protein":  20.5,
+      "carbs": 45.0,
+      "fat": 17.5,
+      "category":  "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 27,
+    "fields": {
+      "title": "Asian Chicken Lettuce Wraps",
+      "description": "Light and flavorful ground chicken with water chestnuts wrapped in crisp lettuce leaves.",
+      "instructions": "1. Cook ground chicken with ginger and garlic\n2. Add diced water chestnuts and vegetables\n3. Season with soy sauce and sesame oil\n4. Prepare lettuce cups\n5. Fill lettuce with chicken mixture\n6. Top with green onions and sesame seeds",
+      "image_url": "placeholder",
+      "servings": 2,
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 12,
+      "ingredients": [
+        {"name": "Ground chicken", "quantity": "250g"},
+        {"name": "Butter lettuce", "quantity": "150g"},
+        {"name": "Water chestnuts", "quantity":  "80g"},
+        {"name": "Soy sauce", "quantity": "2 tbsp"},
+        {"name": "Ginger", "quantity": "10g"},
+        {"name": "Green onions", "quantity": "30g"}
+      ],
+      "total_calories": 295.0,
+      "protein":  35.0,
+      "carbs": 18.5,
+      "fat": 10.0,
+      "category":  "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 28,
+    "fields": {
+      "title": "Greek Salad with Grilled Shrimp",
+      "description":  "Traditional Greek salad topped with marinated grilled shrimp and feta cheese.",
+      "instructions": "1. Marinate shrimp in lemon and herbs\n2. Grill shrimp until pink\n3. Chop cucumber, tomatoes, and peppers\n4. Add olives and red onion\n5. Top with feta cheese\n6. Dress with olive oil and oregano",
+      "image_url": "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 8,
+      "ingredients": [
+        {"name": "Shrimp", "quantity": "150g"},
+        {"name": "Cucumber", "quantity": "100g"},
+        {"name": "Tomatoes", "quantity": "150g"},
+        {"name": "Feta cheese", "quantity": "50g"},
+        {"name": "Kalamata olives", "quantity":  "40g"},
+        {"name": "Olive oil", "quantity": "2 tbsp"}
+      ],
+      "total_calories": 385.0,
+      "protein":  32.5,
+      "carbs": 18.0,
+      "fat":  22.0,
+      "category": "lunch",
+      "created_by":  1
+    }
+  },
+  {
+    "model":  "mealapp.recipe",
+    "pk": 29,
+    "fields": {
+      "title": "Turkey Club Sandwich",
+      "description":  "Classic triple-decker sandwich with turkey, bacon, lettuce, tomato, and avocado.",
+      "instructions":  "1. Toast whole grain bread\n2. Cook turkey bacon until crispy\n3. Layer turkey slices on bread\n4. Add bacon, lettuce, and tomato\n5. Add avocado slices\n6. Stack layers and secure with toothpicks",
+      "image_url":  "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 8,
+      "ingredients": [
+        {"name": "Whole grain bread", "quantity": "3 slices"},
+        {"name": "Turkey breast", "quantity": "100g"},
+        {"name": "Turkey bacon", "quantity": "3 strips"},
+        {"name":  "Lettuce", "quantity":  "30g"},
+        {"name": "Tomato", "quantity": "60g"},
+        {"name": "Avocado", "quantity":  "50g"}
+      ],
+      "total_calories": 485.0,
+      "protein":  38.5,
+      "carbs": 42.0,
+      "fat":  18.5,
+      "category":  "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 30,
+    "fields": {
+      "title": "Veggie Sushi Bowl",
+      "description":  "Deconstructed sushi bowl with brown rice, edamame, cucumber, and avocado with ginger dressing.",
+      "instructions": "1. Cook brown rice and season with rice vinegar\n2. Cook edamame\n3. Slice cucumber and avocado\n4. Prepare ginger dressing\n5. Arrange all ingredients in bowl\n6. Top with sesame seeds and nori strips",
+      "image_url":  "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 25,
+      "ingredients": [
+        {"name": "Brown rice", "quantity": "80g"},
+        {"name": "Edamame", "quantity": "100g"},
+        {"name": "Cucumber", "quantity": "80g"},
+        {"name": "Avocado", "quantity":  "70g"},
+        {"name": "Nori sheets", "quantity": "2 sheets"},
+        {"name":  "Sesame seeds", "quantity": "1 tbsp"}
+      ],
+      "total_calories": 445.0,
+      "protein":  17.5,
+      "carbs": 58.0,
+      "fat": 17.0,
+      "category":  "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 31,
+    "fields": {
+      "title": "Black Bean Quesadilla",
+      "description": "Whole wheat quesadilla filled with black beans, cheese, peppers, and corn.",
+      "instructions": "1. Mash black beans with spices\n2. Sauté bell peppers and corn\n3. Spread beans on tortilla\n4. Add cheese and vegetables\n5. Fold and cook until crispy\n6. Serve with salsa and Greek yogurt",
+      "image_url": "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 10,
+      "ingredients": [
+        {"name": "Whole wheat tortilla", "quantity": "2 large"},
+        {"name":  "Black beans", "quantity": "150g"},
+        {"name": "Cheese", "quantity": "60g"},
+        {"name": "Bell peppers", "quantity": "80g"},
+        {"name": "Corn", "quantity": "60g"},
+        {"name": "Salsa", "quantity": "50g"}
+      ],
+      "total_calories": 515.0,
+      "protein":  24.5,
+      "carbs": 68.0,
+      "fat":  16.5,
+      "category":  "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 32,
+    "fields": {
+      "title": "Chicken Pesto Pasta Salad",
+      "description":  "Cold pasta salad with grilled chicken, cherry tomatoes, mozzarella, and basil pesto.",
+      "instructions": "1. Cook whole wheat pasta and cool\n2. Grill and slice chicken\n3. Make fresh basil pesto\n4. Halve cherry tomatoes\n5. Toss all ingredients with pesto\n6. Add mozzarella balls and serve chilled",
+      "image_url": "placeholder",
+      "servings": 2,
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {"name": "Whole wheat pasta", "quantity": "150g"},
+        {"name": "Chicken breast", "quantity": "200g"},
+        {"name":  "Basil pesto", "quantity": "60g"},
+        {"name": "Cherry tomatoes", "quantity": "150g"},
+        {"name": "Mozzarella balls", "quantity": "100g"},
+        {"name": "Pine nuts", "quantity": "20g"}
+      ],
+      "total_calories": 485.0,
+      "protein":  36.0,
+      "carbs": 45.0,
+      "fat":  18.5,
+      "category":  "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 33,
+    "fields": {
+      "title": "Salmon Poke Bowl",
+      "description":  "Hawaiian-inspired bowl with fresh salmon, rice, edamame, and sesame dressing.",
+      "instructions": "1. Cook sushi rice\n2. Cube fresh salmon\n3. Marinate in soy sauce and sesame oil\n4. Prepare vegetables\n5. Arrange rice and toppings in bowl\n6. Drizzle with spicy mayo",
+      "image_url": "placeholder",
+      "servings":  1,
+      "prep_time_minutes": 20,
+      "cook_time_minutes": 15,
+      "ingredients": [
+        {"name":  "Fresh salmon", "quantity": "150g"},
+        {"name": "Sushi rice", "quantity": "80g"},
+        {"name":  "Edamame", "quantity": "60g"},
+        {"name": "Cucumber", "quantity": "60g"},
+        {"name": "Avocado", "quantity": "60g"},
+        {"name": "Seaweed salad", "quantity":  "40g"}
+      ],
+      "total_calories": 525.0,
+      "protein":  35.5,
+      "carbs": 52.0,
+      "fat":  20.0,
+      "category": "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk":  34,
+    "fields":  {
+      "title": "Roasted Vegetable Panini",
+      "description": "Grilled panini with roasted vegetables, goat cheese, and balsamic reduction.",
+      "instructions": "1. Roast zucchini, eggplant, and peppers\n2. Spread goat cheese on bread\n3. Layer roasted vegetables\n4. Add arugula\n5. Grill in panini press\n6. Drizzle with balsamic reduction",
+      "image_url":  "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {"name": "Ciabatta bread", "quantity": "100g"},
+        {"name":  "Zucchini", "quantity": "80g"},
+        {"name": "Bell peppers", "quantity": "80g"},
+        {"name": "Eggplant", "quantity": "60g"},
+        {"name": "Goat cheese", "quantity":  "50g"},
+        {"name": "Arugula", "quantity":  "30g"}
+      ],
+      "total_calories": 425.0,
+      "protein":  18.0,
+      "carbs": 52.0,
+      "fat":  16.5,
+      "category": "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk":  35,
+    "fields":  {
+      "title": "Cobb Salad",
+      "description": "Classic American salad with chicken, bacon, eggs, avocado, and blue cheese.",
+      "instructions": "1. Grill and slice chicken\n2. Cook and crumble bacon\n3. Hard boil eggs and quarter\n4. Arrange lettuce in bowl\n5. Add all toppings in rows\n6. Serve with ranch dressing",
+      "image_url": "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 20,
+      "cook_time_minutes": 15,
+      "ingredients": [
+        {"name": "Chicken breast", "quantity": "120g"},
+        {"name": "Bacon", "quantity": "2 strips"},
+        {"name":  "Hard boiled eggs", "quantity": "2 eggs"},
+        {"name": "Romaine lettuce", "quantity": "150g"},
+        {"name": "Avocado", "quantity": "60g"},
+        {"name": "Blue cheese", "quantity": "30g"}
+      ],
+      "total_calories": 495.0,
+      "protein": 42.5,
+      "carbs": 15.0,
+      "fat":  31.0,
+      "category": "lunch",
+      "created_by":  1
+    }
+  },
+  {
+    "model":  "mealapp.recipe",
+    "pk": 36,
+    "fields": {
+      "title": "Falafel Bowl",
+      "description": "Middle Eastern bowl with falafel, hummus, tabbouleh, and tahini sauce.",
+      "instructions": "1.  Bake or fry falafel\n2. Prepare tabbouleh salad\n3. Arrange hummus in bowl\n4. Add falafel and tabbouleh\n5. Include cucumber and tomato\n6. Drizzle with tahini sauce",
+      "image_url": "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {"name": "Falafel", "quantity": "120g"},
+        {"name": "Hummus", "quantity": "80g"},
+        {"name": "Tabbouleh", "quantity": "100g"},
+        {"name": "Cucumber", "quantity": "80g"},
+        {"name": "Tomato", "quantity": "80g"},
+        {"name": "Tahini sauce", "quantity": "40g"}
+      ],
+      "total_calories": 485.0,
+      "protein":  19.5,
+      "carbs": 58.0,
+      "fat":  20.0,
+      "category": "lunch",
+      "created_by":  1
+    }
+  },
+  {
+    "model":  "mealapp.recipe",
+    "pk": 37,
+    "fields": {
+      "title": "Thai Peanut Noodle Bowl",
+      "description": "Rice noodles with vegetables, tofu, and creamy peanut sauce.",
+      "instructions": "1. Cook rice noodles\n2. Stir-fry tofu until golden\n3. Sauté vegetables\n4. Make peanut sauce\n5. Toss everything together\n6. Garnish with peanuts and cilantro",
+      "image_url": "placeholder",
+      "servings": 2,
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 15,
+      "ingredients": [
+        {"name": "Rice noodles", "quantity": "150g"},
+        {"name": "Firm tofu", "quantity": "200g"},
+        {"name": "Bell peppers", "quantity": "100g"},
+        {"name":  "Carrots", "quantity": "80g"},
+        {"name": "Peanut butter", "quantity": "3 tbsp"},
+        {"name": "Soy sauce", "quantity": "2 tbsp"}
+      ],
+      "total_calories": 465.0,
+      "protein":  22.0,
+      "carbs": 54.0,
+      "fat":  18.5,
+      "category": "lunch",
+      "created_by":  1
+    }
+  },
+  {
+    "model":  "mealapp.recipe",
+    "pk": 38,
+    "fields": {
+      "title": "Chicken Burrito Bowl",
+      "description":  "Tex-Mex bowl with seasoned chicken, rice, beans, and fresh toppings.",
+      "instructions": "1. Cook cilantro lime rice\n2. Season and grill chicken\n3. Warm black beans\n4. Prepare pico de gallo\n5. Arrange all ingredients in bowl\n6. Top with cheese, sour cream, and guacamole",
+      "image_url": "placeholder",
+      "servings": 1,
+      "prep_time_minutes":  15,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {"name":  "Chicken breast", "quantity": "150g"},
+        {"name": "Brown rice", "quantity": "80g"},
+        {"name": "Black beans", "quantity": "100g"},
+        {"name": "Pico de gallo", "quantity":  "80g"},
+        {"name": "Cheese", "quantity": "40g"},
+        {"name": "Guacamole", "quantity": "50g"}
+      ],
+      "total_calories": 565.0,
+      "protein":  45.0,
+      "carbs": 62.0,
+      "fat":  16.5,
+      "category": "lunch",
+      "created_by":  1
+    }
+  },
+  {
+    "model":  "mealapp.recipe",
+    "pk": 39,
+    "fields": {
+      "title": "Spinach and Strawberry Salad",
+      "description": "Fresh salad with baby spinach, strawberries, goat cheese, and candied pecans.",
+      "instructions": "1. Wash and dry baby spinach\n2. Slice fresh strawberries\n3. Crumble goat cheese\n4. Toast pecans with honey\n5. Make balsamic vinaigrette\n6. Toss all ingredients together",
+      "image_url": "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 5,
+      "ingredients": [
+        {"name": "Baby spinach", "quantity": "150g"},
+        {"name": "Strawberries", "quantity": "120g"},
+        {"name": "Goat cheese", "quantity":  "50g"},
+        {"name": "Pecans", "quantity": "30g"},
+        {"name": "Balsamic vinegar", "quantity": "2 tbsp"},
+        {"name": "Honey", "quantity":  "1 tsp"}
+      ],
+      "total_calories": 365.0,
+      "protein":  14.5,
+      "carbs": 32.0,
+      "fat":  22.0,
+      "category":  "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 40,
+    "fields": {
+      "title": "Egg Salad Sandwich",
+      "description": "Creamy egg salad made with Greek yogurt on whole grain bread with lettuce and tomato.",
+      "instructions":  "1. Hard boil eggs and cool\n2. Mash eggs with Greek yogurt\n3. Add diced celery and mustard\n4. Season with salt and pepper\n5. Toast whole grain bread\n6. Assemble sandwich with lettuce and tomato",
+      "image_url": "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 12,
+      "ingredients": [
+        {"name": "Hard boiled eggs", "quantity": "3 eggs"},
+        {"name": "Greek yogurt", "quantity": "3 tbsp"},
+        {"name": "Whole grain bread", "quantity": "2 slices"},
+        {"name": "Celery", "quantity": "40g"},
+        {"name": "Lettuce", "quantity": "30g"},
+        {"name": "Tomato", "quantity": "60g"}
+      ],
+      "total_calories": 425.0,
+      "protein": 26.5,
+      "carbs": 38.0,
+      "fat":  18.5,
+      "category":  "lunch",
+      "created_by": 1
+    }
+  }
+]

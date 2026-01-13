@@ -1,0 +1,59 @@
+[
+  {
+    "model": "mealapp. recipe",
+    "pk": 61,
+    "fields": {
+      "title": "Apple Slices with Almond Butter",
+      "description": "Crisp apple slices paired with creamy almond butter and a sprinkle of cinnamon.",
+      "instructions": "1. Wash and slice apple into wedges\n2. Remove core\n3. Arrange on plate\n4. Serve with almond butter for dipping\n5. Sprinkle with cinnamon\n6. Enjoy immediately",
+      "image_url": "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 0,
+      "ingredients": [
+        {"name": "Apple", "quantity": "1 medium"},
+        {"name":  "Almond butter", "quantity": "2 tbsp"},
+        {"name": "Cinnamon", "quantity": "1/4 tsp"}
+      ],
+      "total_calories": 245.0,
+      "protein":  6.5,
+      "carbs": 32.0,
+      "fat":  12.0,
+      "category": "snack",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 62,
+    "fields": {
+      "title": "Hummus with Veggie Sticks",
+      "description": "Creamy homemade hummus served with colorful vegetable crudités.",
+      "instructions": "1. Blend chickpeas, tahini, lemon, and garlic\n2. Add olive oil while blending\n3. Cut vegetables into sticks\n4. Arrange vegetables around hummus\n5. Drizzle hummus with olive oil\n6. Sprinkle with paprika",
+      "image_url": "placeholder",
+      "servings":  2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 0,
+      "ingredients": [
+        {"name": "Chickpeas", "quantity": "200g"},
+        {"name": "Tahini", "quantity": "3 tbsp"},
+        {"name": "Carrots", "quantity": "100g"},
+        {"name": "Celery", "quantity": "80g"},
+        {"name": "Bell peppers", "quantity": "100g"},
+        {"name": "Cucumber", "quantity": "100g"}
+      ],
+      "total_calories": 225.0,
+      "protein":  9.5,
+      "carbs": 28.0,
+      "fat":  9.5,
+      "category": "snack",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 63,
+    "fields": {
+      "title": "Energy Balls",
+      "description":  "No-bake energy balls with dates, nuts, and dark chocolate chips.",
+      "
