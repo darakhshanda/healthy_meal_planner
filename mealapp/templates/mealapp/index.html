@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Database</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">🍳 Healthy Meal Planner</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Help</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <header>
+            <h1>Healthy Meal Planner</h1>
+            <p class="subtitle">Sign Up to create your personalized meal plan for the week and control your diet
+                effectively.</p>
+        </header>
+        <div class="content mb-4">
+            <h1>Recipe Database</h1>
+            <p class="subtitle">Discover delicious recipes for every meal</p>
+
+        </div>
+        <ul class="action-buttons mb-4">
+
+            <a href="#" class="btn btn-success btn-lg mb-4">Calculate BMI</a>
+            <a href="/accounts/signup/" class="btn btn-primary btn-lg mb-4">Sign Up Now</a>
+            <a href="/accounts/login/" class="btn btn-secondary btn-lg mb-4">Log In</a>
+        </ul>
+        <ul>
+            <li>🍳 Explore a variety of recipes for breakfast, lunch, and dinner</li>
+            <li>🔍 Search recipes by name or ingredient</li>
+            <li>📊 Track your nutritional intake</li>
+            <li>📝 Create and save your favorite recipes</li>
+        </ul>
+        <div class="search-bar mb-4">
+            <input type="text" class="search-input" id="searchInput"
+                placeholder="Search recipes by name or ingredient...">
+        </div>
+
+        <div class="category-tabs">
+            <button class="tab-button active" data-category="all">All Recipes</button>
+            <button class="tab-button" data-category="breakfast">🌅 Breakfast</button>
+            <button class="tab-button" data-category="lunch">🥗 Lunch</button>
+            <button class="tab-button" data-category="dinner">🍽️ Dinner</button>
+        </div>
+
+        <div class="recipes-grid" id="recipesContainer"></div>
+
+        <div class="recipe-count" id="recipeCount"></div>
+    </div>
+
+    <div class="footer">
+        <p>📚 Recipe data from TheMealDB API • Made with ❤️ using RecipeDB</p>
+    </div>
+    <script src="{% static 'mealapp/js/recipes.js' %}">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoA6V6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
