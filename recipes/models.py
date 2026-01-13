@@ -1,4 +1,4 @@
-from datetime import timezone
+from datetime import timezone, datetime
 from django.db import models
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
@@ -54,9 +54,11 @@ class Recipe(models.Model):
         related_name='recipes'
     )
 
-    # Timestamps
-    created_at = models.DateTimeField(timezone)
-    updated_at = models.DateTimeField(timezone)
+   # Timestamps - ADD default=timezone.now
+    created_at = models. DateTimeField(
+        default=datetime.now)  # NOT just timezone!
+    updated_at = models. DateTimeField(
+        auto_now=True)         # Use auto_now for updates
 
     class Meta:
         db_table = 'recipe'
