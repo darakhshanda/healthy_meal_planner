@@ -1,4 +1,5 @@
 .venv/
 env.py
+#fixtures/
 __pycache__/
 *.pyc

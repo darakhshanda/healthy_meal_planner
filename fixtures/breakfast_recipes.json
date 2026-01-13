@@ -1,0 +1,539 @@
+[
+  {
+    "model": "mealapp.recipe",
+    "pk": 1,
+    "fields": {
+      "title": "Overnight Oats with Berries",
+      "description": "Creamy overnight oats topped with fresh berries and honey.  A perfect make-ahead breakfast packed with fiber and antioxidants.",
+      "instructions": "1. Mix rolled oats with almond milk in a jar\n2. Add chia seeds and vanilla extract\n3. Refrigerate overnight\n4. In the morning, top with mixed berries and drizzle with honey\n5. Serve cold",
+      "image_url":  "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 0,
+      "ingredients": [
+        {"name": "Rolled oats", "quantity": "50g"},
+        {"name": "Almond milk", "quantity":  "150ml"},
+        {"name": "Chia seeds", "quantity":  "1 tbsp"},
+        {"name": "Mixed berries", "quantity": "100g"},
+        {"name": "Honey", "quantity": "1 tsp"},
+        {"name": "Vanilla extract", "quantity": "1/2 tsp"}
+      ],
+      "total_calories": 320.5,
+      "protein": 9.2,
+      "carbs": 52.3,
+      "fat": 8.7,
+      "category": "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 2,
+    "fields": {
+      "title": "Avocado Toast with Poached Egg",
+      "description": "Whole grain toast topped with creamy avocado and a perfectly poached egg. Rich in healthy fats and protein.",
+      "instructions": "1. Toast whole grain bread until golden\n2. Mash avocado with lemon juice and salt\n3. Bring water to simmer and add vinegar\n4. Poach egg for 3-4 minutes\n5. Spread avocado on toast\n6. Top with poached egg and red pepper flakes",
+      "image_url": "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 5,
+      "ingredients": [
+        {"name": "Whole grain bread", "quantity": "2 slices"},
+        {"name":  "Avocado", "quantity": "1/2 medium"},
+        {"name": "Egg", "quantity": "1 large"},
+        {"name": "Lemon juice", "quantity": "1 tsp"},
+        {"name": "Red pepper flakes", "quantity": "pinch"},
+        {"name": "Salt", "quantity": "to taste"}
+      ],
+      "total_calories": 385.0,
+      "protein": 16.5,
+      "carbs": 35.2,
+      "fat": 21.3,
+      "category": "breakfast",
+      "created_by":  1
+    }
+  },
+  {
+    "model":  "mealapp.recipe",
+    "pk": 3,
+    "fields": {
+      "title": "Greek Yogurt Parfait",
+      "description": "Layers of creamy Greek yogurt, crunchy granola, and fresh berries.  High in protein and probiotics.",
+      "instructions": "1. Layer Greek yogurt in a glass\n2. Add a layer of granola\n3. Add fresh berries\n4. Repeat layers\n5. Top with sliced almonds\n6. Drizzle with honey",
+      "image_url": "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 0,
+      "ingredients": [
+        {"name":  "Greek yogurt", "quantity":  "200g"},
+        {"name": "Granola", "quantity": "40g"},
+        {"name": "Mixed berries", "quantity": "100g"},
+        {"name": "Sliced almonds", "quantity": "15g"},
+        {"name": "Honey", "quantity": "1 tbsp"}
+      ],
+      "total_calories": 425.0,
+      "protein":  22.5,
+      "carbs": 58.0,
+      "fat": 12.8,
+      "category":  "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 4,
+    "fields": {
+      "title": "Spinach and Mushroom Omelet",
+      "description": "Fluffy omelet filled with sautéed spinach, mushrooms, and feta cheese. A protein-packed savory breakfast.",
+      "instructions":  "1. Sauté mushrooms and onions in olive oil\n2. Add spinach until wilted\n3. Whisk eggs with salt and pepper\n4. Pour eggs into pan\n5. Add vegetable mixture and feta\n6. Fold omelet and cook until set",
+      "image_url": "placeholder",
+      "servings": 1,
+      "prep_time_minutes":  5,
+      "cook_time_minutes": 10,
+      "ingredients": [
+        {"name": "Eggs", "quantity": "3 large"},
+        {"name": "Spinach", "quantity": "50g"},
+        {"name": "Mushrooms", "quantity": "50g"},
+        {"name": "Onion", "quantity": "30g"},
+        {"name": "Feta cheese", "quantity": "30g"},
+        {"name": "Olive oil", "quantity": "1 tsp"}
+      ],
+      "total_calories": 340.0,
+      "protein":  24.8,
+      "carbs": 8.5,
+      "fat": 24.2,
+      "category": "breakfast",
+      "created_by":  1
+    }
+  },
+  {
+    "model":  "mealapp.recipe",
+    "pk": 5,
+    "fields": {
+      "title": "Banana Protein Smoothie",
+      "description": "Creamy smoothie with banana, protein powder, and peanut butter. Perfect post-workout breakfast.",
+      "instructions": "1. Add all ingredients to blender\n2. Blend until smooth and creamy\n3. Add ice if desired\n4. Pour into glass and serve immediately",
+      "image_url":  "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 0,
+      "ingredients": [
+        {"name": "Banana", "quantity": "1 medium"},
+        {"name":  "Protein powder", "quantity":  "30g"},
+        {"name": "Almond milk", "quantity": "250ml"},
+        {"name": "Peanut butter", "quantity": "1 tbsp"},
+        {"name": "Spinach", "quantity": "30g"},
+        {"name": "Ice cubes", "quantity": "4-5"}
+      ],
+      "total_calories": 380.0,
+      "protein":  32.5,
+      "carbs": 42.0,
+      "fat": 11.5,
+      "category": "breakfast",
+      "created_by":  1
+    }
+  },
+  {
+    "model":  "mealapp.recipe",
+    "pk": 6,
+    "fields": {
+      "title": "Whole Grain Pancakes",
+      "description": "Fluffy whole wheat pancakes naturally sweetened with banana.  A healthier take on classic pancakes.",
+      "instructions": "1. Mix whole wheat flour, baking powder, and cinnamon\n2. Mash banana and mix with egg and milk\n3. Combine wet and dry ingredients\n4. Heat griddle and add batter\n5. Cook until bubbles form, then flip\n6. Serve with fresh berries",
+      "image_url": "placeholder",
+      "servings":  2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15,
+      "ingredients": [
+        {"name": "Whole wheat flour", "quantity": "150g"},
+        {"name": "Baking powder", "quantity":  "2 tsp"},
+        {"name": "Banana", "quantity": "1 large"},
+        {"name": "Egg", "quantity": "1 large"},
+        {"name": "Milk", "quantity": "200ml"},
+        {"name": "Cinnamon", "quantity":  "1 tsp"}
+      ],
+      "total_calories":  450.0,
+      "protein":  16.0,
+      "carbs": 78.0,
+      "fat":  8.5,
+      "category": "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk":  7,
+    "fields":  {
+      "title": "Chia Seed Pudding",
+      "description": "Creamy chia pudding made with coconut milk and topped with fresh fruit. Rich in omega-3 fatty acids.",
+      "instructions":  "1. Mix chia seeds with coconut milk\n2. Add maple syrup and vanilla\n3. Stir well and refrigerate for 4 hours or overnight\n4. Stir again before serving\n5. Top with fresh fruit and nuts",
+      "image_url": "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 0,
+      "ingredients": [
+        {"name": "Chia seeds", "quantity": "30g"},
+        {"name": "Coconut milk", "quantity": "200ml"},
+        {"name": "Maple syrup", "quantity":  "1 tbsp"},
+        {"name": "Vanilla extract", "quantity": "1/2 tsp"},
+        {"name": "Fresh berries", "quantity": "80g"},
+        {"name": "Sliced almonds", "quantity": "10g"}
+      ],
+      "total_calories": 365.0,
+      "protein":  8.5,
+      "carbs": 38.0,
+      "fat":  20.5,
+      "category":  "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 8,
+    "fields": {
+      "title": "Veggie Breakfast Burrito",
+      "description": "Whole wheat tortilla filled with scrambled eggs, black beans, and vegetables. A hearty Mexican-inspired breakfast.",
+      "instructions": "1. Scramble eggs with bell peppers\n2. Warm black beans\n3. Warm tortilla\n4. Layer eggs, beans, and vegetables on tortilla\n5. Top with salsa and avocado\n6. Roll tightly and serve",
+      "image_url":  "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 10,
+      "ingredients": [
+        {"name": "Whole wheat tortilla", "quantity": "1 large"},
+        {"name": "Eggs", "quantity": "2 large"},
+        {"name":  "Black beans", "quantity": "80g"},
+        {"name": "Bell peppers", "quantity": "50g"},
+        {"name": "Salsa", "quantity": "30g"},
+        {"name": "Avocado", "quantity":  "40g"}
+      ],
+      "total_calories": 420.0,
+      "protein": 22.0,
+      "carbs": 48.0,
+      "fat":  16.5,
+      "category":  "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 9,
+    "fields": {
+      "title": "Quinoa Breakfast Bowl",
+      "description": "Warm quinoa bowl with almond milk, cinnamon, and topped with nuts and berries. A protein-rich grain bowl.",
+      "instructions": "1. Cook quinoa according to package directions\n2. Heat with almond milk and cinnamon\n3. Top with fresh berries\n4. Add chopped nuts\n5. Drizzle with honey\n6. Serve warm",
+      "image_url":  "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {"name": "Quinoa", "quantity": "60g"},
+        {"name": "Almond milk", "quantity":  "150ml"},
+        {"name": "Cinnamon", "quantity":  "1 tsp"},
+        {"name": "Mixed berries", "quantity": "80g"},
+        {"name": "Walnuts", "quantity": "20g"},
+        {"name": "Honey", "quantity": "1 tsp"}
+      ],
+      "total_calories": 395.0,
+      "protein":  12.5,
+      "carbs": 58.0,
+      "fat":  13.0,
+      "category":  "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 10,
+    "fields": {
+      "title": "Smoked Salmon Bagel",
+      "description": "Whole grain bagel with cream cheese, smoked salmon, and fresh vegetables. A protein-packed sophisticated breakfast.",
+      "instructions": "1. Toast whole grain bagel\n2. Spread cream cheese on both halves\n3. Layer smoked salmon\n4. Add capers and red onion slices\n5. Top with tomato slices\n6. Garnish with fresh dill",
+      "image_url": "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 2,
+      "ingredients": [
+        {"name": "Whole grain bagel", "quantity": "1 medium"},
+        {"name": "Cream cheese", "quantity": "30g"},
+        {"name": "Smoked salmon", "quantity":  "50g"},
+        {"name": "Capers", "quantity": "1 tsp"},
+        {"name": "Red onion", "quantity": "20g"},
+        {"name": "Tomato", "quantity": "50g"}
+      ],
+      "total_calories": 410.0,
+      "protein": 24.5,
+      "carbs": 52.0,
+      "fat":  12.0,
+      "category": "breakfast",
+      "created_by":  1
+    }
+  },
+  {
+    "model":  "mealapp.recipe",
+    "pk": 11,
+    "fields": {
+      "title": "Sweet Potato Hash",
+      "description": "Savory hash with diced sweet potatoes, bell peppers, and topped with fried eggs. A colorful nutrient-dense breakfast.",
+      "instructions": "1. Dice sweet potato into small cubes\n2. Sauté in olive oil until tender\n3. Add bell peppers and onions\n4. Season with paprika and garlic\n5. Make wells and crack eggs into hash\n6. Cook until eggs are set",
+      "image_url": "placeholder",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {"name": "Sweet potato", "quantity": "300g"},
+        {"name": "Bell peppers", "quantity": "100g"},
+        {"name": "Onion", "quantity": "80g"},
+        {"name": "Eggs", "quantity": "2 large"},
+        {"name": "Olive oil", "quantity": "1 tbsp"},
+        {"name": "Paprika", "quantity": "1 tsp"}
+      ],
+      "total_calories": 485.0,
+      "protein":  16.0,
+      "carbs": 68.0,
+      "fat": 16.5,
+      "category": "breakfast",
+      "created_by":  1
+    }
+  },
+  {
+    "model":  "mealapp.recipe",
+    "pk": 12,
+    "fields": {
+      "title": "Acai Bowl",
+      "description":  "Thick acai smoothie bowl topped with granola, fresh fruits, and coconut.  A refreshing antioxidant-rich breakfast.",
+      "instructions":  "1. Blend frozen acai with banana until thick\n2. Pour into bowl\n3. Top with granola in rows\n4. Add fresh berries\n5. Sprinkle coconut flakes\n6. Drizzle with honey",
+      "image_url":  "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 0,
+      "ingredients": [
+        {"name": "Acai puree", "quantity": "100g"},
+        {"name": "Banana", "quantity": "1 medium"},
+        {"name":  "Granola", "quantity": "50g"},
+        {"name": "Mixed berries", "quantity": "80g"},
+        {"name": "Coconut flakes", "quantity": "10g"},
+        {"name": "Honey", "quantity": "1 tsp"}
+      ],
+      "total_calories": 405.0,
+      "protein":  8.0,
+      "carbs": 72.0,
+      "fat":  11.5,
+      "category":  "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 13,
+    "fields": {
+      "title": "Cottage Cheese with Fruit",
+      "description":  "Creamy cottage cheese topped with fresh pineapple, berries, and nuts. High in protein and calcium.",
+      "instructions": "1. Place cottage cheese in bowl\n2. Top with diced pineapple\n3. Add fresh berries\n4. Sprinkle with chopped walnuts\n5. Add a dash of cinnamon\n6. Serve chilled",
+      "image_url": "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 0,
+      "ingredients": [
+        {"name": "Cottage cheese", "quantity": "200g"},
+        {"name": "Pineapple", "quantity": "100g"},
+        {"name": "Mixed berries", "quantity": "80g"},
+        {"name": "Walnuts", "quantity":  "20g"},
+        {"name": "Cinnamon", "quantity":  "1/2 tsp"}
+      ],
+      "total_calories": 335.0,
+      "protein":  28.5,
+      "carbs": 32.0,
+      "fat":  11.0,
+      "category":  "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 14,
+    "fields": {
+      "title": "Breakfast Egg Muffins",
+      "description": "Portable egg muffins packed with vegetables and cheese. Perfect for meal prep and busy mornings.",
+      "instructions":  "1. Preheat oven to 350°F (175°C)\n2. Whisk eggs with salt and pepper\n3. Add chopped vegetables and cheese\n4. Pour into greased muffin tin\n5. Bake for 20-25 minutes\n6. Cool and store",
+      "image_url": "placeholder",
+      "servings":  6,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 25,
+      "ingredients": [
+        {"name":  "Eggs", "quantity": "8 large"},
+        {"name":  "Spinach", "quantity": "100g"},
+        {"name": "Cherry tomatoes", "quantity": "100g"},
+        {"name": "Cheese", "quantity": "80g"},
+        {"name": "Bell peppers", "quantity": "80g"},
+        {"name": "Onion", "quantity": "50g"}
+      ],
+      "total_calories": 180.0,
+      "protein":  14.5,
+      "carbs": 6.0,
+      "fat":  11.5,
+      "category":  "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 15,
+    "fields": {
+      "title": "Peanut Butter Banana Toast",
+      "description": "Whole grain toast with natural peanut butter, sliced banana, and chia seeds. A classic energy-boosting breakfast.",
+      "instructions":  "1. Toast whole grain bread until golden\n2. Spread natural peanut butter evenly\n3. Arrange banana slices on top\n4. Sprinkle with chia seeds\n5. Drizzle with honey\n6. Serve immediately",
+      "image_url": "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 2,
+      "ingredients": [
+        {"name": "Whole grain bread", "quantity": "2 slices"},
+        {"name":  "Peanut butter", "quantity":  "2 tbsp"},
+        {"name": "Banana", "quantity":  "1 medium"},
+        {"name": "Chia seeds", "quantity": "1 tsp"},
+        {"name": "Honey", "quantity": "1 tsp"}
+      ],
+      "total_calories": 425.0,
+      "protein":  14.0,
+      "carbs": 62.0,
+      "fat":  16.5,
+      "category":  "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 16,
+    "fields": {
+      "title": "Green Smoothie Bowl",
+      "description": "Nutrient-packed green smoothie bowl with spinach, mango, and banana. Topped with fresh fruits and seeds.",
+      "instructions": "1. Blend spinach, kale, banana, and mango with almond milk\n2. Pour into bowl\n3. Top with sliced kiwi\n4. Add granola and pumpkin seeds\n5. Arrange fresh berries\n6. Serve immediately",
+      "image_url":  "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 0,
+      "ingredients": [
+        {"name": "Spinach", "quantity": "50g"},
+        {"name": "Kale", "quantity": "30g"},
+        {"name": "Banana", "quantity": "1 medium"},
+        {"name": "Mango", "quantity": "100g"},
+        {"name": "Almond milk", "quantity":  "150ml"},
+        {"name": "Granola", "quantity": "30g"}
+      ],
+      "total_calories": 340.0,
+      "protein":  8.5,
+      "carbs": 65.0,
+      "fat":  7.5,
+      "category":  "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 17,
+    "fields": {
+      "title": "Buckwheat Porridge",
+      "description": "Warm buckwheat porridge with cinnamon, apple, and walnuts. A gluten-free alternative to oatmeal.",
+      "instructions":  "1. Cook buckwheat groats in almond milk\n2. Add cinnamon while cooking\n3. Dice apple and add to porridge\n4. Cook until tender and creamy\n5. Top with chopped walnuts\n6. Drizzle with maple syrup",
+      "image_url": "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {"name": "Buckwheat groats", "quantity": "60g"},
+        {"name": "Almond milk", "quantity":  "250ml"},
+        {"name": "Cinnamon", "quantity":  "1 tsp"},
+        {"name": "Apple", "quantity": "1 medium"},
+        {"name": "Walnuts", "quantity": "20g"},
+        {"name":  "Maple syrup", "quantity": "1 tbsp"}
+      ],
+      "total_calories": 415.0,
+      "protein":  11.0,
+      "carbs": 68.0,
+      "fat":  12.5,
+      "category":  "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 18,
+    "fields": {
+      "title": "Veggie Frittata",
+      "description":  "Baked egg frittata loaded with zucchini, tomatoes, and cheese. Perfect for brunch or meal prep.",
+      "instructions": "1. Preheat oven to 375°F (190°C)\n2. Sauté zucchini, tomatoes, and onions\n3. Whisk eggs with milk, salt, and pepper\n4. Pour eggs over vegetables in oven-safe pan\n5. Sprinkle with cheese and herbs\n6. Bake for 20-25 minutes until set",
+      "image_url":  "placeholder",
+      "servings": 4,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 25,
+      "ingredients": [
+        {"name":  "Eggs", "quantity": "8 large"},
+        {"name":  "Zucchini", "quantity": "200g"},
+        {"name": "Cherry tomatoes", "quantity": "150g"},
+        {"name": "Onion", "quantity": "100g"},
+        {"name": "Cheese", "quantity": "100g"},
+        {"name": "Fresh herbs", "quantity": "10g"}
+      ],
+      "total_calories": 285.0,
+      "protein":  20.0,
+      "carbs": 10.5,
+      "fat": 19.0,
+      "category": "breakfast",
+      "created_by":  1
+    }
+  },
+  {
+    "model":  "mealapp.recipe",
+    "pk": 19,
+    "fields": {
+      "title": "Almond Butter Smoothie",
+      "description": "Creamy smoothie with almond butter, oats, and dates. A filling breakfast drink with sustained energy.",
+      "instructions": "1. Add all ingredients to blender\n2. Blend on high until smooth and creamy\n3. Add ice if desired for thickness\n4. Pour into glass\n5. Sprinkle with cinnamon on top\n6. Serve immediately",
+      "image_url": "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 0,
+      "ingredients": [
+        {"name": "Almond butter", "quantity": "2 tbsp"},
+        {"name": "Banana", "quantity": "1 medium"},
+        {"name": "Rolled oats", "quantity": "30g"},
+        {"name": "Almond milk", "quantity": "250ml"},
+        {"name": "Dates", "quantity": "2 pieces"},
+        {"name": "Cinnamon", "quantity": "1/2 tsp"}
+      ],
+      "total_calories": 440.0,
+      "protein":  13.0,
+      "carbs": 62.0,
+      "fat":  18.5,
+      "category":  "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 20,
+    "fields": {
+      "title": "Apple Cinnamon Oatmeal",
+      "description": "Classic warm oatmeal with diced apples, cinnamon, and walnuts. A comforting and nutritious breakfast.",
+      "instructions": "1. Cook rolled oats in milk or water\n2. Add diced apple and cinnamon while cooking\n3. Stir until oats are creamy\n4. Transfer to bowl\n5. Top with chopped walnuts\n6. Drizzle with maple syrup",
+      "image_url": "placeholder",
+      "servings": 1,
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 10,
+      "ingredients": [
+        {"name": "Rolled oats", "quantity": "60g"},
+        {"name": "Milk", "quantity": "250ml"},
+        {"name": "Apple", "quantity": "1 medium"},
+        {"name": "Cinnamon", "quantity": "1 tsp"},
+        {"name": "Walnuts", "quantity": "20g"},
+        {"name": "Maple syrup", "quantity": "1 tbsp"}
+      ],
+      "total_calories": 425.0,
+      "protein":  13.5,
+      "carbs": 68.0,
+      "fat": 13.0,
+      "category":  "breakfast",
+      "created_by": 1
+    }
+  }
+]
