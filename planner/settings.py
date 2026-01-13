@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'bootstrap5',
     'mealapp',
+    'recipes',
 ]
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'

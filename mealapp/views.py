@@ -66,7 +66,7 @@ def login_view(request):
         else:
             messages.error(request, "Invalid username or password")
 
-    return render(request, 'users/login.html')
+    return render(request, 'mealapp/login.html')
 
 
 @login_required
@@ -74,23 +74,10 @@ def logout_view(request):
     """User logout"""
     logout(request)
     messages.success(request, "Logged out successfully")
-    return redirect('login')
+    return redirect('main_page')
 
 
 # ==================== Profile Views ====================
-
-@login_required
-def profile_view(request):
-    """View user profile"""
-    profile, created = UserProfile.objects.get_or_create(user=request.user)
-
-    context = {
-        'profile': profile,
-        'user': request.user
-    }
-
-    return render(request, 'users/profile.html', context)
-
 
 @login_required
 def profile_edit_view(request):
@@ -130,7 +117,7 @@ def profile_edit_view(request):
         'profile': profile
     }
 
-    return render(request, 'users/profile_edit.html', context)
+    return render(request, 'mealapp/profile_edit.html', context)
 
 
 @login_required
