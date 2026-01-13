@@ -6,22 +6,36 @@ from .models import Recipe
 
 @admin.register(Recipe)
 class RecipeAdmin(admin.ModelAdmin):
-    list_display = ('title', 'category', 'total_calories',
-                    'protein', 'carbs', 'fat', 'created_by', 'created_at')
-    list_filter = ('category', 'created_at', 'created_by')
-    search_fields = ('title', 'description', 'instructions')
-    readonly_fields = ('created_at', 'updated_at')
+    list_display = ['title', 'category', 'created_by',
+                    'servings', 'total_calories', 'created_at']
+    list_filter = ['category', 'created_at']
+    search_fields = ['title', 'description', 'created_by__username']
+    readonly_fields = ['created_at', 'updated_at']
+
     fieldsets = (
         ('Basic Information', {
-            'fields': ('title', 'description', 'category', 'image_url', 'serving_size')
+            'fields': ('title', 'description', 'category', 'image_url')
         }),
-        ('Instructions', {
-            'fields': ('instructions',)
+        ('Recipe Details', {
+            'fields':  ('instructions', 'ingredients', 'servings')
         }),
-        ('Nutritional Information', {
+        ('Time', {
+            'fields': ('prep_time_minutes', 'cook_time_minutes')
+        }),
+        ('Nutrition', {
             'fields': ('total_calories', 'protein', 'carbs', 'fat')
         }),
-        ('Meta', {
-            'fields': ('created_by', 'created_at', 'updated_at')
+        ('Ownership', {
+            'fields': ('created_by',)
+        }),
+        ('Timestamps', {
+            'fields': ('created_at', 'updated_at'),
+            'classes': ('collapse',)
         }),
     )
+
+    def save_model(self, request, obj, form, change):
+        """Auto-assign created_by if not set"""
+        if not obj.pk and not obj.created_by:
+            obj.created_by = request.user
+        super().save_model(request, obj, form, change)

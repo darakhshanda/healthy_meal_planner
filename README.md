@@ -246,6 +246,23 @@ healthy_meal_planner/
 └── manage.py
 ```
 
+Understanding Django's is_staff System
+
+#### Regular User (default)
+
+user. is_staff = False       # Cannot access admin panel
+user.is_superuser = False   # No special permissions
+
+#### Staff User (can access admin)
+
+user.is_staff = True        # Can access admin panel
+user.is_superuser = False   # Limited permissions (set via groups/permissions)
+
+#### Superuser (full access)
+
+user.is_staff = True        # Can access admin panel
+user.is_superuser = True    # Full permissions (can do everything)
+
 Extends Django's built-in `User` via One-to-One relationship.
 
 #### **User Profile Fields**
@@ -401,7 +418,8 @@ Designed for health, freshness, and clarity.
 ---
 
 <details>
-<summary>🧱 Wireframes</summary>
+
+<summary> 🧱 Wireframes</summary>
 
 [![All devices](mealapp/static/images/wireframe_all_in_one.png)](mealapp/static/images/wireframe_all_in_one.png)
 
