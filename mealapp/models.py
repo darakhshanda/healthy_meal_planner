@@ -36,11 +36,6 @@ class UserProfile(models.Model):
             return self.bmi
         return None
 
-    def set_daily_calorie_goal(self, goal):
-        """Set daily calorie goal"""
-        self.daily_calorie_goal = goal
-        self.save()
-
     def calculate_daily_calorie_needs(self):
         """Calculate daily calorie needs based on Mifflin-St Jeor Equation"""
         if self.gender == 'male':
@@ -48,8 +43,8 @@ class UserProfile(models.Model):
         else:
             bmr = 10 * self.weight_kg + 6.25 * self.height_cm - 5 * self.age - 161
         activity_factor = 1.2  # Sedentary
-        daily_calories = bmr * activity_factor
-        return daily_calories
+        self.daily_calorie_goal = bmr * activity_factor
+        return self.daily_calorie_goal
 
 
 class Admin(models.Model):
