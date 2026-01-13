@@ -224,6 +224,28 @@ This project solves:
 
 ### 👤 **User Profile Model**
 
+```python
+
+healthy_meal_planner/
+├── mealapp/              # User authentication & main app
+│   ├── migrations/
+│   ├── models.py         # UserProfile, Admin models
+│   ├── views.py          # Auth, profile, dashboard views
+│   └── urls.py
+├── recipes/              # Recipe management
+│   ├── migrations/
+│   ├── models.py         # Recipe model
+│   ├── views.py          # Recipe CRUD views
+│   ├── urls.py
+│   └── admin.py
+├── mealplans/            # Meal planning
+│   ├── migrations/
+│   ├── models.py         # CaloriesIntake, MealPlan models
+│   ├── views.py          # Meal plan views
+│   └── urls.py
+└── manage.py
+```
+
 Extends Django's built-in `User` via One-to-One relationship.
 
 #### **User Profile Fields**
