@@ -1,7 +1,7 @@
 [
   {
     "model": "mealapp.recipe",
-    "pk": 1,
+    "pk": null,
     "fields": {
       "title": "Overnight Oats with Berries",
       "description": "Creamy overnight oats topped with fresh berries and honey.  A perfect make-ahead breakfast packed with fiber and antioxidants.",
@@ -23,8 +23,9 @@
       "carbs": 52.3,
       "fat": 8.7,
       "category": "breakfast",
-      "created_by": 1
-    }
+      "created_by": 1,
+      "created_at": "2025-01-01T00:00:00Z"
+     }
   },
   {
     "model": "mealapp.recipe",
@@ -50,7 +51,8 @@
       "carbs": 35.2,
       "fat": 21.3,
       "category": "breakfast",
-      "created_by":  1
+      "created_by": 1,
+      "created_at": "2025-01-01T00:00:00Z"
     }
   },
   {
@@ -76,7 +78,9 @@
       "carbs": 58.0,
       "fat": 12.8,
       "category":  "breakfast",
-      "created_by": 1
+      "created_by": 1,
+      "created_at": "2025-01-01T00:00:00Z"
+
     }
   },
   {
@@ -103,7 +107,8 @@
       "carbs": 8.5,
       "fat": 24.2,
       "category": "breakfast",
-      "created_by":  1
+      "created_by":  1,
+      "created_at": "2025-01-01T00:00:00Z"
     }
   },
   {
@@ -130,7 +135,8 @@
       "carbs": 42.0,
       "fat": 11.5,
       "category": "breakfast",
-      "created_by":  1
+      "created_by":  1,
+      "created_at": "2025-01-01T00:00:00Z"
     }
   },
   {
@@ -157,7 +163,8 @@
       "carbs": 78.0,
       "fat":  8.5,
       "category": "breakfast",
-      "created_by": 1
+      "created_by": 1,
+      "created_at": "2025-01-01T00:00:00Z"
     }
   },
   {
@@ -184,7 +191,8 @@
       "carbs": 38.0,
       "fat":  20.5,
       "category":  "breakfast",
-      "created_by": 1
+      "created_by": 1,
+      "created_at": "2025-01-01T00:00:00Z"
     }
   },
   {
@@ -211,7 +219,8 @@
       "carbs": 48.0,
       "fat":  16.5,
       "category":  "breakfast",
-      "created_by": 1
+      "created_by": 1,
+      "created_at": "2025-01-01T00:00:00Z"
     }
   },
   {
@@ -238,7 +247,8 @@
       "carbs": 58.0,
       "fat":  13.0,
       "category":  "breakfast",
-      "created_by": 1
+      "created_by": 1,
+      "created_at": "2025-01-01T00:00:00Z"
     }
   },
   {
@@ -265,7 +275,8 @@
       "carbs": 52.0,
       "fat":  12.0,
       "category": "breakfast",
-      "created_by":  1
+      "created_by":  1,
+      "created_at": "2025-01-01T00:00:00Z"
     }
   },
   {
@@ -292,7 +303,8 @@
       "carbs": 68.0,
       "fat": 16.5,
       "category": "breakfast",
-      "created_by":  1
+      "created_by":  1,
+      "created_at": "2025-01-01T00:00:00Z"
     }
   },
   {
@@ -319,7 +331,8 @@
       "carbs": 72.0,
       "fat":  11.5,
       "category":  "breakfast",
-      "created_by": 1
+      "created_by": 1,
+      "created_at": "2025-01-01T00:00:00Z"
     }
   },
   {
@@ -345,7 +358,8 @@
       "carbs": 32.0,
       "fat":  11.0,
       "category":  "breakfast",
-      "created_by": 1
+      "created_by": 1,
+      "created_at": "2025-01-01T00:00:00Z"
     }
   },
   {
@@ -372,7 +386,8 @@
       "carbs": 6.0,
       "fat":  11.5,
       "category":  "breakfast",
-      "created_by": 1
+      "created_by": 1,
+      "created_at": "2025-01-01T00:00:00Z"
     }
   },
   {
@@ -398,7 +413,8 @@
       "carbs": 62.0,
       "fat":  16.5,
       "category":  "breakfast",
-      "created_by": 1
+      "created_by": 1,
+      "created_at": "2025-01-01T00:00:00Z"
     }
   },
   {
@@ -425,7 +441,8 @@
       "carbs": 65.0,
       "fat":  7.5,
       "category":  "breakfast",
-      "created_by": 1
+      "created_by": 1,
+      "created_at": "2025-01-01T00:00:00Z"
     }
   },
   {
@@ -452,7 +469,8 @@
       "carbs": 68.0,
       "fat":  12.5,
       "category":  "breakfast",
-      "created_by": 1
+      "created_by": 1,
+      "created_at": "2025-01-01T00:00:00Z"
     }
   },
   {
@@ -479,7 +497,8 @@
       "carbs": 10.5,
       "fat": 19.0,
       "category": "breakfast",
-      "created_by":  1
+      "created_by":  1,
+      "created_at": "2025-01-01T00:00:00Z"
     }
   },
   {
@@ -506,7 +525,8 @@
       "carbs": 62.0,
       "fat":  18.5,
       "category":  "breakfast",
-      "created_by": 1
+      "created_by": 1,
+      "created_at": "2025-01-01T00:00:00Z"
     }
   },
   {
@@ -533,7 +553,8 @@
       "carbs": 68.0,
       "fat": 13.0,
       "category":  "breakfast",
-      "created_by": 1
+      "created_by": 1,
+      "created_at": "2025-01-01T00:00:00Z"
     }
   }
 ]

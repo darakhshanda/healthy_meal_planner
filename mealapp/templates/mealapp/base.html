@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Healthy Meal Planner{% endblock %}</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="{% static 'mealapp/css/style.css' %}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-navbar">
+        <div class="container">
+            <a href="{% url 'index' %}" class="logo">Healthy Meal PLanner</a>
+
+            <div class="nav-buttons">
+                <a href="{% url 'index' %}"
+                    class="nav-btn {% if request.resolver_match.url_name == 'index' %}active{% endif %}">Home</a>
+                <a href="{% url 'dashboard' %}"
+                    class="nav-btn {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}">Dashboard</a>
+                <a href="#" class="nav-btn">Help</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Bar -->
+    <div class="search-section">
+        <div class="container">
+            <form method="get" action="{% url 'index' %}" class="search-form">
+                <input type="text" name="search" class="search-input" placeholder="Search Recipe"
+                    value="{{ search_term }}">
+                <button type="submit" class="search-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Messages -->
+    {% if messages %}
+    <div class="container" style="margin-top: 20px;">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}"
+            style="padding: 12px; background: #d4edda; border:  1px solid #c3e6cb; border-radius: 4px; margin-bottom: 10px;">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Main Content -->
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Healthy Meal Planner • Made with ❤️ for healthy living</p>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="{% static 'mealapp/js/script.js' %}"></script>
+
+    {% block extra_js %}{% endblock %}
+</body>
+
+</html>

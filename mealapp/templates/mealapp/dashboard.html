@@ -1,0 +1,111 @@
+{% extends 'mealapp/base.html' %}
+{% block title %}
+Dashboard - Healthy Meal Planner
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <!-- Left Sidebar - User Profile -->
+    <aside class="user-profile">
+        <div class="user-avatar">
+            <!-- SVG user icon created with CSS -->
+        </div>
+        <p class="user-label">User</p>
+    </aside>
+
+    <!-- Main Dashboard Content -->
+    <main class="dashboard-main">
+        <h2 class="welcome-text">Welcome {{ user.username|default:"User" }}</h2>
+
+        <!-- Stats Display -->
+        <div class="stats-display">
+            <p>BMI: <strong>{{ profile.bmi|default:"--" }}</strong></p>
+            <p>Total Daily Calories: <strong>{{ profile.daily_calorie_goal|default:"--" }}</strong></p>
+            <p>Today's Consumption: <strong>{{ todays_consumption|default:"0" }}</strong></p>
+            <p>Remaining Calories: <strong>{{ remaining_calories|default:"--" }}</strong></p>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar-container">
+            <div class="progress-bar">
+                <div class="progress-fill">
+                    <span class="progress-text">{{ calorie_percentage|default:0 }}%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day Navigation -->
+        <div class="day-navigation">
+            <button class="day-btn" onclick="navigateDay('yesterday')">Yesterday</button>
+            <span class="current-day">Today's Meals</span>
+            <button class="day-btn" onclick="navigateDay('tomorrow')">Tomorrow</button>
+        </div>
+
+        <!-- Meals Table -->
+        <table class="meals-table">
+            <tr>
+                <td class="meal-label">Breakfast</td>
+                <td>
+                    <div class="meal-box" onclick="selectMeal('breakfast')">
+                        {% if breakfast_meal %}
+                        <p>{{ breakfast_meal.recipe.title }}</p>
+                        {% endif %}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="meal-label">Lunch</td>
+                <td>
+                    <div class="meal-box" onclick="selectMeal('lunch')">
+                        {% if lunch_meal %}
+                        <p>{{ lunch_meal.recipe.title }}</p>
+                        {% endif %}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="meal-label">Dinner</td>
+                <td>
+                    <div class="meal-box" onclick="selectMeal('dinner')">
+                        {% if dinner_meal %}
+                        <p>{{ dinner_meal.recipe.title }}</p>
+                        {% endif %}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="meal-label">Snack</td>
+                <td>
+                    <div class="meal-box" onclick="selectMeal('snack')">
+                        {% if snack_meal %}
+                        <p>{{ snack_meal.recipe.title }}</p>
+                        {% endif %}
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </main>
+
+    <!-- Right Sidebar - Calculators -->
+    <aside class="calculators-sidebar">
+        <a href="#" class="calculator-link">BMI Calculator</a>
+        <a href="#" class="calculator-link">Calorie Calculator</a>
+    </aside>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    function navigateDay(direction) {
+        console.log('Navigate to:', direction);
+        // TODO: Implement day navigation
+        alert('Day navigation:  ' + direction);
+    }
+
+    function selectMeal(mealType) {
+        console.log('Select meal:', mealType);
+        // TODO: Navigate to recipe selection
+        window.location.href = '/? category=' + mealType;
+    }
+</script>
+{% endblock %}

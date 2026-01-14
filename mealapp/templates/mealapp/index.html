@@ -1,43 +1,111 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
+{% extends 'mealapp/base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Healthy Meal Planner</title>
-    <link rel="stylesheet" href="{% static 'mealapp/css/style.css' %}">
-</head>
+{% block title %} Home - Healthy Meal Planner{% endblock %}
 
-<body>
-    <div class="container">
-        <header>
-            <h1>🍳 Recipe Database</h1>
-            <p class="subtitle">Discover delicious recipes for every meal</p>
-        </header>
+{% block content %}
+<div class="main-content">
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1 class="hero-title">Healthy Meal Planner</h1>
 
-        <div class="search-bar">
-            <input type="text" class="search-input" id="searchInput"
-                placeholder="Search recipes by name or ingredient...">
+        <a href="#" class="cta-button">Calculate BMI</a>
+
+        <div class="signup-box">
+            <p class="signup-text">
+                <strong>SignUp</strong> to prepare meal plans and calculate your Calorie intakes
+            </p>
         </div>
 
-        <div class="category-tabs">
-            <button class="tab-button active" data-category="all">All Recipes</button>
-            <button class="tab-button" data-category="breakfast">🌅 Breakfast</button>
-            <button class="tab-button" data-category="lunch">🥗 Lunch</button>
-            <button class="tab-button" data-category="dinner">🍽️ Dinner</button>
-        </div>
-
-        <div class="recipes-grid" id="recipesContainer"></div>
-
-        <div class="recipe-count" id="recipeCount"></div>
+        <a href="#" class="signin-button">Sign in</a>
     </div>
 
-    <div class="footer">
-        <p>📚 Recipe data from TheMealDB API • Made with ❤️ using RecipeDB</p>
+    <!-- Recipes Section -->
+    <div class="recipes-section">
+        <h2 class="recipes-title">Recipes</h2>
+
+        <table class="recipes-table">
+            <!-- Breakfast Row -->
+            <tr>
+                <th>Breakfast</th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="recipe-row">
+                        {% for recipe in breakfast_recipes %}
+                        <div class="recipe-card">
+
+
+
+                        </div>
+                        {% empty%}
+                        <div class="recipe-card"></div>
+                        <div class="recipe-card"></div>
+                        <div class="recipe-card"></div>
+                        {% endfor %}
+                    </div>
+                </td>
+            </tr>
+
+            <!-- Lunch Row -->
+            <tr>
+                <th>Lunch</th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="recipe-row">
+                        {% for recipe in lunch_recipes %}
+                        <div class="recipe-card">
+                            <!-- Wireframe placeholder -->
+                        </div>
+                        {% empty %}
+                        <div class="recipe-card"></div>
+                        <div class="recipe-card"></div>
+                        <div class="recipe-card"></div>
+                        {% endfor %}
+                    </div>
+                </td>
+            </tr>
+
+            <!-- Dinner Row -->
+            <tr>
+                <th>Dinner</th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="recipe-row">
+                        {% for recipe in dinner_recipes %}
+                        <div class="recipe-card">
+                            <!-- Wireframe placeholder -->
+                        </div>
+                        {% empty %}
+                        <div class="recipe-card"></div>
+                        <div class="recipe-card"></div>
+                        <div class="recipe-card"></div>
+                        {% endfor %}
+                    </div>
+                </td>
+            </tr>
+
+            <!-- Snack Row -->
+            <tr>
+                <th>Snack</th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="recipe-row">
+                        {% for recipe in snack_recipes %}
+                        <div class="recipe-card">
+                            <!-- Wireframe placeholder -->
+                        </div>
+                        {% empty %}
+                        <div class="recipe-card"></div>
+                        <div class="recipe-card"></div>
+                        <div class="recipe-card"></div>
+                        {% endfor %}
+                    </div>
+                </td>
+            </tr>
+        </table>
     </div>
-
-    <script src="{% static 'mealapp/js/script.js' %}"></script>
-</body>
-
-</html>
+</div>
+{% endblock %}

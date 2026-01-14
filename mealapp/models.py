@@ -1,6 +1,6 @@
 from cloudinary.models import CloudinaryField
 from django.shortcuts import get_object_or_404
-from datetime import timezone, datetime
+from datetime import timezone
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -20,13 +20,17 @@ class UserProfile(models.Model):
         on_delete=models.CASCADE,
         related_name='profile'
     )
-    age = models.IntegerField()
+    age = models.IntegerField(null=True, blank=True)
     gender = models.CharField(
         max_length=10,
         choices=GENDER_CHOICES,
+        null=True,
+        blank=True,
     )
-    height_cm = models.FloatField(help_text="Height in centimeters")
-    weight_kg = models.FloatField(help_text="Weight in kilograms")
+    height_cm = models.FloatField(
+        null=True, blank=True, help_text="Height in centimeters")
+    weight_kg = models.FloatField(
+        null=True, blank=True, help_text="Weight in kilograms")
     daily_calorie_goal = models.FloatField(
         null=True,
         blank=True,
@@ -38,13 +42,10 @@ class UserProfile(models.Model):
         help_text="Body Mass Index"
     )
 
-    # Timestamps
     # Timestamps - ADD default=timezone.now
-    created_at = models. DateTimeField(
-        default=datetime.now)  # NOT just timezone!
-    updated_at = models. DateTimeField(
-        auto_now=True)         # Use auto_now for updates
-    # ✅ Keep auto_now
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(
+        auto_now=True)      # Use auto_now for updates
 
     class Meta:
         db_table = 'user_profile'
@@ -126,17 +127,16 @@ class Recipe(models.Model):
     )
 
     # Ownership
-    created_by = models. ForeignKey(
+    created_by = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name='recipes'
+        related_name='recipes', default=1
     )
 
    # Timestamps - ADD default=timezone.now
-    created_at = models. DateTimeField(
-        default=datetime.now)  # NOT just timezone!
-    updated_at = models. DateTimeField(
-        auto_now=True)         # Use auto_now for updates
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    updated_at = models.DateTimeField(
+        auto_now=True, null=True, blank=True)      # Use auto_now for updates
 
     class Meta:
         db_table = 'recipe'
@@ -145,8 +145,21 @@ class Recipe(models.Model):
         ordering = ['-created_at']
 
     def __str__(self):
-        return self.title
+        return f"{self.title} {self.description}"
 
-    def total_time(self):
+    '''def total_time(self):
         """Calculate total time"""
         return self.prep_time_minutes + self.cook_time_minutes
+
+
+
+def save(self, *args, **kwargs):
+    """Override save to ensure data integrity"""
+    if self.servings <= 0:
+        self.servings = 1
+    if self.created_by is None:
+        raise ValueError("Recipe must have a creator.")
+    if self.created_at is None:
+        self.created_at = timezone.now()
+    super().save(*args, **kwargs)
+'''
