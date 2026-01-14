@@ -1,3 +1,4 @@
+from .models import UserProfile, Recipe
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
@@ -40,7 +41,6 @@ class CustomUserAdmin(BaseUserAdmin):
 admin.site.unregister(User)
 admin.site.register(User, CustomUserAdmin)
 
-
 # USER PROFILE ADMIN
 
 
@@ -65,6 +65,24 @@ class UserProfileAdmin(admin.ModelAdmin):
         }),
         ('Timestamps', {
             'fields':  ('created_at', 'updated_at'),
+            'classes': ('collapse',)
+        }),
+    )
+
+
+@admin.register(Recipe)
+class RecipeAdmin(admin.ModelAdmin):
+    list_display = ['title', 'category', 'total_calories', 'created_at']
+    list_filter = ['category', 'created_at']
+    search_fields = ['title', 'description']
+    readonly_fields = ['created_at', 'updated_at']
+
+    fieldsets = (
+        ('Recipe Information', {
+            'fields': ('title', 'description', 'category', 'image_url', 'calories')
+        }),
+        ('Timestamps', {
+            'fields': ('created_at', 'updated_at'),
             'classes': ('collapse',)
         }),
     )

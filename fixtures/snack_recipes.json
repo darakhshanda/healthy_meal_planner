@@ -1,6 +1,6 @@
 [
   {
-    "model": "mealapp. recipe",
+    "model": "mealapp.recipe",
     "pk": 61,
     "fields": {
       "title": "Apple Slices with Almond Butter",
@@ -49,11 +49,5 @@
       "category": "snack",
       "created_by": 1
     }
-  },
-  {
-    "model": "mealapp.recipe",
-    "pk": 63,
-    "fields": {
-      "title": "Energy Balls",
-      "description":  "No-bake energy balls with dates, nuts, and dark chocolate chips.",
-      "
+  }
+]
