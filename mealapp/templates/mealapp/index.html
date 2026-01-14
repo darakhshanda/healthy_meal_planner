@@ -32,10 +32,16 @@
                 <td>
                     <div class="recipe-row">
                         {% for recipe in breakfast_recipes %}
+                        <!-- Example structure -->
                         <div class="recipe-card">
-
-
-
+                            <img src="{{ recipe.image_url }}" alt="{{ recipe.title }}">
+                            <h3>{{ recipe.title }}</h3>
+                            <p>{{ recipe.description|truncatewords:10 }}</p>
+                            <div class="recipe-meta">
+                                <span>⏱️ {{ recipe.prep_time_minutes }}min</span>
+                                <span>🔥 {{ recipe.total_calories }}cal</span>
+                            </div>
+                            <a href="{% url 'recipe_detail' recipe.id %}" class="btn">View Recipe</a>
                         </div>
                         {% empty%}
                         <div class="recipe-card"></div>
