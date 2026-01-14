@@ -8,7 +8,7 @@ def index(request):
     """Home page view"""
 
     # Get search term
-    search = request.GET.get('search', '')
+    search = request.GET.get('search', )
 
     # Get recipes by category (3 per category for wireframe layout)
     breakfast_recipes = Recipe.objects.filter(category='breakfast')[:3]
@@ -60,4 +60,4 @@ def dashboard(request):
         # 'meal_plans': meal_plans,
     }
 
-    return render(request, 'mealapp/dashboard.html', context)
+    return render(request, 'dashboard.html', context)

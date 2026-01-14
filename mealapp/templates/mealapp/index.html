@@ -1,9 +1,20 @@
-{% extends 'mealapp/base.html' %}
+<!DOCTYPE html>
+{% extends 'base.html' %}
 
 {% block title %} Home - Healthy Meal Planner{% endblock %}
 
 {% block content %}
 <div class="main-content">
+    <!-- Search Bar -->
+    <div class="search-section">
+        <div class="container">
+            <form method="get" action="{% url 'index' %}" class="search-form">
+                <input type="text" name="search" class="search-input" placeholder="Search Recipe"
+                    value="{{ search_term }}">
+                <button type="submit" class="search-btn">Submit</button>
+            </form>
+        </div>
+    </div>
     <!-- Hero Section -->
     <div class="hero-section">
         <h1 class="hero-title">Healthy Meal Planner</h1>

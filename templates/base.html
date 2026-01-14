@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 {% load static %}
+{% url 'index' as index_url %}
+{% url 'dashboard' as dashboard_url %}
+{% url 'recipe_list' as recipe_list_url %}
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
+
 <html lang="en">
 
 <head>
@@ -25,21 +32,18 @@
                 <a href="{% url 'dashboard' %}"
                     class="nav-btn {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}">Dashboard</a>
                 <a href="#" class="nav-btn">Help</a>
+                {% if user.is_authenticated %}
+                <a href="{% url 'account_logout' %}"
+                    class="nav-btn {% if request.path == logout_url %}active{% endif %}" aria-current="page">Logout</a>
+                {% else %}
+                <a href="{% url 'account_signup' %}"
+                    class="nav-btn {% if request.path == signup_url %}active{% endif %}" aria-current="page">Signup</a>
+                <a href="{% url 'account_login' %}" class="nav-btn {% if request.path == login_url %}active{% endif %}"
+                    aria-current="page">Login</a>
+                {% endif %}
             </div>
         </div>
     </nav>
-
-    <!-- Search Bar -->
-    <div class="search-section">
-        <div class="container">
-            <form method="get" action="{% url 'index' %}" class="search-form">
-                <input type="text" name="search" class="search-input" placeholder="Search Recipe"
-                    value="{{ search_term }}">
-                <button type="submit" class="search-btn">Submit</button>
-            </form>
-        </div>
-    </div>
-
     <!-- Messages -->
     {% if messages %}
     <div class="container" style="margin-top: 20px;">
@@ -51,6 +55,7 @@
         {% endfor %}
     </div>
     {% endif %}
+    
 
     <!-- Main Content -->
     {% block content %}{% endblock %}
