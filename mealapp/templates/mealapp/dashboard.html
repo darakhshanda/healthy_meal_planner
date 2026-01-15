@@ -1,117 +1,276 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load crispy_forms_tags %}
-{% url 'recipe_list' %}
-{% url 'dashboard' %}
-{% url 'recipe_detail' recipe.id %}
 
-{% block title %}
-Dashboard - Healthy Meal Planner
-{% endblock %}
+{% block title %}Dashboard - Healthy Meal Planner{% endblock %}
 
 {% block content %}
-<div class="main-container">
-    <!-- Left Sidebar - User Profile -->
-    <aside class="user-profile">
-        <div class="user-avatar">
-            <!-- SVG user icon created with CSS -->
+<div class="container-fluid py-5"
+    style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh;">
+
+    <!-- Welcome Section -->
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-white">
+                    <h1 class="display-4 fw-bold mb-2">Welcome, {{ user.first_name|default:user.username }}! 👋</h1>
+                    <p class="lead">Your personalized meal planning dashboard</p>
+                </div>
+            </div>
         </div>
-        <p class="user-label">User</p>
-    </aside>
+    </div>
 
-    <!-- Main Dashboard Content -->
-    <main class="dashboard-main">
-        <h2 class="welcome-text">Welcome {{ user.username|default:"User" }}</h2>
-
-        <!-- Stats Display -->
-        <div class="stats-display">
-            <p>BMI: <strong>{{ profile.bmi|default:"--" }}</strong></p>
-            <p>Total Daily Calories: <strong>{{ profile.daily_calorie_goal|default:"--" }}</strong></p>
-            <p>Today's Consumption: <strong>{{ todays_consumption|default:"0" }}</strong></p>
-            <p>Remaining Calories: <strong>{{ remaining_calories|default:"--" }}</strong></p>
+    <!-- Main Content -->
+    <div class="container">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
+        {% endfor %}
+        {% endif %}
 
-        <!-- Progress Bar -->
-        <div class="progress-bar-container">
-            <div class="progress-bar">
-                <div class="progress-fill">
-                    <span class="progress-text">{{ calorie_percentage|default:0 }}%</span>
+        <!-- Profile & Stats Section -->
+        <div class="row mb-5">
+            <!-- Profile Card -->
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-lg h-100">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0">👤 Your Profile</h5>
+                    </div>
+                    <div class="card-body">
+                        {% if user_profile %}
+                        <p><strong>Age:</strong> {{ user_profile.age|default:"Not set" }}</p>
+                        <p><strong>Gender:</strong> {{ user_profile.get_gender_display|default:"Not set" }}</p>
+                        <p><strong>Height:</strong> {{ user_profile.height_cm|default:"Not set" }} cm</p>
+                        <p><strong>Weight:</strong> {{ user_profile.weight_kg|default:"Not set" }} kg</p>
+                        {% if user_profile.bmi %}
+                        <p><strong>BMI:</strong> <span class="badge bg-primary">{{ user_profile.bmi|floatformat:1
+                                }}</span></p>
+                        {% endif %}
+                        {% if user_profile.daily_calorie_goal %}
+                        <p><strong>Daily Calorie Goal:</strong> <span class="badge bg-success">{{
+                                user_profile.daily_calorie_goal }} kcal</span></p>
+                        {% endif %}
+                        {% else %}
+                        <p class="text-muted">Profile not set up yet.</p>
+                        {% endif %}
+                        <a href="{% url 'profile_setup' %}" class="btn btn-sm btn-outline-info mt-3">
+                            ✏️ Edit Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Card -->
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-lg h-100">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0">📊 Your Statistics</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="stat-item mb-3">
+                            <h6 class="text-muted">Total Recipes Created</h6>
+                            <h3 class="text-success">{{ user_recipes_count }}</h3>
+                        </div>
+                        <div class="stat-item mb-3">
+                            <h6 class="text-muted">Today's Total Calories</h6>
+                            <h3 class="text-primary">{{ total_calories|default:"0" }} kcal</h3>
+                        </div>
+                        <div class="stat-item">
+                            <h6 class="text-muted">Meal Plan Status</h6>
+                            <span class="badge bg-success">Active</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Day Navigation -->
-        <div class="day-navigation">
-            <button class="day-btn" onclick="navigateDay('yesterday')">Yesterday</button>
-            <span class="current-day">Today's Meals</span>
-            <button class="day-btn" onclick="navigateDay('tomorrow')">Tomorrow</button>
+        <!-- Today's Meal Plan Section -->
+        <div class="row mb-5">
+            <div class="col-md-12">
+                <div class="card shadow-lg">
+                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">🍽️ Today's Meal Plan</h5>
+                        {% if meal_plan %}
+                        <a href="{% url 'meal_plan_view' meal_plan.day|date:'Y-m-d' %}" class="btn btn-sm btn-light">
+                            ✏️ Edit Plan
+                        </a>
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        {% if meal_plan %}
+                        <div class="row">
+                            <!-- Breakfast -->
+                            <div class="col-md-6 col-lg-3 mb-4">
+                                <div class="meal-card">
+                                    <h6 class="text-muted mb-2">🌅 Breakfast</h6>
+                                    {% if meal_plan.breakfast_recipe %}
+                                    <div class="recipe-info">
+                                        <h5>{{ meal_plan.breakfast_recipe.title }}</h5>
+                                        <p class="text-muted small">
+                                            <i class="fas fa-fire"></i> {{ meal_plan.breakfast_recipe.total_calories }}
+                                            kcal
+                                        </p>
+                                        <a href="{% url 'recipe_detail' meal_plan.breakfast_recipe.id %}"
+                                            class="btn btn-sm btn-outline-primary">
+                                            View Recipe
+                                        </a>
+                                    </div>
+                                    {% else %}
+                                    <p class="text-muted">Not assigned</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <!-- Lunch -->
+                            <div class="col-md-6 col-lg-3 mb-4">
+                                <div class="meal-card">
+                                    <h6 class="text-muted mb-2">🥗 Lunch</h6>
+                                    {% if meal_plan.lunch_recipe %}
+                                    <div class="recipe-info">
+                                        <h5>{{ meal_plan.lunch_recipe.title }}</h5>
+                                        <p class="text-muted small">
+                                            <i class="fas fa-fire"></i> {{ meal_plan.lunch_recipe.total_calories }} kcal
+                                        </p>
+                                        <a href="{% url 'recipe_detail' meal_plan.lunch_recipe.id %}"
+                                            class="btn btn-sm btn-outline-primary">
+                                            View Recipe
+                                        </a>
+                                    </div>
+                                    {% else %}
+                                    <p class="text-muted">Not assigned</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <!-- Dinner -->
+                            <div class="col-md-6 col-lg-3 mb-4">
+                                <div class="meal-card">
+                                    <h6 class="text-muted mb-2">🍴 Dinner</h6>
+                                    {% if meal_plan.dinner_recipe %}
+                                    <div class="recipe-info">
+                                        <h5>{{ meal_plan.dinner_recipe.title }}</h5>
+                                        <p class="text-muted small">
+                                            <i class="fas fa-fire"></i> {{ meal_plan.dinner_recipe.total_calories }}
+                                            kcal
+                                        </p>
+                                        <a href="{% url 'recipe_detail' meal_plan.dinner_recipe.id %}"
+                                            class="btn btn-sm btn-outline-primary">
+                                            View Recipe
+                                        </a>
+                                    </div>
+                                    {% else %}
+                                    <p class="text-muted">Not assigned</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <!-- Snack -->
+                            <div class="col-md-6 col-lg-3 mb-4">
+                                <div class="meal-card">
+                                    <h6 class="text-muted mb-2">🍪 Snack</h6>
+                                    {% if meal_plan.snack_recipe %}
+                                    <div class="recipe-info">
+                                        <h5>{{ meal_plan.snack_recipe.title }}</h5>
+                                        <p class="text-muted small">
+                                            <i class="fas fa-fire"></i> {{ meal_plan.snack_recipe.total_calories }} kcal
+                                        </p>
+                                        <a href="{% url 'recipe_detail' meal_plan.snack_recipe.id %}"
+                                            class="btn btn-sm btn-outline-primary">
+                                            View Recipe
+                                        </a>
+                                    </div>
+                                    {% else %}
+                                    <p class="text-muted">Not assigned</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% else %}
+                        <p class="text-muted">No meal plan for today.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Meals Table -->
-        <table class="meals-table">
-            <tr>
-                <td class="meal-label">Breakfast</td>
-                <td>
-                    <div class="meal-box" onclick="selectMeal('breakfast')">
-                        {% if breakfast_meal %}
-                        <p>{{ breakfast_meal.recipe.title }}</p>
-                        {% endif %}
+        <!-- Quick Actions -->
+        <div class="row">
+            <div class="col-md-12">
+                <h5 class="text-white mb-4">Quick Actions</h5>
+            </div>
+            <div class="col-md-4 mb-4">
+                <a href="{% url 'recipe_list' %}" class="card card-action shadow-lg h-100 text-decoration-none">
+                    <div class="card-body text-center">
+                        <h4 class="text-primary mb-3">📚</h4>
+                        <h5>Browse Recipes</h5>
+                        <p class="text-muted">View and add recipes to your meal plan</p>
                     </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="meal-label">Lunch</td>
-                <td>
-                    <div class="meal-box" onclick="selectMeal('lunch')">
-                        {% if lunch_meal %}
-                        <p>{{ lunch_meal.recipe.title }}</p>
-                        {% endif %}
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="meal-label">Dinner</td>
-                <td>
-                    <div class="meal-box" onclick="selectMeal('dinner')">
-                        {% if dinner_meal %}
-                        <p>{{ dinner_meal.recipe.title }}</p>
-                        {% endif %}
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="meal-label">Snack</td>
-                <td>
-                    <div class="meal-box" onclick="selectMeal('snack')">
-                        {% if snack_meal %}
-                        <p>{{ snack_meal.recipe.title }}</p>
-                        {% endif %}
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </main>
+                </a>
+            </div>
 
-    <!-- Right Sidebar - Calculators -->
-    <aside class="calculators-sidebar">
-        <a href="#" class="calculator-link">BMI Calculator</a>
-        <a href="#" class="calculator-link">Calorie Calculator</a>
-    </aside>
+            <div class="col-md-4 mb-4">
+                <a href="{% url 'recipe_create' %}" class="card card-action shadow-lg h-100 text-decoration-none">
+                    <div class="card-body text-center">
+                        <h4 class="text-success mb-3">➕</h4>
+                        <h5>Create Recipe</h5>
+                        <p class="text-muted">Share your own healthy recipes</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                {% if meal_plan %}
+                <a href="{% url 'meal_plan_view' meal_plan.day|date:'Y-m-d' %}"
+                    class="card card-action shadow-lg h-100 text-decoration-none">
+                    <div class="card-body text-center">
+                        <h4 class="text-info mb-3">📅</h4>
+                        <h5>Plan Meals</h5>
+                        <p class="text-muted">Customize your meal plan</p>
+                    </div>
+                </a>
+                {% else %}
+                <div class="card card-action shadow-lg h-100">
+                    <div class="card-body text-center text-muted">
+                        <h4 class="text-info mb-3">📅</h4>
+                        <h5>Plan Meals</h5>
+                        <p class="text-muted small">Create meal plan first</p>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
 </div>
-{% endblock %}
 
-{% block extra_js %}
-<script>
-    function navigateDay(direction) {
-        console.log('Navigate to:', direction);
-        // TODO: Implement day navigation
-        alert('Day navigation:  ' + direction);
+<style>
+    .meal-card {
+        background: #f8f9fa;
+        border-radius: 10px;
+        padding: 15px;
+        border-left: 4px solid #007bff;
     }
 
-    function selectMeal(mealType) {
-        console.log('Select meal:', mealType);
-        // TODO: Navigate to recipe selection
-        window.location.href = '/? category=' + mealType;
+    .recipe-info h5 {
+        margin-bottom: 5px;
+        font-size: 16px;
+        font-weight: 600;
     }
-</script>
+
+    .card-action {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: none;
+        color: inherit;
+    }
+
+    .card-action:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .stat-item {
+        padding: 10px 0;
+    }
+</style>
 {% endblock %}

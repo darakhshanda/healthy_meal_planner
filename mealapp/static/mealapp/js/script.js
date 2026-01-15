@@ -223,6 +223,18 @@ function displayRecipe(recipe) {
 
     return card;
 }
+function navigateDay(direction) {
+        console.log('Navigate to:', direction);
+        // TODO: Implement day navigation
+        alert('Day navigation:  ' + direction);
+    }
+
+function selectMeal(mealType) {
+        console.log('Select meal:', mealType);
+        // TODO: Navigate to recipe selection
+        window.location.href = '/? category=' + mealType;
+    }
+    
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 Healthy Meal Planner loaded');
     

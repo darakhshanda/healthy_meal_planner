@@ -59,10 +59,10 @@ INSTALLED_APPS = [
 
 # Remove the duplicate and fix the order
 SITE_ID = 1
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/dashboard/'
 LOGOUT_REDIRECT_URL = '/'
 # Or '/profile-setup/' if route exists
-ACCOUNT_SIGNUP_REDIRECT_URL = '/dashboard/'
+ACCOUNT_SIGNUP_REDIRECT_URL = '/profile/'
 
 # Add these allauth settings (updated syntax for newer allauth)
 ACCOUNT_EMAIL_VERIFICATION = 'none'
