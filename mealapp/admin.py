@@ -1,14 +1,13 @@
-from .models import UserProfile, Recipe
+from .models import MealPlan, UserProfile, Recipe
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
-from .models import UserProfile
 
 
 # INLINE PROFILE IN USER ADMIN
 
 
-class UserProfileInline(admin. StackedInline):
+class UserProfileInline(admin.StackedInline):  # Fixed: Removed extra space
     """Display profile inline with user in admin"""
     model = UserProfile
     can_delete = False
@@ -41,6 +40,7 @@ class CustomUserAdmin(BaseUserAdmin):
 admin.site.unregister(User)
 admin.site.register(User, CustomUserAdmin)
 
+
 # USER PROFILE ADMIN
 
 
@@ -64,18 +64,21 @@ class UserProfileAdmin(admin.ModelAdmin):
             'classes': ('collapse',)
         }),
         ('Timestamps', {
-            'fields':  ('created_at', 'updated_at'),
+            'fields': ('created_at', 'updated_at'),
             'classes': ('collapse',)
         }),
     )
 
+# RECIPE ADMIN
+
 
 @admin.register(Recipe)
 class RecipeAdmin(admin.ModelAdmin):
-    list_display = ['title', 'category', 'total_calories', 'created_at']
+    list_display = ['title', 'category',
+                    'total_calories', 'created_by', 'created_at']
     list_filter = ['category', 'created_at']
     search_fields = ['title', 'description']
-    readonly_fields = ['created_at', 'updated_at']
+    readonly_fields = ['created_at', 'updated_at', 'created_by']
 
     fieldsets = (
         ('Recipe Information', {
@@ -89,7 +92,37 @@ class RecipeAdmin(admin.ModelAdmin):
             'classes': ('collapse',)
         }),
         ('Author', {
-            'fields': ('created_by',)
+            'fields': ('created_by',),
+            'classes': ('collapse',)
+        }),
+        ('Timestamps', {
+            'fields': ('created_at', 'updated_at'),
+            'classes': ('collapse',)
+        }),
+    )
+
+    def save_model(self, request, obj, form, change):
+        """Auto-set created_by to current user"""
+        if not change:  # Only on creation
+            obj.created_by = request.user
+        super().save_model(request, obj, form, change)
+# MEAL PLAN ADMIN
+
+
+@admin.register(MealPlan)
+class MealPlanAdmin(admin.ModelAdmin):
+    list_display = ['user', 'day', 'breakfast_recipe',
+                    'lunch_recipe', 'dinner_recipe', 'snack_recipe']
+    list_filter = ['day', 'user']
+    search_fields = ['user__username', 'user__email']
+    readonly_fields = ['created_at', 'updated_at']
+
+    fieldsets = (
+        ('User & Date', {
+            'fields': ('user', 'day')
+        }),
+        ('Meal Assignments', {
+            'fields': ('breakfast_recipe', 'lunch_recipe', 'dinner_recipe', 'snack_recipe')
         }),
         ('Timestamps', {
             'fields': ('created_at', 'updated_at'),

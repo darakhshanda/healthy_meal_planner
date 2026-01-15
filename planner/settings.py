@@ -57,11 +57,17 @@ INSTALLED_APPS = [
     'mealapp.apps.MealappConfig',
 ]
 
+# Remove the duplicate and fix the order
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-ACCOUNT_SIGNUP_REDIRECT_URL = '/profile-setup/'
-LOGIN_REDIRECT_URL = '/dashboard/'
+# Or '/profile-setup/' if route exists
+ACCOUNT_SIGNUP_REDIRECT_URL = '/dashboard/'
+
+# Add these allauth settings (updated syntax for newer allauth)
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_LOGIN_METHODS = {'username'}
+ACCOUNT_SIGNUP_FIELDS = ['username*', 'password1*', 'password2*']
 # Email verification settings
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -76,7 +82,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
     'allauth.account.middleware.AccountMiddleware',
 ]
 
@@ -128,7 +133,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
-    {'NAME': 'mealapp.validators.CustomPasswordValidator'},
+
 ]
 
 

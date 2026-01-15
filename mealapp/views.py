@@ -1,10 +1,17 @@
+from django.contrib import messages
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.db.models import Q
 from django.core.paginator import Paginator
-from . models import Recipe, UserProfile
+from django.urls import reverse_lazy
+from . models import MealPlan, Recipe, UserProfile
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from datetime import datetime, date
 import json
+
+# Home & Index
 
 
 def index(request):
@@ -21,13 +28,12 @@ def index(request):
         )
 
     # Serialize ALL recipes manually to handle JSONField and CloudinaryField
-    # This allows client-side category filtering across the entire dataset
     recipes_data = []
     for recipe in all_recipes:
         try:
             recipes_data.append({
                 'id': recipe.id,
-                'recipe_name': recipe.title,  # Match the new design's field name
+                'recipe_name': recipe.title,
                 'category': recipe.category,
                 'description': recipe.description,
                 'ingredients': recipe.ingredients if isinstance(recipe.ingredients, list) else [],
@@ -44,14 +50,9 @@ def index(request):
             print(f"Error serializing recipe {recipe.id}: {e}")
             continue
 
-    # Pagination - 12 recipes per page (for display purposes only)
+    # Pagination - 12 recipes per page
     paginator = Paginator(all_recipes, 12)
     page_obj = paginator.get_page(page_number)
-
-    print(f"DEBUG: Total recipes in DB: {all_recipes.count()}")
-    print(f"DEBUG: Recipes on this page: {len(page_obj)}")
-    print(f"DEBUG: Serialized recipes: {len(recipes_data)}")
-    print(f"DEBUG: Page {page_obj.number} of {page_obj.paginator.num_pages}")
 
     context = {
         'recipes': page_obj,
@@ -63,30 +64,175 @@ def index(request):
     return render(request, 'mealapp/index.html', context)
 
 
+# Recipe Detail
 def recipe_detail(request, recipe_id):
     """View for displaying a single recipe's details"""
-
-    # Fetch the recipe or return 404
     recipe = get_object_or_404(Recipe, id=recipe_id)
-
-    context = {
-        'recipe': recipe,
-    }
-
+    context = {'recipe': recipe}
     return render(request, 'mealapp/recipe_detail.html', context)
 
 
+# Profile Setup
+@login_required
+def profile_setup(request):
+    """User profile setup/edit view"""
+    profile, created = UserProfile.objects.get_or_create(user=request.user)
+
+    if request.method == 'POST':
+        profile.age = request.POST.get('age')
+        profile.gender = request.POST.get('gender')
+        profile.height_cm = request.POST.get('height_cm')
+        profile.weight_kg = request.POST.get('weight_kg')
+        profile.save()
+        messages.success(request, 'Profile updated successfully!')
+        return redirect('dashboard')
+
+    return render(request, 'mealapp/profile_setup.html', {'profile': profile})
+
+
+# Dashboard
 @login_required
 def dashboard(request):
     """User dashboard view showing meal plans and progress"""
-
     user_profile, created = UserProfile.objects.get_or_create(
         user=request.user)
-    # meal_plans = user_profile.mealplan_set.all()
+
+    # Get today's meal plan
+    today = date.today()
+    meal_plan, _ = MealPlan.objects.get_or_create(
+        user=request.user,
+        day=today
+    )
+
+    # Get user's recipes count
+    user_recipes_count = Recipe.objects.filter(created_by=request.user).count()
 
     context = {
         'user_profile': user_profile,
-        # 'meal_plans': meal_plans,
+        'meal_plan': meal_plan,
+        'total_calories': meal_plan.get_total_calories(),
+        'user_recipes_count': user_recipes_count,
     }
-
     return render(request, 'mealapp/dashboard.html', context)
+
+
+# Meal Plan Views
+@login_required
+def meal_plan_current(request):
+    """Redirect to today's meal plan"""
+    today = date.today()
+    return redirect('meal_plan_view', date=today.strftime('%Y-%m-%d'))
+
+
+@login_required
+def meal_plan_view(request, date):
+    """View/Edit meal plan for a specific date"""
+    try:
+        parsed_date = datetime.strptime(date, '%Y-%m-%d').date()
+    except ValueError:
+        return redirect('dashboard')
+
+    meal_plan, created = MealPlan.objects.get_or_create(
+        user=request.user,
+        day=parsed_date
+    )
+    recipes = Recipe.objects.all().order_by('category', 'title')
+
+    if request.method == 'POST':
+        meal_plan.breakfast_recipe_id = request.POST.get('breakfast')
+        meal_plan.lunch_recipe_id = request.POST.get('lunch')
+        meal_plan.dinner_recipe_id = request.POST.get('dinner')
+        meal_plan.snack_recipe_id = request.POST.get('snack')
+        meal_plan.save()
+        messages.success(request, 'Meal plan updated successfully!')
+        return redirect('dashboard')
+
+    return render(request, 'mealapp/meal_plan.html', {
+        'meal_plan': meal_plan,
+        'recipes': recipes,
+        'date': parsed_date,
+    })
+
+
+@login_required
+def meal_plan_update(request, plan_id):
+    """Update a specific meal plan"""
+    meal_plan = get_object_or_404(MealPlan, id=plan_id, user=request.user)
+    recipes = Recipe.objects.all().order_by('category', 'title')
+
+    if request.method == 'POST':
+        meal_plan.breakfast_recipe_id = request.POST.get('breakfast')
+        meal_plan.lunch_recipe_id = request.POST.get('lunch')
+        meal_plan.dinner_recipe_id = request.POST.get('dinner')
+        meal_plan.snack_recipe_id = request.POST.get('snack')
+        meal_plan.save()
+        messages.success(request, 'Meal plan updated successfully!')
+        return redirect('dashboard')
+
+    return render(request, 'mealapp/meal_plan.html', {
+        'meal_plan': meal_plan,
+        'recipes': recipes,
+    })
+
+
+# Recipe CRUD - Class-Based Views
+class RecipeListView(LoginRequiredMixin, ListView):
+    model = Recipe
+    template_name = 'mealapp/recipe_list.html'
+    context_object_name = 'recipes'
+    paginate_by = 12
+
+    def get_queryset(self):
+        queryset = Recipe.objects.all().order_by('-created_at')
+        category = self.request.GET.get('category')
+        if category:
+            queryset = queryset.filter(category=category)
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['selected_category'] = self.request.GET.get('category', '')
+        return context
+
+
+class RecipeCreateView(LoginRequiredMixin, CreateView):
+    model = Recipe
+    template_name = 'mealapp/recipe_form.html'
+    fields = ['title', 'description', 'instructions', 'image_url',
+              'servings', 'prep_time_minutes', 'cook_time_minutes',
+              'ingredients', 'total_calories', 'protein', 'carbs', 'fat', 'category']
+    success_url = reverse_lazy('recipe_list')
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        messages.success(self.request, 'Recipe created successfully!')
+        return super().form_valid(form)
+
+
+class RecipeUpdateView(LoginRequiredMixin, UpdateView):
+    model = Recipe
+    template_name = 'mealapp/recipe_form.html'
+    fields = ['title', 'description', 'instructions', 'image_url',
+              'servings', 'prep_time_minutes', 'cook_time_minutes',
+              'ingredients', 'total_calories', 'protein', 'carbs', 'fat', 'category']
+    success_url = reverse_lazy('recipe_list')
+
+    def get_queryset(self):
+        return Recipe.objects.filter(created_by=self.request.user)
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Recipe updated successfully!')
+        return super().form_valid(form)
+
+
+class RecipeDeleteView(LoginRequiredMixin, DeleteView):
+    model = Recipe
+    template_name = 'mealapp/recipe_confirm_delete.html'
+    success_url = reverse_lazy('recipe_list')
+
+    def get_queryset(self):
+        return Recipe.objects.filter(created_by=self.request.user)
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(request, 'Recipe deleted successfully!')
+        return super().delete(request, *args, **kwargs)

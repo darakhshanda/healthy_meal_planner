@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% url 'recipe_list' %}
+{% url 'dashboard' %}
+{% url 'recipe_detail' recipe.id %}
+
+{% block title %}Profile Setup{% endblock %}
+
+{% block content %}
+<div class="profile-setup-container">
+    <h2>Set Up Your Profile</h2>
+    <form method="post" action="{% url 'profile_setup' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+        </div>
+        <div class="form-group">
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" name="weight" step="0.1" required>
+        </div>
+        <div class="form-group">
+            <label for="height">Height (cm):</label>
+            <input type="number" id="height" name="height" required>
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Save Profile</button>
+    </form>
+</div>
+{% endblock %}

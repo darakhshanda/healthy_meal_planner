@@ -160,8 +160,10 @@ class Recipe(models.Model):
         return self.prep_time_minutes + self.cook_time_minutes
 
 
+"""Override save to ensure data integrity"""
+"""
 def save(self, *args, **kwargs):
-    """Override save to ensure data integrity"""
+    
     if self.servings <= 0:
         self.servings = 1
     if self.created_by is None:
@@ -169,9 +171,11 @@ def save(self, *args, **kwargs):
     if self.created_at is None:
         self.created_at = timezone.now()
     super().save(*args, **kwargs)
-
+"""""""""
 
 # MealPlan Model
+
+
 class MealPlan(models.Model):
     """
     User's meal plan with one recipe for each meal category
@@ -234,12 +238,11 @@ class MealPlan(models.Model):
                 total += recipe.total_calories
         return total
 
-
-def get_all_recipes(self, day):
-    """Get all recipes as a dictionary"""
-    return {
-        'breakfast': self.breakfast_recipe,
-        'lunch': self.lunch_recipe,
-        'dinner': self.dinner_recipe,
-        'snack': self.snack_recipe,
-    }
+    def get_all_recipes(self):
+        """Get all recipes as a dictionary"""
+        return {
+            'breakfast': self.breakfast_recipe,
+            'lunch': self.lunch_recipe,
+            'dinner': self.dinner_recipe,
+            'snack': self.snack_recipe,
+        }

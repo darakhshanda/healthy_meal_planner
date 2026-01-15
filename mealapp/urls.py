@@ -1,10 +1,26 @@
 from django.urls import path
 from . import views
 
-urlpatterns = [
-    path('', views.index, name='index'),
-    path('recipe/<int:recipe_id>/', views.recipe_detail, name='recipe_detail'),
-    path('mealapp/dashboard/', views.dashboard, name='dashboard'),
 
-    # path('recipes/', views.recipe_list, name='recipe_list'),
+urlpatterns = [
+    # Home & Profile
+    path('', views.index, name='index'),
+    path('profile/', views.profile_setup, name='profile_setup'),
+
+    # Recipe CRUD
+    path('recipes/', views.RecipeListView.as_view(), name='recipe_list'),
+    path('recipes/create/', views.RecipeCreateView.as_view(), name='recipe_create'),
+    path('recipes/<int:recipe_id>/', views.recipe_detail, name='recipe_detail'),
+    path('recipes/<int:pk>/edit/',
+         views.RecipeUpdateView.as_view(), name='recipe_update'),
+    path('recipes/<int:pk>/delete/',
+         views.RecipeDeleteView.as_view(), name='recipe_delete'),
+
+    # Meal Plan
+    path('dashboard/', views.dashboard, name='dashboard'),
+    path('meal-plan/', views.meal_plan_current, name='meal_plan_current'),
+    path('meal-plan/<str:date>/', views.meal_plan_view, name='meal_plan_view'),
+    path('meal-plan/<int:plan_id>/update/',
+         views.meal_plan_update, name='meal_plan_update'),
+
 ]
