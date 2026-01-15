@@ -1,560 +1,765 @@
 [
   {
     "model": "mealapp.recipe",
-    "pk": null,
+    "pk": 1,
     "fields": {
-      "title": "Overnight Oats with Berries",
-      "description": "Creamy overnight oats topped with fresh berries and honey.  A perfect make-ahead breakfast packed with fiber and antioxidants.",
-      "instructions": "1. Mix rolled oats with almond milk in a jar\n2. Add chia seeds and vanilla extract\n3. Refrigerate overnight\n4. In the morning, top with mixed berries and drizzle with honey\n5. Serve cold",
-      "image_url":  "placeholder",
-      "servings": 1,
-      "prep_time_minutes": 5,
-      "cook_time_minutes": 0,
+      "title": "Bread omelette",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. Make and enjoy",
+      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452849/recipes/recipes/bread_omelette_1.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
       "ingredients": [
-        {"name": "Rolled oats", "quantity": "50g"},
-        {"name": "Almond milk", "quantity":  "150ml"},
-        {"name": "Chia seeds", "quantity":  "1 tbsp"},
-        {"name": "Mixed berries", "quantity": "100g"},
-        {"name": "Honey", "quantity": "1 tsp"},
-        {"name": "Vanilla extract", "quantity": "1/2 tsp"}
+        {
+          "name": "Bread",
+          "quantity": "2"
+        },
+        {
+          "name": "Egg",
+          "quantity": "2"
+        },
+        {
+          "name": "Salt",
+          "quantity": "0.5"
+        }
       ],
-      "total_calories": 320.5,
-      "protein": 9.2,
-      "carbs": 52.3,
-      "fat": 8.7,
+      "total_calories": 190,
+      "protein": 6.5,
+      "carbs": 26,
+      "fat": 5.9,
       "category": "breakfast",
-      "created_by": 1,
-      "created_at": "2025-01-01T00:00:00Z"
-     }
+      "created_by": 1
+    }
   },
   {
     "model": "mealapp.recipe",
     "pk": 2,
     "fields": {
-      "title": "Avocado Toast with Poached Egg",
-      "description": "Whole grain toast topped with creamy avocado and a perfectly poached egg. Rich in healthy fats and protein.",
-      "instructions": "1. Toast whole grain bread until golden\n2. Mash avocado with lemon juice and salt\n3. Bring water to simmer and add vinegar\n4. Poach egg for 3-4 minutes\n5. Spread avocado on toast\n6. Top with poached egg and red pepper flakes",
-      "image_url": "placeholder",
-      "servings": 1,
-      "prep_time_minutes": 5,
-      "cook_time_minutes": 5,
+      "title": "Breakfast Potatoes",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. Before you do anything, freeze your bacon slices that way when you're ready to prep, it'll be so much easier to chop!\n2. Wash the potatoes and cut medium dice into square pieces. To prevent any browning, place the already cut potatoes in a bowl filled with water.\n3. In the meantime, heat 1-2 tablespoons of oil in a large skillet over medium-high heat. Tilt the skillet so the oil spreads evenly.\n4. Once the oil is hot, drain the potatoes and add to the skillet. Season with salt, pepper, and Old Bay as needed.\n5. Cook for 10 minutes, stirring the potatoes often, until brown. If needed, add a tablespoon more of oil.\n6. Chop up the bacon and add to the potatoes. The bacon will start to render and the fat will begin to further cook the potatoes. Toss it up a bit! The bacon will take 5-6 minutes to crisp.\n7. Once the bacon is cooked, reduce the heat to medium-low, add the minced garlic and toss. Season once more. Add dried or fresh parsley. Control heat as needed.\n8. Let the garlic cook until fragrant, about one minute.\n9. Just before serving, drizzle over the maple syrup and toss. Let that cook another minute, giving the potatoes a caramelized effect.\n10. Serve in a warm bowl with a sunny side up egg!",
+      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452850/recipes/recipes/breakfast_potatoes_2.jpg",
+      "servings": 3,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
       "ingredients": [
-        {"name": "Whole grain bread", "quantity": "2 slices"},
-        {"name":  "Avocado", "quantity": "1/2 medium"},
-        {"name": "Egg", "quantity": "1 large"},
-        {"name": "Lemon juice", "quantity": "1 tsp"},
-        {"name": "Red pepper flakes", "quantity": "pinch"},
-        {"name": "Salt", "quantity": "to taste"}
+        {
+          "name": "Medium Potatoes",
+          "quantity": "3"
+        },
+        {
+          "name": "tbs Olive Oil",
+          "quantity": "1"
+        },
+        {
+          "name": "strips Bacon",
+          "quantity": "2"
+        },
+        {
+          "name": "Garlic Clove",
+          "quantity": "Minced"
+        },
+        {
+          "name": "tbs Maple Syrup",
+          "quantity": "1"
+        },
+        {
+          "name": "Parsley",
+          "quantity": "Garnish"
+        },
+        {
+          "name": "Salt",
+          "quantity": "Pinch"
+        },
+        {
+          "name": "Pepper",
+          "quantity": "Pinch"
+        },
+        {
+          "name": "taste Allspice",
+          "quantity": "To"
+        }
       ],
-      "total_calories": 385.0,
-      "protein": 16.5,
-      "carbs": 35.2,
-      "fat": 21.3,
+      "total_calories": 370,
+      "protein": 9.5,
+      "carbs": 38,
+      "fat": 7.7,
       "category": "breakfast",
-      "created_by": 1,
-      "created_at": "2025-01-01T00:00:00Z"
+      "created_by": 1
     }
   },
   {
-    "model":  "mealapp.recipe",
+    "model": "mealapp.recipe",
     "pk": 3,
     "fields": {
-      "title": "Greek Yogurt Parfait",
-      "description": "Layers of creamy Greek yogurt, crunchy granola, and fresh berries.  High in protein and probiotics.",
-      "instructions": "1. Layer Greek yogurt in a glass\n2. Add a layer of granola\n3. Add fresh berries\n4. Repeat layers\n5. Top with sliced almonds\n6. Drizzle with honey",
-      "image_url": "placeholder",
-      "servings": 1,
-      "prep_time_minutes": 5,
-      "cook_time_minutes": 0,
+      "title": "Dutch poffertjes (mini pancakes)",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. Mix the dry yeast with some of the luke warm milk en stir until dissolved.\n2. Place buckwheat and the flour together in a bowl and make a small circle in the middle. Add the yeast mixture into it. Add the milk and stir until you have a smooth batter.\n3. Add the eggs, salt and vanille sugar and stir through. Leave to stand and rise for about 45 minutes.\n4. Heat the poffertjespan and add a bit of butter into each hole. Fill halfway with batter and first bake one side until you can see the top dry out a little. Turn the poffertjes around with a small fork and bake the other side until cooked and golden brown.\n5. Serve the poffertjes with butter and icing sugar",
+      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452851/recipes/recipes/dutch_poffertjes_%28mini_pancakes%29_3.jpg",
+      "servings": 3,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
       "ingredients": [
-        {"name":  "Greek yogurt", "quantity":  "200g"},
-        {"name": "Granola", "quantity": "40g"},
-        {"name": "Mixed berries", "quantity": "100g"},
-        {"name": "Sliced almonds", "quantity": "15g"},
-        {"name": "Honey", "quantity": "1 tbsp"}
+        {
+          "name": "Flour",
+          "quantity": "125g"
+        },
+        {
+          "name": "Buckwheat Flour",
+          "quantity": "125g"
+        },
+        {
+          "name": "Eggs",
+          "quantity": "2"
+        },
+        {
+          "name": "knob Butter",
+          "quantity": "1"
+        },
+        {
+          "name": "Milk",
+          "quantity": "300ml"
+        },
+        {
+          "name": "Yeast",
+          "quantity": "10g"
+        },
+        {
+          "name": "vanilla sugar",
+          "quantity": "1tsp"
+        },
+        {
+          "name": "serve Butter",
+          "quantity": "To"
+        },
+        {
+          "name": "serve Icing Sugar",
+          "quantity": "To"
+        }
       ],
-      "total_calories": 425.0,
-      "protein":  22.5,
-      "carbs": 58.0,
-      "fat": 12.8,
-      "category":  "breakfast",
-      "created_by": 1,
-      "created_at": "2025-01-01T00:00:00Z"
-
+      "total_calories": 370,
+      "protein": 9.5,
+      "carbs": 38,
+      "fat": 7.7,
+      "category": "breakfast",
+      "created_by": 1
     }
   },
   {
     "model": "mealapp.recipe",
     "pk": 4,
     "fields": {
-      "title": "Spinach and Mushroom Omelet",
-      "description": "Fluffy omelet filled with sautéed spinach, mushrooms, and feta cheese. A protein-packed savory breakfast.",
-      "instructions":  "1. Sauté mushrooms and onions in olive oil\n2. Add spinach until wilted\n3. Whisk eggs with salt and pepper\n4. Pour eggs into pan\n5. Add vegetable mixture and feta\n6. Fold omelet and cook until set",
-      "image_url": "placeholder",
-      "servings": 1,
-      "prep_time_minutes":  5,
-      "cook_time_minutes": 10,
-      "ingredients": [
-        {"name": "Eggs", "quantity": "3 large"},
-        {"name": "Spinach", "quantity": "50g"},
-        {"name": "Mushrooms", "quantity": "50g"},
-        {"name": "Onion", "quantity": "30g"},
-        {"name": "Feta cheese", "quantity": "30g"},
-        {"name": "Olive oil", "quantity": "1 tsp"}
-      ],
-      "total_calories": 340.0,
-      "protein":  24.8,
-      "carbs": 8.5,
-      "fat": 24.2,
-      "category": "breakfast",
-      "created_by":  1,
-      "created_at": "2025-01-01T00:00:00Z"
-    }
-  },
-  {
-    "model":  "mealapp.recipe",
-    "pk": 5,
-    "fields": {
-      "title": "Banana Protein Smoothie",
-      "description": "Creamy smoothie with banana, protein powder, and peanut butter. Perfect post-workout breakfast.",
-      "instructions": "1. Add all ingredients to blender\n2. Blend until smooth and creamy\n3. Add ice if desired\n4. Pour into glass and serve immediately",
-      "image_url":  "placeholder",
-      "servings": 1,
-      "prep_time_minutes": 5,
-      "cook_time_minutes": 0,
-      "ingredients": [
-        {"name": "Banana", "quantity": "1 medium"},
-        {"name":  "Protein powder", "quantity":  "30g"},
-        {"name": "Almond milk", "quantity": "250ml"},
-        {"name": "Peanut butter", "quantity": "1 tbsp"},
-        {"name": "Spinach", "quantity": "30g"},
-        {"name": "Ice cubes", "quantity": "4-5"}
-      ],
-      "total_calories": 380.0,
-      "protein":  32.5,
-      "carbs": 42.0,
-      "fat": 11.5,
-      "category": "breakfast",
-      "created_by":  1,
-      "created_at": "2025-01-01T00:00:00Z"
-    }
-  },
-  {
-    "model":  "mealapp.recipe",
-    "pk": 6,
-    "fields": {
-      "title": "Whole Grain Pancakes",
-      "description": "Fluffy whole wheat pancakes naturally sweetened with banana.  A healthier take on classic pancakes.",
-      "instructions": "1. Mix whole wheat flour, baking powder, and cinnamon\n2. Mash banana and mix with egg and milk\n3. Combine wet and dry ingredients\n4. Heat griddle and add batter\n5. Cook until bubbles form, then flip\n6. Serve with fresh berries",
-      "image_url": "placeholder",
-      "servings":  2,
+      "title": "English Breakfast",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. Heat the flat grill plate over a low heat, on top of 2 rings/flames if it fits, and brush sparingly with light olive oil.\n2. Cook the sausages first. Add the sausages to the hot grill plate/the coolest part if there is one and allow to cook slowly for about 15-20 minutes, turning occasionally, until golden. After the first 10 minutes, increase the heat to medium before beginning to cook the other ingredients. If you are struggling for space, completely cook the sausages and keep hot on a plate in the oven.\n3. Snip a few small cuts into the fatty edge of the bacon. Place the bacon straight on to the grill plate and fry for 2-4 minutes each side or until your preferred crispiness is reached. Like the sausages, the cooked bacon can be kept hot on a plate in the oven.\n4. For the mushrooms, brush away any dirt using a pastry brush and trim the stalk level with the mushroom top. Season with salt and pepper and drizzle over a little olive oil. Place stalk-side up on the grill plate and cook for 1-2 minutes before turning and cooking for a further 3-4 minutes. Avoid moving the mushrooms too much while cooking, as this releases the natural juices, making them soggy.\n5. For the tomatoes, cut the tomatoes across the centre/or in half lengthways if using plum tomatoes , and with a small, sharp knife remove the green 'eye'. Season with salt and pepper and drizzle with a little olive oil. Place cut-side down on the grill plate and cook without moving for 2 minutes. Gently turn over and season again. Cook for a further 2-3 minutes until tender but still holding their shape.\n6. For the black pudding, cut the black pudding into 3-4 slices and remove the skin. Place on the grill plate and cook for 1½-2 minutes each side until slightly crispy.\n7. For 'proper' fried bread it's best to cook it in a separate pan. Ideally, use bread that is a couple of days old. Heat a frying pan to a medium heat and cover the base with oil. Add the bread and cook for 2-3 minutes each side until crispy and golden. If the pan becomes too dry, add a little more oil. For a richer flavour, add a knob of butter after you turn the slice.\n8. For the fried eggs, break the egg straight into the pan with the fried bread and leave for 30 seconds. Add a good knob of butter and lightly splash/baste the egg with the butter when melted. Cook to your preferred stage, season and gently remove with a fish slice.\n9. Once all the ingredients are cooked, serve on warm plates and enjoy straight away with a good squeeze of tomato ketchup or brown sauce.",
+      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452852/recipes/recipes/english_breakfast_4.jpg",
+      "servings": 2,
       "prep_time_minutes": 10,
-      "cook_time_minutes": 15,
+      "cook_time_minutes": 20,
       "ingredients": [
-        {"name": "Whole wheat flour", "quantity": "150g"},
-        {"name": "Baking powder", "quantity":  "2 tsp"},
-        {"name": "Banana", "quantity": "1 large"},
-        {"name": "Egg", "quantity": "1 large"},
-        {"name": "Milk", "quantity": "200ml"},
-        {"name": "Cinnamon", "quantity":  "1 tsp"}
+        {
+          "name": "Sausages",
+          "quantity": "2"
+        },
+        {
+          "name": "Bacon",
+          "quantity": "3"
+        },
+        {
+          "name": "Mushrooms",
+          "quantity": "2"
+        },
+        {
+          "name": "Tomatoes",
+          "quantity": "2"
+        },
+        {
+          "name": "Slice Black Pudding",
+          "quantity": "1"
+        },
+        {
+          "name": "Eggs",
+          "quantity": "2"
+        },
+        {
+          "name": "Slice Bread",
+          "quantity": "1"
+        }
       ],
-      "total_calories":  450.0,
-      "protein":  16.0,
-      "carbs": 78.0,
-      "fat":  8.5,
+      "total_calories": 310,
+      "protein": 8.5,
+      "carbs": 34,
+      "fat": 7.1,
       "category": "breakfast",
-      "created_by": 1,
-      "created_at": "2025-01-01T00:00:00Z"
+      "created_by": 1
     }
   },
   {
     "model": "mealapp.recipe",
-    "pk":  7,
-    "fields":  {
-      "title": "Chia Seed Pudding",
-      "description": "Creamy chia pudding made with coconut milk and topped with fresh fruit. Rich in omega-3 fatty acids.",
-      "instructions":  "1. Mix chia seeds with coconut milk\n2. Add maple syrup and vanilla\n3. Stir well and refrigerate for 4 hours or overnight\n4. Stir again before serving\n5. Top with fresh fruit and nuts",
-      "image_url": "placeholder",
-      "servings": 1,
-      "prep_time_minutes": 5,
-      "cook_time_minutes": 0,
+    "pk": 5,
+    "fields": {
+      "title": "Fruit and Cream Cheese Breakfast Pastries",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. Preheat oven to 400ºF (200ºC), and prepare two cookie sheets with parchment paper. In a bowl, mix cream cheese, sugar, and vanilla until fully combined. Lightly flour the surface and roll out puff pastry on top to flatten. Cut each sheet of puff pastry into 9 equal squares. On the top right and bottom left of the pastry, cut an L shape approximately ½ inch (1 cm) from the edge.\n2. NOTE: This L shape should reach all the way down and across the square, however both L shapes should not meet at the ends. Your pastry should look like a picture frame with two corners still intact.\n3. Take the upper right corner and fold down towards the inner bottom corner. You will now have a diamond shape.\n4. Place 1 to 2 teaspoons of the cream cheese filling in the middle, then place berries on top.\n5. Repeat with the remaining pastry squares and place them onto the parchment covered baking sheet.\n6. Bake for 15-20 minutes or until pastry is golden brown and puffed.\n7. Enjoy!",
+      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452854/recipes/recipes/fruit_and_cream_cheese_breakfast_pastries_5.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
       "ingredients": [
-        {"name": "Chia seeds", "quantity": "30g"},
-        {"name": "Coconut milk", "quantity": "200ml"},
-        {"name": "Maple syrup", "quantity":  "1 tbsp"},
-        {"name": "Vanilla extract", "quantity": "1/2 tsp"},
-        {"name": "Fresh berries", "quantity": "80g"},
-        {"name": "Sliced almonds", "quantity": "10g"}
+        {
+          "name": "1/4 oz Cream Cheese",
+          "quantity": "1"
+        },
+        {
+          "name": "1/4 cup Sugar",
+          "quantity": "1"
+        },
+        {
+          "name": "teaspoon Vanilla Extract",
+          "quantity": "1"
+        },
+        {
+          "name": "Flour",
+          "quantity": "as needed"
+        },
+        {
+          "name": "Puff Pastry",
+          "quantity": "2"
+        },
+        {
+          "name": "Strawberries",
+          "quantity": "as needed"
+        },
+        {
+          "name": "Raspberries",
+          "quantity": "as needed"
+        },
+        {
+          "name": "Blackberries",
+          "quantity": "as needed"
+        }
       ],
-      "total_calories": 365.0,
-      "protein":  8.5,
-      "carbs": 38.0,
-      "fat":  20.5,
-      "category":  "breakfast",
-      "created_by": 1,
-      "created_at": "2025-01-01T00:00:00Z"
+      "total_calories": 340,
+      "protein": 9.0,
+      "carbs": 36,
+      "fat": 7.4,
+      "category": "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 6,
+    "fields": {
+      "title": "Full English Breakfast",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. Heat the flat grill plate over a low heat, on top of 2 rings/flames if it fits, and brush sparingly with light olive oil.\n2. Cook the sausages first. Add the sausages to the hot grill plate/the coolest part if there is one and allow to cook slowly for about 15-20 minutes, turning occasionally, until golden. After the first 10 minutes, increase the heat to medium before beginning to cook the other ingredients. If you are struggling for space, completely cook the sausages and keep hot on a plate in the oven.\n3. Snip a few small cuts into the fatty edge of the bacon. Place the bacon straight on to the grill plate and fry for 2-4 minutes each side or until your preferred crispiness is reached. Like the sausages, the cooked bacon can be kept hot on a plate in the oven.\n4. For the mushrooms, brush away any dirt using a pastry brush and trim the stalk level with the mushroom top. Season with salt and pepper and drizzle over a little olive oil. Place stalk-side up on the grill plate and cook for 1-2 minutes before turning and cooking for a further 3-4 minutes. Avoid moving the mushrooms too much while cooking, as this releases the natural juices, making them soggy.\n5. For the tomatoes, cut the tomatoes across the centre/or in half lengthways if using plum tomatoes , and with a small, sharp knife remove the green 'eye'. Season with salt and pepper and drizzle with a little olive oil. Place cut-side down on the grill plate and cook without moving for 2 minutes. Gently turn over and season again. Cook for a further 2-3 minutes until tender but still holding their shape.\n6. For the black pudding, cut the black pudding into 3-4 slices and remove the skin. Place on the grill plate and cook for 1½-2 minutes each side until slightly crispy.\n7. For 'proper' fried bread it's best to cook it in a separate pan. Ideally, use bread that is a couple of days old. Heat a frying pan to a medium heat and cover the base with oil. Add the bread and cook for 2-3 minutes each side until crispy and golden. If the pan becomes too dry, add a little more oil. For a richer flavour, add a knob of butter after you turn the slice.\n8. For the fried eggs, break the egg straight into the pan with the fried bread and leave for 30 seconds. Add a good knob of butter and lightly splash/baste the egg with the butter when melted. Cook to your preferred stage, season and gently remove with a fish slice.\n9. Once all the ingredients are cooked, serve on warm plates and enjoy straight away with a good squeeze of tomato ketchup or brown sauce.",
+      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452855/recipes/recipes/full_english_breakfast_6.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Sausages",
+          "quantity": "4"
+        },
+        {
+          "name": "Bacon",
+          "quantity": "4"
+        },
+        {
+          "name": "Mushrooms",
+          "quantity": "4"
+        },
+        {
+          "name": "Tomatoes",
+          "quantity": "3"
+        },
+        {
+          "name": "sliced Black Pudding",
+          "quantity": "2"
+        },
+        {
+          "name": "Eggs",
+          "quantity": "2"
+        },
+        {
+          "name": "Slice Bread",
+          "quantity": "1"
+        },
+        {
+          "name": "Baked Beans",
+          "quantity": "100g"
+        }
+      ],
+      "total_calories": 340,
+      "protein": 9.0,
+      "carbs": 36,
+      "fat": 7.4,
+      "category": "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 7,
+    "fields": {
+      "title": "Home-made Mandazi",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. This is one recipe a lot of people have requested and I have tried to make it as simple as possible and I hope it will work for you. Make sure you use the right flour which is basically one with raising agents. Adjust the amount of sugar to your taste and try using different flavours to have variety whenever you have them.\n2. You can use Coconut milk instead of regular milk, you can also add desiccated coconut to the dry flour or other spices like powdered cloves or cinnamon.\n3. For “healthy looking” mandazis do not roll the dough too thin before frying and use the procedure I have indicated above.\n4. 1. Mix the flour,cinnamon and sugar in a suitable bowl.\n5. 2. In a separate bowl whisk the egg into the milk\n6. 3. Make a well at the centre of the flour and add the milk and egg mixture and slowly mix to form a dough.\n7. 4. Knead the dough for 3-4 minutes or until it stops sticking to the sides of the bowl and you have a smooth surface.\n8. 5. Cover the dough with a damp cloth  and allow to rest for 15 minutes.\n9. 6. Roll the dough on a lightly floured surface into a 1cm thick piece.\n10. 7. Using a sharp small knife, cut the dough into the desired size setting aside ready for deep frying.\n11. 8. Heat your oil in a suitable pot and gently dip the mandazi pieces to cook until light brown on the first side then turn to cook on the second side.\n12. 9. Serve them warm or cold",
+      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452855/recipes/recipes/home-made_mandazi_7.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Self-raising Flour",
+          "quantity": "750g"
+        },
+        {
+          "name": "tablespoons Sugar",
+          "quantity": "6"
+        },
+        {
+          "name": "Eggs",
+          "quantity": "2"
+        },
+        {
+          "name": "cup Milk",
+          "quantity": "1"
+        }
+      ],
+      "total_calories": 220,
+      "protein": 7.0,
+      "carbs": 28,
+      "fat": 6.2,
+      "category": "breakfast",
+      "created_by": 1
     }
   },
   {
     "model": "mealapp.recipe",
     "pk": 8,
     "fields": {
-      "title": "Veggie Breakfast Burrito",
-      "description": "Whole wheat tortilla filled with scrambled eggs, black beans, and vegetables. A hearty Mexican-inspired breakfast.",
-      "instructions": "1. Scramble eggs with bell peppers\n2. Warm black beans\n3. Warm tortilla\n4. Layer eggs, beans, and vegetables on tortilla\n5. Top with salsa and avocado\n6. Roll tightly and serve",
-      "image_url":  "placeholder",
-      "servings": 1,
+      "title": "Jamaican Cornmeal Porridge",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. Add 2 ½ cups water, 1 can coconut milk to a 4 QT heavy bottomed pot. Bring to a boil over medium-high heat.\n2. Meanwhile, add 1 cup cornmeal and 1 ½ cup water to a large mixing cup and whisk until smooth.\n3. Once the pot begins to boil, whisk in cornmeal mixture and continue to whisk for about 1 minute, ensuring there are no lumps. Reduce heat to low and cover with a tight fitting lid.\n4. Cook over low heat for 15-20 minutes, stirring occasionally. When there is about 5 minutes left, stir in vanilla extract, cinnamon, nutmeg, and all-spice. Remove from heat and sweeten with condensed milk.\n5. Serve and enjoy.",
+      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452856/recipes/recipes/jamaican_cornmeal_porridge_8.jpg",
+      "servings": 2,
       "prep_time_minutes": 10,
-      "cook_time_minutes": 10,
+      "cook_time_minutes": 20,
       "ingredients": [
-        {"name": "Whole wheat tortilla", "quantity": "1 large"},
-        {"name": "Eggs", "quantity": "2 large"},
-        {"name":  "Black beans", "quantity": "80g"},
-        {"name": "Bell peppers", "quantity": "50g"},
-        {"name": "Salsa", "quantity": "30g"},
-        {"name": "Avocado", "quantity":  "40g"}
+        {
+          "name": "cups Water",
+          "quantity": "4"
+        },
+        {
+          "name": "Coconut Milk",
+          "quantity": "380g"
+        },
+        {
+          "name": "cup Fine Yellow Cornmeal",
+          "quantity": "1"
+        },
+        {
+          "name": "1/2 tsp Vanilla Extract",
+          "quantity": "1"
+        },
+        {
+          "name": "tsp Ground Cinnamon",
+          "quantity": "1/2"
+        },
+        {
+          "name": "tsp Ground Nutmeg",
+          "quantity": "1/2"
+        },
+        {
+          "name": "tsp Ground Allspice",
+          "quantity": "1/4"
+        },
+        {
+          "name": "cup Sweetened Condensed Milk",
+          "quantity": "1/2"
+        }
       ],
-      "total_calories": 420.0,
-      "protein": 22.0,
-      "carbs": 48.0,
-      "fat":  16.5,
-      "category":  "breakfast",
-      "created_by": 1,
-      "created_at": "2025-01-01T00:00:00Z"
+      "total_calories": 340,
+      "protein": 9.0,
+      "carbs": 36,
+      "fat": 7.4,
+      "category": "breakfast",
+      "created_by": 1
     }
   },
   {
     "model": "mealapp.recipe",
     "pk": 9,
     "fields": {
-      "title": "Quinoa Breakfast Bowl",
-      "description": "Warm quinoa bowl with almond milk, cinnamon, and topped with nuts and berries. A protein-rich grain bowl.",
-      "instructions": "1. Cook quinoa according to package directions\n2. Heat with almond milk and cinnamon\n3. Top with fresh berries\n4. Add chopped nuts\n5. Drizzle with honey\n6. Serve warm",
-      "image_url":  "placeholder",
-      "servings": 1,
-      "prep_time_minutes": 5,
+      "title": "Oatmeal pancakes",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. Place all the ingredients in the glass and beat.\n2. Let the mixture stand for 10 minutes.\n3. Grease a hot frying pan with a little butter and pour a little of the mixture.\n4. When it starts to bubble on the surface, turn over with a spatula. Cook over medium-low heat so that they do not burn.\n5. Finally, add the caramel and strawberries.",
+      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452857/recipes/recipes/oatmeal_pancakes_9.jpg",
+      "servings": 3,
+      "prep_time_minutes": 10,
       "cook_time_minutes": 20,
       "ingredients": [
-        {"name": "Quinoa", "quantity": "60g"},
-        {"name": "Almond milk", "quantity":  "150ml"},
-        {"name": "Cinnamon", "quantity":  "1 tsp"},
-        {"name": "Mixed berries", "quantity": "80g"},
-        {"name": "Walnuts", "quantity": "20g"},
-        {"name": "Honey", "quantity": "1 tsp"}
+        {
+          "name": "medium Egg",
+          "quantity": "1"
+        },
+        {
+          "name": "ml Milk",
+          "quantity": "80"
+        },
+        {
+          "name": "tablespoon Sugar",
+          "quantity": "1"
+        },
+        {
+          "name": "tsp Baking Powder",
+          "quantity": "1"
+        },
+        {
+          "name": "Salt",
+          "quantity": "Pinch"
+        },
+        {
+          "name": "dash Vanilla Extract",
+          "quantity": "1"
+        },
+        {
+          "name": "Ground Oats",
+          "quantity": "150g"
+        },
+        {
+          "name": "Butter",
+          "quantity": "150g"
+        },
+        {
+          "name": "tablespoon Sugar Syrup",
+          "quantity": "1"
+        },
+        {
+          "name": "Strawberries",
+          "quantity": "3"
+        }
       ],
-      "total_calories": 395.0,
-      "protein":  12.5,
-      "carbs": 58.0,
-      "fat":  13.0,
-      "category":  "breakfast",
-      "created_by": 1,
-      "created_at": "2025-01-01T00:00:00Z"
+      "total_calories": 400,
+      "protein": 10.0,
+      "carbs": 40,
+      "fat": 8.0,
+      "category": "breakfast",
+      "created_by": 1
     }
   },
   {
     "model": "mealapp.recipe",
     "pk": 10,
     "fields": {
-      "title": "Smoked Salmon Bagel",
-      "description": "Whole grain bagel with cream cheese, smoked salmon, and fresh vegetables. A protein-packed sophisticated breakfast.",
-      "instructions": "1. Toast whole grain bagel\n2. Spread cream cheese on both halves\n3. Layer smoked salmon\n4. Add capers and red onion slices\n5. Top with tomato slices\n6. Garnish with fresh dill",
-      "image_url": "placeholder",
-      "servings": 1,
-      "prep_time_minutes": 5,
-      "cook_time_minutes": 2,
-      "ingredients": [
-        {"name": "Whole grain bagel", "quantity": "1 medium"},
-        {"name": "Cream cheese", "quantity": "30g"},
-        {"name": "Smoked salmon", "quantity":  "50g"},
-        {"name": "Capers", "quantity": "1 tsp"},
-        {"name": "Red onion", "quantity": "20g"},
-        {"name": "Tomato", "quantity": "50g"}
-      ],
-      "total_calories": 410.0,
-      "protein": 24.5,
-      "carbs": 52.0,
-      "fat":  12.0,
-      "category": "breakfast",
-      "created_by":  1,
-      "created_at": "2025-01-01T00:00:00Z"
-    }
-  },
-  {
-    "model":  "mealapp.recipe",
-    "pk": 11,
-    "fields": {
-      "title": "Sweet Potato Hash",
-      "description": "Savory hash with diced sweet potatoes, bell peppers, and topped with fried eggs. A colorful nutrient-dense breakfast.",
-      "instructions": "1. Dice sweet potato into small cubes\n2. Sauté in olive oil until tender\n3. Add bell peppers and onions\n4. Season with paprika and garlic\n5. Make wells and crack eggs into hash\n6. Cook until eggs are set",
-      "image_url": "placeholder",
+      "title": "Rømmegrøt – Norwegian Sour Cream Porridge",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. ▢\n2. Cook the sour cream in a covered saucepan on medium heat for about 5 minutes.\n3. ▢\n4. Turn down the heat and add half of the flour and stir well with a whisk. Once the flour is fully incorporated, let the mixture continue to cook, stirring occasionally, until fat starts to release. Use a spoon to gather as much of the fat as you can in a small bowl, saving for later. (Don't worry if you can't get any fat – in that case you can add butter later.)\n5. ▢\n6. Whisk in the rest of the flour and then slowly add the milk, whisking constantly to avoid lumps. Let the porridge continue to cook on low heat for 5 minutes and then add salt.\n7. ▢\n8. Serve with sugar, cinnamon, and the fat from the porridge. If you're using lower fat sour cream you can top the rømmegrøt with some butter instead.",
+      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452857/recipes/recipes/r%C3%B8mmegr%C3%B8t_%E2%80%93_norwegian_sour_cream_porridge_10.jpg",
       "servings": 2,
       "prep_time_minutes": 10,
       "cook_time_minutes": 20,
       "ingredients": [
-        {"name": "Sweet potato", "quantity": "300g"},
-        {"name": "Bell peppers", "quantity": "100g"},
-        {"name": "Onion", "quantity": "80g"},
-        {"name": "Eggs", "quantity": "2 large"},
-        {"name": "Olive oil", "quantity": "1 tbsp"},
-        {"name": "Paprika", "quantity": "1 tsp"}
+        {
+          "name": "cups Full fat sour cream",
+          "quantity": "2"
+        },
+        {
+          "name": "cup Flour",
+          "quantity": "3/4"
+        },
+        {
+          "name": "cups Milk",
+          "quantity": "2"
+        },
+        {
+          "name": "tsp Salt",
+          "quantity": "1"
+        },
+        {
+          "name": "Sugar",
+          "quantity": "Sprinkling"
+        },
+        {
+          "name": "Cinnamon",
+          "quantity": "Sprinkling"
+        },
+        {
+          "name": "taste Butter",
+          "quantity": "To"
+        }
       ],
-      "total_calories": 485.0,
-      "protein":  16.0,
-      "carbs": 68.0,
-      "fat": 16.5,
+      "total_calories": 310,
+      "protein": 8.5,
+      "carbs": 34,
+      "fat": 7.1,
       "category": "breakfast",
-      "created_by":  1,
-      "created_at": "2025-01-01T00:00:00Z"
+      "created_by": 1
     }
   },
   {
-    "model":  "mealapp.recipe",
+    "model": "mealapp.recipe",
+    "pk": 11,
+    "fields": {
+      "title": "Salmon Eggs Eggs Benedict",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. First make the Hollandaise sauce. Put the lemon juice and vinegar in a small bowl, add the egg yolks and whisk with a balloon whisk until light and frothy. Place the bowl over a pan of simmering water and whisk until mixture thickens. Gradually add the butter, whisking constantly until thick – if it looks like it might be splitting, then whisk off the heat for a few mins. Season and keep warm.\n2. To poach the eggs, bring a large pan of water to the boil and add the vinegar. Lower the heat so that the water is simmering gently. Stir the water so you have a slight whirlpool, then slide in the eggs one by one. Cook each for about 4 mins, then remove with a slotted spoon.\n3. Lightly toast and butter the muffins, then put a couple of slices of salmon on each half. Top each with an egg, spoon over some Hollandaise and garnish with chopped chives.",
+      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452858/recipes/recipes/salmon_eggs_eggs_benedict_11.jpg",
+      "servings": 3,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Eggs",
+          "quantity": "4"
+        },
+        {
+          "name": "tbs White Wine Vinegar",
+          "quantity": "2"
+        },
+        {
+          "name": "English Muffins",
+          "quantity": "2"
+        },
+        {
+          "name": "serve Butter",
+          "quantity": "To"
+        },
+        {
+          "name": "slices Smoked Salmon",
+          "quantity": "8"
+        },
+        {
+          "name": "tsp Lemon Juice",
+          "quantity": "2"
+        },
+        {
+          "name": "tsp White Wine Vinegar",
+          "quantity": "2"
+        },
+        {
+          "name": "Yolkes Egg",
+          "quantity": "3"
+        },
+        {
+          "name": "Unsalted Butter",
+          "quantity": "125g"
+        }
+      ],
+      "total_calories": 370,
+      "protein": 9.5,
+      "carbs": 38,
+      "fat": 7.7,
+      "category": "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
     "pk": 12,
     "fields": {
-      "title": "Acai Bowl",
-      "description":  "Thick acai smoothie bowl topped with granola, fresh fruits, and coconut.  A refreshing antioxidant-rich breakfast.",
-      "instructions":  "1. Blend frozen acai with banana until thick\n2. Pour into bowl\n3. Top with granola in rows\n4. Add fresh berries\n5. Sprinkle coconut flakes\n6. Drizzle with honey",
-      "image_url":  "placeholder",
-      "servings": 1,
+      "title": "Smoked Haddock Kedgeree",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. Melt 50g butter in a large saucepan (about 20cm across), add 1 finely chopped medium onion and cook gently over a medium heat for 5 minutes, until softened but not browned.\n2. Stir in 3 split cardamom pods, ¼ tsp turmeric, 1 small cinnamon stick and 2 bay leaves, then cook for 1 minute.\n3. Tip in 450g basmati rice and stir until it is all well coated in the spicy butter.\n4. Pour in 1 litre chicken or fish stock, add ½ teaspoon salt and bring to the boil, stir once to release any rice from the bottom of the pan. Cover with a close-fitting lid, reduce the heat to low and leave to cook very gently for 12 minutes.\n5. Meanwhile, bring some water to the boil in a large shallow pan. Add 750g un-dyed smoked haddock fillet and simmer for 4 minutes, until the fish is just cooked. Lift it out onto a plate and leave until cool enough to handle.\n6. Hard-boil 3 eggs for 8 minutes.\n7. Flake the fish, discarding any skin and bones. Drain the eggs, cool slightly, then peel and chop.\n8. Uncover the rice and remove the bay leaves, cinnamon stick and cardamom pods if you wish to. Gently fork in the fish and the chopped eggs, cover again and return to the heat for 2-3 minutes, or until the fish has heated through.\n9. Gently stir in almost all the 3 tbsp chopped fresh parsley, and season with a little salt and black pepper to taste. Serve scattered with the remaining parsley and garnished with 1 lemon, cut into wedges.",
+      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452859/recipes/recipes/smoked_haddock_kedgeree_12.jpg",
+      "servings": 4,
       "prep_time_minutes": 10,
-      "cook_time_minutes": 0,
+      "cook_time_minutes": 20,
       "ingredients": [
-        {"name": "Acai puree", "quantity": "100g"},
-        {"name": "Banana", "quantity": "1 medium"},
-        {"name":  "Granola", "quantity": "50g"},
-        {"name": "Mixed berries", "quantity": "80g"},
-        {"name": "Coconut flakes", "quantity": "10g"},
-        {"name": "Honey", "quantity": "1 tsp"}
+        {
+          "name": "Butter",
+          "quantity": "50g"
+        },
+        {
+          "name": "chopped Onion",
+          "quantity": "1"
+        },
+        {
+          "name": "Pods Cardamom",
+          "quantity": "3"
+        },
+        {
+          "name": "tsp Turmeric",
+          "quantity": "1/4"
+        },
+        {
+          "name": "small Cinnamon Stick",
+          "quantity": "1"
+        },
+        {
+          "name": "of fresh Bay Leaf",
+          "quantity": "Sprigs"
+        },
+        {
+          "name": "Basmati Rice",
+          "quantity": "450g"
+        },
+        {
+          "name": "Litre Chicken Stock",
+          "quantity": "1"
+        },
+        {
+          "name": "Smoked Haddock",
+          "quantity": "750g"
+        },
+        {
+          "name": "Eggs",
+          "quantity": "3"
+        },
+        {
+          "name": "tblsp chopped Parsley",
+          "quantity": "3"
+        },
+        {
+          "name": "chopped Lemon",
+          "quantity": "1"
+        }
       ],
-      "total_calories": 405.0,
-      "protein":  8.0,
-      "carbs": 72.0,
-      "fat":  11.5,
-      "category":  "breakfast",
-      "created_by": 1,
-      "created_at": "2025-01-01T00:00:00Z"
+      "total_calories": 460,
+      "protein": 11.0,
+      "carbs": 44,
+      "fat": 8.6,
+      "category": "breakfast",
+      "created_by": 1
     }
   },
   {
     "model": "mealapp.recipe",
     "pk": 13,
     "fields": {
-      "title": "Cottage Cheese with Fruit",
-      "description":  "Creamy cottage cheese topped with fresh pineapple, berries, and nuts. High in protein and calcium.",
-      "instructions": "1. Place cottage cheese in bowl\n2. Top with diced pineapple\n3. Add fresh berries\n4. Sprinkle with chopped walnuts\n5. Add a dash of cinnamon\n6. Serve chilled",
-      "image_url": "placeholder",
-      "servings": 1,
-      "prep_time_minutes": 5,
-      "cook_time_minutes": 0,
+      "title": "Torrijas with sherry",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. step 1\n2. In a wide, shallow bowl, beat the eggs with the cream, milk, golden caster sugar and sherry. Cut each slice of bread in two and dip them into the egg mix, turning to make sure they get a good coating on either side. Soak bread in egg mixture for 10 mins to absorb the liquid (carefully turn them over from time to time and make sure they don’t get too soggy).\n3. step 2\n4. Heat 1½ tbsp olive oil in a large frying pan and cook the bread for about 3 mins on each side until dark golden and crisp on the edge. Keep the slices warm in a low oven as you cook the rest.\n5. step 3\n6. Divide the torrijas between plates and dust with the icing sugar. Serve with crème fraîche or Greek yogurt on the side.",
+      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452860/recipes/recipes/torrijas_with_sherry_13.jpg",
+      "servings": 3,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
       "ingredients": [
-        {"name": "Cottage cheese", "quantity": "200g"},
-        {"name": "Pineapple", "quantity": "100g"},
-        {"name": "Mixed berries", "quantity": "80g"},
-        {"name": "Walnuts", "quantity":  "20g"},
-        {"name": "Cinnamon", "quantity":  "1/2 tsp"}
+        {
+          "name": "medium Egg",
+          "quantity": "2"
+        },
+        {
+          "name": "tbsp Double Cream",
+          "quantity": "2"
+        },
+        {
+          "name": "tblsp Milk",
+          "quantity": "2"
+        },
+        {
+          "name": "tsp Golden Caster Sugar",
+          "quantity": "3"
+        },
+        {
+          "name": " tablespoons Sweet Sherry",
+          "quantity": "3"
+        },
+        {
+          "name": "thick slices Bread",
+          "quantity": "4"
+        },
+        {
+          "name": "frying Olive Oil",
+          "quantity": "For"
+        },
+        {
+          "name": "serve Icing Sugar",
+          "quantity": "To"
+        },
+        {
+          "name": "serve Creme Fraiche",
+          "quantity": "To"
+        }
       ],
-      "total_calories": 335.0,
-      "protein":  28.5,
-      "carbs": 32.0,
-      "fat":  11.0,
-      "category":  "breakfast",
-      "created_by": 1,
-      "created_at": "2025-01-01T00:00:00Z"
+      "total_calories": 370,
+      "protein": 9.5,
+      "carbs": 38,
+      "fat": 7.7,
+      "category": "breakfast",
+      "created_by": 1
     }
   },
   {
     "model": "mealapp.recipe",
     "pk": 14,
     "fields": {
-      "title": "Breakfast Egg Muffins",
-      "description": "Portable egg muffins packed with vegetables and cheese. Perfect for meal prep and busy mornings.",
-      "instructions":  "1. Preheat oven to 350°F (175°C)\n2. Whisk eggs with salt and pepper\n3. Add chopped vegetables and cheese\n4. Pour into greased muffin tin\n5. Bake for 20-25 minutes\n6. Cool and store",
-      "image_url": "placeholder",
-      "servings":  6,
+      "title": "Ugali – Kenyan cornmeal",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. Bring the water to a boil in a medium saucepan.\n2. Reduce the heat to low, and stirring constantly with a whisk, slowly add the cornmeal to the boiling water. The ugali will begin to thicken quite quickly.\n3. Continue cooking on low heat, stirring constantly with a sturdy wooden spoon, until the ugali begins to pull away from the sides of the pan, hold together, and takes on the aroma of roasted corn. Turn it out immediately onto a serving plate. If you would like, using a spoon or spatula, quickly shape it into a thick disk or round.\n4. The ugali will continue to firm as it cools and will be thick enough to cut with a knife (similar to firm polenta).",
+      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452860/recipes/recipes/ugali_%E2%80%93_kenyan_cornmeal_14.jpg",
+      "servings": 2,
       "prep_time_minutes": 10,
-      "cook_time_minutes": 25,
+      "cook_time_minutes": 20,
       "ingredients": [
-        {"name":  "Eggs", "quantity": "8 large"},
-        {"name":  "Spinach", "quantity": "100g"},
-        {"name": "Cherry tomatoes", "quantity": "100g"},
-        {"name": "Cheese", "quantity": "80g"},
-        {"name": "Bell peppers", "quantity": "80g"},
-        {"name": "Onion", "quantity": "50g"}
+        {
+          "name": "cups Water",
+          "quantity": "2"
+        },
+        {
+          "name": "1/2 cups White Cornmeal",
+          "quantity": "1"
+        }
       ],
-      "total_calories": 180.0,
-      "protein":  14.5,
-      "carbs": 6.0,
-      "fat":  11.5,
-      "category":  "breakfast",
-      "created_by": 1,
-      "created_at": "2025-01-01T00:00:00Z"
+      "total_calories": 160,
+      "protein": 6.0,
+      "carbs": 24,
+      "fat": 5.6,
+      "category": "breakfast",
+      "created_by": 1
     }
   },
   {
     "model": "mealapp.recipe",
     "pk": 15,
     "fields": {
-      "title": "Peanut Butter Banana Toast",
-      "description": "Whole grain toast with natural peanut butter, sliced banana, and chia seeds. A classic energy-boosting breakfast.",
-      "instructions":  "1. Toast whole grain bread until golden\n2. Spread natural peanut butter evenly\n3. Arrange banana slices on top\n4. Sprinkle with chia seeds\n5. Drizzle with honey\n6. Serve immediately",
-      "image_url": "placeholder",
-      "servings": 1,
-      "prep_time_minutes": 5,
-      "cook_time_minutes": 2,
-      "ingredients": [
-        {"name": "Whole grain bread", "quantity": "2 slices"},
-        {"name":  "Peanut butter", "quantity":  "2 tbsp"},
-        {"name": "Banana", "quantity":  "1 medium"},
-        {"name": "Chia seeds", "quantity": "1 tsp"},
-        {"name": "Honey", "quantity": "1 tsp"}
-      ],
-      "total_calories": 425.0,
-      "protein":  14.0,
-      "carbs": 62.0,
-      "fat":  16.5,
-      "category":  "breakfast",
-      "created_by": 1,
-      "created_at": "2025-01-01T00:00:00Z"
-    }
-  },
-  {
-    "model": "mealapp.recipe",
-    "pk": 16,
-    "fields": {
-      "title": "Green Smoothie Bowl",
-      "description": "Nutrient-packed green smoothie bowl with spinach, mango, and banana. Topped with fresh fruits and seeds.",
-      "instructions": "1. Blend spinach, kale, banana, and mango with almond milk\n2. Pour into bowl\n3. Top with sliced kiwi\n4. Add granola and pumpkin seeds\n5. Arrange fresh berries\n6. Serve immediately",
-      "image_url":  "placeholder",
-      "servings": 1,
+      "title": "Yemeni Lahsa (Elite Shakshuka)",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. 1\n2. First, On medium heat, heat the olive oil and add the diced onion until it wethers. Next, add the tomatoes and cook for another 4-5 min. Lastly, add the all spice, salt, and cracked pepper.\n3. 2\n4. Add the eggs and mix throughly for 2 minutes and cover to cook 5-6 minutes until top is solidified. Lastly, spread the liquid cheese and have it covered for a minute.\n5. 3\n6. I served mine Mediterranean style with hash-browns, Egyptian fava beans, Turkish salami and olives, cheese wedges, and greek feta.",
+      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452861/recipes/recipes/yemeni_lahsa_%28elite_shakshuka%29_15.jpg",
+      "servings": 2,
       "prep_time_minutes": 10,
-      "cook_time_minutes": 0,
-      "ingredients": [
-        {"name": "Spinach", "quantity": "50g"},
-        {"name": "Kale", "quantity": "30g"},
-        {"name": "Banana", "quantity": "1 medium"},
-        {"name": "Mango", "quantity": "100g"},
-        {"name": "Almond milk", "quantity":  "150ml"},
-        {"name": "Granola", "quantity": "30g"}
-      ],
-      "total_calories": 340.0,
-      "protein":  8.5,
-      "carbs": 65.0,
-      "fat":  7.5,
-      "category":  "breakfast",
-      "created_by": 1,
-      "created_at": "2025-01-01T00:00:00Z"
-    }
-  },
-  {
-    "model": "mealapp.recipe",
-    "pk": 17,
-    "fields": {
-      "title": "Buckwheat Porridge",
-      "description": "Warm buckwheat porridge with cinnamon, apple, and walnuts. A gluten-free alternative to oatmeal.",
-      "instructions":  "1. Cook buckwheat groats in almond milk\n2. Add cinnamon while cooking\n3. Dice apple and add to porridge\n4. Cook until tender and creamy\n5. Top with chopped walnuts\n6. Drizzle with maple syrup",
-      "image_url": "placeholder",
-      "servings": 1,
-      "prep_time_minutes": 5,
       "cook_time_minutes": 20,
       "ingredients": [
-        {"name": "Buckwheat groats", "quantity": "60g"},
-        {"name": "Almond milk", "quantity":  "250ml"},
-        {"name": "Cinnamon", "quantity":  "1 tsp"},
-        {"name": "Apple", "quantity": "1 medium"},
-        {"name": "Walnuts", "quantity": "20g"},
-        {"name":  "Maple syrup", "quantity": "1 tbsp"}
+        {
+          "name": "Egg",
+          "quantity": "5"
+        },
+        {
+          "name": "Diced Onion",
+          "quantity": "1"
+        },
+        {
+          "name": "Diced Tomato",
+          "quantity": "1"
+        },
+        {
+          "name": "tablespoons Olive Oil",
+          "quantity": "2"
+        },
+        {
+          "name": "tsp Allspice",
+          "quantity": "1/4"
+        },
+        {
+          "name": "tsp Black Pepper",
+          "quantity": "1/4"
+        },
+        {
+          "name": " tablespoons Liquid Cheese",
+          "quantity": "3"
+        }
       ],
-      "total_calories": 415.0,
-      "protein":  11.0,
-      "carbs": 68.0,
-      "fat":  12.5,
-      "category":  "breakfast",
-      "created_by": 1,
-      "created_at": "2025-01-01T00:00:00Z"
-    }
-  },
-  {
-    "model": "mealapp.recipe",
-    "pk": 18,
-    "fields": {
-      "title": "Veggie Frittata",
-      "description":  "Baked egg frittata loaded with zucchini, tomatoes, and cheese. Perfect for brunch or meal prep.",
-      "instructions": "1. Preheat oven to 375°F (190°C)\n2. Sauté zucchini, tomatoes, and onions\n3. Whisk eggs with milk, salt, and pepper\n4. Pour eggs over vegetables in oven-safe pan\n5. Sprinkle with cheese and herbs\n6. Bake for 20-25 minutes until set",
-      "image_url":  "placeholder",
-      "servings": 4,
-      "prep_time_minutes": 10,
-      "cook_time_minutes": 25,
-      "ingredients": [
-        {"name":  "Eggs", "quantity": "8 large"},
-        {"name":  "Zucchini", "quantity": "200g"},
-        {"name": "Cherry tomatoes", "quantity": "150g"},
-        {"name": "Onion", "quantity": "100g"},
-        {"name": "Cheese", "quantity": "100g"},
-        {"name": "Fresh herbs", "quantity": "10g"}
-      ],
-      "total_calories": 285.0,
-      "protein":  20.0,
-      "carbs": 10.5,
-      "fat": 19.0,
+      "total_calories": 310,
+      "protein": 8.5,
+      "carbs": 34,
+      "fat": 7.1,
       "category": "breakfast",
-      "created_by":  1,
-      "created_at": "2025-01-01T00:00:00Z"
-    }
-  },
-  {
-    "model":  "mealapp.recipe",
-    "pk": 19,
-    "fields": {
-      "title": "Almond Butter Smoothie",
-      "description": "Creamy smoothie with almond butter, oats, and dates. A filling breakfast drink with sustained energy.",
-      "instructions": "1. Add all ingredients to blender\n2. Blend on high until smooth and creamy\n3. Add ice if desired for thickness\n4. Pour into glass\n5. Sprinkle with cinnamon on top\n6. Serve immediately",
-      "image_url": "placeholder",
-      "servings": 1,
-      "prep_time_minutes": 5,
-      "cook_time_minutes": 0,
-      "ingredients": [
-        {"name": "Almond butter", "quantity": "2 tbsp"},
-        {"name": "Banana", "quantity": "1 medium"},
-        {"name": "Rolled oats", "quantity": "30g"},
-        {"name": "Almond milk", "quantity": "250ml"},
-        {"name": "Dates", "quantity": "2 pieces"},
-        {"name": "Cinnamon", "quantity": "1/2 tsp"}
-      ],
-      "total_calories": 440.0,
-      "protein":  13.0,
-      "carbs": 62.0,
-      "fat":  18.5,
-      "category":  "breakfast",
-      "created_by": 1,
-      "created_at": "2025-01-01T00:00:00Z"
-    }
-  },
-  {
-    "model": "mealapp.recipe",
-    "pk": 20,
-    "fields": {
-      "title": "Apple Cinnamon Oatmeal",
-      "description": "Classic warm oatmeal with diced apples, cinnamon, and walnuts. A comforting and nutritious breakfast.",
-      "instructions": "1. Cook rolled oats in milk or water\n2. Add diced apple and cinnamon while cooking\n3. Stir until oats are creamy\n4. Transfer to bowl\n5. Top with chopped walnuts\n6. Drizzle with maple syrup",
-      "image_url": "placeholder",
-      "servings": 1,
-      "prep_time_minutes": 5,
-      "cook_time_minutes": 10,
-      "ingredients": [
-        {"name": "Rolled oats", "quantity": "60g"},
-        {"name": "Milk", "quantity": "250ml"},
-        {"name": "Apple", "quantity": "1 medium"},
-        {"name": "Cinnamon", "quantity": "1 tsp"},
-        {"name": "Walnuts", "quantity": "20g"},
-        {"name": "Maple syrup", "quantity": "1 tbsp"}
-      ],
-      "total_calories": 425.0,
-      "protein":  13.5,
-      "carbs": 68.0,
-      "fat": 13.0,
-      "category":  "breakfast",
-      "created_by": 1,
-      "created_at": "2025-01-01T00:00:00Z"
+      "created_by": 1
     }
   }
 ]

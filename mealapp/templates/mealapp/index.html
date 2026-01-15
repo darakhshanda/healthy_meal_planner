@@ -1,10 +1,17 @@
-<!DOCTYPE html>
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %} Home - Healthy Meal Planner{% endblock %}
 
 {% block content %}
 <div class="main-content">
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1 class="hero-title">Healthy Meal Planner</h1>
+
+        <a href="#" class="cta-button">Create meal plan</a>
+    </div>
     <!-- Search Bar -->
     <div class="search-section">
         <div class="container">
@@ -15,114 +22,46 @@
             </form>
         </div>
     </div>
-    <!-- Hero Section -->
-    <div class="hero-section">
-        <h1 class="hero-title">Healthy Meal Planner</h1>
-
-        <a href="#" class="cta-button">Calculate BMI</a>
-
-        <div class="signup-box">
-            <p class="signup-text">
-                <strong>SignUp</strong> to prepare meal plans and calculate your Calorie intakes
-            </p>
-        </div>
-
-        <a href="#" class="signin-button">Sign in</a>
-    </div>
-
     <!-- Recipes Section -->
     <div class="recipes-section">
         <h2 class="recipes-title">Recipes</h2>
 
-        <table class="recipes-table">
-            <!-- Breakfast Row -->
-            <tr>
-                <th>Breakfast</th>
-            </tr>
-            <tr>
-                <td>
-                    <div class="recipe-row">
-                        {% for recipe in breakfast_recipes %}
-                        <!-- Example structure -->
-                        <div class="recipe-card">
-                            <img src="{{ recipe.image_url }}" alt="{{ recipe.title }}">
-                            <h3>{{ recipe.title }}</h3>
-                            <p>{{ recipe.description|truncatewords:10 }}</p>
-                            <div class="recipe-meta">
-                                <span>⏱️ {{ recipe.prep_time_minutes }}min</span>
-                                <span>🔥 {{ recipe.total_calories }}cal</span>
-                            </div>
-                            <a href="{% url 'recipe_detail' recipe.id %}" class="btn">View Recipe</a>
-                        </div>
-                        {% empty%}
-                        <div class="recipe-card"></div>
-                        <div class="recipe-card"></div>
-                        <div class="recipe-card"></div>
-                        {% endfor %}
-                    </div>
-                </td>
-            </tr>
+        <!-- Category Tabs -->
+        <div class="category-tabs">
+            <button class="tab-button active" data-category="all">All Recipes</button>
+            <button class="tab-button" data-category="breakfast">🌅 Breakfast</button>
+            <button class="tab-button" data-category="lunch">🥗 Lunch</button>
+            <button class="tab-button" data-category="dinner">🍽️ Dinner</button>
+            <button class="tab-button" data-category="snack">🍿 Snack</button>
+        </div>
 
-            <!-- Lunch Row -->
-            <tr>
-                <th>Lunch</th>
-            </tr>
-            <tr>
-                <td>
-                    <div class="recipe-row">
-                        {% for recipe in lunch_recipes %}
-                        <div class="recipe-card">
-                            <!-- Wireframe placeholder -->
-                        </div>
-                        {% empty %}
-                        <div class="recipe-card"></div>
-                        <div class="recipe-card"></div>
-                        <div class="recipe-card"></div>
-                        {% endfor %}
-                    </div>
-                </td>
-            </tr>
+        <!-- Recipe Count -->
+        <div class="recipe-count" id="recipeCount"></div>
 
-            <!-- Dinner Row -->
-            <tr>
-                <th>Dinner</th>
-            </tr>
-            <tr>
-                <td>
-                    <div class="recipe-row">
-                        {% for recipe in dinner_recipes %}
-                        <div class="recipe-card">
-                            <!-- Wireframe placeholder -->
-                        </div>
-                        {% empty %}
-                        <div class="recipe-card"></div>
-                        <div class="recipe-card"></div>
-                        <div class="recipe-card"></div>
-                        {% endfor %}
-                    </div>
-                </td>
-            </tr>
+        <!-- Recipes Grid -->
+        <div class="recipes-grid" id="recipesContainer" data-default-image="{% static 'mealapp/images/default.jpg' %}">
+            <!-- Grid will be populated by JS -->
+        </div>
 
-            <!-- Snack Row -->
-            <tr>
-                <th>Snack</th>
-            </tr>
-            <tr>
-                <td>
-                    <div class="recipe-row">
-                        {% for recipe in snack_recipes %}
-                        <div class="recipe-card">
-                            <!-- Wireframe placeholder -->
-                        </div>
-                        {% empty %}
-                        <div class="recipe-card"></div>
-                        <div class="recipe-card"></div>
-                        <div class="recipe-card"></div>
-                        {% endfor %}
-                    </div>
-                </td>
-            </tr>
-        </table>
+        <!-- Pagination -->
+        <nav aria-label="Page navigation" class="pagination-nav">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a href="#" class="page-link">&laquo; PREVIOUS</a>
+                </li>
+
+                <li class="page-item disabled">
+                    <span class="page-link">Page 1 of 1</span>
+                </li>
+
+                <li class="page-item">
+                    <a href="#" class="page-link">NEXT &raquo;</a>
+                </li>
+            </ul>
+        </nav>
     </div>
 </div>
+
+<!-- Hidden data element for JavaScript -->
+<script type="application/json" id="recipesData">{{ recipes_json|safe }}</script>
 {% endblock %}

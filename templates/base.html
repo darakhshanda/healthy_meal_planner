@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load i18n %}
 {% url 'index' as index_url %}
 {% url 'dashboard' as dashboard_url %}
 {% url 'recipe_list' as recipe_list_url %}
@@ -55,7 +56,7 @@
         {% endfor %}
     </div>
     {% endif %}
-    
+
 
     <!-- Main Content -->
     {% block content %}{% endblock %}

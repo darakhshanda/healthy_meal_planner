@@ -1,0 +1,4481 @@
+[
+  {
+    "model": "mealapp.recipe",
+    "pk": 1,
+    "fields": {
+      "title": "Bread omelette",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. Make and enjoy",
+      "image_url": "https://www.themealdb.com/images/media/meals/hqaejl1695738653.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Bread",
+          "quantity": "2"
+        },
+        {
+          "name": "Egg",
+          "quantity": "2"
+        },
+        {
+          "name": "Salt",
+          "quantity": "0.5"
+        }
+      ],
+      "total_calories": 190,
+      "protein": 6.5,
+      "carbs": 26,
+      "fat": 5.9,
+      "category": "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 2,
+    "fields": {
+      "title": "Breakfast Potatoes",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. Before you do anything, freeze your bacon slices that way when you're ready to prep, it'll be so much easier to chop!\n2. Wash the potatoes and cut medium dice into square pieces. To prevent any browning, place the already cut potatoes in a bowl filled with water.\n3. In the meantime, heat 1-2 tablespoons of oil in a large skillet over medium-high heat. Tilt the skillet so the oil spreads evenly.\n4. Once the oil is hot, drain the potatoes and add to the skillet. Season with salt, pepper, and Old Bay as needed.\n5. Cook for 10 minutes, stirring the potatoes often, until brown. If needed, add a tablespoon more of oil.\n6. Chop up the bacon and add to the potatoes. The bacon will start to render and the fat will begin to further cook the potatoes. Toss it up a bit! The bacon will take 5-6 minutes to crisp.\n7. Once the bacon is cooked, reduce the heat to medium-low, add the minced garlic and toss. Season once more. Add dried or fresh parsley. Control heat as needed.\n8. Let the garlic cook until fragrant, about one minute.\n9. Just before serving, drizzle over the maple syrup and toss. Let that cook another minute, giving the potatoes a caramelized effect.\n10. Serve in a warm bowl with a sunny side up egg!",
+      "image_url": "https://www.themealdb.com/images/media/meals/1550441882.jpg",
+      "servings": 3,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Medium Potatoes",
+          "quantity": "3"
+        },
+        {
+          "name": "tbs Olive Oil",
+          "quantity": "1"
+        },
+        {
+          "name": "strips Bacon",
+          "quantity": "2"
+        },
+        {
+          "name": "Garlic Clove",
+          "quantity": "Minced"
+        },
+        {
+          "name": "tbs Maple Syrup",
+          "quantity": "1"
+        },
+        {
+          "name": "Parsley",
+          "quantity": "Garnish"
+        },
+        {
+          "name": "Salt",
+          "quantity": "Pinch"
+        },
+        {
+          "name": "Pepper",
+          "quantity": "Pinch"
+        },
+        {
+          "name": "taste Allspice",
+          "quantity": "To"
+        }
+      ],
+      "total_calories": 370,
+      "protein": 9.5,
+      "carbs": 38,
+      "fat": 7.7,
+      "category": "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 3,
+    "fields": {
+      "title": "Dutch poffertjes (mini pancakes)",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. Mix the dry yeast with some of the luke warm milk en stir until dissolved.\n2. Place buckwheat and the flour together in a bowl and make a small circle in the middle. Add the yeast mixture into it. Add the milk and stir until you have a smooth batter.\n3. Add the eggs, salt and vanille sugar and stir through. Leave to stand and rise for about 45 minutes.\n4. Heat the poffertjespan and add a bit of butter into each hole. Fill halfway with batter and first bake one side until you can see the top dry out a little. Turn the poffertjes around with a small fork and bake the other side until cooked and golden brown.\n5. Serve the poffertjes with butter and icing sugar",
+      "image_url": "https://www.themealdb.com/images/media/meals/oaqz9f1766593912.jpg",
+      "servings": 3,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Flour",
+          "quantity": "125g"
+        },
+        {
+          "name": "Buckwheat Flour",
+          "quantity": "125g"
+        },
+        {
+          "name": "Eggs",
+          "quantity": "2"
+        },
+        {
+          "name": "knob Butter",
+          "quantity": "1"
+        },
+        {
+          "name": "Milk",
+          "quantity": "300ml"
+        },
+        {
+          "name": "Yeast",
+          "quantity": "10g"
+        },
+        {
+          "name": "vanilla sugar",
+          "quantity": "1tsp"
+        },
+        {
+          "name": "serve Butter",
+          "quantity": "To"
+        },
+        {
+          "name": "serve Icing Sugar",
+          "quantity": "To"
+        }
+      ],
+      "total_calories": 370,
+      "protein": 9.5,
+      "carbs": 38,
+      "fat": 7.7,
+      "category": "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 4,
+    "fields": {
+      "title": "English Breakfast",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. Heat the flat grill plate over a low heat, on top of 2 rings/flames if it fits, and brush sparingly with light olive oil.\n2. Cook the sausages first. Add the sausages to the hot grill plate/the coolest part if there is one and allow to cook slowly for about 15-20 minutes, turning occasionally, until golden. After the first 10 minutes, increase the heat to medium before beginning to cook the other ingredients. If you are struggling for space, completely cook the sausages and keep hot on a plate in the oven.\n3. Snip a few small cuts into the fatty edge of the bacon. Place the bacon straight on to the grill plate and fry for 2-4 minutes each side or until your preferred crispiness is reached. Like the sausages, the cooked bacon can be kept hot on a plate in the oven.\n4. For the mushrooms, brush away any dirt using a pastry brush and trim the stalk level with the mushroom top. Season with salt and pepper and drizzle over a little olive oil. Place stalk-side up on the grill plate and cook for 1-2 minutes before turning and cooking for a further 3-4 minutes. Avoid moving the mushrooms too much while cooking, as this releases the natural juices, making them soggy.\n5. For the tomatoes, cut the tomatoes across the centre/or in half lengthways if using plum tomatoes , and with a small, sharp knife remove the green 'eye'. Season with salt and pepper and drizzle with a little olive oil. Place cut-side down on the grill plate and cook without moving for 2 minutes. Gently turn over and season again. Cook for a further 2-3 minutes until tender but still holding their shape.\n6. For the black pudding, cut the black pudding into 3-4 slices and remove the skin. Place on the grill plate and cook for 1½-2 minutes each side until slightly crispy.\n7. For 'proper' fried bread it's best to cook it in a separate pan. Ideally, use bread that is a couple of days old. Heat a frying pan to a medium heat and cover the base with oil. Add the bread and cook for 2-3 minutes each side until crispy and golden. If the pan becomes too dry, add a little more oil. For a richer flavour, add a knob of butter after you turn the slice.\n8. For the fried eggs, break the egg straight into the pan with the fried bread and leave for 30 seconds. Add a good knob of butter and lightly splash/baste the egg with the butter when melted. Cook to your preferred stage, season and gently remove with a fish slice.\n9. Once all the ingredients are cooked, serve on warm plates and enjoy straight away with a good squeeze of tomato ketchup or brown sauce.",
+      "image_url": "https://www.themealdb.com/images/media/meals/utxryw1511721587.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Sausages",
+          "quantity": "2"
+        },
+        {
+          "name": "Bacon",
+          "quantity": "3"
+        },
+        {
+          "name": "Mushrooms",
+          "quantity": "2"
+        },
+        {
+          "name": "Tomatoes",
+          "quantity": "2"
+        },
+        {
+          "name": "Slice Black Pudding",
+          "quantity": "1"
+        },
+        {
+          "name": "Eggs",
+          "quantity": "2"
+        },
+        {
+          "name": "Slice Bread",
+          "quantity": "1"
+        }
+      ],
+      "total_calories": 310,
+      "protein": 8.5,
+      "carbs": 34,
+      "fat": 7.1,
+      "category": "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 5,
+    "fields": {
+      "title": "Fruit and Cream Cheese Breakfast Pastries",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. Preheat oven to 400ºF (200ºC), and prepare two cookie sheets with parchment paper. In a bowl, mix cream cheese, sugar, and vanilla until fully combined. Lightly flour the surface and roll out puff pastry on top to flatten. Cut each sheet of puff pastry into 9 equal squares. On the top right and bottom left of the pastry, cut an L shape approximately ½ inch (1 cm) from the edge.\n2. NOTE: This L shape should reach all the way down and across the square, however both L shapes should not meet at the ends. Your pastry should look like a picture frame with two corners still intact.\n3. Take the upper right corner and fold down towards the inner bottom corner. You will now have a diamond shape.\n4. Place 1 to 2 teaspoons of the cream cheese filling in the middle, then place berries on top.\n5. Repeat with the remaining pastry squares and place them onto the parchment covered baking sheet.\n6. Bake for 15-20 minutes or until pastry is golden brown and puffed.\n7. Enjoy!",
+      "image_url": "https://www.themealdb.com/images/media/meals/1543774956.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "1/4 oz Cream Cheese",
+          "quantity": "1"
+        },
+        {
+          "name": "1/4 cup Sugar",
+          "quantity": "1"
+        },
+        {
+          "name": "teaspoon Vanilla Extract",
+          "quantity": "1"
+        },
+        {
+          "name": "Flour",
+          "quantity": "as needed"
+        },
+        {
+          "name": "Puff Pastry",
+          "quantity": "2"
+        },
+        {
+          "name": "Strawberries",
+          "quantity": "as needed"
+        },
+        {
+          "name": "Raspberries",
+          "quantity": "as needed"
+        },
+        {
+          "name": "Blackberries",
+          "quantity": "as needed"
+        }
+      ],
+      "total_calories": 340,
+      "protein": 9.0,
+      "carbs": 36,
+      "fat": 7.4,
+      "category": "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 6,
+    "fields": {
+      "title": "Full English Breakfast",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. Heat the flat grill plate over a low heat, on top of 2 rings/flames if it fits, and brush sparingly with light olive oil.\n2. Cook the sausages first. Add the sausages to the hot grill plate/the coolest part if there is one and allow to cook slowly for about 15-20 minutes, turning occasionally, until golden. After the first 10 minutes, increase the heat to medium before beginning to cook the other ingredients. If you are struggling for space, completely cook the sausages and keep hot on a plate in the oven.\n3. Snip a few small cuts into the fatty edge of the bacon. Place the bacon straight on to the grill plate and fry for 2-4 minutes each side or until your preferred crispiness is reached. Like the sausages, the cooked bacon can be kept hot on a plate in the oven.\n4. For the mushrooms, brush away any dirt using a pastry brush and trim the stalk level with the mushroom top. Season with salt and pepper and drizzle over a little olive oil. Place stalk-side up on the grill plate and cook for 1-2 minutes before turning and cooking for a further 3-4 minutes. Avoid moving the mushrooms too much while cooking, as this releases the natural juices, making them soggy.\n5. For the tomatoes, cut the tomatoes across the centre/or in half lengthways if using plum tomatoes , and with a small, sharp knife remove the green 'eye'. Season with salt and pepper and drizzle with a little olive oil. Place cut-side down on the grill plate and cook without moving for 2 minutes. Gently turn over and season again. Cook for a further 2-3 minutes until tender but still holding their shape.\n6. For the black pudding, cut the black pudding into 3-4 slices and remove the skin. Place on the grill plate and cook for 1½-2 minutes each side until slightly crispy.\n7. For 'proper' fried bread it's best to cook it in a separate pan. Ideally, use bread that is a couple of days old. Heat a frying pan to a medium heat and cover the base with oil. Add the bread and cook for 2-3 minutes each side until crispy and golden. If the pan becomes too dry, add a little more oil. For a richer flavour, add a knob of butter after you turn the slice.\n8. For the fried eggs, break the egg straight into the pan with the fried bread and leave for 30 seconds. Add a good knob of butter and lightly splash/baste the egg with the butter when melted. Cook to your preferred stage, season and gently remove with a fish slice.\n9. Once all the ingredients are cooked, serve on warm plates and enjoy straight away with a good squeeze of tomato ketchup or brown sauce.",
+      "image_url": "https://www.themealdb.com/images/media/meals/sqrtwu1511721265.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Sausages",
+          "quantity": "4"
+        },
+        {
+          "name": "Bacon",
+          "quantity": "4"
+        },
+        {
+          "name": "Mushrooms",
+          "quantity": "4"
+        },
+        {
+          "name": "Tomatoes",
+          "quantity": "3"
+        },
+        {
+          "name": "sliced Black Pudding",
+          "quantity": "2"
+        },
+        {
+          "name": "Eggs",
+          "quantity": "2"
+        },
+        {
+          "name": "Slice Bread",
+          "quantity": "1"
+        },
+        {
+          "name": "Baked Beans",
+          "quantity": "100g"
+        }
+      ],
+      "total_calories": 340,
+      "protein": 9.0,
+      "carbs": 36,
+      "fat": 7.4,
+      "category": "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 7,
+    "fields": {
+      "title": "Home-made Mandazi",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. This is one recipe a lot of people have requested and I have tried to make it as simple as possible and I hope it will work for you. Make sure you use the right flour which is basically one with raising agents. Adjust the amount of sugar to your taste and try using different flavours to have variety whenever you have them.\n2. You can use Coconut milk instead of regular milk, you can also add desiccated coconut to the dry flour or other spices like powdered cloves or cinnamon.\n3. For “healthy looking” mandazis do not roll the dough too thin before frying and use the procedure I have indicated above.\n4. 1. Mix the flour,cinnamon and sugar in a suitable bowl.\n5. 2. In a separate bowl whisk the egg into the milk\n6. 3. Make a well at the centre of the flour and add the milk and egg mixture and slowly mix to form a dough.\n7. 4. Knead the dough for 3-4 minutes or until it stops sticking to the sides of the bowl and you have a smooth surface.\n8. 5. Cover the dough with a damp cloth  and allow to rest for 15 minutes.\n9. 6. Roll the dough on a lightly floured surface into a 1cm thick piece.\n10. 7. Using a sharp small knife, cut the dough into the desired size setting aside ready for deep frying.\n11. 8. Heat your oil in a suitable pot and gently dip the mandazi pieces to cook until light brown on the first side then turn to cook on the second side.\n12. 9. Serve them warm or cold",
+      "image_url": "https://www.themealdb.com/images/media/meals/thazgm1555350962.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Self-raising Flour",
+          "quantity": "750g"
+        },
+        {
+          "name": "tablespoons Sugar",
+          "quantity": "6"
+        },
+        {
+          "name": "Eggs",
+          "quantity": "2"
+        },
+        {
+          "name": "cup Milk",
+          "quantity": "1"
+        }
+      ],
+      "total_calories": 220,
+      "protein": 7.0,
+      "carbs": 28,
+      "fat": 6.2,
+      "category": "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 8,
+    "fields": {
+      "title": "Jamaican Cornmeal Porridge",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. Add 2 ½ cups water, 1 can coconut milk to a 4 QT heavy bottomed pot. Bring to a boil over medium-high heat.\n2. Meanwhile, add 1 cup cornmeal and 1 ½ cup water to a large mixing cup and whisk until smooth.\n3. Once the pot begins to boil, whisk in cornmeal mixture and continue to whisk for about 1 minute, ensuring there are no lumps. Reduce heat to low and cover with a tight fitting lid.\n4. Cook over low heat for 15-20 minutes, stirring occasionally. When there is about 5 minutes left, stir in vanilla extract, cinnamon, nutmeg, and all-spice. Remove from heat and sweeten with condensed milk.\n5. Serve and enjoy.",
+      "image_url": "https://www.themealdb.com/images/media/meals/sng9bm1765320170.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "cups Water",
+          "quantity": "4"
+        },
+        {
+          "name": "Coconut Milk",
+          "quantity": "380g"
+        },
+        {
+          "name": "cup Fine Yellow Cornmeal",
+          "quantity": "1"
+        },
+        {
+          "name": "1/2 tsp Vanilla Extract",
+          "quantity": "1"
+        },
+        {
+          "name": "tsp Ground Cinnamon",
+          "quantity": "1/2"
+        },
+        {
+          "name": "tsp Ground Nutmeg",
+          "quantity": "1/2"
+        },
+        {
+          "name": "tsp Ground Allspice",
+          "quantity": "1/4"
+        },
+        {
+          "name": "cup Sweetened Condensed Milk",
+          "quantity": "1/2"
+        }
+      ],
+      "total_calories": 340,
+      "protein": 9.0,
+      "carbs": 36,
+      "fat": 7.4,
+      "category": "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 9,
+    "fields": {
+      "title": "Oatmeal pancakes",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. Place all the ingredients in the glass and beat.\n2. Let the mixture stand for 10 minutes.\n3. Grease a hot frying pan with a little butter and pour a little of the mixture.\n4. When it starts to bubble on the surface, turn over with a spatula. Cook over medium-low heat so that they do not burn.\n5. Finally, add the caramel and strawberries.",
+      "image_url": "https://www.themealdb.com/images/media/meals/c400ok1764439058.jpg",
+      "servings": 3,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "medium Egg",
+          "quantity": "1"
+        },
+        {
+          "name": "ml Milk",
+          "quantity": "80"
+        },
+        {
+          "name": "tablespoon Sugar",
+          "quantity": "1"
+        },
+        {
+          "name": "tsp Baking Powder",
+          "quantity": "1"
+        },
+        {
+          "name": "Salt",
+          "quantity": "Pinch"
+        },
+        {
+          "name": "dash Vanilla Extract",
+          "quantity": "1"
+        },
+        {
+          "name": "Ground Oats",
+          "quantity": "150g"
+        },
+        {
+          "name": "Butter",
+          "quantity": "150g"
+        },
+        {
+          "name": "tablespoon Sugar Syrup",
+          "quantity": "1"
+        },
+        {
+          "name": "Strawberries",
+          "quantity": "3"
+        }
+      ],
+      "total_calories": 400,
+      "protein": 10.0,
+      "carbs": 40,
+      "fat": 8.0,
+      "category": "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 10,
+    "fields": {
+      "title": "Rømmegrøt – Norwegian Sour Cream Porridge",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. ▢\n2. Cook the sour cream in a covered saucepan on medium heat for about 5 minutes.\n3. ▢\n4. Turn down the heat and add half of the flour and stir well with a whisk. Once the flour is fully incorporated, let the mixture continue to cook, stirring occasionally, until fat starts to release. Use a spoon to gather as much of the fat as you can in a small bowl, saving for later. (Don't worry if you can't get any fat – in that case you can add butter later.)\n5. ▢\n6. Whisk in the rest of the flour and then slowly add the milk, whisking constantly to avoid lumps. Let the porridge continue to cook on low heat for 5 minutes and then add salt.\n7. ▢\n8. Serve with sugar, cinnamon, and the fat from the porridge. If you're using lower fat sour cream you can top the rømmegrøt with some butter instead.",
+      "image_url": "https://www.themealdb.com/images/media/meals/hyk47c1762772689.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "cups Full fat sour cream",
+          "quantity": "2"
+        },
+        {
+          "name": "cup Flour",
+          "quantity": "3/4"
+        },
+        {
+          "name": "cups Milk",
+          "quantity": "2"
+        },
+        {
+          "name": "tsp Salt",
+          "quantity": "1"
+        },
+        {
+          "name": "Sugar",
+          "quantity": "Sprinkling"
+        },
+        {
+          "name": "Cinnamon",
+          "quantity": "Sprinkling"
+        },
+        {
+          "name": "taste Butter",
+          "quantity": "To"
+        }
+      ],
+      "total_calories": 310,
+      "protein": 8.5,
+      "carbs": 34,
+      "fat": 7.1,
+      "category": "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 11,
+    "fields": {
+      "title": "Salmon Eggs Eggs Benedict",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. First make the Hollandaise sauce. Put the lemon juice and vinegar in a small bowl, add the egg yolks and whisk with a balloon whisk until light and frothy. Place the bowl over a pan of simmering water and whisk until mixture thickens. Gradually add the butter, whisking constantly until thick – if it looks like it might be splitting, then whisk off the heat for a few mins. Season and keep warm.\n2. To poach the eggs, bring a large pan of water to the boil and add the vinegar. Lower the heat so that the water is simmering gently. Stir the water so you have a slight whirlpool, then slide in the eggs one by one. Cook each for about 4 mins, then remove with a slotted spoon.\n3. Lightly toast and butter the muffins, then put a couple of slices of salmon on each half. Top each with an egg, spoon over some Hollandaise and garnish with chopped chives.",
+      "image_url": "https://www.themealdb.com/images/media/meals/1550440197.jpg",
+      "servings": 3,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Eggs",
+          "quantity": "4"
+        },
+        {
+          "name": "tbs White Wine Vinegar",
+          "quantity": "2"
+        },
+        {
+          "name": "English Muffins",
+          "quantity": "2"
+        },
+        {
+          "name": "serve Butter",
+          "quantity": "To"
+        },
+        {
+          "name": "slices Smoked Salmon",
+          "quantity": "8"
+        },
+        {
+          "name": "tsp Lemon Juice",
+          "quantity": "2"
+        },
+        {
+          "name": "tsp White Wine Vinegar",
+          "quantity": "2"
+        },
+        {
+          "name": "Yolkes Egg",
+          "quantity": "3"
+        },
+        {
+          "name": "Unsalted Butter",
+          "quantity": "125g"
+        }
+      ],
+      "total_calories": 370,
+      "protein": 9.5,
+      "carbs": 38,
+      "fat": 7.7,
+      "category": "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 12,
+    "fields": {
+      "title": "Smoked Haddock Kedgeree",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. Melt 50g butter in a large saucepan (about 20cm across), add 1 finely chopped medium onion and cook gently over a medium heat for 5 minutes, until softened but not browned.\n2. Stir in 3 split cardamom pods, ¼ tsp turmeric, 1 small cinnamon stick and 2 bay leaves, then cook for 1 minute.\n3. Tip in 450g basmati rice and stir until it is all well coated in the spicy butter.\n4. Pour in 1 litre chicken or fish stock, add ½ teaspoon salt and bring to the boil, stir once to release any rice from the bottom of the pan. Cover with a close-fitting lid, reduce the heat to low and leave to cook very gently for 12 minutes.\n5. Meanwhile, bring some water to the boil in a large shallow pan. Add 750g un-dyed smoked haddock fillet and simmer for 4 minutes, until the fish is just cooked. Lift it out onto a plate and leave until cool enough to handle.\n6. Hard-boil 3 eggs for 8 minutes.\n7. Flake the fish, discarding any skin and bones. Drain the eggs, cool slightly, then peel and chop.\n8. Uncover the rice and remove the bay leaves, cinnamon stick and cardamom pods if you wish to. Gently fork in the fish and the chopped eggs, cover again and return to the heat for 2-3 minutes, or until the fish has heated through.\n9. Gently stir in almost all the 3 tbsp chopped fresh parsley, and season with a little salt and black pepper to taste. Serve scattered with the remaining parsley and garnished with 1 lemon, cut into wedges.",
+      "image_url": "https://www.themealdb.com/images/media/meals/1550441275.jpg",
+      "servings": 4,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Butter",
+          "quantity": "50g"
+        },
+        {
+          "name": "chopped Onion",
+          "quantity": "1"
+        },
+        {
+          "name": "Pods Cardamom",
+          "quantity": "3"
+        },
+        {
+          "name": "tsp Turmeric",
+          "quantity": "1/4"
+        },
+        {
+          "name": "small Cinnamon Stick",
+          "quantity": "1"
+        },
+        {
+          "name": "of fresh Bay Leaf",
+          "quantity": "Sprigs"
+        },
+        {
+          "name": "Basmati Rice",
+          "quantity": "450g"
+        },
+        {
+          "name": "Litre Chicken Stock",
+          "quantity": "1"
+        },
+        {
+          "name": "Smoked Haddock",
+          "quantity": "750g"
+        },
+        {
+          "name": "Eggs",
+          "quantity": "3"
+        },
+        {
+          "name": "tblsp chopped Parsley",
+          "quantity": "3"
+        },
+        {
+          "name": "chopped Lemon",
+          "quantity": "1"
+        }
+      ],
+      "total_calories": 460,
+      "protein": 11.0,
+      "carbs": 44,
+      "fat": 8.6,
+      "category": "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 13,
+    "fields": {
+      "title": "Torrijas with sherry",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. step 1\n2. In a wide, shallow bowl, beat the eggs with the cream, milk, golden caster sugar and sherry. Cut each slice of bread in two and dip them into the egg mix, turning to make sure they get a good coating on either side. Soak bread in egg mixture for 10 mins to absorb the liquid (carefully turn them over from time to time and make sure they don’t get too soggy).\n3. step 2\n4. Heat 1½ tbsp olive oil in a large frying pan and cook the bread for about 3 mins on each side until dark golden and crisp on the edge. Keep the slices warm in a low oven as you cook the rest.\n5. step 3\n6. Divide the torrijas between plates and dust with the icing sugar. Serve with crème fraîche or Greek yogurt on the side.",
+      "image_url": "https://www.themealdb.com/images/media/meals/f3ee3y1763309332.jpg",
+      "servings": 3,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "medium Egg",
+          "quantity": "2"
+        },
+        {
+          "name": "tbsp Double Cream",
+          "quantity": "2"
+        },
+        {
+          "name": "tblsp Milk",
+          "quantity": "2"
+        },
+        {
+          "name": "tsp Golden Caster Sugar",
+          "quantity": "3"
+        },
+        {
+          "name": " tablespoons Sweet Sherry",
+          "quantity": "3"
+        },
+        {
+          "name": "thick slices Bread",
+          "quantity": "4"
+        },
+        {
+          "name": "frying Olive Oil",
+          "quantity": "For"
+        },
+        {
+          "name": "serve Icing Sugar",
+          "quantity": "To"
+        },
+        {
+          "name": "serve Creme Fraiche",
+          "quantity": "To"
+        }
+      ],
+      "total_calories": 370,
+      "protein": 9.5,
+      "carbs": 38,
+      "fat": 7.7,
+      "category": "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 14,
+    "fields": {
+      "title": "Ugali – Kenyan cornmeal",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. Bring the water to a boil in a medium saucepan.\n2. Reduce the heat to low, and stirring constantly with a whisk, slowly add the cornmeal to the boiling water. The ugali will begin to thicken quite quickly.\n3. Continue cooking on low heat, stirring constantly with a sturdy wooden spoon, until the ugali begins to pull away from the sides of the pan, hold together, and takes on the aroma of roasted corn. Turn it out immediately onto a serving plate. If you would like, using a spoon or spatula, quickly shape it into a thick disk or round.\n4. The ugali will continue to firm as it cools and will be thick enough to cut with a knife (similar to firm polenta).",
+      "image_url": "https://www.themealdb.com/images/media/meals/smoa3h1762341142.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "cups Water",
+          "quantity": "2"
+        },
+        {
+          "name": "1/2 cups White Cornmeal",
+          "quantity": "1"
+        }
+      ],
+      "total_calories": 160,
+      "protein": 6.0,
+      "carbs": 24,
+      "fat": 5.6,
+      "category": "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 15,
+    "fields": {
+      "title": "Yemeni Lahsa (Elite Shakshuka)",
+      "description": "A delicious breakfast recipe",
+      "instructions": "1. 1\n2. First, On medium heat, heat the olive oil and add the diced onion until it wethers. Next, add the tomatoes and cook for another 4-5 min. Lastly, add the all spice, salt, and cracked pepper.\n3. 2\n4. Add the eggs and mix throughly for 2 minutes and cover to cook 5-6 minutes until top is solidified. Lastly, spread the liquid cheese and have it covered for a minute.\n5. 3\n6. I served mine Mediterranean style with hash-browns, Egyptian fava beans, Turkish salami and olives, cheese wedges, and greek feta.",
+      "image_url": "https://www.themealdb.com/images/media/meals/30s7vf1763741844.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Egg",
+          "quantity": "5"
+        },
+        {
+          "name": "Diced Onion",
+          "quantity": "1"
+        },
+        {
+          "name": "Diced Tomato",
+          "quantity": "1"
+        },
+        {
+          "name": "tablespoons Olive Oil",
+          "quantity": "2"
+        },
+        {
+          "name": "tsp Allspice",
+          "quantity": "1/4"
+        },
+        {
+          "name": "tsp Black Pepper",
+          "quantity": "1/4"
+        },
+        {
+          "name": " tablespoons Liquid Cheese",
+          "quantity": "3"
+        }
+      ],
+      "total_calories": 310,
+      "protein": 8.5,
+      "carbs": 34,
+      "fat": 7.1,
+      "category": "breakfast",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 16,
+    "fields": {
+      "title": "Arroz con gambas y calamar",
+      "description": "A delicious lunch recipe",
+      "instructions": "1. step 1\n2. Peel and devein most of the prawns (a fishmonger should be able to do this for you), keeping a few whole for decoration, if you like. Heat the olive oil in a large frying pan or shallow flameproof casserole over a medium-low heat and fry the onion for 5 mins until softened. Add the bay leaf, saffron, rice and tomato purée, and cook for 1-2 mins more, stirring.\n3. step 2\n4. Pour in the wine and bubble for 1-2 mins, then pour in the seafood stock and 150ml water. Cook for 5 mins, then add the squid, season well and stir to combine. Bring to the boil, then cover and reduce the heat to a gentle simmer. Cook for 12 mins more, adding a little more water if the mixture starts to look dry.\n5. step 3\n6. Uncover the pan and stir through the peeled prawns, then arrange any whole prawns on top of the rice mixture. Cover again and simmer for a further 5-6 mins until the prawns are pink and cooked through. Leave to stand for a couple of minutes before serving from the pan.",
+      "image_url": "https://www.themealdb.com/images/media/meals/jc6oub1763196663.jpg",
+      "servings": 3,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Raw King Prawns",
+          "quantity": "24"
+        },
+        {
+          "name": "tbsp Olive Oil",
+          "quantity": "2"
+        },
+        {
+          "name": "small Onion",
+          "quantity": "1"
+        },
+        {
+          "name": "Bay Leaf",
+          "quantity": "1"
+        },
+        {
+          "name": "pinch Saffron",
+          "quantity": "1"
+        },
+        {
+          "name": "Paella Rice",
+          "quantity": "450g"
+        },
+        {
+          "name": "teaspoons Tomato Puree",
+          "quantity": "2"
+        },
+        {
+          "name": "White Wine",
+          "quantity": "200ml"
+        },
+        {
+          "name": "Seafood stock",
+          "quantity": "650ml"
+        },
+        {
+          "name": "Medium Squid",
+          "quantity": "3"
+        }
+      ],
+      "total_calories": 400,
+      "protein": 10.0,
+      "carbs": 40,
+      "fat": 8.0,
+      "category": "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 17,
+    "fields": {
+      "title": "Baked salmon with fennel & tomatoes",
+      "description": "A delicious lunch recipe",
+      "instructions": "1. Heat oven to 180C/fan 160C/gas 4. Trim the fronds from the fennel and set aside. Cut the fennel bulbs in half, then cut each half into 3 wedges. Cook in boiling salted water for 10 mins, then drain well. Chop the fennel fronds roughly, then mix with the parsley and lemon zest.\n2. Spread the drained fennel over a shallow ovenproof dish, then add the tomatoes. Drizzle with olive oil, then bake for 10 mins. Nestle the salmon among the veg, sprinkle with lemon juice, then bake 15 mins more until the fish is just cooked. Scatter over the parsley and serve.",
+      "image_url": "https://www.themealdb.com/images/media/meals/1548772327.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "medium Fennel",
+          "quantity": "2"
+        },
+        {
+          "name": "tbs chopped Parsley",
+          "quantity": "2"
+        },
+        {
+          "name": "of 1 Lemon",
+          "quantity": "Juice"
+        },
+        {
+          "name": "Cherry Tomatoes",
+          "quantity": "175g"
+        },
+        {
+          "name": "tbs Olive Oil",
+          "quantity": "1"
+        },
+        {
+          "name": "Salmon",
+          "quantity": "350g"
+        },
+        {
+          "name": "serve Black Olives",
+          "quantity": "to"
+        }
+      ],
+      "total_calories": 310,
+      "protein": 8.5,
+      "carbs": 34,
+      "fat": 7.1,
+      "category": "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 18,
+    "fields": {
+      "title": "Bang bang prawn salad",
+      "description": "A delicious lunch recipe",
+      "instructions": "1. step 1\n2. Cook the noodles following pack instructions, then rinse under cold water and drain thoroughly. In a small saucepan melt together the peanut butter, coconut milk, sweet chilli sauce and half the spring onions, adding 1-2 tbsp of water to loosen the mixture to a drizzling consistency.\n3. step 2\n4. Mix the noodles, cucumber and beansprouts in a serving dish. Top with the prawns, drizzle over the peanut sauce and scatter over the remaining spring onions.",
+      "image_url": "https://www.themealdb.com/images/media/meals/4xcfai1763765676.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Rice Noodles",
+          "quantity": "140g"
+        },
+        {
+          "name": "tablespoons Peanut Butter",
+          "quantity": "3"
+        },
+        {
+          "name": "tablespoons Coconut Milk",
+          "quantity": "4"
+        },
+        {
+          "name": " tablespoons sweet chilli sauce",
+          "quantity": "3"
+        },
+        {
+          "name": "sliced thinly Spring Onions",
+          "quantity": "3"
+        },
+        {
+          "name": "sliced Cucumber",
+          "quantity": "1"
+        },
+        {
+          "name": "Bean Sprouts",
+          "quantity": "300g"
+        },
+        {
+          "name": "Prawns",
+          "quantity": "200g"
+        }
+      ],
+      "total_calories": 340,
+      "protein": 9.0,
+      "carbs": 36,
+      "fat": 7.4,
+      "category": "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 19,
+    "fields": {
+      "title": "Barramundi with Moroccan spices",
+      "description": "A delicious lunch recipe",
+      "instructions": "1. step 1\n2. Tip all the dressing ingredients into a food processor with a pinch of salt and blitz to a dressing. Slash the fish three times on each side, coat with half of the dressing, then set aside to marinate for about 30 mins.\n3. step 2\n4. Heat oven to 220C/fan 200C/gas 7. Place the fish on a roasting tray, then cook in the oven for 20 mins until the flesh is firm and the eyes have turned white. Serve the fish with the rest of the dressing and steamed couscous or rice.\n5. step 3\n6. KNOW HOW: HOW TO COOK IT: Cooking barramundi on the bone, as we have done here, has its advantages – it will stay more moist during cooking, and some would say that the flavour is enhanced, too. If you want to take out the bones they are easy to locate and less likely to be lodged in the fillet if the fish is cooked whole. Fillets can be simply pan-fried or grilled. If you like trout, you will really enjoy the flavour of barramundi, which lends itself to similar ingredients and cooking methods – citrus flavours are particularly good, as are garlic and wild mushrooms. Simply roasting the fish with some fresh herbs, olive oil and seasoning is delicious, and in the summer months you could barbecue it, too. One thing that you mustn’t miss are the cheeks or ‘pearls’ of the fish, these are simply lovely, moist and really sweet – well worth leaving the head on for!",
+      "image_url": "https://www.themealdb.com/images/media/meals/4o4wh11761848573.jpg",
+      "servings": 3,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "x 400g barramundi",
+          "quantity": "2"
+        },
+        {
+          "name": "teaspoon Ground Cumin",
+          "quantity": "1/2"
+        },
+        {
+          "name": "tsp Coriander",
+          "quantity": "1/2"
+        },
+        {
+          "name": "Paprika",
+          "quantity": "Pinch"
+        },
+        {
+          "name": "Chili Powder",
+          "quantity": "Pinch"
+        },
+        {
+          "name": "Garlic Clove",
+          "quantity": "2"
+        },
+        {
+          "name": "of 1 Lemon",
+          "quantity": "Juice"
+        },
+        {
+          "name": "tablespoons Olive Oil",
+          "quantity": "5"
+        },
+        {
+          "name": "Coriander",
+          "quantity": "Bunch"
+        }
+      ],
+      "total_calories": 370,
+      "protein": 9.5,
+      "carbs": 38,
+      "fat": 7.7,
+      "category": "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 20,
+    "fields": {
+      "title": "Cajun spiced fish tacos",
+      "description": "A delicious lunch recipe",
+      "instructions": "1. Cooking in a cajun spice and cayenne pepper marinade makes this fish super succulent and flavoursome. Top with a zesty dressing and serve in a tortilla for a quick, fuss-free main that's delightfully summery.\n2. On a large plate, mix the cajun spice and cayenne pepper with a little seasoning and use to coat the fish all over.\n3. Heat a little oil in a frying pan, add in the fish and cook over a medium heat until golden. Reduce the heat and continue frying until the fish is cooked through, about 10 minutes. Cook in batches if you don’t have enough room in the pan.\n4. Meanwhile, prepare the dressing by combining all the ingredients with a little seasoning.\n5. Soften the tortillas by heating in the microwave for 5-10 seconds. Pile high with the avocado, lettuce and spring onion, add a spoonful of salsa, top with large flakes of fish and drizzle over the dressing.",
+      "image_url": "https://www.themealdb.com/images/media/meals/uvuyxu1503067369.jpg",
+      "servings": 4,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "tbsp cajun",
+          "quantity": "2"
+        },
+        {
+          "name": "tsp cayenne pepper",
+          "quantity": "1"
+        },
+        {
+          "name": "fillets white fish",
+          "quantity": "4"
+        },
+        {
+          "name": "tsp vegetable oil",
+          "quantity": "1"
+        },
+        {
+          "name": "flour tortilla",
+          "quantity": "8"
+        },
+        {
+          "name": "sliced avocado",
+          "quantity": "1"
+        },
+        {
+          "name": "shredded little gem lettuce",
+          "quantity": "2"
+        },
+        {
+          "name": "shredded Spring Onions",
+          "quantity": "4"
+        },
+        {
+          "name": "x 300ml salsa",
+          "quantity": "1"
+        },
+        {
+          "name": "pot sour cream",
+          "quantity": "1"
+        },
+        {
+          "name": "lemon",
+          "quantity": "1"
+        },
+        {
+          "name": "clove finely chopped garlic",
+          "quantity": "1"
+        }
+      ],
+      "total_calories": 460,
+      "protein": 11.0,
+      "carbs": 44,
+      "fat": 8.6,
+      "category": "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 21,
+    "fields": {
+      "title": "Clam, chorizo & white bean stew",
+      "description": "A delicious lunch recipe",
+      "instructions": "1. step 1\n2. Fry the chorizo in a large frying pan with a lid, over a medium heat until it is starting to crisp up and release its oil. Add the onion and cook for 5 mins until starting to soften. Then add the garlic and finely chopped parsley, and fry for 1 min more.\n3. step 2\n4. Pour on the stock and tomatoes. Bring to the boil, reduce the heat, then add the beans and sherry vinegar. Simmer for 10 mins until the liquid is slightly reduced.\n5. step 3\n6. Scatter over the clams, cover with the lid and steam for 2-4 mins, shaking the pan occasionally until the clams are open. Have a little taste before seasoning, as the clams can be quite salty. Then scatter over the chopped parsley. Eat with lots of crusty bread.",
+      "image_url": "https://www.themealdb.com/images/media/meals/92wbmf1763252334.jpg",
+      "servings": 3,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Chorizo",
+          "quantity": "50g"
+        },
+        {
+          "name": "chopped Onion",
+          "quantity": "1"
+        },
+        {
+          "name": "Garlic Clove",
+          "quantity": "1"
+        },
+        {
+          "name": "Parsley",
+          "quantity": "Bunch"
+        },
+        {
+          "name": "Vegetable Stock",
+          "quantity": "200ml"
+        },
+        {
+          "name": "Tinned Tomatos",
+          "quantity": "400g"
+        },
+        {
+          "name": "Butter Beans",
+          "quantity": "400g"
+        },
+        {
+          "name": "teaspoon Sherry vinegar",
+          "quantity": "1"
+        },
+        {
+          "name": "Clams",
+          "quantity": "600g"
+        },
+        {
+          "name": "serve Crusty Bread",
+          "quantity": "To"
+        }
+      ],
+      "total_calories": 400,
+      "protein": 10.0,
+      "carbs": 40,
+      "fat": 8.0,
+      "category": "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 22,
+    "fields": {
+      "title": "Egg Foo Young",
+      "description": "A delicious lunch recipe",
+      "instructions": "1. Make the gravy:\n2. In a small saucepan, add the beef stock, soy sauce, Shaoxing wine, oyster sauce, and white pepper powder over medium heat. Whisk together and bring to a simmer.\n3. Combine the cornstarch and water in a small bowl and whisk to dissolve. Add to the saucepan and whisk until the gravy thickens and coats the back of the spoon, 2 to 3 minutes. Cover the saucepan with a lid and keep it warm on the lowest possible heat.\n4. Make the egg foo young batter:\n5. In a medium bowl, whisk together the cornstarch and water until dissolved. Add the eggs, salt, and sugar. Whisk until well combined and there are no more egg white clumps.\n6. Add the green onion, bean sprouts, and shrimp. Stir until everything is evenly coated.\n7. Fry the egg foo young:\n8. Add the vegetable oil to a large wok; it should reach about 2 inches up the sides. Heat the oil over medium-high heat to 350°F, or until vigorous bubbles form around an inserted wooden chopstick.\n9. With a ladle, gently and slowly add 1/4 of the omelet batter. Egg foo young should immediately bubble and puff up like magic. Fry until golden brown and crispy on each side, about 2 minutes per side. If there are any light spots, use a ladle to gently baste it with hot oil.\n10. Tip\n11. Egg foo young can be a bit tricky to flip. The easiest method is to put a tool in each hand (a spider, slotted spoon, tongs, and large chopsticks are all good candidates) and gently coax the omelet over, pulling up on one side and pushing down and around on the other.\n12. Remove the omelet and place it on a paper towel-lined baking sheet. Let it cool for 5 minutes. Meanwhile, repeat with the remaining batter to make 4 omelets. If needed, add more oil to the pan between batches.\n13. Serve and enjoy:\n14. Plate each egg foo young over a bed of rice. Spoon the warm gravy over the top and serve immediately.",
+      "image_url": "https://www.themealdb.com/images/media/meals/47y6ii1765658818.jpg",
+      "servings": 5,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "cup Unsalted Beef Stock",
+          "quantity": "1"
+        },
+        {
+          "name": "tablespoon Soy Sauce",
+          "quantity": "1"
+        },
+        {
+          "name": "tablespoon Shaoxing Wine",
+          "quantity": "1"
+        },
+        {
+          "name": "tablespoon Oyster Sauce",
+          "quantity": "1"
+        },
+        {
+          "name": "tsp Pepper",
+          "quantity": "1/2"
+        },
+        {
+          "name": "tablespoon Cornstarch",
+          "quantity": "1"
+        },
+        {
+          "name": "tablespoon Water",
+          "quantity": "1"
+        },
+        {
+          "name": "tablespoon Cornstarch",
+          "quantity": "1"
+        },
+        {
+          "name": "tablespoon Water",
+          "quantity": "1"
+        },
+        {
+          "name": "large Egg",
+          "quantity": "8"
+        },
+        {
+          "name": "tsp Kosher Salt",
+          "quantity": "1/2"
+        },
+        {
+          "name": "tsp Sugar",
+          "quantity": "1/4"
+        },
+        {
+          "name": "Spring Onions",
+          "quantity": "1"
+        },
+        {
+          "name": "cup Mung Bean Sprouts",
+          "quantity": "1"
+        },
+        {
+          "name": "Shrimp",
+          "quantity": "20"
+        },
+        {
+          "name": "Cups Vegetable Oil",
+          "quantity": "3"
+        },
+        {
+          "name": "cups Jasmine Rice",
+          "quantity": "2"
+        }
+      ],
+      "total_calories": 610,
+      "protein": 13.5,
+      "carbs": 54,
+      "fat": 10.1,
+      "category": "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 23,
+    "fields": {
+      "title": "Escovitch Fish",
+      "description": "A delicious lunch recipe",
+      "instructions": "1. Rinse fish; rub with lemon or lime, seasoned with salt and pepper or use your favorite seasoning. I used creole seasoning. Set aside or place in the oven to keep it warm until sauce is ready.\n2. In large skillet heat oil over medium heat, until hot, add the fish, cook each side- for about 5-7 minutes until cooked through and crispy on both sides. Remove fish and set aside. Drain oil and leave about 2-3 tablespoons of oil\n3. Add, bay leave, garlic and ginger, stir-fry for about a minute making sure the garlic does not burn\n4. Then add onion, bell peppers, thyme, scotch bonnet, sugar, all spice-continue stirring for about 2-3 minutes. Add vinegar, mix an adjust salt and pepper according to preference. Let it simmer for about 2 more minutes.\n5. Discard bay leave, thyme spring and serve over fish with a side of this bammy. You may make the sauce about 2 days in advance.",
+      "image_url": "https://www.themealdb.com/images/media/meals/1520084413.jpg",
+      "servings": 5,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Pounds Red Snapper",
+          "quantity": "2"
+        },
+        {
+          "name": "cup Vegetable Oil",
+          "quantity": "1/2"
+        },
+        {
+          "name": "clove peeled crushed Garlic",
+          "quantity": "1"
+        },
+        {
+          "name": "tsp Ginger",
+          "quantity": "1/2"
+        },
+        {
+          "name": "sprigs Thyme",
+          "quantity": "2"
+        },
+        {
+          "name": "Bay Leaf",
+          "quantity": "1"
+        },
+        {
+          "name": "Red Pepper",
+          "quantity": "0.5"
+        },
+        {
+          "name": "Yellow Pepper",
+          "quantity": "0.5"
+        },
+        {
+          "name": "sliced Onion",
+          "quantity": "1"
+        },
+        {
+          "name": "chopped Carrots",
+          "quantity": "1"
+        },
+        {
+          "name": "tbs Sugar",
+          "quantity": "1"
+        },
+        {
+          "name": "tsp Allspice",
+          "quantity": "1/2"
+        },
+        {
+          "name": "tsp Worcestershire Sauce",
+          "quantity": "1"
+        },
+        {
+          "name": "Scotch Bonnet",
+          "quantity": "1"
+        },
+        {
+          "name": "Lime",
+          "quantity": "1"
+        },
+        {
+          "name": "cup Malt Vinegar",
+          "quantity": "3/4"
+        },
+        {
+          "name": "Pepper",
+          "quantity": "pinch"
+        }
+      ],
+      "total_calories": 610,
+      "protein": 13.5,
+      "carbs": 54,
+      "fat": 10.1,
+      "category": "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 24,
+    "fields": {
+      "title": "Fish fofos",
+      "description": "A delicious lunch recipe",
+      "instructions": "1. STEP 1\n2. Put the fish into a lidded pan and pour over enough water to cover. Bring to a simmer and gently poach for 10 minutes over a low heat with the lid on. Drain and flake the fish.\n3. STEP 2\n4. Put the fish, potato, green chilli, coriander, cumin, black pepper, garlic and ginger in a large bowl. Season, add the rice flour, mix well and break in 1 egg. Stir the mixture and divide into 15, then form into small logs. Break the remaining eggs into a bowl and whisk lightly. Put the breadcrumbs into another bowl. Dip each fofo in the beaten egg followed by the breadcrumb mixture. Chill for 20 minutes.\n5. STEP 3\n6. Heat 1cm of oil in a large frying pan over a medium heat. Fry the fofos in batches for 2 minutes on each side, turning gently to get an even golden brown colour all over. Drain on kitchen paper and repeat with the remaining fofos.\n7. STEP 4\n8. For the onion salad, mix together the onion, coriander and lemon juice with a pinch of salt. Serve with the fofos and mango chutney.",
+      "image_url": "https://www.themealdb.com/images/media/meals/a15wsa1614349126.jpg",
+      "servings": 4,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Haddock",
+          "quantity": "600g"
+        },
+        {
+          "name": "Potatoes",
+          "quantity": "300g"
+        },
+        {
+          "name": "chopped Green Chilli",
+          "quantity": "1"
+        },
+        {
+          "name": "tbs Coriander",
+          "quantity": "3"
+        },
+        {
+          "name": "tsp Cumin Seeds",
+          "quantity": "1"
+        },
+        {
+          "name": "tsp Pepper",
+          "quantity": "1/2"
+        },
+        {
+          "name": "cloves Garlic",
+          "quantity": "3"
+        },
+        {
+          "name": "pieces Ginger",
+          "quantity": "2"
+        },
+        {
+          "name": "tbs Flour",
+          "quantity": "2"
+        },
+        {
+          "name": "Eggs",
+          "quantity": "3"
+        },
+        {
+          "name": "Breadcrumbs",
+          "quantity": "75g"
+        },
+        {
+          "name": "frying Vegetable Oil",
+          "quantity": "For"
+        }
+      ],
+      "total_calories": 460,
+      "protein": 11.0,
+      "carbs": 44,
+      "fat": 8.6,
+      "category": "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 25,
+    "fields": {
+      "title": "Fish pie",
+      "description": "A delicious lunch recipe",
+      "instructions": "1. 01.Put the potatoes in a large pan of cold salted water and bring to the boil. Lower the heat, cover, then simmer gently for 15 minutes until tender. Drain, then return to the pan over a low heat for 30 seconds to drive off any excess water. Mash with 1 tbsp olive oil, then season.\n2. 02.Meanwhile put the milk in a large sauté pan, add the fish and bring to the boil. Remove from the heat, cover and stand for 3 minutes. Remove the fish (reserving the milk) and pat dry with kitchen paper, then gently flake into an ovenproof dish, discarding the skin and any bones.\n3. 03.Heat the remaining oil in a pan, stir in the flour and cook for 30 seconds. Gradually stir in 200-250ml of the reserved milk (discard the rest). Grate in nutmeg, season, then bubble until thick. Stir in the cream.\n4. 04.Preheat the oven to 190°C/fan170°C/gas 5. Grate the artichokes and add to the dish with the leek, prawns and herbs. Stir the lemon zest and juice into the sauce, then pour over. Mix gently with a wooden spoon.\n5. 05.Spoon the mash onto the fish mixture, then use a fork to make peaks, which will crisp and brown as it cooks. Sprinkle over the cheese, then bake for 35-40 minutes until golden and bubbling. Serve with wilted greens.",
+      "image_url": "https://www.themealdb.com/images/media/meals/ysxwuq1487323065.jpg",
+      "servings": 5,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Floury Potatoes",
+          "quantity": "900g"
+        },
+        {
+          "name": "tbsp Olive Oil",
+          "quantity": "2"
+        },
+        {
+          "name": "Semi-skimmed Milk",
+          "quantity": "600ml"
+        },
+        {
+          "name": "White Fish Fillets",
+          "quantity": "800g"
+        },
+        {
+          "name": "tbsp Plain flour",
+          "quantity": "1"
+        },
+        {
+          "name": "Nutmeg",
+          "quantity": "Grating"
+        },
+        {
+          "name": "tbsp Double Cream",
+          "quantity": "3"
+        },
+        {
+          "name": "Jerusalem Artichokes",
+          "quantity": "200g"
+        },
+        {
+          "name": "finely sliced Leek",
+          "quantity": "1"
+        },
+        {
+          "name": "peeled raw Prawns",
+          "quantity": "200g"
+        },
+        {
+          "name": "handful Parsley",
+          "quantity": "Large"
+        },
+        {
+          "name": "Dill",
+          "quantity": "Handful"
+        },
+        {
+          "name": "zest of 1 Lemon",
+          "quantity": "Grated"
+        },
+        {
+          "name": "grated Gruyère",
+          "quantity": "25g"
+        },
+        {
+          "name": "of 1 Lemon",
+          "quantity": "Juice"
+        }
+      ],
+      "total_calories": 550,
+      "protein": 12.5,
+      "carbs": 50,
+      "fat": 9.5,
+      "category": "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 26,
+    "fields": {
+      "title": "Fish Soup (Ukha)",
+      "description": "A delicious lunch recipe",
+      "instructions": "1. In a medium pot, heat the olive oil over medium-high heat. Add the onions and cook, stirring occasionally until the onions start to caramelize. Add the carrots and cook until the carrots start to soften, about 4 more minutes.\n2. Add the stock, water, potatoes, bay leaves, and black peppercorns. Season with salt and bring to a boil. Reduce heat, cover and cook for 10 minutes. Add the millet and cook for 15 more minutes until millet and potatoes are cooked.\n3. Gently add the fish cubes. Stir and bring the soup to a simmer. The fish will cook through very fast, so make sure to not overcook them. They are done when the flesh is opaque and flakes easily.\n4. Garnish the soup with chopped fresh dill or parsley before serving.",
+      "image_url": "https://www.themealdb.com/images/media/meals/7n8su21699013057.jpg",
+      "servings": 3,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "tbs Olive Oil",
+          "quantity": "2"
+        },
+        {
+          "name": "sliced Onion",
+          "quantity": "1"
+        },
+        {
+          "name": "medium Carrots",
+          "quantity": "2"
+        },
+        {
+          "name": "cups Fish Stock",
+          "quantity": "3"
+        },
+        {
+          "name": "cups Water",
+          "quantity": "3"
+        },
+        {
+          "name": "large Potatoes",
+          "quantity": "4"
+        },
+        {
+          "name": "Bay Leaf",
+          "quantity": "3"
+        },
+        {
+          "name": "Cod",
+          "quantity": "1"
+        },
+        {
+          "name": "Salmon",
+          "quantity": "1"
+        }
+      ],
+      "total_calories": 370,
+      "protein": 9.5,
+      "carbs": 38,
+      "fat": 7.7,
+      "category": "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 27,
+    "fields": {
+      "title": "Fish Stew with Rouille",
+      "description": "A delicious lunch recipe",
+      "instructions": "1. Twist the heads from the prawns, then peel away the legs and shells, but leave the tails intact. Devein each prawn. Fry the shells in 1 tbsp oil for 5 mins, until dark pink and golden in patches. Add the wine, boil down by two thirds, then pour in the stock. Strain into a jug, discarding the shells.\n2. Heat the rest of the oil in a deep frying pan or casserole. Add the fennel, onion and garlic, season, then cover and gently cook for 10 mins until softened. Meanwhile, peel the potato and cut into 2cm-ish chunks. Put into a pan of cold water, bring to the boil and cook for 5 mins until almost tender. Drain in a colander.\n3. Peel a strip of zest from the orange. Put the zest, star anise, bay and ½ tsp harissa into the pan. Fry gently, uncovered, for 5-10 mins, until the vegetables are soft, sweet and golden.\n4. Stir in the tomato purée, cook for 2 mins, then add the tomatoes and stock. Simmer for 10 mins until the sauce thickens slightly. Season to taste. The sauce can be made ahead, then reheated later in the day. Meantime, scrub the mussels or clams and pull away any stringy beards. Any that are open should be tapped sharply on the worktop – if they don’t close after a few seconds, discard them.\n5. Reheat the sauce if necessary, then stir the potato, chunks of fish and prawns very gently into the stew. Bring back to the boil, then cover and gently simmer for 3 mins. Scatter the mussels or clams over the stew, then cover and cook for 2 mins more or until the shells have opened wide. Discard any that remain closed. The chunks of fish should flake easily and the prawns should be pink through. Scatter with the thyme leaves.\n6. To make the quick rouille, stir the rest of the harissa through the mayonnaise. Serve the stew in bowls, topped with spoonfuls of rouille, which will melt into the sauce and enrich it. Have some good bread ready, as you’ll definitely want to mop up the juices.",
+      "image_url": "https://www.themealdb.com/images/media/meals/vptqpw1511798500.jpg",
+      "servings": 6,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "large Prawns",
+          "quantity": "6"
+        },
+        {
+          "name": "tbs Olive Oil",
+          "quantity": "3"
+        },
+        {
+          "name": "Dry White Wine",
+          "quantity": "150ml"
+        },
+        {
+          "name": "Fish Stock",
+          "quantity": "200ml"
+        },
+        {
+          "name": "small finely diced Fennel",
+          "quantity": "1"
+        },
+        {
+          "name": "small finely diced Onion",
+          "quantity": "1"
+        },
+        {
+          "name": "cloves Chopped Garlic",
+          "quantity": "3"
+        },
+        {
+          "name": "large Potatoes",
+          "quantity": "1"
+        },
+        {
+          "name": "Orange",
+          "quantity": "1"
+        },
+        {
+          "name": "Star Anise",
+          "quantity": "1"
+        },
+        {
+          "name": "Bay Leaf",
+          "quantity": "1"
+        },
+        {
+          "name": "1/2 tsp Harissa Spice",
+          "quantity": "1"
+        },
+        {
+          "name": "tbs Tomato Puree",
+          "quantity": "2"
+        },
+        {
+          "name": "Chopped Tomatoes",
+          "quantity": "400g"
+        },
+        {
+          "name": "Mussels",
+          "quantity": "Handful"
+        },
+        {
+          "name": "White Fish",
+          "quantity": "200g"
+        },
+        {
+          "name": "Thyme",
+          "quantity": "2"
+        },
+        {
+          "name": "serve Bread",
+          "quantity": "to"
+        }
+      ],
+      "total_calories": 640,
+      "protein": 14.0,
+      "carbs": 56,
+      "fat": 10.4,
+      "category": "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 28,
+    "fields": {
+      "title": "Fiskesuppe (Creamy Norwegian Fish Soup)",
+      "description": "A delicious lunch recipe",
+      "instructions": "1. ▢\n2. Cut the fish fillets in cubes or strips. Crush or chop the garlic. Rinse the vegetables and cut into thin strips.\n3. ▢\n4. Heat the butter in a pot and add the garlic. Once the garlic starts to turn golden add the flour, whisking well.\n5. ▢\n6. Add the fish stock and continue to whisk until there are no lumps.\n7. ▢\n8. Add the vegetables and milk and bring to a boil. Cook for about 10 minutes.\n9. ▢\n10. Add the crème fraîche (or sour cream). Bring the soup back to a simmer and once the soup begins to bubble again turn off the heat. Keep the soup on the burner and add the fish. Let the fish cook in the hot soup for 5 minutes. If using shrimp, add right before serving.\n11. ▢\n12. Sprinkle with chives (or dill or parsley) before serving.",
+      "image_url": "https://www.themealdb.com/images/media/meals/raqjbj1762773035.jpg",
+      "servings": 4,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "lb Fish fillet",
+          "quantity": "1"
+        },
+        {
+          "name": "clove Garlic",
+          "quantity": "1"
+        },
+        {
+          "name": "medium Potatoes",
+          "quantity": "2"
+        },
+        {
+          "name": "Carrots",
+          "quantity": "2"
+        },
+        {
+          "name": "Leek",
+          "quantity": "1"
+        },
+        {
+          "name": " tablespoons Butter",
+          "quantity": "3"
+        },
+        {
+          "name": "tablespoons Flour",
+          "quantity": "5"
+        },
+        {
+          "name": "cups Fish Stock",
+          "quantity": "4"
+        },
+        {
+          "name": "cup Milk",
+          "quantity": "1"
+        },
+        {
+          "name": "1/4 cup Creme Fraiche",
+          "quantity": "1"
+        },
+        {
+          "name": "cup Shrimp",
+          "quantity": "1"
+        },
+        {
+          "name": "tablespoon Chives",
+          "quantity": "1"
+        }
+      ],
+      "total_calories": 460,
+      "protein": 11.0,
+      "carbs": 44,
+      "fat": 8.6,
+      "category": "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 29,
+    "fields": {
+      "title": "Fried calamari",
+      "description": "A delicious lunch recipe",
+      "instructions": "1. step 1\n2. Cut the squid into rings about ½cm thick. Tip the flour into a freezer bag and season well. Add the capers, then give everything a good shake to mix together. Tip the squid into the bag, then shake again until all the rings are well coated. Mix together the garlic and mayonnaise, then place in a serving bowl.\n3. step 2\n4. Pour some oil into a large pan until it comes about 7cm up the sides, but the pan is no more than a third full. Place over a medium heat and let the oil warm up. To test that the oil is ready, place a small piece of bread in the pan – it should sizzle when it touches the oil.\n5. step 3\n6. Remove a handful of squid from the flour and shake off any excess. Gently drop into the oil, then cook for about 3 mins until crisp. Remove with a slotted spoon and place on kitchen paper. Repeat with the remaining squid. Serve straight away with the mayonnaise and lemon wedges.",
+      "image_url": "https://www.themealdb.com/images/media/meals/yhi46r1763330279.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Squid",
+          "quantity": "300g"
+        },
+        {
+          "name": "Plain Flour",
+          "quantity": "200g"
+        },
+        {
+          "name": "tblsp Capers",
+          "quantity": "2"
+        },
+        {
+          "name": "clove peeled crushed Garlic",
+          "quantity": "1"
+        },
+        {
+          "name": "tblsp Mayonnaise",
+          "quantity": "5"
+        },
+        {
+          "name": "frying Vegetable Oil",
+          "quantity": "For"
+        },
+        {
+          "name": "serve Lemon",
+          "quantity": "To"
+        }
+      ],
+      "total_calories": 310,
+      "protein": 8.5,
+      "carbs": 34,
+      "fat": 7.1,
+      "category": "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 30,
+    "fields": {
+      "title": "Gambas al ajillo",
+      "description": "A delicious lunch recipe",
+      "instructions": "1. step 1\n2. Peel the prawns, leaving the tails intact, and, using a cocktail stick, remove the digestive tracts. Or, if you are using a frying pan rather than a terracotta pot, you can cook the prawns in their shells. Season with a little sea salt.\n3. step 2\n4. Put the garlic, olive oil and chillies in a flameproof terracotta pot or frying pan and set over a high heat. When the garlic starts to turn golden, add the prawns and cook for 1-2 mins on each side until just pink. Sprinkle over the chopped parsley and some freshly cracked black pepper, and serve immediately. If using a terracotta pot, you can take that straight to the table, but be careful with it as the oil and terracotta will remain hot for several minutes.",
+      "image_url": "https://www.themealdb.com/images/media/meals/ze8uwg1763196123.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Raw King Prawns",
+          "quantity": "12"
+        },
+        {
+          "name": "Garlic Clove",
+          "quantity": "3"
+        },
+        {
+          "name": "ml Olive Oil",
+          "quantity": "100"
+        },
+        {
+          "name": "Cayenne Pepper",
+          "quantity": "3"
+        },
+        {
+          "name": "tablespoon chopped Parsley",
+          "quantity": "1"
+        }
+      ],
+      "total_calories": 250,
+      "protein": 7.5,
+      "carbs": 30,
+      "fat": 6.5,
+      "category": "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 31,
+    "fields": {
+      "title": "Garides Saganaki",
+      "description": "A delicious lunch recipe",
+      "instructions": "1. Place the prawns in a pot and add enough water to cover. Boil for 5 minutes. Drain, reserving the liquid, and set aside.\n2. Heat 2 tablespoons of oil in a saucepan. Add the onion; cook and stir until soft. Mix in the parsley, wine, tomatoes, garlic and remaining olive oil. Simmer, stirring occasionally, for about 30 minutes, or until the sauce is thickened.\n3. While the sauce is simmering, the prawns should become cool enough to handle. First remove the legs by pinching them, and then pull off the shells, leaving the head and tail on.\n4. When the sauce has thickened, stir in the prawns. Bring to a simmer again if the sauce has cooled with the prawns, and cook for about 5 minutes. Add the feta and remove from the heat. Let stand until the cheese starts to melt. Serve warm with slices of crusty bread.\n5. Though completely untraditional, you can add a few tablespoons of stock or passata to this recipe to make a delicious pasta sauce. Toss with pasta after adding the feta, and serve.",
+      "image_url": "https://www.themealdb.com/images/media/meals/wuvryu1468232995.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Raw king prawns",
+          "quantity": "500g"
+        },
+        {
+          "name": "tablespoons Olive oil",
+          "quantity": "3"
+        },
+        {
+          "name": "Chopped onion",
+          "quantity": "1"
+        },
+        {
+          "name": "Freshly chopped parsley",
+          "quantity": "pinch"
+        },
+        {
+          "name": "White wine",
+          "quantity": "250ml"
+        },
+        {
+          "name": "(400g) tin Chopped tomatoes",
+          "quantity": "1"
+        },
+        {
+          "name": "teaspoon Minced garlic",
+          "quantity": "1/2"
+        },
+        {
+          "name": "(200g) pack Cubed Feta cheese",
+          "quantity": "1"
+        }
+      ],
+      "total_calories": 340,
+      "protein": 9.0,
+      "carbs": 36,
+      "fat": 7.4,
+      "category": "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 32,
+    "fields": {
+      "title": "Garlicky prawns with sherry",
+      "description": "A delicious lunch recipe",
+      "instructions": "1. step 1\n2. Heat the olive oil in a large frying pan. Tip in the garlic slices and cook for a few secs. Then stir through the prawns and cook for a couple of mins until they start to turn pink.\n3. step 2\n4. Pour over the sherry and cook for a few mins more, just until the prawns are cooked through. Sprinkle with parsley before serving.",
+      "image_url": "https://www.themealdb.com/images/media/meals/u2lhqb1763331899.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": " tablespoons Olive Oil",
+          "quantity": "3"
+        },
+        {
+          "name": "cloves Chopped Garlic",
+          "quantity": "3"
+        },
+        {
+          "name": "Prawns",
+          "quantity": "400g"
+        },
+        {
+          "name": "tbsp Dry sherry",
+          "quantity": "2"
+        },
+        {
+          "name": "Parsley",
+          "quantity": "Handful"
+        }
+      ],
+      "total_calories": 250,
+      "protein": 7.5,
+      "carbs": 30,
+      "fat": 6.5,
+      "category": "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 33,
+    "fields": {
+      "title": "Grilled Portuguese sardines",
+      "description": "A delicious lunch recipe",
+      "instructions": "1. STEP 1\n2. Put all of the ingredients, except the sardines, into a bowl and mix together with some seasoning. Pour into a baking dish, add the sardines and toss really well. Cover and chill for a few hours.\n3. STEP 2\n4. Heat a BBQ or griddle pan until hot. Cook the sardines for 4-5 minutes on each side or until really caramelised and charred. Put onto a serving plate, drizzle with oil, sprinkle with a little more paprika and squeeze over the lemon wedges.",
+      "image_url": "https://www.themealdb.com/images/media/meals/lpd4wy1614347943.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Sardines",
+          "quantity": "8"
+        },
+        {
+          "name": "tbs Olive Oil",
+          "quantity": "2"
+        },
+        {
+          "name": "cloves Garlic",
+          "quantity": "3"
+        },
+        {
+          "name": "tbs Paprika",
+          "quantity": "1"
+        },
+        {
+          "name": "Lemon",
+          "quantity": "1/2"
+        },
+        {
+          "name": "sprigs Rosemary",
+          "quantity": "4"
+        },
+        {
+          "name": "Red Chilli",
+          "quantity": "1"
+        }
+      ],
+      "total_calories": 310,
+      "protein": 8.5,
+      "carbs": 34,
+      "fat": 7.1,
+      "category": "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 34,
+    "fields": {
+      "title": "Honey Teriyaki Salmon",
+      "description": "A delicious lunch recipe",
+      "instructions": "1. Mix all the ingredients in the Honey Teriyaki Glaze together. Whisk to blend well. Combine the salmon and the Glaze together.\n2. Heat up a skillet on medium-low heat. Add the oil, Pan-fry the salmon on both sides until it’s completely cooked inside and the glaze thickens.\n3. Garnish with sesame and serve immediately.",
+      "image_url": "https://www.themealdb.com/images/media/meals/xxyupu1468262513.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "lb Salmon",
+          "quantity": "1"
+        },
+        {
+          "name": "tablespoon Olive oil",
+          "quantity": "1"
+        },
+        {
+          "name": "tablespoons Soy Sauce",
+          "quantity": "2"
+        },
+        {
+          "name": "tablespoons Sake",
+          "quantity": "2"
+        },
+        {
+          "name": "tablespoons Sesame Seed",
+          "quantity": "4"
+        }
+      ],
+      "total_calories": 250,
+      "protein": 7.5,
+      "carbs": 30,
+      "fat": 6.5,
+      "category": "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 35,
+    "fields": {
+      "title": "Jamaican Curry Shrimp Recipe",
+      "description": "A delicious lunch recipe",
+      "instructions": "1. Season shrimp with 1 Tablespoon of curry powder and all-purpose seasoning and set aside for about 10 minutes while you prepare the other ingredients like chopping your onions, peppers, and garlic.\n2. Heat 2 Tablespoons of olive oil in a large skillet over medium heat. Add sliced yellow onion, red bell pepper, green bell pepper, scotch bonnet pepper, if using, and chopped garlic and stir for 5 minutes, until peppers are slightly softened.\n3. Add 1.5 Tablespoons of curry powder to the skillet and stir for an additional minute.\n4. Then add coconut milk, seasoned shrimp, ketchup, and thyme, making sure the shrimp is covered in the sauce.\n5. Allow the sauce to come to a simmer and continue to cook over medium heat, stirring occasionally and flipping the shrimp halfway, until the shrimp is fully cooked on both sides. This should take about 5-6 minutes. Salt and pepper to taste.",
+      "image_url": "https://www.themealdb.com/images/media/meals/n7h5zs1765318909.jpg",
+      "servings": 4,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "lb Jumbo Shrimp",
+          "quantity": "1"
+        },
+        {
+          "name": "tbsp Jamaican Curry Powder",
+          "quantity": "2.5"
+        },
+        {
+          "name": "tsp All-purpose Seasoning",
+          "quantity": "1"
+        },
+        {
+          "name": "tablespoons Olive Oil",
+          "quantity": "2"
+        },
+        {
+          "name": "sliced Onion",
+          "quantity": "1"
+        },
+        {
+          "name": "sliced Red Pepper",
+          "quantity": "1"
+        },
+        {
+          "name": "sliced Green Pepper",
+          "quantity": "1"
+        },
+        {
+          "name": "sliced Scotch Bonnet",
+          "quantity": "1"
+        },
+        {
+          "name": "cloves Chopped Garlic",
+          "quantity": "3"
+        },
+        {
+          "name": "Unsweetened Coconut Milk",
+          "quantity": "380g"
+        },
+        {
+          "name": "tbs Tomato Ketchup",
+          "quantity": "1/2"
+        },
+        {
+          "name": "sprigs Thyme",
+          "quantity": "4"
+        },
+        {
+          "name": "taste Salt",
+          "quantity": "To"
+        },
+        {
+          "name": "taste Pepper",
+          "quantity": "To"
+        }
+      ],
+      "total_calories": 520,
+      "protein": 12.0,
+      "carbs": 48,
+      "fat": 9.2,
+      "category": "lunch",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 36,
+    "fields": {
+      "title": "Air Fryer Egg Rolls",
+      "description": "A delicious snack recipe",
+      "instructions": "1. Alternative Pan Fry Method: If you don’t have access to an air fryer, you can make these egg rolls using a traditional pan fry method. Add enough oil to a medium skillet with high walls so the oil is about 1/2 inch up the side of the skillet. Heat oil on medium high heat until it reaches 350°F. Add egg rolls and fry for 3 to 4 minutes, flip, and fry for another 3 to 4 minutes until golden brown. Remove and let them drain and cool on a few paper towels.\n2. Cook the filling:\n3. In a large skillet over medium heat, add the olive oil along with the ground pork or chicken. Break apart the meat with a spatula or wooden spoon as it cooks. Cook until the meat is cooked through, 6 to 8 minutes.\n4. Add garlic, ginger, carrot, scallions, and cabbage. Continue to cook until cabbage wilts down and is soft, another 3 to 4 minutes, stirring regularly. Season the filling with soy sauce and rice wine vinegar, and take off the heat to cool. (This filling can be made in advance.)\n5. Assemble the egg rolls:\n6. Place a single egg roll wrapper on a dry surface with one point of the square facing you (like a diamond). Place about 1/4 cup of the egg roll filling mixture in the middle of the wrapper.\n7. Dip your fingers in water and run around the edges of the wrapper. Then fold the edges of the wrapper over the center and start rolling the egg roll away from you to form a tight cylinder. Place on a plate and repeat until you are out of filling. You should get at least a dozen egg rolls.\n8. Air fry the egg rolls:\n9. Place the egg rolls in the basket of your air fryer. Spray or brush them lightly with oil. Add as many as you can without stacking the egg rolls, making sure they don’t touch. Air needs to circulate around them. Brush the egg rolls lightly with oil.\n10. Place the basket in the air fryer and turn the air fryer to 350°F. Cook for 6 to 7 minutes, then flip the egg rolls, spray or brush with oil a second time on the bottom side, and cook for another 4 to 5 minutes.\n11. Finished egg rolls should be golden brown and crispy! Serve immediately.",
+      "image_url": "https://www.themealdb.com/images/media/meals/grhn401765687086.jpg",
+      "servings": 4,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "tablespoon Olive Oil",
+          "quantity": "1"
+        },
+        {
+          "name": "lb Ground Pork",
+          "quantity": "1"
+        },
+        {
+          "name": "clove peeled crushed Garlic",
+          "quantity": "1"
+        },
+        {
+          "name": "tablespoon Ginger",
+          "quantity": "1"
+        },
+        {
+          "name": "medium Carrots",
+          "quantity": "1"
+        },
+        {
+          "name": "chopped Scallions",
+          "quantity": "3"
+        },
+        {
+          "name": "Cups Cabbage",
+          "quantity": "3"
+        },
+        {
+          "name": "tablespoon Soy Sauce",
+          "quantity": "1"
+        },
+        {
+          "name": "tablespoon Rice Vinegar",
+          "quantity": "1"
+        },
+        {
+          "name": "Egg Roll Wrappers",
+          "quantity": "12"
+        },
+        {
+          "name": "brushing Oil",
+          "quantity": "For"
+        },
+        {
+          "name": "serve Duck Sauce",
+          "quantity": "To"
+        },
+        {
+          "name": "serve Plum Sauce",
+          "quantity": "To"
+        },
+        {
+          "name": "serve Soy Sauce",
+          "quantity": "To"
+        }
+      ],
+      "total_calories": 520,
+      "protein": 12.0,
+      "carbs": 48,
+      "fat": 9.2,
+      "category": "snack",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 37,
+    "fields": {
+      "title": "Algerian Bouzgene Berber Bread with Roasted Pepper Sauce",
+      "description": "A delicious snack recipe",
+      "instructions": "1. Preheat your oven's broiler. Place red bell peppers and tomatoes on a baking sheet, and roast under the broiler for about 8 minutes, turning occasionally. This should blacken the skin and help it peel off more easily. Cool, then scrape the skins off of the tomatoes and peppers, and place them in a large bowl. Remove cores and seeds from the bell peppers.\n2. Heat 1 tablespoon of olive oil in a skillet over medium heat. Add the jalapenos and garlic, and cook until tender, stirring frequently. Remove from heat, and transfer the garlic and jalapeno to the bowl with the tomatoes and red peppers. Using two sharp steak knives (one in each hand), cut up the tomatoes and peppers to a coarse and soupy consistency. Stir, and set sauce aside.\n3. Place the semolina in a large bowl, and stir in salt and 4 tablespoons of olive oil. Gradually add water while mixing and squeezing with your hand until the dough holds together without being sticky or dry, and molds easily with the hand. Divide into 6 pieces and form into balls.\n4. For each round, heat 1 tablespoon of olive oil in a large heavy skillet over medium heat. Roll out dough one round at a time, to no thicker than 1/4 inch. Fry in the hot skillet until dark brown spots appear on the surface, and they are crispy. Remove from the skillet, and wrap in a clean towel while preparing the remaining flat breads.\n5. To eat the bread and sauce, break off pieces of the bread, and scoop them into the sauce. It will slide off, but just keep reaching in!",
+      "image_url": "https://www.themealdb.com/images/media/meals/se5vhk1764114880.jpg",
+      "servings": 3,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Red Pepper",
+          "quantity": "2"
+        },
+        {
+          "name": "Tomato",
+          "quantity": "4"
+        },
+        {
+          "name": "tablespoon Olive Oil",
+          "quantity": "1"
+        },
+        {
+          "name": "Cloves Chopped Garlic",
+          "quantity": "4"
+        },
+        {
+          "name": "chopped Jalapeno",
+          "quantity": "1"
+        },
+        {
+          "name": "taste Salt",
+          "quantity": "To"
+        },
+        {
+          "name": "Lbs Semolina",
+          "quantity": "2"
+        },
+        {
+          "name": "1/2 tsp Salt",
+          "quantity": "1"
+        },
+        {
+          "name": "Cups Water",
+          "quantity": "3"
+        },
+        {
+          "name": "tablespoons Olive Oil",
+          "quantity": "4"
+        },
+        {
+          "name": "tablespoons Olive Oil",
+          "quantity": "6"
+        }
+      ],
+      "total_calories": 430,
+      "protein": 10.5,
+      "carbs": 42,
+      "fat": 8.3,
+      "category": "snack",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 38,
+    "fields": {
+      "title": "Algerian Carrots",
+      "description": "A delicious snack recipe",
+      "instructions": "1. Place a steamer insert into a saucepan, and fill with 1 1/2 cups of water, or just below the bottom of the steamer. Cover, and bring the water to a boil over high heat. Add the sliced carrots, reduce the heat to medium, and cover the pan again. Steam until tender but not mushy, 4 to 6 minutes depending on the thickness of the slices. Reserve 1/2 cup of the cooking liquid.\n2. Heat the olive oil in a skillet over medium heat. Reduce the heat to low and stir in the salt, pepper, cinnamon, cumin, garlic, and thyme. Cook the spices and garlic, stirring frequently, until fragrant, about 10 minutes. Add the 1/2 cup reserved cooking liquid and the bay leaf, cover, and simmer for 20 minutes.\n3. Stir in the carrots, tossing well to coat with the spice mixture, and cook until heated through, about 2 to 3 minutes. Sprinkle with lemon juice and remove the bay leaf before serving.",
+      "image_url": "https://www.themealdb.com/images/media/meals/o2cd4r1764113576.jpg",
+      "servings": 3,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "1/2 cup Water",
+          "quantity": "1"
+        },
+        {
+          "name": "Lbs Carrots",
+          "quantity": "2"
+        },
+        {
+          "name": "tablespoons Olive Oil",
+          "quantity": "5"
+        },
+        {
+          "name": "tsp Salt",
+          "quantity": "1"
+        },
+        {
+          "name": "teaspoon Black Pepper",
+          "quantity": "1/2"
+        },
+        {
+          "name": "teaspoon Ground Cinnamon",
+          "quantity": "1/2"
+        },
+        {
+          "name": "teaspoon Ground Cumin",
+          "quantity": "1/2"
+        },
+        {
+          "name": "Cloves Crushed Garlic",
+          "quantity": "3"
+        },
+        {
+          "name": "teaspoon Thyme",
+          "quantity": "1/2"
+        },
+        {
+          "name": "Bay Leaf",
+          "quantity": "1"
+        },
+        {
+          "name": "tsp Lemon Juice",
+          "quantity": "1"
+        }
+      ],
+      "total_calories": 430,
+      "protein": 10.5,
+      "carbs": 42,
+      "fat": 8.3,
+      "category": "snack",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 39,
+    "fields": {
+      "title": "Baba Ghanoush",
+      "description": "A delicious snack recipe",
+      "instructions": "1. Preheat an outdoor grill for medium-high heat and lightly oil the grate. Prick the surface of the skin of eggplants several times with the tip of a knife.\n2. Place eggplants directly on grill. Turn frequently with tongs while skin chars. Cook until eggplants have collapsed and are very soft, 25 to 30 minutes. Transfer to a bowl and cover tightly with aluminum foil and allow to cool, about 15 minutes.\n3. When eggplants are cool enough to handle, split them in half and scrape flesh into a colander placed over a bowl. Drain 5 or 10 minutes.\n4. Transfer eggplant to mixing bowl. Add crushed garlic and salt; mash until creamy but with a little texture, about 5 minutes. Whisk in lemon juice, tahini, olive oil, and cayenne pepper. Stir in yogurt.\n5. Cover bowl with plastic wrap and refrigerate until completely chilled. Stir in mint and parsley, and taste to adjust seasonings before serving.",
+      "image_url": "https://www.themealdb.com/images/media/meals/dlmh401760524897.jpg",
+      "servings": 3,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "large Egg Plants",
+          "quantity": "4"
+        },
+        {
+          "name": "cloves Garlic",
+          "quantity": "2"
+        },
+        {
+          "name": "teaspoons Kosher Salt",
+          "quantity": "2"
+        },
+        {
+          "name": "Lemon",
+          "quantity": "1"
+        },
+        {
+          "name": " tablespoons Tahini",
+          "quantity": "3"
+        },
+        {
+          "name": " tablespoons Extra Virgin Olive Oil",
+          "quantity": "3"
+        },
+        {
+          "name": "tablespoons Greek Yogurt",
+          "quantity": "2"
+        },
+        {
+          "name": "pinch Cayenne Pepper",
+          "quantity": "1"
+        },
+        {
+          "name": "Leaf Mint",
+          "quantity": "1"
+        },
+        {
+          "name": "tablespoons Parsley",
+          "quantity": "2"
+        }
+      ],
+      "total_calories": 400,
+      "protein": 10.0,
+      "carbs": 40,
+      "fat": 8.0,
+      "category": "snack",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 40,
+    "fields": {
+      "title": "Blini Pancakes",
+      "description": "A delicious snack recipe",
+      "instructions": "1. In a large bowl, whisk together 1/2 cup buckwheat flour, 2/3 cup all-purpose flour, 1/2 teaspoon salt, and 1 teaspoon yeast.\n2. Make a well in the center and pour in 1 cup warm milk, whisking until the batter is smooth.\n3. Cover the bowl and let the batter rise until doubled, about 1 hour.\n4. Enrich and Rest the Batter\n5. Stir 2 tablespoons melted butter and 1 egg yolk into the batter.\n6. In a separate bowl, whisk 1 egg white until stiff, but not dry.\n7. Fold the whisked egg white into the batter.\n8. Cover the bowl and let the batter stand 20 minutes.\n9. Pan-Fry the Blini\n10. Heat butter in a large nonstick skillet over medium heat.\n11. Drop quarter-sized dollops of batter into the pan, being careful not to overcrowd the pan. Cook for about 1 minute or until bubbles form.\n12. Turn and cook for about 30 additional seconds.\n13. Remove the finished blini onto a plate and cover them with a clean kitchen towel to keep warm. Add more butter to the pan and repeat the frying process with the remaining batter.",
+      "image_url": "https://www.themealdb.com/images/media/meals/0206h11699013358.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "cup Buckwheat",
+          "quantity": "1/2"
+        },
+        {
+          "name": "Cup Flour",
+          "quantity": "2/3"
+        },
+        {
+          "name": "tsp Salt",
+          "quantity": "1/2"
+        },
+        {
+          "name": "tsp Yeast",
+          "quantity": "1"
+        },
+        {
+          "name": "cup Milk",
+          "quantity": "1"
+        },
+        {
+          "name": "tbs Butter",
+          "quantity": "2"
+        },
+        {
+          "name": "Seperated Egg",
+          "quantity": "1"
+        }
+      ],
+      "total_calories": 310,
+      "protein": 8.5,
+      "carbs": 34,
+      "fat": 7.1,
+      "category": "snack",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 41,
+    "fields": {
+      "title": "Boulangère Potatoes",
+      "description": "A delicious snack recipe",
+      "instructions": "1. Heat oven to 200C/fan 180C/gas 6. Fry the onions and thyme sprigs in the oil until softened and lightly coloured (about 5 mins).\n2. Spread a layer of potatoes over the base of a 1.5-litre oiled gratin dish. Sprinkle over a few onions (see picture, above) and continue layering, finishing with a layer of potatoes. Pour over the stock and bake for 50-60 mins until the potatoes are cooked and the top is golden and crisp.",
+      "image_url": "https://www.themealdb.com/images/media/meals/qywups1511796761.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "finely chopped Onions",
+          "quantity": "2"
+        },
+        {
+          "name": "of fresh Thyme",
+          "quantity": "sprigs"
+        },
+        {
+          "name": "tbs Olive Oil",
+          "quantity": "2"
+        },
+        {
+          "name": "Potatoes",
+          "quantity": "1.5kg"
+        },
+        {
+          "name": "Vegetable Stock",
+          "quantity": "425g"
+        }
+      ],
+      "total_calories": 250,
+      "protein": 7.5,
+      "carbs": 30,
+      "fat": 6.5,
+      "category": "snack",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 42,
+    "fields": {
+      "title": "Brie wrapped in prosciutto & brioche",
+      "description": "A delicious snack recipe",
+      "instructions": "1. Mix the flour, 1 tsp salt, caster sugar, yeast, milk and eggs together in a mixer using the dough attachment for 5 mins until the dough is smooth. Add the butter and mix for a further 4 mins on medium speed. Scrape the dough bowl and mix again for 1 min. Place the dough in a container, cover with cling film and leave in the fridge for at least 6 hrs before using.\n2. Wrap the Brie in the prosciutto and set aside. Turn out the dough onto a lightly floured surface. Roll into a 25cm circle. Place the wrapped Brie in the middle of the circle and fold the edges in neatly. Put the parcel onto a baking tray lined with baking parchment and brush with beaten egg. Chill in the fridge for 30 mins, then brush again with beaten egg and chill for a further 30 mins. Leave to rise for 1 hr at room temperature. Heat oven to 200C/180C fan/gas 6, then bake for 22 mins. Serve warm.",
+      "image_url": "https://www.themealdb.com/images/media/meals/qqpwsy1511796276.jpg",
+      "servings": 3,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Plain Flour",
+          "quantity": "375g"
+        },
+        {
+          "name": "Caster Sugar",
+          "quantity": "50g"
+        },
+        {
+          "name": "Yeast",
+          "quantity": "7g"
+        },
+        {
+          "name": "Milk",
+          "quantity": "75g"
+        },
+        {
+          "name": "Large Eggs",
+          "quantity": "3"
+        },
+        {
+          "name": "Glaze Eggs",
+          "quantity": "To"
+        },
+        {
+          "name": "Butter",
+          "quantity": "180g"
+        },
+        {
+          "name": "Brie",
+          "quantity": "250g"
+        },
+        {
+          "name": "slices Prosciutto",
+          "quantity": "8"
+        }
+      ],
+      "total_calories": 370,
+      "protein": 9.5,
+      "carbs": 38,
+      "fat": 7.7,
+      "category": "snack",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 43,
+    "fields": {
+      "title": "Burek",
+      "description": "A delicious snack recipe",
+      "instructions": "1. Fry the finely chopped onions and minced meat in oil. Add the salt and pepper. Grease a round baking tray and put a layer of pastry in it. Cover with a thin layer of filling and cover this with another layer of filo pastry which must be well coated in oil. Put another layer of filling and cover with pastry. When you have five or six layers, cover with filo pastry, bake at 200ºC/392ºF for half an hour and cut in quarters and serve.",
+      "image_url": "https://www.themealdb.com/images/media/meals/tkxquw1628771028.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Packet Filo Pastry",
+          "quantity": "1"
+        },
+        {
+          "name": "Minced Beef",
+          "quantity": "150g"
+        },
+        {
+          "name": "Onion",
+          "quantity": "150g"
+        },
+        {
+          "name": "Oil",
+          "quantity": "40g"
+        },
+        {
+          "name": "Salt",
+          "quantity": "Dash"
+        },
+        {
+          "name": "Pepper",
+          "quantity": "Dash"
+        }
+      ],
+      "total_calories": 280,
+      "protein": 8.0,
+      "carbs": 32,
+      "fat": 6.8,
+      "category": "snack",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 44,
+    "fields": {
+      "title": "Cacik",
+      "description": "A delicious snack recipe",
+      "instructions": "1. step 1\n2. Put a sieve over a large bowl, line it with a thick sheet of non-dyed kitchen paper or a clean muslin cloth, and spoon in the yogurt. Cover with another sheet of kitchen paper and leave to strain in the fridge for a minimum of 12 hrs.\n3. step 2\n4. Add the lemon juice, most of the olive oil and the dried mint to a bowl and stir well for the dried mint to soften and soak up the juices. Mix in the strained yogurt, then pour away the strained yogurt liquid and leave that bowl to one side.\n5. step 3\n6. Halve the cucumber(s) lengthways and remove the seeds by running a teaspoon from the top to the bottom of the flesh, halve the cucumbers widthways to make them shorter and easier to handle, then coarsely grate each one into the bowl the yogurt was straining over. Using clean hands (or a clean muslin cloth), squeeze as much of the liquid out of the cucumber as possible.\n7. step 4\n8. Add the strained, grated cucumber, garlic and ¾ tsp flaky salt to the rest of the ingredients and mix well. Garnish with a drizzle of extra virgin olive oil and a sprinkling of dried mint.",
+      "image_url": "https://www.themealdb.com/images/media/meals/16zbeu1763789342.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Natural Yoghurt",
+          "quantity": "500g"
+        },
+        {
+          "name": "tsp Lemon Juice",
+          "quantity": "2"
+        },
+        {
+          "name": "tablespoon Extra Virgin Olive Oil",
+          "quantity": "1"
+        },
+        {
+          "name": "tablespoon Dried Mint",
+          "quantity": "1"
+        },
+        {
+          "name": "Cucumber",
+          "quantity": "1"
+        },
+        {
+          "name": "cloves minced Garlic",
+          "quantity": "2"
+        }
+      ],
+      "total_calories": 280,
+      "protein": 8.0,
+      "carbs": 32,
+      "fat": 6.8,
+      "category": "snack",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 45,
+    "fields": {
+      "title": "Callaloo and SaltFish",
+      "description": "A delicious snack recipe",
+      "instructions": "1. Soak salted fish in water overnight. Next, heat salted fish in water on stove until water boils. You should see a foam on top. Remove from heat and drain. Set aside and shred salted fish once it cools.\n2. Cook bacon in skillet over medium heat until crispy. Remove bacon from heat and drain the majority of the bacon grease, leaving about 1 tablespoon in the skillet.\n3. Add yellow onion, green onion, scotch bonnet pepper, and garlic to the skillet and stir. Cook for about 2 minutes or until onions soften. Add salted fish to skillet and stir. Cook for about a minute.\n4. Next, add callaloo, roma tomatoes, thyme, and black pepper. Stir to combine and cook until heated through, about 2 minutes.\n5. Enjoy",
+      "image_url": "https://www.themealdb.com/images/media/meals/73o3vq1765317873.jpg",
+      "servings": 3,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "lb Salt Cod",
+          "quantity": "1/2"
+        },
+        {
+          "name": "Bacon",
+          "quantity": "4"
+        },
+        {
+          "name": "Callaloo",
+          "quantity": "525g"
+        },
+        {
+          "name": "chopped Onion",
+          "quantity": "1"
+        },
+        {
+          "name": "chopped Spring Onions",
+          "quantity": "2"
+        },
+        {
+          "name": "cloves minced Garlic",
+          "quantity": "2"
+        },
+        {
+          "name": "chopped Scotch Bonnet",
+          "quantity": "1"
+        },
+        {
+          "name": "chopped Plum Tomatoes",
+          "quantity": "2"
+        },
+        {
+          "name": "sprigs Thyme",
+          "quantity": "2"
+        },
+        {
+          "name": "tsp Black Pepper",
+          "quantity": "1/4"
+        }
+      ],
+      "total_calories": 400,
+      "protein": 10.0,
+      "carbs": 40,
+      "fat": 8.0,
+      "category": "snack",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 46,
+    "fields": {
+      "title": "Challah",
+      "description": "A delicious snack recipe",
+      "instructions": "1. step 1\n2. Combine the yeast, a pinch of the sugar and a couple tablespoons of lukewarm water in a small bowl. Stir to dissolve the yeast, then leave for 10 mins until foamy.\n3. step 2\n4. Meanwhile, combine the flour, the remaining sugar and 2 tsp fine salt in a large bowl. Make a well in the centre, then add half the beaten egg, the yeast mixture and the oil. Pour in 200ml lukewarm water (it should feel slightly warm to the touch) and stir with a spoon, then mix using one hand, keeping the other clean while you bring the dough together. If there are a lot of very dry bits, gradually add a little water to just bring it together – you don't want it to get too wet and sticky. The dough should be moist, but not soggy.\n5. step 3\n6. Once the dough has come together, turn it out onto a lightly floured surface. Knead using both hands for 10 mins until smooth and a bit springy. If it gets very sticky, add a very small amount of flour – as little as possible. A dough scraper is useful if the dough is sticking to the work surface. Stretch the sides of the dough down and pull together to form a ball. Lightly oil a bowl, then lightly roll the dough ball around the bowl so it's coated in the oil. Cover with a clean tea towel and leave in a warm place for 1 hr, or until dough has doubled in size.\n7. step 4\n8. Line a baking sheet with baking parchment. Turn the dough out onto a clean work surface and divide into three equal pieces, weighing for accuracy, if you like. Roll each piece into a long sausage shape about 25cm long, tapering them slightly at both ends. Lay the pieces out in front of you, parallel to one another with a couple centimetres between each. Bring the sausages together at the top end, then plait them down the length, tucking in the ends when you reach the bottom. Carefully transfer the loaf to the prepared baking sheet and loosely cover with a clean tea towel. Leave to rise until puffy and billowy, about 40 mins.\n9. step 5\n10. Meanwhile, heat the oven to 200C/180C fan/gas 6. Gently brush the rest of the beaten egg all over the challah, getting it into all the crevices, and sprinkle with the poppy or sesame seeds, if using. Bake on a middle shelf of the oven for 25-30 mins, until the loaf is golden brown underneath and sounds hollow when tapped. Check after about 15 mins – if the top of the loaf has started to get too dark, cover it with foil. Leave to cool on a wire rack, then serve.",
+      "image_url": "https://www.themealdb.com/images/media/meals/fm01ky1764366365.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Strong white bread flour",
+          "quantity": "500g"
+        },
+        {
+          "name": "Caster Sugar",
+          "quantity": "70g"
+        },
+        {
+          "name": "Yeast",
+          "quantity": "10g"
+        },
+        {
+          "name": "Beaten Egg",
+          "quantity": "2"
+        },
+        {
+          "name": "ml Sunflower Oil",
+          "quantity": "70"
+        },
+        {
+          "name": "tablespoon Poppy Seeds",
+          "quantity": "1"
+        }
+      ],
+      "total_calories": 280,
+      "protein": 8.0,
+      "carbs": 32,
+      "fat": 6.8,
+      "category": "snack",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 47,
+    "fields": {
+      "title": "Cheese Borek",
+      "description": "A delicious snack recipe",
+      "instructions": "1. In a medium bowl, whisk together egg, parsley, garlic and crushed red pepper. Mix in Gouda and Emmentaler.\n2. One sheet at a time, place phyllo dough on a flat surface and brush with about 1 tablespoon butter. Cut lengthwise into 4 strips. Place a rounded teaspoon of the egg mixture at one end of each strip. Fold corner of strip over the filling, forming a triangular fold. Continue folding the length of the strip in triangular folds to form a small stuffed triangle. Repeat with remaining phyllo dough.\n3. Preheat oven to 350 degrees F (175 degrees C). Lightly butter a large baking sheet.\n4. Arrange stuffed phyllo triangles in a single layer on the prepared baking sheet. Bake in the preheated oven 30 minutes, or until lightly browned. Serve warm",
+      "image_url": "https://www.themealdb.com/images/media/meals/oal8x31764119345.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "beaten Egg",
+          "quantity": "1"
+        },
+        {
+          "name": " bunch Parsley",
+          "quantity": "1"
+        },
+        {
+          "name": "cloves minced Garlic",
+          "quantity": "2"
+        },
+        {
+          "name": "teaspoon Red Pepper",
+          "quantity": "3/4"
+        },
+        {
+          "name": "oz Gouda Cheese",
+          "quantity": "6"
+        },
+        {
+          "name": "oz Emmentaler Cheese",
+          "quantity": "6"
+        },
+        {
+          "name": "Phyllo Dough",
+          "quantity": "12"
+        },
+        {
+          "name": "1/2 cups Unsalted Butter",
+          "quantity": "1"
+        }
+      ],
+      "total_calories": 340,
+      "protein": 9.0,
+      "carbs": 36,
+      "fat": 7.4,
+      "category": "snack",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 48,
+    "fields": {
+      "title": "Corba",
+      "description": "A delicious snack recipe",
+      "instructions": "1. Pick through your lentils for any foreign debris, rinse them 2 or 3 times, drain, and set aside.  Fair warning, this will probably turn your lentils into a solid block that you’ll have to break up later\n2. In a large pot over medium-high heat, sauté the olive oil and the onion with a pinch of salt for about 3 minutes, then add the carrots and cook for another 3 minutes.\n3. Add the tomato paste and stir it around for around 1 minute. Now add the cumin, paprika, mint, thyme, black pepper, and red pepper as quickly as you can and stir for 10 seconds to bloom the spices. Congratulate yourself on how amazing your house now smells.\n4. Immediately add the lentils, water, broth, and salt. Bring the soup to a (gentle) boil.\n5. After it has come to a boil, reduce heat to medium-low, cover the pot halfway, and cook for 15-20 minutes or until the lentils have fallen apart and the carrots are completely cooked.\n6. After the soup has cooked and the lentils are tender, blend the soup either in a blender or simply use a hand blender to reach the consistency you desire. Taste for seasoning and add more salt if necessary.\n7. Serve with crushed-up crackers, torn up bread, or something else to add some extra thickness.  You could also use a traditional thickener (like cornstarch or flour), but I prefer to add crackers for some texture and saltiness.  Makes great leftovers, stays good in the fridge for about a week.",
+      "image_url": "https://www.themealdb.com/images/media/meals/58oia61564916529.jpg",
+      "servings": 4,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "cup Lentils",
+          "quantity": "1"
+        },
+        {
+          "name": "large Onion",
+          "quantity": "1"
+        },
+        {
+          "name": "large Carrots",
+          "quantity": "1"
+        },
+        {
+          "name": "tbs Tomato Puree",
+          "quantity": "1"
+        },
+        {
+          "name": "tsp Cumin",
+          "quantity": "2"
+        },
+        {
+          "name": "tsp Paprika",
+          "quantity": "1"
+        },
+        {
+          "name": "tsp Mint",
+          "quantity": "1/2"
+        },
+        {
+          "name": "tsp Thyme",
+          "quantity": "1/2"
+        },
+        {
+          "name": "tsp Black Pepper",
+          "quantity": "1/4"
+        },
+        {
+          "name": "tsp Red Pepper Flakes",
+          "quantity": "1/4"
+        },
+        {
+          "name": "cups Vegetable Stock",
+          "quantity": "4"
+        },
+        {
+          "name": "cup Water",
+          "quantity": "1"
+        },
+        {
+          "name": "Sea Salt",
+          "quantity": "Pinch"
+        }
+      ],
+      "total_calories": 490,
+      "protein": 11.5,
+      "carbs": 46,
+      "fat": 8.9,
+      "category": "snack",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 49,
+    "fields": {
+      "title": "Fainá",
+      "description": "A delicious snack recipe",
+      "instructions": "1. Prepare the Batter: Whisk together chickpea flour, water, salt, and pepper. Let sit for at least 4 hours.\n2. Bake: Preheat the oven to 220°C (430°F). Pour olive oil into a round baking dish and heat in the oven. Pour in the batter and bake for 25-30 minutes, until golden.\n3. Serve: Slice and serve hot, optionally with black pepper on top.\n4. Pro Tips:\n5. Let the batter rest for at least 2 hours, or overnight in the refrigerator, to ensure the chickpea flour fully hydrates and the flavors meld.\n6. For a crispy edge, preheat the baking pan with oil in the oven before adding the batter.",
+      "image_url": "https://www.themealdb.com/images/media/meals/849jd81763075251.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Chickpea Flour",
+          "quantity": "200g"
+        },
+        {
+          "name": "Water",
+          "quantity": "600ml"
+        },
+        {
+          "name": "tablespoons Olive Oil",
+          "quantity": "4"
+        },
+        {
+          "name": "taste Salt",
+          "quantity": "To"
+        },
+        {
+          "name": "taste Pepper",
+          "quantity": "To"
+        }
+      ],
+      "total_calories": 250,
+      "protein": 7.5,
+      "carbs": 30,
+      "fat": 6.5,
+      "category": "snack",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 50,
+    "fields": {
+      "title": "Fennel Dauphinoise",
+      "description": "A delicious snack recipe",
+      "instructions": "1. Heat oven to 180C/160C fan/gas 4. Put potatoes, fennel, and garlic in a medium non-stick pan. Pour in milk and double cream, season well and simmer gently, covered, for 10 mins, stirring halfway through, until potatoes are just tender.\n2. Divide the mixture between 2 small (about 150ml) buttered ramekins and scatter with Parmesan. Bake for 40 mins until the potatoes are golden and tender when pierced with a knife. Snip the reserved fennel fronds over before serving.",
+      "image_url": "https://www.themealdb.com/images/media/meals/ytttsv1511798734.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Potatoes",
+          "quantity": "225g"
+        },
+        {
+          "name": "small Fennel",
+          "quantity": "1"
+        },
+        {
+          "name": "clove finely chopped Garlic",
+          "quantity": "1"
+        },
+        {
+          "name": "ml Milk",
+          "quantity": "75"
+        },
+        {
+          "name": "Double Cream",
+          "quantity": "100ml"
+        },
+        {
+          "name": "Greasing Butter",
+          "quantity": "For"
+        },
+        {
+          "name": "serve Parmesan Cheese",
+          "quantity": "to"
+        }
+      ],
+      "total_calories": 310,
+      "protein": 8.5,
+      "carbs": 34,
+      "fat": 7.1,
+      "category": "snack",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 51,
+    "fields": {
+      "title": "Feteer Meshaltet",
+      "description": "A delicious snack recipe",
+      "instructions": "1. Mix the flour and salt then pour one cup of water and start kneading.\n2. If you feel the dough is still not coming together or too dry, gradually add the remaining water until you get a dough that is very elastic so that when you pull it and it won’t be torn.\n3. Let the dough rest for just 10 minutes then divide the dough into 6-8 balls depending on the size you want for your feteer.\n4. Warm up the butter/ghee or oil you are using and pour into a deep bowl.\n5. Immerse the dough balls into the warm butter. Let it rest for 15 to 20 minutes.\n6. Preheat oven to 550F.\n7. Stretch the first ball with your hands on a clean countertop. Stretch it as thin as you can, the goal here is to see your countertop through the dough.\n8. Fold the dough over itself to form a square brushing in between folds with the butter mixture.\n9. Set aside and start making the next ball.\n10. Stretch the second one thin as we have done for the first ball.\n11. Place the previous one on the middle seam side down. Fold the outer one over brushing with more butter mixture as you fold. Set aside.\n12. Keep doing this for the third and fourth balls. Now we have one ready, place on a 10 inch baking/pie dish seam side down and brush the top with more butter.\n13. Repeat for the remaining 4 balls to make a second one. With your hands lightly press the folded feteer to spread it on the baking dish.\n14. Place in preheated oven for 10 minutes when the feteer starts puffing turn on the broiler to brown the top.\n15. When it is done add little butter on top and cover so it won’t get dry.",
+      "image_url": "https://www.themealdb.com/images/media/meals/9f4z6v1598734293.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "cups Flour",
+          "quantity": "4"
+        },
+        {
+          "name": "1/2 cups Water",
+          "quantity": "1"
+        },
+        {
+          "name": "tsp Salt",
+          "quantity": "1/4"
+        },
+        {
+          "name": "cup Unsalted Butter",
+          "quantity": "1"
+        },
+        {
+          "name": "cup Olive Oil",
+          "quantity": "1/4"
+        }
+      ],
+      "total_calories": 250,
+      "protein": 7.5,
+      "carbs": 30,
+      "fat": 6.5,
+      "category": "snack",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 52,
+    "fields": {
+      "title": "French Onion Soup",
+      "description": "A delicious snack recipe",
+      "instructions": "1. Melt the butter with the oil in a large heavy-based pan. Add the onions and fry with the lid on for 10 mins until soft. Sprinkle in the sugar and cook for 20 mins more, stirring frequently, until caramelised. The onions should be really golden, full of flavour and soft when pinched between your fingers. Take care towards the end to ensure that they don’t burn.\n2. Add the garlic for the final few mins of the onions’ cooking time, then sprinkle in the flour and stir well. Increase the heat and keep stirring as you gradually add the wine, followed by the hot stock. Cover and simmer for 15-20 mins.\n3. To serve, turn on the grill, and toast the bread. Ladle the soup into heatproof bowls. Put a slice or two of toast on top of the bowls of soup, and pile on the cheese. Grill until melted. Alternatively, you can complete the toasts under the grill, then serve them on top.",
+      "image_url": "https://www.themealdb.com/images/media/meals/xvrrux1511783685.jpg",
+      "servings": 3,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Butter",
+          "quantity": "50g"
+        },
+        {
+          "name": "tbs Olive Oil",
+          "quantity": "1"
+        },
+        {
+          "name": "kg Onion",
+          "quantity": "1"
+        },
+        {
+          "name": "tsp Sugar",
+          "quantity": "1"
+        },
+        {
+          "name": "sliced Garlic Clove",
+          "quantity": "4"
+        },
+        {
+          "name": "tbs Plain Flour",
+          "quantity": "2"
+        },
+        {
+          "name": "Dry White Wine",
+          "quantity": "250ml"
+        },
+        {
+          "name": "Beef Stock",
+          "quantity": "1L"
+        },
+        {
+          "name": "sliced Bread",
+          "quantity": "4"
+        },
+        {
+          "name": "Gruyère",
+          "quantity": "140g"
+        }
+      ],
+      "total_calories": 400,
+      "protein": 10.0,
+      "carbs": 40,
+      "fat": 8.0,
+      "category": "snack",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 53,
+    "fields": {
+      "title": "Fresh sardines",
+      "description": "A delicious snack recipe",
+      "instructions": "1. Wash the fish under the cold tap. Roll in the flour and deep fry in oil until crispy. Lay on kitchen towel to get rid of the excess oil and serve hot or cold with a slice of lemon.",
+      "image_url": "https://www.themealdb.com/images/media/meals/nv5lf31628771380.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Sardines",
+          "quantity": "500g"
+        },
+        {
+          "name": "Vegetable Oil",
+          "quantity": "Dash"
+        },
+        {
+          "name": "Glaze Flour",
+          "quantity": "To"
+        },
+        {
+          "name": "Salt",
+          "quantity": "Dash"
+        }
+      ],
+      "total_calories": 220,
+      "protein": 7.0,
+      "carbs": 28,
+      "fat": 6.2,
+      "category": "snack",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 54,
+    "fields": {
+      "title": "Griddled flatbreads",
+      "description": "A delicious snack recipe",
+      "instructions": "1. step 1\n2. Tip the flours into a food processor. Add the yeast, sugar and 1tsp salt, then mix well. Pour in 350ml warm water and the oil, then process to a soft dough. Mix for 1 min, then leave until doubled in size, about 1 hour.\n3. step 2\n4. Pulse the dough a couple of times just to knock out the air, then tip onto a floured surface. Cut the dough in half and roll out one half to a rectangle about 20 x 40cm. Trim the edges using a large sharp knife, then cut into eight 10cm squares. Line a large tray or two baking sheets with non-stick paper and arrange the bread rectangles over the tray in one layer. Repeat with the other half of the dough. Leave in a warm place for about 30 mins until the dough is just starting to rise.\n5. step 3\n6. Place bread directly onto the BBQ racks and cook for a couple of mins until they puff up, then flip over and cook on the other side. Tip into a basket and serve with the dips.",
+      "image_url": "https://www.themealdb.com/images/media/meals/8825lo1763815264.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Strong Wholemeal Flour",
+          "quantity": "250g"
+        },
+        {
+          "name": "Strong white bread flour",
+          "quantity": "250g"
+        },
+        {
+          "name": "Yeast",
+          "quantity": "15g"
+        },
+        {
+          "name": "tsp Sugar",
+          "quantity": "1"
+        },
+        {
+          "name": "tablespoons Olive Oil",
+          "quantity": "2"
+        }
+      ],
+      "total_calories": 250,
+      "protein": 7.5,
+      "carbs": 30,
+      "fat": 6.5,
+      "category": "snack",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 55,
+    "fields": {
+      "title": "Hummus",
+      "description": "A delicious snack recipe",
+      "instructions": "1. step 1\n2. Drain the chickpeas into a sieve set over a bowl or jug to catch the liquid. Tip the chickpeas, tahini, garlic and yogurt into a food processor or blender and whizz to smooth.\n3. step 2\n4. Whizz in a tbsp of the chickpea liquid at a time until you have a nice consistency, then scrape into a bowl.\n5. step 3\n6. Stir in a squeeze of lemon juice and season to taste.",
+      "image_url": "https://www.themealdb.com/images/media/meals/gpon5u1763801180.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Chickpeas",
+          "quantity": "400g"
+        },
+        {
+          "name": "tablespoon Tahini Paste",
+          "quantity": "1"
+        },
+        {
+          "name": "large Garlic Clove",
+          "quantity": "1"
+        },
+        {
+          "name": " tablespoons Greek Yogurt",
+          "quantity": "3"
+        },
+        {
+          "name": "of half Lemon",
+          "quantity": "Juice"
+        }
+      ],
+      "total_calories": 250,
+      "protein": 7.5,
+      "carbs": 30,
+      "fat": 6.5,
+      "category": "snack",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 56,
+    "fields": {
+      "title": "Algerian Kefta (Meatballs)",
+      "description": "A delicious dinner recipe",
+      "instructions": "1. Combine ground beef with 1/2 of the minced garlic and 1 tablespoon chopped onion in a large bowl. Mix with your hands until fully incorporated. Shape meat mixture into 1 1/2-inch oblong patties; you should have 12 to 14 meatballs.\n2. Heat a large skillet over medium-high heat. Brown patties in batches in the hot skillet until crispy on both sides and no longer pink in the center, about 10 minutes. Set meatballs aside in a rimmed serving dish.\n3. Reduce heat to medium and stir remaining chopped onion into drippings in the skillet. Season with salt and pepper. Cook, stirring constantly, until onion has softened and turned translucent, about 5 minutes. Stir in remaining garlic and cook for 30 seconds. Stir in Roma tomatoes, dried parsley, and ras el hanout. Pour in water. Cook until tomatoes are soft, about 5 minutes.\n4. Pour tomato sauce over meatballs to serve.",
+      "image_url": "https://www.themealdb.com/images/media/meals/8rfd4q1764112993.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "lb Ground Beef",
+          "quantity": "1"
+        },
+        {
+          "name": "Cloves Crushed Garlic",
+          "quantity": "4"
+        },
+        {
+          "name": "cup Onion",
+          "quantity": "1/2"
+        },
+        {
+          "name": "taste Salt",
+          "quantity": "To"
+        },
+        {
+          "name": "taste Pepper",
+          "quantity": "To"
+        },
+        {
+          "name": "Plum Tomatoes",
+          "quantity": "3"
+        },
+        {
+          "name": "tsp Parsley",
+          "quantity": "1"
+        },
+        {
+          "name": "cup Water",
+          "quantity": "1/2"
+        }
+      ],
+      "total_calories": 340,
+      "protein": 9.0,
+      "carbs": 36,
+      "fat": 7.4,
+      "category": "dinner",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 57,
+    "fields": {
+      "title": "Arepa Pabellón",
+      "description": "A delicious dinner recipe",
+      "instructions": "1. Prepare the meat in a skillet and add salt and pepper to taste, heat the beans over medium heat in a pan, fry or grill the ripe plantains as indicated on its package and cut the tomato into small cubes. Reserve these ingredients until filling.\n2. Preheat the grill or pan and grill the arepa, putting it once on each side until they are golden brown.\n3. With the help of a knife, open it by the edge through the middle, creating a space to fill it with the ripe plantain, the beans, meat and chopped tomato.\n4. Serve with a little pico de gallo or guacamole dip sauce.",
+      "image_url": "https://www.themealdb.com/images/media/meals/13fg4j1764441982.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Corn Arepa Filled With Mozarella Cheese",
+          "quantity": "2"
+        },
+        {
+          "name": "Fried Ripe Bananas",
+          "quantity": "1"
+        },
+        {
+          "name": "Can Black Beans",
+          "quantity": "1"
+        },
+        {
+          "name": "Pico De Gallo Sauce",
+          "quantity": "1"
+        },
+        {
+          "name": "Shredded Meat",
+          "quantity": "2kg"
+        },
+        {
+          "name": "chopped Tomato",
+          "quantity": "1"
+        },
+        {
+          "name": "Salt",
+          "quantity": "Pinch"
+        },
+        {
+          "name": "Pepper",
+          "quantity": "Pinch"
+        }
+      ],
+      "total_calories": 340,
+      "protein": 9.0,
+      "carbs": 36,
+      "fat": 7.4,
+      "category": "dinner",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 58,
+    "fields": {
+      "title": "Arepa pelua",
+      "description": "A delicious dinner recipe",
+      "instructions": "1. Cook the meat: Place the flank steak in a pot with broth or water and salt. Cook over low heat for about 2 hours, until tender and easy to shred.\n2. Shred the meat: Once cooked, drain and shred the meat using two forks.\n3. Prepare the vegetables: Sauté chopped onion, bell pepper, and garlic in a little oil. Add cumin, oregano, paprika, and salt. Stir in the meat and cook for a few minutes until the flavors are well combined.\n4. Make the dough: In a bowl, mix the cornmeal with warm water and salt until a soft dough forms. Let it rest for 5 minutes.\n5. Form the arepas: Divide the dough into 6 portions, shape into balls, and flatten into thick discs.\n6. Cook: Cook the arepas on a griddle or skillet over medium heat for 2–3 minutes on each side until golden. You can then bake them for a few minutes if you prefer them crispier.\n7. Fill: Slice the arepas open on one side, fill with the hot shredded beef, and top with grated cheese.",
+      "image_url": "https://www.themealdb.com/images/media/meals/jgl9qq1764437635.jpg",
+      "servings": 4,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Beef",
+          "quantity": "500g"
+        },
+        {
+          "name": "Onion",
+          "quantity": "1"
+        },
+        {
+          "name": "Red Pepper",
+          "quantity": "1"
+        },
+        {
+          "name": "cloves Garlic",
+          "quantity": "2"
+        },
+        {
+          "name": "tsp Cumin",
+          "quantity": "1"
+        },
+        {
+          "name": "tsp Oregano",
+          "quantity": "1"
+        },
+        {
+          "name": "tsp Paprika",
+          "quantity": "1"
+        },
+        {
+          "name": "L Beef Stock",
+          "quantity": "1"
+        },
+        {
+          "name": "1/2 cups Water",
+          "quantity": "2"
+        },
+        {
+          "name": "Salt",
+          "quantity": "Pinch"
+        },
+        {
+          "name": "Cheese",
+          "quantity": "200g"
+        },
+        {
+          "name": "Extra Virgin Olive Oil",
+          "quantity": "Pinch"
+        }
+      ],
+      "total_calories": 460,
+      "protein": 11.0,
+      "carbs": 44,
+      "fat": 8.6,
+      "category": "dinner",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 59,
+    "fields": {
+      "title": "Asado",
+      "description": "A delicious dinner recipe",
+      "instructions": "1. Prepare the Fire: Start a wood fire in your grill and let it burn down to coals.\n2. Season the Meat: Generously salt the beef cuts.\n3. Grill the Meat: Place the beef on the grill, starting with the thickest cuts farthest from the coals. Add chorizo and morcilla after the beef has been cooking for a while.\n4. Cook to Perfection: Cook the meat, turning occasionally, until it reaches your desired doneness. Typically, ribs may take up to 2 hours; thinner cuts will cook faster.\n5. Rest and Serve: Let the meat rest for about 10 minutes before slicing. Serve with chimichurri sauce and grilled vegetables.\n6. Pro Tips:\n7. Use a mix of wood and charcoal for a consistent heat source. Wood adds flavor, while charcoal maintains temperature.\n8. Season the meat just before grilling to ensure it retains its moisture and flavor.\n9. Serving Suggestions:\n10. Serve with a side of chimichurri sauce, a fresh tomato salad, and crusty bread. Pair with a robust Malbec wine to complement the rich flavors of the meat.",
+      "image_url": "https://www.themealdb.com/images/media/meals/kgfh3q1763075438.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Mixed Beef Cuts",
+          "quantity": "2kg"
+        },
+        {
+          "name": "Chorizo",
+          "quantity": "4"
+        },
+        {
+          "name": "Morcilla",
+          "quantity": "2"
+        },
+        {
+          "name": "taste Salt",
+          "quantity": "To"
+        }
+      ],
+      "total_calories": 220,
+      "protein": 7.0,
+      "carbs": 28,
+      "fat": 6.2,
+      "category": "dinner",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 60,
+    "fields": {
+      "title": "Aussie Burgers",
+      "description": "A delicious dinner recipe",
+      "instructions": "1. step 1\n2. Make the burgers: Tip the meat into a bowl and sprinkle over 1 tsp salt and a good grinding of black pepper.Work with wet hands to mix in the seasoning. Divide into four with your hands and shape into burgers. (It can be frozen at this stage.)\n3. step 2\n4. Sort out your ingredients: Slice the beetroot and split the naan breads.\n5. step 3\n6. Toast the naans: Heat a griddle pan or barbecue. Griddle the naans on both sides until lightly toasted and set aside. Add the burgers to the grill or barbecue and cook for 2-3 minutes, then turn and cook the other side for a further 2-3 minutes.\n7. step 4\n8. Assemble the dish: Set half a toasted naan on each serving plate and put a pile of rocket on each. Top with a burger, then a few slices of beetroot and a dollop of soured cream. Sprinkle with salt and freshly ground black pepper and serve immediately with a big green salad and chips. A glass of red wine wouldn’t go amiss, either.",
+      "image_url": "https://www.themealdb.com/images/media/meals/44bzep1761848278.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Lean Minced Steak",
+          "quantity": "500g"
+        },
+        {
+          "name": "Cooked Beetroot",
+          "quantity": "100g"
+        },
+        {
+          "name": "small Naan Bread",
+          "quantity": "2"
+        },
+        {
+          "name": "Rocket",
+          "quantity": "50g"
+        },
+        {
+          "name": "tablespoons Soured cream and chive dip",
+          "quantity": "4"
+        }
+      ],
+      "total_calories": 250,
+      "protein": 7.5,
+      "carbs": 30,
+      "fat": 6.5,
+      "category": "dinner",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 61,
+    "fields": {
+      "title": "Beef and Broccoli Stir-Fry",
+      "description": "A delicious dinner recipe",
+      "instructions": "1. Marinate the beef:\n2. Stir together the beef marinade ingredients (1 teaspoon soy sauce, 1 teaspoon Chinese rice wine, 1/2 teaspoon cornstarch, 1/8 teaspoon black pepper) in a medium bowl.\n3. Add the beef slices and stir until coated. Let stand for 10 minutes.\n4. Prepare the sauce:\n5. Stir together the sauce ingredients (2 tablespoons oyster sauce, 1 teaspoon Chinese rice wine, 1 teaspoon soy sauce, 1/4 cup chicken broth) in a small bowl. Set aside.\n6. Blanch or steam the broccoli:\n7. Bring a pot of water to a boil. Add the broccoli and cook until crisp-tender, about 2 minutes. Drain thoroughly.\n8. Stir-fry the beef:\n9. Heat a large frying pan or wok over high heat until a bead of water sizzles and instantly evaporates upon contact. Add the cooking oil and swirl to coat.\n10. Add the beef and immediately spread it out all over the surface of the wok or pan in a single layer (preferably not touching).\n11. Let the beef fry undisturbed for 1 minute. Flip the beef slices over, add the garlic to the pan, and fry for an additional 30 seconds to 1 minute until no longer pink.\n12. Add the sauce, cornstarch, and broccoli:\n13. Pour in the sauce and the cornstarch slurry (1 teaspoon cornstarch dissolved in 1 tablespoon of water). Stir until the sauce boils and thickens, about 30 seconds. Stir in the broccoli.\n14. Serve immediately, with steamed rice or on its own.",
+      "image_url": "https://www.themealdb.com/images/media/meals/m0p0j81765568742.jpg",
+      "servings": 4,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "tsp Soy Sauce",
+          "quantity": "1"
+        },
+        {
+          "name": "tsp Dry sherry",
+          "quantity": "1"
+        },
+        {
+          "name": "tsp Cornstarch",
+          "quantity": "1/2"
+        },
+        {
+          "name": "teaspoon Black Pepper",
+          "quantity": "1/8"
+        },
+        {
+          "name": "lb Sirloin steak",
+          "quantity": "1"
+        },
+        {
+          "name": "tablespoons Oyster Sauce",
+          "quantity": "2"
+        },
+        {
+          "name": "tsp Dry sherry",
+          "quantity": "1"
+        },
+        {
+          "name": "tablespoon Soy Sauce",
+          "quantity": "1"
+        },
+        {
+          "name": "cup Chicken Stock",
+          "quantity": "1/4"
+        },
+        {
+          "name": "lb Broccoli",
+          "quantity": "1"
+        },
+        {
+          "name": "tablespoons High Heat Cooking Oil",
+          "quantity": "2"
+        },
+        {
+          "name": "cloves minced Garlic",
+          "quantity": "2"
+        },
+        {
+          "name": "tsp Cornstarch",
+          "quantity": "1"
+        },
+        {
+          "name": "tablespoon Water",
+          "quantity": "1"
+        }
+      ],
+      "total_calories": 520,
+      "protein": 12.0,
+      "carbs": 48,
+      "fat": 9.2,
+      "category": "dinner",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 62,
+    "fields": {
+      "title": "Beef and Mustard Pie",
+      "description": "A delicious dinner recipe",
+      "instructions": "1. Preheat the oven to 150C/300F/Gas 2.\n2. Toss the beef and flour together in a bowl with some salt and black pepper.\n3. Heat a large casserole until hot, add half of the rapeseed oil and enough of the beef to just cover the bottom of the casserole.\n4. Fry until browned on each side, then remove and set aside. Repeat with the remaining oil and beef.\n5. Return the beef to the pan, add the wine and cook until the volume of liquid has reduced by half, then add the stock, onion, carrots, thyme and mustard, and season well with salt and pepper.\n6. Cover with a lid and place in the oven for two hours.\n7. Remove from the oven, check the seasoning and set aside to cool. Remove the thyme.\n8. When the beef is cool and you're ready to assemble the pie, preheat the oven to 200C/400F/Gas 6.\n9. Transfer the beef to a pie dish, brush the rim with the beaten egg yolks and lay the pastry over the top. Brush the top of the pastry with more beaten egg.\n10. Trim the pastry so there is just enough excess to crimp the edges, then place in the oven and bake for 30 minutes, or until the pastry is golden-brown and cooked through.\n11. For the green beans, bring a saucepan of salted water to the boil, add the beans and cook for 4-5 minutes, or until just tender.\n12. Drain and toss with the butter, then season with black pepper.\n13. To serve, place a large spoonful of pie onto each plate with some green beans alongside.",
+      "image_url": "https://www.themealdb.com/images/media/meals/sytuqu1511553755.jpg",
+      "servings": 5,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Beef",
+          "quantity": "1kg"
+        },
+        {
+          "name": "tbs Plain Flour",
+          "quantity": "2"
+        },
+        {
+          "name": "tbs Rapeseed Oil",
+          "quantity": "2"
+        },
+        {
+          "name": "Red Wine",
+          "quantity": "200ml"
+        },
+        {
+          "name": "Beef Stock",
+          "quantity": "400ml"
+        },
+        {
+          "name": "finely sliced Onion",
+          "quantity": "1"
+        },
+        {
+          "name": "chopped Carrots",
+          "quantity": "2"
+        },
+        {
+          "name": "sprigs Thyme",
+          "quantity": "3"
+        },
+        {
+          "name": "tbs Mustard",
+          "quantity": "2"
+        },
+        {
+          "name": "free-range Egg Yolks",
+          "quantity": "2"
+        },
+        {
+          "name": "Puff Pastry",
+          "quantity": "400g"
+        },
+        {
+          "name": "Green Beans",
+          "quantity": "300g"
+        },
+        {
+          "name": "Butter",
+          "quantity": "25g"
+        },
+        {
+          "name": "Salt",
+          "quantity": "pinch"
+        },
+        {
+          "name": "Pepper",
+          "quantity": "pinch"
+        }
+      ],
+      "total_calories": 550,
+      "protein": 12.5,
+      "carbs": 50,
+      "fat": 9.5,
+      "category": "dinner",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 63,
+    "fields": {
+      "title": "Beef and Oyster pie",
+      "description": "A delicious dinner recipe",
+      "instructions": "1. Season the beef cubes with salt and black pepper. Heat a tablespoon of oil in the frying pan and fry the meat over a high heat. Do this in three batches so that you don’t overcrowd the pan, transferring the meat to a large flameproof casserole dish once it is browned all over. Add extra oil if the pan seems dry.\n2. In the same pan, add another tablespoon of oil and cook the shallots for 4-5 minutes, then add the garlic and fry for 30 seconds. Add the bacon and fry until slightly browned. Transfer the onion and bacon mixture to the casserole dish and add the herbs.\n3. Preheat the oven to 180C/350F/Gas 4.\n4. Pour the stout into the frying pan and bring to the boil, stirring to lift any stuck-on browned bits from the bottom of the pan. Pour the stout over the beef in the casserole dish and add the stock. Cover the casserole and place it in the oven for 1½-2 hours, or until the beef is tender and the sauce is reduced.\n5. Skim off any surface fat, taste and add salt and pepper if necessary, then stir in the cornflour paste. Put the casserole dish on the hob – don’t forget that it will be hot – and simmer for 1-2 minutes, stirring, until thickened. Leave to cool.\n6. Increase the oven to 200C/400F/Gas 6. To make the pastry, put the flour and salt in a very large bowl. Grate the butter and stir it into the flour in three batches. Gradually add 325ml/11fl oz cold water – you may not need it all – and stir with a round-bladed knife until the mixture just comes together. Knead the pastry lightly into a ball on a lightly floured surface and set aside 250g/9oz for the pie lid.\n7. Roll the rest of the pastry out until about 2cm/¾in larger than the dish you’re using. Line the dish with the pastry then pile in the filling, tucking the oysters in as well. Brush the edge of the pastry with beaten egg.\n8. Roll the remaining pastry until slightly larger than your dish and gently lift over the filling, pressing the edges firmly to seal, then trim with a sharp knife. Brush with beaten egg to glaze. Put the dish on a baking tray and bake for 25-30 minutes, or until the pastry is golden-brown and the filling is bubbling.",
+      "image_url": "https://www.themealdb.com/images/media/meals/wrssvt1511556563.jpg",
+      "servings": 5,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Beef",
+          "quantity": "900g"
+        },
+        {
+          "name": "tbs Olive Oil",
+          "quantity": "3"
+        },
+        {
+          "name": "Shallots",
+          "quantity": "3"
+        },
+        {
+          "name": "cloves minced Garlic",
+          "quantity": "2"
+        },
+        {
+          "name": "Bacon",
+          "quantity": "125g"
+        },
+        {
+          "name": "tbs chopped Thyme",
+          "quantity": "1"
+        },
+        {
+          "name": "Bay Leaf",
+          "quantity": "2"
+        },
+        {
+          "name": "Stout",
+          "quantity": "330ml"
+        },
+        {
+          "name": "Beef Stock",
+          "quantity": "400ml"
+        },
+        {
+          "name": "tbs Corn Flour",
+          "quantity": "2"
+        },
+        {
+          "name": "Oysters",
+          "quantity": "8"
+        },
+        {
+          "name": "Plain Flour",
+          "quantity": "400g"
+        },
+        {
+          "name": "Salt",
+          "quantity": "pinch"
+        },
+        {
+          "name": "Butter",
+          "quantity": "250g"
+        },
+        {
+          "name": "Glaze Eggs",
+          "quantity": "To"
+        }
+      ],
+      "total_calories": 550,
+      "protein": 12.5,
+      "carbs": 50,
+      "fat": 9.5,
+      "category": "dinner",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 64,
+    "fields": {
+      "title": "Beef Asado",
+      "description": "A delicious dinner recipe",
+      "instructions": "1. 0.\tCombine beef, crushed peppercorn, soy sauce, vinegar, dried bay leaves, lemon, and tomato sauce. Mix well. Marinate beef for at least 30 minutes.\n2. 1.\tPut the marinated beef in a cooking pot along with remaining marinade. Add water. Let boil.\n3. 2.\tAdd Knorr Beef Cube. Stir. Cover the pot and cook for 40 minutes in low heat.\n4. 3.\tTurn the beef over. Add tomato paste. Continue cooking until beef tenderizes. Set aside.\n5. 4.\tHeat oil in a pan. Fry the potato until it browns. Turn over and continue frying the opposite side. Remove from the pan and place on a clean plate. Do the same with the carrots.\n6. 5.\tSave 3 tablespoons of cooking oil from the pan where the potato was fried. Saute onion and garlic until onion softens.\n7. 6.\tPour-in the sauce from the beef stew. Let boil. Add the beef. Cook for 2 minutes.\n8. 7.\tAdd butter and let it melt. Continue cooking until the sauce reduces to half.",
+      "image_url": "https://www.themealdb.com/images/media/meals/pkopc31683207947.jpg",
+      "servings": 4,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Beef",
+          "quantity": "1.5kg"
+        },
+        {
+          "name": "Beef Stock Concentrate",
+          "quantity": "1"
+        },
+        {
+          "name": "ounces Tomato Puree",
+          "quantity": "8"
+        },
+        {
+          "name": "cups Water",
+          "quantity": "3"
+        },
+        {
+          "name": "tablespoons Soy Sauce",
+          "quantity": "6"
+        },
+        {
+          "name": "tbs White Wine Vinegar",
+          "quantity": "1"
+        },
+        {
+          "name": "tbs Pepper",
+          "quantity": "2"
+        },
+        {
+          "name": "Bay Leaf",
+          "quantity": "4"
+        },
+        {
+          "name": "Lemon",
+          "quantity": "1/2"
+        },
+        {
+          "name": "tbs Tomato Sauce",
+          "quantity": "2"
+        },
+        {
+          "name": "tbs Butter",
+          "quantity": "3"
+        },
+        {
+          "name": "cup Olive Oil",
+          "quantity": "1/2"
+        },
+        {
+          "name": "chopped Onion",
+          "quantity": "1"
+        },
+        {
+          "name": "cloves Garlic",
+          "quantity": "4"
+        }
+      ],
+      "total_calories": 520,
+      "protein": 12.0,
+      "carbs": 48,
+      "fat": 9.2,
+      "category": "dinner",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 65,
+    "fields": {
+      "title": "Beef Banh Mi Bowls with Sriracha Mayo, Carrot & Pickled Cucumber",
+      "description": "A delicious dinner recipe",
+      "instructions": "1. Add'l ingredients: mayonnaise, siracha\n2. 1\n3. Place rice in a fine-mesh sieve and rinse until water runs clear. Add to a small pot with 1 cup water (2 cups for 4 servings) and a pinch of salt. Bring to a boil, then cover and reduce heat to low. Cook until rice is tender, 15 minutes. Keep covered off heat for at least 10 minutes or until ready to serve.\n4. 2\n5. Meanwhile, wash and dry all produce. Peel and finely chop garlic. Zest and quarter lime (for 4 servings, zest 1 lime and quarter both). Trim and halve cucumber lengthwise; thinly slice crosswise into half-moons. Halve, peel, and medium dice onion. Trim, peel, and grate carrot.\n6. 3\n7. In a medium bowl, combine cucumber, juice from half the lime, ¼ tsp sugar (½ tsp for 4 servings), and a pinch of salt. In a small bowl, combine mayonnaise, a pinch of garlic, a squeeze of lime juice, and as much sriracha as you’d like. Season with salt and pepper.\n8. 4\n9. Heat a drizzle of oil in a large pan over medium-high heat. Add onion and cook, stirring, until softened, 4-5 minutes. Add beef, remaining garlic, and 2 tsp sugar (4 tsp for 4 servings). Cook, breaking up meat into pieces, until beef is browned and cooked through, 4-5 minutes. Stir in soy sauce. Turn off heat; taste and season with salt and pepper.\n10. 5\n11. Fluff rice with a fork; stir in lime zest and 1 TBSP butter. Divide rice between bowls. Arrange beef, grated carrot, and pickled cucumber on top. Top with a squeeze of lime juice. Drizzle with sriracha mayo.",
+      "image_url": "https://www.themealdb.com/images/media/meals/z0ageb1583189517.jpg",
+      "servings": 2,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Rice",
+          "quantity": "White"
+        },
+        {
+          "name": "Onion",
+          "quantity": "1"
+        },
+        {
+          "name": "Lime",
+          "quantity": "1"
+        },
+        {
+          "name": "Garlic Clove",
+          "quantity": "3"
+        },
+        {
+          "name": "Cucumber",
+          "quantity": "1"
+        },
+        {
+          "name": "oz Carrots",
+          "quantity": "3"
+        },
+        {
+          "name": "lb Ground Beef",
+          "quantity": "1"
+        },
+        {
+          "name": "oz Soy Sauce",
+          "quantity": "2"
+        }
+      ],
+      "total_calories": 340,
+      "protein": 9.0,
+      "carbs": 36,
+      "fat": 7.4,
+      "category": "dinner",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 66,
+    "fields": {
+      "title": "Beef Bourguignon",
+      "description": "A delicious dinner recipe",
+      "instructions": "1. Heat a large casserole pan and add 1 tbsp goose fat. Season the beef and fry until golden brown, about 3-5 mins, then turn over and fry the other side until the meat is browned all over, adding more fat if necessary. Do this in 2-3 batches, transferring the meat to a colander set over a bowl when browned.\n2. In the same pan, fry the bacon, shallots or pearl onions, mushrooms, garlic and bouquet garni until lightly browned. Mix in the tomato purée and cook for a few mins, stirring into the mixture. This enriches the bourguignon and makes a great base for the stew. Then return the beef and any drained juices to the pan and stir through.\n3. Pour over the wine and about 100ml water so the meat bobs up from the liquid, but isn’t completely covered. Bring to the boil and use a spoon to scrape the caramelised cooking juices from the bottom of the pan – this will give the stew more flavour.\n4. Heat oven to 150C/fan 130C/gas 2. Make a cartouche: tear off a square of foil slightly larger than the casserole, arrange it in the pan so it covers the top of the stew and trim away any excess foil. Then cook for 3 hrs. If the sauce looks watery, remove the beef and veg with a slotted spoon, and set aside. Cook the sauce over a high heat for a few mins until the sauce has thickened a little, then return the beef and vegetables to the pan.\n5. To make the celeriac mash, peel the celeriac and cut into cubes. Heat the olive oil in a large frying pan. Tip in the celeriac and fry for 5 mins until it turns golden. Season well with salt and pepper. Stir in the rosemary, thyme, bay and cardamom pods, then pour over 200ml water, enough to nearly cover the celeriac. Turn the heat to low, partially cover the pan and leave to simmer for 25-30 mins.\n6. After 25-30 mins, the celeriac should be soft and most of the water will have evaporated. Drain away any remaining water, then remove the herb sprigs, bay and cardamom pods. Lightly crush with a potato masher, then finish with a glug of olive oil and season to taste. Spoon the beef bourguignon into serving bowls and place a large spoonful of the celeriac mash on top. Garnish with one of the bay leaves, if you like.",
+      "image_url": "https://www.themealdb.com/images/media/meals/vtqxtu1511784197.jpg",
+      "servings": 5,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "tsp Goose Fat",
+          "quantity": "3"
+        },
+        {
+          "name": "Beef Shin",
+          "quantity": "600g"
+        },
+        {
+          "name": "Bacon",
+          "quantity": "100g"
+        },
+        {
+          "name": "Challots",
+          "quantity": "350g"
+        },
+        {
+          "name": "Chestnut Mushroom",
+          "quantity": "250g"
+        },
+        {
+          "name": "sliced Garlic Clove",
+          "quantity": "2"
+        },
+        {
+          "name": "Bouquet Garni",
+          "quantity": "1"
+        },
+        {
+          "name": "tbs Tomato Puree",
+          "quantity": "1"
+        },
+        {
+          "name": "ml Red Wine",
+          "quantity": "750"
+        },
+        {
+          "name": "Celeriac",
+          "quantity": "600g"
+        },
+        {
+          "name": "tbs Olive Oil",
+          "quantity": "2"
+        },
+        {
+          "name": "of fresh Thyme",
+          "quantity": "sprigs"
+        },
+        {
+          "name": "of fresh Rosemary",
+          "quantity": "sprigs"
+        },
+        {
+          "name": "Bay Leaf",
+          "quantity": "2"
+        },
+        {
+          "name": "Cardamom",
+          "quantity": "4"
+        }
+      ],
+      "total_calories": 550,
+      "protein": 12.5,
+      "carbs": 50,
+      "fat": 9.5,
+      "category": "dinner",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 67,
+    "fields": {
+      "title": "Beef Brisket Pot Roast",
+      "description": "A delicious dinner recipe",
+      "instructions": "1. 1 Prepare the brisket for cooking: On one side of the brisket there should be a layer of fat, which you want. If there are any large chunks of fat, cut them off and discard them. Large pieces of fat will not be able to render out completely.\n2. Using a sharp knife, score the fat in parallel lines, about 3/4-inch apart. Slice through the fat, not the beef. Repeat in the opposite direction to make a cross-hatch pattern.\n3. Salt the brisket well and let it sit at room temperature for 30 minutes.\n4. 2 Sear the brisket: You'll need an oven-proof, thick-bottomed pot with a cover, or Dutch oven, that is just wide enough to hold the brisket roast with a little room for the onions.\n5. Pat the brisket dry and place it, fatty side down, into the pot and place it on medium high heat. Cook for 5-8 minutes, lightly sizzling, until the fat side is nicely browned. (If the roast seems to be cooking too fast, turn the heat down to medium. You want a steady sizzle, not a raging sear.)\n6. Turn the brisket over and cook for a few minutes more to brown the other side.\n7. 3 Sauté the onions and garlic: When the brisket has browned, remove it from the pot and set aside. There should be a couple tablespoons of fat rendered in the pot, if not, add some olive oil.\n8. Add the chopped onions and increase the heat to high. Sprinkle a little salt on the onions. Sauté, stirring often, until the onions are lightly browned, 5-8 minutes. Stir in the garlic and cook 1-2 more minutes.\n9. 4 Return brisket to pot, add herbs, stock, bring to simmer, cover, cook in oven: Preheat the oven to 300°F. Use kitchen twine to tie together the bay leaves, rosemary and thyme.\n10. Move the onions and garlic to the sides of the pot and nestle the brisket inside. Add the beef stock and the tied-up herbs. Bring the stock to a boil on the stovetop.\n11. Cover the pot, place the pot in the 300°F oven and cook for 3 hours. Carefully flip the brisket every hour so it cooks evenly.\n12. 5 Add carrots, continue to cook: After 3 hours, add the carrots. Cover the pot and cook for 1 hour more, or until the carrots are cooked through and the brisket is falling-apart tender.\n13. 6 Remove brisket to cutting board, tent with foil: When the brisket is falling-apart tender, take the pot out of the oven and remove the brisket to a cutting board. Cover it with foil. Pull out and discard the herbs.\n14. 7 Make sauce (optional): At this point you have two options. You can serve as is, or you can make a sauce with the drippings and some of the onions. If you serve as is, skip this step.\n15. To make a sauce, remove the carrots and half of the onions, set aside and cover them with foil. Pour the ingredients that are remaining into the pot into a blender, and purée until smooth. If you want, add 1 tablespoon of mustard to the mix. Put into a small pot and keep warm.\n16. 8 Slice the meat across the grain: Notice the lines of the muscle fibers of the roast. This is the \"grain\" of the meat. Slice the meat perpendicular to these lines, or across the grain (cutting this way further tenderizes the meat), in 1/4-inch to 1/2-inch slices.\n17. Serve with the onions, carrots and gravy. Serve with mashed, roasted or boiled potatoes, egg noodles or polenta.",
+      "image_url": "https://www.themealdb.com/images/media/meals/ursuup1487348423.jpg",
+      "servings": 3,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "pound Beef Brisket",
+          "quantity": "4-5"
+        },
+        {
+          "name": "Salt",
+          "quantity": "Dash"
+        },
+        {
+          "name": "Onion",
+          "quantity": "3"
+        },
+        {
+          "name": "cloves Garlic",
+          "quantity": "5"
+        },
+        {
+          "name": "Sprig Thyme",
+          "quantity": "1"
+        },
+        {
+          "name": "sprig Rosemary",
+          "quantity": "1"
+        },
+        {
+          "name": "Bay Leaves",
+          "quantity": "4"
+        },
+        {
+          "name": "cups beef stock",
+          "quantity": "2"
+        },
+        {
+          "name": "Large Carrots",
+          "quantity": "3"
+        },
+        {
+          "name": "Tbsp Mustard",
+          "quantity": "1"
+        },
+        {
+          "name": "Mashed Potatoes",
+          "quantity": "4"
+        }
+      ],
+      "total_calories": 430,
+      "protein": 10.5,
+      "carbs": 42,
+      "fat": 8.3,
+      "category": "dinner",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 68,
+    "fields": {
+      "title": "Beef Caldereta",
+      "description": "A delicious dinner recipe",
+      "instructions": "1. 0.\tHeat oil in a cooking pot. Saute onion and garlic until onion softens\n2. 1.\tAdd beef. Saute until the outer part turns light brown.\n3. 2.\tAdd soy sauce. Pour tomato sauce and water. Let boil.\n4. 3.\tAdd Knorr Beef Cube. Cover the pressure cooker. Cook for 30 minutes.\n5. 4.\tPan-fry carrot and potato until it browns. Set aside.\n6. 5.\tAdd chili pepper, liver spread and peanut butter. Stir.\n7. 6.\tAdd bell peppers, fried potato and carrot. Cover the pot. Continue cooking for 5 to 7 minutes.\n8. 7.\tSeason with salt and ground black pepper. Serve.",
+      "image_url": "https://www.themealdb.com/images/media/meals/41cxjh1683207682.jpg",
+      "servings": 4,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "cut cubes Beef",
+          "quantity": "2kg"
+        },
+        {
+          "name": "Beef Stock",
+          "quantity": "1"
+        },
+        {
+          "name": "tbs Soy Sauce",
+          "quantity": "1"
+        },
+        {
+          "name": "cups Water",
+          "quantity": "2"
+        },
+        {
+          "name": "sliced Green Pepper",
+          "quantity": "1"
+        },
+        {
+          "name": "sliced Red Pepper",
+          "quantity": "1"
+        },
+        {
+          "name": "sliced Potatoes",
+          "quantity": "1"
+        },
+        {
+          "name": "sliced Carrots",
+          "quantity": "1"
+        },
+        {
+          "name": "ounces Tomato Puree",
+          "quantity": "8"
+        },
+        {
+          "name": " tablespoons Peanut Butter",
+          "quantity": "3"
+        },
+        {
+          "name": "Chilli Powder",
+          "quantity": "5"
+        },
+        {
+          "name": "chopped Onion",
+          "quantity": "1"
+        },
+        {
+          "name": "cloves Garlic",
+          "quantity": "5"
+        },
+        {
+          "name": "tbs Olive Oil",
+          "quantity": "3"
+        }
+      ],
+      "total_calories": 520,
+      "protein": 12.0,
+      "carbs": 48,
+      "fat": 9.2,
+      "category": "dinner",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 69,
+    "fields": {
+      "title": "Beef Dumpling Stew",
+      "description": "A delicious dinner recipe",
+      "instructions": "1. Preheat the oven to 180C/350F/Gas 4.\n2. For the beef stew, heat the oil and butter in an ovenproof casserole and fry the beef until browned on all sides.\n3. Sprinkle over the flour and cook for a further 2-3 minutes.\n4. Add the garlic and all the vegetables and fry for 1-2 minutes.\n5. Stir in the wine, stock and herbs, then add the Worcestershire sauce and balsamic vinegar, to taste. Season with salt and freshly ground black pepper.\n6. Cover with a lid, transfer to the oven and cook for about two hours, or until the meat is tender.\n7. For the dumplings, sift the flour, baking powder and salt into a bowl.\n8. Add the suet and enough water to form a thick dough.\n9. With floured hands, roll spoonfuls of the dough into small balls.\n10. After two hours, remove the lid from the stew and place the balls on top of the stew. Cover, return to the oven and cook for a further 20 minutes, or until the dumplings have swollen and are tender. (If you prefer your dumplings with a golden top, leave the lid off when returning to the oven.)\n11. To serve, place a spoonful of mashed potato onto each of four serving plates and top with the stew and dumplings. Sprinkle with chopped parsley.",
+      "image_url": "https://www.themealdb.com/images/media/meals/uyqrrv1511553350.jpg",
+      "servings": 6,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "tbs Olive Oil",
+          "quantity": "2"
+        },
+        {
+          "name": "Butter",
+          "quantity": "25g"
+        },
+        {
+          "name": "Beef",
+          "quantity": "750g"
+        },
+        {
+          "name": "tblsp Plain Flour",
+          "quantity": "2"
+        },
+        {
+          "name": "cloves minced Garlic",
+          "quantity": "2"
+        },
+        {
+          "name": "Onions",
+          "quantity": "175g"
+        },
+        {
+          "name": "Celery",
+          "quantity": "150g"
+        },
+        {
+          "name": "Carrots",
+          "quantity": "150g"
+        },
+        {
+          "name": "chopped Leek",
+          "quantity": "2"
+        },
+        {
+          "name": "Swede",
+          "quantity": "200g"
+        },
+        {
+          "name": "Red Wine",
+          "quantity": "150ml"
+        },
+        {
+          "name": "Beef Stock",
+          "quantity": "500g"
+        },
+        {
+          "name": "Bay Leaf",
+          "quantity": "2"
+        },
+        {
+          "name": "tbs Thyme",
+          "quantity": "3"
+        },
+        {
+          "name": "tblsp chopped Parsley",
+          "quantity": "3"
+        },
+        {
+          "name": "Plain Flour",
+          "quantity": "125g"
+        },
+        {
+          "name": "tsp Baking Powder",
+          "quantity": "1"
+        },
+        {
+          "name": "Suet",
+          "quantity": "60g"
+        },
+        {
+          "name": "Water",
+          "quantity": "Splash"
+        }
+      ],
+      "total_calories": 670,
+      "protein": 14.5,
+      "carbs": 58,
+      "fat": 10.7,
+      "category": "dinner",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 70,
+    "fields": {
+      "title": "Beef Empanadas",
+      "description": "A delicious dinner recipe",
+      "instructions": "1. For the dough place lard, warm water and salt in a large kneading bowl and stir. Add flour and oregano and either knead five miutes by hand or with the kneading function of your machine. Let rest covered for at least half an hour or overnight in the fridge.\n2. 2\n3. For the filling place tomatoes for about 30 seconds in boiling water, then cool with cold water and peel of skin and cut into cubes. Press garlic through garlic press, cut onions into cubes. Simmer garlic and onions in some olive oil until translucent. Take out onions and garlic and brown the meat at high heat from all sides. Season with all herbs and add the onions, garlic and tomatoes. Let simmer for a few minutes, add salt, pepper and additional spices to taste. You can prepare the meat the night before, chill in fridge if doing so. Boil eggs and also cut into cubes and mix with prepared meat.\n4. 3\n5. Cut dough into half and roll out one half thinnly on floured surface. Cut out circles about 12-15cm in diameter. Mine have a diameter of 12.5 cm. Place about 2-4 teaspoons of filling on one circle, put a bit of water all around the edges and fold over the other half so that you get half moons. Be sure to seal the edges with a fork. Repeat until you have no dough and filling left.\n6. 4\n7. Meanwhile preheat oven to 200 degrees Celsius. Brush empanadas with egg wash and bake about 8 empanadas on a baking sheet lined with parchment paper for about 25min or until golden. Serve warm with chimichurri sauce.",
+      "image_url": "https://www.themealdb.com/images/media/meals/dxpc7j1764370714.jpg",
+      "servings": 6,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Lard",
+          "quantity": "60g"
+        },
+        {
+          "name": "Water",
+          "quantity": "340g"
+        },
+        {
+          "name": "tsp Salt",
+          "quantity": "1"
+        },
+        {
+          "name": "All purpose flour",
+          "quantity": "600g"
+        },
+        {
+          "name": "Tomato",
+          "quantity": "3"
+        },
+        {
+          "name": "clove Garlic",
+          "quantity": "1"
+        },
+        {
+          "name": "large Red Onions",
+          "quantity": "1"
+        },
+        {
+          "name": "Spring Onions",
+          "quantity": "Bunch"
+        },
+        {
+          "name": "Sirloin steak",
+          "quantity": "750g"
+        },
+        {
+          "name": "tablespoon Dried Oregano",
+          "quantity": "1"
+        },
+        {
+          "name": "tsp Paprika",
+          "quantity": "1"
+        },
+        {
+          "name": "tsp Red Pepper Flakes",
+          "quantity": "1"
+        },
+        {
+          "name": "tsp Parsley",
+          "quantity": "1"
+        },
+        {
+          "name": "taste Salt",
+          "quantity": "To"
+        },
+        {
+          "name": "taste Pepper",
+          "quantity": "To"
+        },
+        {
+          "name": "Egg",
+          "quantity": "3"
+        },
+        {
+          "name": "Egg Wash",
+          "quantity": "Splash"
+        },
+        {
+          "name": "Chimichurri sauce",
+          "quantity": "Drizzle"
+        }
+      ],
+      "total_calories": 640,
+      "protein": 14.0,
+      "carbs": 56,
+      "fat": 10.4,
+      "category": "dinner",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 71,
+    "fields": {
+      "title": "Beef Lo Mein",
+      "description": "A delicious dinner recipe",
+      "instructions": "1. STEP 1 - MARINATING THE BEEF\n2. In a bowl, add the beef, salt, 1 pinch white pepper, 1 Teaspoon sesame seed oil, 1/2 egg, corn starch,1 Tablespoon of oil and mix together.\n3. STEP 2 - BOILING THE THE NOODLES\n4. In a 6 qt pot add your noodles to boiling water until the noodles are submerged and boil on high heat for 10 seconds. After your noodles is done boiling strain and cool with cold water.\n5. STEP 3 - STIR FRY\n6. Add 2 Tablespoons of oil, beef and cook on high heat untill beef is medium cooked.\n7. Set the cooked beef aside\n8. In a wok add 2 Tablespoon of oil, onions, minced garlic, minced ginger, bean sprouts, mushrooms, peapods and 1.5 cups of water or until the vegetables are submerged in water.\n9. Add the noodles to wok\n10. To make the sauce, add oyster sauce, 1 pinch white pepper, 1 teaspoon sesame seed oil, sugar, and 1 Teaspoon of soy sauce.\n11. Next add the beef to wok and stir-fry",
+      "image_url": "https://www.themealdb.com/images/media/meals/1529444830.jpg",
+      "servings": 5,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "lb Beef",
+          "quantity": "1/2"
+        },
+        {
+          "name": "Salt",
+          "quantity": "pinch"
+        },
+        {
+          "name": "Pepper",
+          "quantity": "pinch"
+        },
+        {
+          "name": "tsp Sesame Seed Oil",
+          "quantity": "2"
+        },
+        {
+          "name": "Egg",
+          "quantity": "1/2"
+        },
+        {
+          "name": "tbs Starch",
+          "quantity": "3"
+        },
+        {
+          "name": "tbs Oil",
+          "quantity": "5"
+        },
+        {
+          "name": "lb Noodles",
+          "quantity": "1/4"
+        },
+        {
+          "name": "cup Onion",
+          "quantity": "1/2"
+        },
+        {
+          "name": "tsp Minced Garlic",
+          "quantity": "1"
+        },
+        {
+          "name": "tsp Ginger",
+          "quantity": "1"
+        },
+        {
+          "name": "cup Bean Sprouts",
+          "quantity": "1"
+        },
+        {
+          "name": "cup Mushrooms",
+          "quantity": "1"
+        },
+        {
+          "name": "cup Water",
+          "quantity": "1"
+        },
+        {
+          "name": "tbs Oyster Sauce",
+          "quantity": "1"
+        },
+        {
+          "name": "tsp Sugar",
+          "quantity": "1"
+        },
+        {
+          "name": "tsp Soy Sauce",
+          "quantity": "1"
+        }
+      ],
+      "total_calories": 610,
+      "protein": 13.5,
+      "carbs": 54,
+      "fat": 10.1,
+      "category": "dinner",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 72,
+    "fields": {
+      "title": "Beef Mandi",
+      "description": "A delicious dinner recipe",
+      "instructions": "1. 1. Wash the beef and cut into large pieces. Season lightly with salt and turmeric.\n2. 2. Heat ghee/oil in a large pot. Add sliced onions and sauté until light golden.\n3. 3. Add garlic, green chilies, and tomato; cook until softened.\n4. 4. Add the mandi spice mix: coriander, cumin, black pepper, cinnamon, cardamom, cloves, and bay leaves.\n5. 5. Add beef pieces and stir on medium heat until the meat is well coated with spices.\n6. 6. Pour in water or beef stock. Cover and simmer until beef is tender (about 1.5–2 hours depending on cut).\n7. 7. Remove beef carefully and set aside. Strain and measure the broth.\n8. 8. Add washed, soaked basmati rice to the broth (usually 1 cup rice = 1.5–2 cups liquid). Adjust seasoning and bring to a boil.\n9. 9. Lower heat, cover, and cook the rice until fluffy.\n10. 10. Place the beef pieces over the rice and steam on low heat for 10 minutes so flavors combine.\n11. 11. Optional: For smoky flavor, place a small hot charcoal on foil in the pot, add 1 tsp butter/oil, immediately cover for 5 minutes. Remove coal before serving.\n12. 12. Fluff rice and serve beef mandi with salad or chutney.",
+      "image_url": "https://www.themealdb.com/images/media/meals/1nalo51765188375.jpg",
+      "servings": 4,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "kg Basmati Rice",
+          "quantity": "1"
+        },
+        {
+          "name": "Cups Beef Stock",
+          "quantity": "5"
+        },
+        {
+          "name": "medium Onion",
+          "quantity": "2"
+        },
+        {
+          "name": "chopped cloves Garlic",
+          "quantity": "5"
+        },
+        {
+          "name": "Green Chilli",
+          "quantity": "2"
+        },
+        {
+          "name": "small Tomato",
+          "quantity": "1"
+        },
+        {
+          "name": "1/2 Tsp Salt",
+          "quantity": "2"
+        },
+        {
+          "name": " tablespoons Oil",
+          "quantity": "3"
+        },
+        {
+          "name": "½ tsp Turmeric Powder",
+          "quantity": "1"
+        },
+        {
+          "name": "tsp Cardamom",
+          "quantity": "1/2"
+        },
+        {
+          "name": "tsp Cloves",
+          "quantity": "1/2"
+        },
+        {
+          "name": "tsp Bay Leaf",
+          "quantity": "1/2"
+        }
+      ],
+      "total_calories": 460,
+      "protein": 11.0,
+      "carbs": 44,
+      "fat": 8.6,
+      "category": "dinner",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 73,
+    "fields": {
+      "title": "Beef Mechado",
+      "description": "A delicious dinner recipe",
+      "instructions": "1. 0.\tMake the beef tenderloin marinade by combining soy sauce, vinegar, ginger, garlic, sesame oil, olive oil, sugar, salt, and ground black pepper in a large bowl. Mix well.\n2. 1.\tAdd the cubed beef tenderloin to the bowl with the beef tenderloin marinade. Gently toss to coat the beef. Let it stay for 1 hour.\n3. 2.\tUsing a metal or bamboo skewer, assemble the beef kebob by skewering the vegetables and marinated beef tenderloin.\n4. 3.\tHeat-up the grill and start grilling the beef kebobs for 3 minutes per side. This will give you a medium beef that is juicy and tender on the inside. Add more time if you want your beef well done, but it will be less tender.\n5. 4.\tTransfer to a serving plate. Serve with Saffron rice.\n6. 5.\tShare and enjoy!",
+      "image_url": "https://www.themealdb.com/images/media/meals/cgl60b1683206581.jpg",
+      "servings": 4,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "cloves Garlic",
+          "quantity": "3"
+        },
+        {
+          "name": "sliced Onion",
+          "quantity": "1"
+        },
+        {
+          "name": "Lbs Beef",
+          "quantity": "2"
+        },
+        {
+          "name": "ounces Tomato Puree",
+          "quantity": "8"
+        },
+        {
+          "name": "cup Water",
+          "quantity": "1"
+        },
+        {
+          "name": "tbs Olive Oil",
+          "quantity": "3"
+        },
+        {
+          "name": "Slice Lemon",
+          "quantity": "1"
+        },
+        {
+          "name": "large Potatoes",
+          "quantity": "1"
+        },
+        {
+          "name": "cup Soy Sauce",
+          "quantity": "1/4"
+        },
+        {
+          "name": "tsp Black Pepper",
+          "quantity": "1/2"
+        },
+        {
+          "name": "Bay Leaves",
+          "quantity": "2"
+        },
+        {
+          "name": "taste Salt",
+          "quantity": "To"
+        }
+      ],
+      "total_calories": 460,
+      "protein": 11.0,
+      "carbs": 44,
+      "fat": 8.6,
+      "category": "dinner",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 74,
+    "fields": {
+      "title": "Beef pho",
+      "description": "A delicious dinner recipe",
+      "instructions": "1. step 1\n2. Tip the beef stock along with 500ml of water into a large saucepan. Sit the onion and ginger in a frying pan over a high heat and char on all sides, around 3-5 mins (you can also do this under your grill). Once charred, add to the beef stock. In the same pan, toast the spices for 2-3 mins and once they begin to smell fragrant, add them to the beef stock as well. Bring the stock to the boil, then turn to a simmer and cook for 30mins before straining.\n3. step 2\n4. Meanwhile, cut the fat from the steak and wrap in cling film, then put into the freezer for 15 mins – this will make your steak really easy to slice! Slice it thinly, then cover with cling film again and pop into the fridge.\n5. step 3\n6. Taste the beef stock and use the palm sugar, fish sauce and soy to season. Cook the noodles according to package instructions and split between two bowls, topping each with the sliced beef. Bring the stock to the boil and then pour into the bowls (the heat will cook the beef). Top each with the spring onions, chilli slices and herbs. Serve with the lime wedges to squeeze over.",
+      "image_url": "https://www.themealdb.com/images/media/meals/pbzcrx1763765096.jpg",
+      "servings": 5,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "L Beef Stock",
+          "quantity": "1"
+        },
+        {
+          "name": "large Onion",
+          "quantity": "1"
+        },
+        {
+          "name": "Large Chopped Ginger",
+          "quantity": "1"
+        },
+        {
+          "name": "Cinnamon Stick",
+          "quantity": "1"
+        },
+        {
+          "name": "Star Anise",
+          "quantity": "2"
+        },
+        {
+          "name": "tsp Coriander Seeds",
+          "quantity": "1"
+        },
+        {
+          "name": "teaspoon Cloves",
+          "quantity": "1/2"
+        },
+        {
+          "name": "Sirloin steak",
+          "quantity": "225g"
+        },
+        {
+          "name": "tsp Palm Sugar",
+          "quantity": "1"
+        },
+        {
+          "name": "tablespoon Fish Sauce",
+          "quantity": "1"
+        },
+        {
+          "name": "½ tbsp Soy Sauce",
+          "quantity": "1"
+        },
+        {
+          "name": "Rice Noodles",
+          "quantity": "200g"
+        },
+        {
+          "name": "sliced Spring Onions",
+          "quantity": "2"
+        },
+        {
+          "name": "small Birds-eye Chillies",
+          "quantity": "1"
+        },
+        {
+          "name": "Basil",
+          "quantity": "Handful"
+        },
+        {
+          "name": "Coriander",
+          "quantity": "Handful"
+        },
+        {
+          "name": "Lime",
+          "quantity": "1"
+        }
+      ],
+      "total_calories": 610,
+      "protein": 13.5,
+      "carbs": 54,
+      "fat": 10.1,
+      "category": "dinner",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "mealapp.recipe",
+    "pk": 75,
+    "fields": {
+      "title": "Beef Rendang",
+      "description": "A delicious dinner recipe",
+      "instructions": "1. Chop the spice paste ingredients and then blend it in a food processor until fine.\n2. Heat the oil in a stew pot, add the spice paste, cinnamon, cloves, star anise, and cardamom and stir-fry until aromatic. Add the beef and the pounded lemongrass and stir for 1 minute. Add the coconut milk, tamarind juice, water, and simmer on medium heat, stirring frequently until the meat is almost cooked. Add the kaffir lime leaves, kerisik (toasted coconut), sugar or palm sugar, stirring to blend well with the meat.\n3. Lower the heat to low, cover the lid, and simmer for 1 to 1 1/2 hours or until the meat is really tender and the gravy has dried up. Add more salt and sugar to taste. Serve immediately with steamed rice and save some for overnight.",
+      "image_url": "https://www.themealdb.com/images/media/meals/bc8v651619789840.jpg",
+      "servings": 4,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "Beef",
+          "quantity": "1lb"
+        },
+        {
+          "name": "tbs Vegetable Oil",
+          "quantity": "5"
+        },
+        {
+          "name": "Cinnamon Stick",
+          "quantity": "1"
+        },
+        {
+          "name": "Cloves",
+          "quantity": "3"
+        },
+        {
+          "name": "Star Anise",
+          "quantity": "3"
+        },
+        {
+          "name": "Cardamom",
+          "quantity": "3"
+        },
+        {
+          "name": "cup Coconut Cream",
+          "quantity": "1"
+        },
+        {
+          "name": "cup Water",
+          "quantity": "1"
+        },
+        {
+          "name": "tbs Tamarind Paste",
+          "quantity": "2"
+        },
+        {
+          "name": "Lime",
+          "quantity": "6"
+        },
+        {
+          "name": "tbs Sugar",
+          "quantity": "1"
+        },
+        {
+          "name": "Challots",
+          "quantity": "5"
+        }
+      ],
+      "total_calories": 460,
+      "protein": 11.0,
+      "carbs": 44,
+      "fat": 8.6,
+      "category": "dinner",
+      "created_by": 1
+    }
+  }
+]

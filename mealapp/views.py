@@ -1,36 +1,65 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.db.models import Q
+from django.core.paginator import Paginator
 from . models import Recipe, UserProfile
+import json
 
 
 def index(request):
-    """Home page view"""
+    search = request.GET.get('search', '')
+    page_number = request.GET.get('page', 1)
 
-    # Get search term
-    search = request.GET.get('search', )
+    # Get all recipes
+    all_recipes = Recipe.objects.all()
 
-    # Get recipes by category (3 per category for wireframe layout)
-    breakfast_recipes = Recipe.objects.filter(category='breakfast')[:3]
-    lunch_recipes = Recipe.objects.filter(category='lunch')[:3]
-    dinner_recipes = Recipe.objects.filter(category='dinner')[:3]
-    snack_recipes = Recipe.objects.filter(category='snack')[:3]
-
-    # Apply search if provided
     if search:
-        breakfast_recipes = breakfast_recipes.filter(title__icontains=search)
-        lunch_recipes = lunch_recipes.filter(title__icontains=search)
-        dinner_recipes = dinner_recipes.filter(title__icontains=search)
-        snack_recipes = snack_recipes.filter(title__icontains=search)
+        all_recipes = all_recipes.filter(
+            Q(title__icontains=search) |
+            Q(description__icontains=search)
+        )
+
+    # Serialize ALL recipes manually to handle JSONField and CloudinaryField
+    # This allows client-side category filtering across the entire dataset
+    recipes_data = []
+    for recipe in all_recipes:
+        try:
+            recipes_data.append({
+                'id': recipe.id,
+                'recipe_name': recipe.title,  # Match the new design's field name
+                'category': recipe.category,
+                'description': recipe.description,
+                'ingredients': recipe.ingredients if isinstance(recipe.ingredients, list) else [],
+                'instructions': recipe.instructions.split('\n') if recipe.instructions else [],
+                'image_url': recipe.image_url.url if hasattr(recipe.image_url, 'url') else str(recipe.image_url),
+                'prep_time_minutes': recipe.prep_time_minutes,
+                'total_calories': recipe.total_calories,
+                'servings': recipe.servings,
+                'protein': recipe.protein,
+                'carbs': recipe.carbs,
+                'fat': recipe.fat,
+            })
+        except Exception as e:
+            print(f"Error serializing recipe {recipe.id}: {e}")
+            continue
+
+    # Pagination - 12 recipes per page (for display purposes only)
+    paginator = Paginator(all_recipes, 12)
+    page_obj = paginator.get_page(page_number)
+
+    print(f"DEBUG: Total recipes in DB: {all_recipes.count()}")
+    print(f"DEBUG: Recipes on this page: {len(page_obj)}")
+    print(f"DEBUG: Serialized recipes: {len(recipes_data)}")
+    print(f"DEBUG: Page {page_obj.number} of {page_obj.paginator.num_pages}")
 
     context = {
+        'recipes': page_obj,
+        'recipes_json': json.dumps(recipes_data),
         'search_term': search,
-        'breakfast_recipes': breakfast_recipes,
-        'lunch_recipes': lunch_recipes,
-        'dinner_recipes': dinner_recipes,
-        'snack_recipes': snack_recipes,
+        'page_obj': page_obj,
+        'is_paginated': page_obj.has_other_pages(),
     }
-
     return render(request, 'mealapp/index.html', context)
 
 
@@ -60,4 +89,4 @@ def dashboard(request):
         # 'meal_plans': meal_plans,
     }
 
-    return render(request, 'dashboard.html', context)
+    return render(request, 'mealapp/dashboard.html', context)

@@ -79,7 +79,17 @@ class RecipeAdmin(admin.ModelAdmin):
 
     fieldsets = (
         ('Recipe Information', {
-            'fields': ('title', 'description', 'category', 'image_url', 'calories')
+            'fields': ('title', 'description', 'category', 'image_url', 'servings', 'total_calories')
+        }),
+        ('Cooking Details', {
+            'fields': ('prep_time_minutes', 'cook_time_minutes', 'ingredients', 'instructions')
+        }),
+        ('Nutrition Information', {
+            'fields': ('protein', 'carbs', 'fat'),
+            'classes': ('collapse',)
+        }),
+        ('Author', {
+            'fields': ('created_by',)
         }),
         ('Timestamps', {
             'fields': ('created_at', 'updated_at'),

@@ -1,142 +1,152 @@
-// mealapp/static/mealapp/js/script.js
-document.addEventListener('DOMContentLoaded', () => {
-        // Recipe data
-        const recipes = {
-            breakfast: [],
-            lunch: [],
-            dinner: []
-        };
+// Script for Healthy Meal Planner
 
-        let allRecipes = [];
-        let currentCategory = 'all';
-        let searchTerm = '';
+// Recipe Grid Functionality
+let allRecipes = [];
+let currentCategory = 'all';
+let searchTerm = '';
 
-        // Fetch and load recipes
-        async function loadRecipes() {
-            try {
-                const categories = ['breakfast', 'lunch', 'dinner'];
-
-                for (const category of categories) {
-                    const filename = `${category}_recipes.json`;
-                    const response = await fetch(filename);
-                    const data = await response.json();
-                    recipes[category] = data.map(recipe => ({
-                        ...recipe,
-                        category: category
-                    }));
-                    allRecipes.push(...recipes[category]);
-                }
-
-                displayRecipes();
-            } catch (error) {
-                console.error('Error loading recipes:', error);
-                document.getElementById('recipesContainer').innerHTML =
-                    '<p style="color: white; text-align: center;">Error loading recipes. Make sure JSON files are in the same directory.</p>';
-            }
+function initializeRecipeGrid() {
+    // Get recipes data from the template
+    const recipesDataElement = document.getElementById('recipesData');
+    if (recipesDataElement) {
+        try {
+            allRecipes = JSON.parse(recipesDataElement.textContent);
+            console.log(`✅ Loaded ${allRecipes.length} recipes`);
+            displayRecipes();
+        } catch (e) {
+            console.error('❌ Error parsing recipes data:', e);
         }
+    }
+}
 
-        function displayRecipes() {
-            const container = document.getElementById('recipesContainer');
-            container.innerHTML = '';
+function displayRecipes() {
+    const container = document.getElementById('recipesContainer');
+    if (!container) return;
+    
+    container.innerHTML = '';
 
-            let recipesToDisplay = allRecipes;
+    let recipesToDisplay = allRecipes;
 
-            // Filter by category
-            if (currentCategory !== 'all') {
-                recipesToDisplay = recipesToDisplay.filter(r => r.category === currentCategory);
-            }
+    // Filter by category
+    if (currentCategory !== 'all') {
+        recipesToDisplay = recipesToDisplay.filter(r => r.category === currentCategory);
+    }
 
-            // Filter by search term
-            if (searchTerm) {
-                recipesToDisplay = recipesToDisplay.filter(recipe =>
-                    recipe.recipe_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                    recipe.ingredients.some(ing => ing.toLowerCase().includes(searchTerm.toLowerCase()))
-                );
-            }
+    // Filter by search term (client-side for instant feedback)
+    if (searchTerm) {
+        recipesToDisplay = recipesToDisplay.filter(recipe =>
+            recipe.recipe_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            (recipe.ingredients && recipe.ingredients.some(ing =>
+                ing.toLowerCase().includes(searchTerm.toLowerCase())
+            ))
+        );
+    }
 
-            recipesToDisplay.forEach(recipe => {
-                const card = createRecipeCard(recipe);
-                container.appendChild(card);
-            });
+    recipesToDisplay.forEach(recipe => {
+        const card = createRecipeCard(recipe);
+        container.appendChild(card);
+    });
 
-            // Update count
-            document.getElementById('recipeCount').textContent =
-                `Showing ${recipesToDisplay.length} recipe${recipesToDisplay.length !== 1 ? 's' : ''}`;
-        }
+    // Update count
+    const countElement = document.getElementById('recipeCount');
+    if (countElement) {
+        countElement.textContent =
+            `Showing ${recipesToDisplay.length} recipe${recipesToDisplay.length !== 1 ? 's' : ''}`;
+    }
+}
 
-        function createRecipeCard(recipe) {
-            const card = document.createElement('div');
-            card.className = 'recipe-card active';
+function createRecipeCard(recipe) {
+    const card = document.createElement('div');
+    card.className = 'recipe-card active';
 
-            const ingredientsList = recipe.ingredients
-                .slice(0, 6)
-                .map(ing => `<li>${ing}</li>`)
-                .join('');
+    const ingredientsList = (recipe.ingredients.name || [])
+        .slice(0, 6)
+        .map(ing => `<li>${ing}</li>`)
+        .join('');
 
-            const instructionsList = recipe.instructions
-                .slice(0, 3)
-                .map(inst => {
-                    // Remove step markers if present
-                    const cleanInst = inst.replace(/^step\s+\d+\s*:?\s*/i, '').trim();
-                    return cleanInst ? `<li>${cleanInst}</li>` : '';
-                })
-                .join('');
+    const instructionsList = (recipe.instructions || [])
+        .slice(0, 3)
+        .map(inst => {
+            const cleanInst = inst.replace(/^step\s+\d+\s*:?\s*/i, '').trim();
+            return cleanInst ? `<li>${cleanInst}</li>` : '';
+        })
+        .join('');
 
-            card.innerHTML = `
-                <img src="${recipe.image_url}" alt="${recipe.recipe_name}" class="recipe-image" 
-                     onerror="this.src='https://via.placeholder.com/300x200?text=Recipe+Image'">
-                <div class="recipe-content">
-                    <div class="recipe-name">${recipe.recipe_name}</div>
-                    
-                    <div class="recipe-info-bar">
-                        <div class="info-badge">👥 Servings: ${recipe.servings || 2}</div>
-                    </div>
-                    
-                    <div class="ingredients-section">
-                        <div class="section-title">Key Ingredients</div>
-                        <ul class="ingredients-list">
-                            ${ingredientsList}
-                        </ul>
-                    </div>
+    card.innerHTML = `
+        <img src="${recipe.image_url}" alt="${recipe.recipe_name}" class="recipe-image" 
+             onerror="this.onerror=null;this.src='/static/mealapp/images/default.jpg';" />
+        <div class="recipe-content">
+            <div class="recipe-name">${recipe.recipe_name}</div>
+            
+            <div class="recipe-info-bar">
+                <div class="info-badge">👥 ${recipe.servings || 2} servings</div>
+                <div class="info-badge">⏱️ ${recipe.prep_time_minutes} min</div>
+                <div class="info-badge">🔥 ${recipe.total_calories} cal</div>
+            </div>
+            
+            ${ingredientsList ? `
+            <div class="ingredients-section">
+                <div class="section-title">Key Ingredients</div>
+                <ul class="ingredients-list">
+                    ${ingredientsList.name}
+                </ul>
+            </div>
+            ` : ''}
 
-                    <div class="instructions-section">
-                        <div class="section-title">Steps</div>
-                        <ol class="instructions-list">
-                            ${instructionsList}
-                        </ol>
-                    </div>
+            ${instructionsList ? `
+            <div class="instructions-section">
+                <div class="section-title">Steps</div>
+                <ol class="instructions-list">
+                    ${instructionsList}
+                </ol>
+            </div>
+            ` : ''}
 
-                    <div class="recipe-stats">
-                        <div class="stat-item">
-                            <span>📝</span>
-                            <span>${recipe.ingredients.length} ingredients</span>
-                        </div>
-                        <div class="stat-item">
-                            <span>👨‍🍳</span>
-                            <span>${recipe.instructions.length} steps</span>
-                        </div>
-                    </div>
-                </div>
-            `;
+            <a href="/recipe/${recipe.id}/" class="btn">View Recipe</a>
+        </div>
+    `;
 
-            return card;
-        }
+    return card;
+}
 
-        // Event listeners
-        document.querySelectorAll('.tab-button').forEach(button => {
-            button.addEventListener('click', (e) => {
-                document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
-                e.target.classList.add('active');
-                currentCategory = e.target.dataset.category;
-                displayRecipes();
-            });
-        });
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 Healthy Meal Planner loaded');
+    
+    // Initialize recipe grid
+    initializeRecipeGrid();
 
-        document.getElementById('searchInput').addEventListener('input', (e) => {
-            searchTerm = e.target.value;
+    // Event listeners for category tabs
+    document.querySelectorAll('.tab-button').forEach(button => {
+        button.addEventListener('click', (e) => {
+            document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+            currentCategory = e.target.dataset.category;
             displayRecipes();
         });
-
-        // Load recipes on page load
-        loadRecipes();
     });
+
+    // Add hover effects to recipe cards
+    const recipeCards = document.querySelectorAll('.recipe-card');
+    console.log(`✅ Found ${recipeCards.length} recipe cards`);
+
+    recipeCards.forEach(card => {
+        card.addEventListener('click', function() {
+            console.log('Recipe card clicked');
+            // Future:  Navigate to recipe detail page
+        });
+    });
+
+      
+    // Search form enhancement
+    const searchForm = document.querySelector('.search-form');
+    
+    if (searchForm) {
+        searchForm.addEventListener('submit', function(e) {
+            const searchInput = document.querySelector('.search-input');
+            if (searchInput.value.trim() === '') {
+                e.preventDefault();
+                alert('Please enter a search term');
+            }
+        });
+    }
+});
