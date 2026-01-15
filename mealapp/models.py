@@ -42,6 +42,14 @@ class UserProfile(models.Model):
         help_text="Body Mass Index"
     )
 
+    # In UserProfile model, add:
+    meal_plan = models.ForeignKey(
+        'MealPlan',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='user_profile'
+    )
     # Timestamps - ADD default=timezone.now
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(
@@ -147,10 +155,9 @@ class Recipe(models.Model):
     def __str__(self):
         return f"{self.title} {self.description}"
 
-    '''def total_time(self):
+    def total_time(self):
         """Calculate total time"""
         return self.prep_time_minutes + self.cook_time_minutes
-
 
 
 def save(self, *args, **kwargs):
@@ -162,4 +169,77 @@ def save(self, *args, **kwargs):
     if self.created_at is None:
         self.created_at = timezone.now()
     super().save(*args, **kwargs)
-'''
+
+
+# MealPlan Model
+class MealPlan(models.Model):
+    """
+    User's meal plan with one recipe for each meal category
+    """
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='meal_plans'
+    )
+    day = models.DateField(help_text="Date for this meal plan")
+    # One recipe for each category
+    breakfast_recipe = models.ForeignKey(
+        'Recipe',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='meal_plan_breakfast'
+    )
+    lunch_recipe = models.ForeignKey(
+        'Recipe',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='meal_plan_lunch'
+    )
+    dinner_recipe = models.ForeignKey(
+        'Recipe',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='meal_plan_dinner'
+    )
+    snack_recipe = models.ForeignKey(
+        'Recipe',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='meal_plan_snack'
+    )
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = 'meal_plan'
+        verbose_name = 'Meal Plan'
+        verbose_name_plural = 'Meal Plans'
+        unique_together = ['user', 'day']  # ADD THIS
+        ordering = ['-day']  # ADD THIS - show newest first
+
+    def __str__(self):
+        return f"{self.user.username} - {self.day}"
+
+    def get_total_calories(self):
+        """Calculate total calories for the day"""
+        total = 0
+        for recipe in [self.breakfast_recipe, self.lunch_recipe,
+                       self.dinner_recipe, self.snack_recipe]:
+            if recipe:
+                total += recipe.total_calories
+        return total
+
+
+def get_all_recipes(self, day):
+    """Get all recipes as a dictionary"""
+    return {
+        'breakfast': self.breakfast_recipe,
+        'lunch': self.lunch_recipe,
+        'dinner': self.dinner_recipe,
+        'snack': self.snack_recipe,
+    }

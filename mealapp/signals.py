@@ -2,6 +2,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.models import User
 from . models import UserProfile
+from django.apps import AppConfig
 
 
 @receiver(post_save, sender=User)
@@ -13,7 +14,7 @@ def create_user_profile(sender, instance, created, **kwargs):
     if created:
         # Don't create profile for admin/staff users
         if not instance.is_staff and not instance.is_superuser:
-            UserProfile. objects.create(
+            UserProfile.objects.create(
                 user=instance,
                 age=18,  # Default age - user will update later
                 gender='other',  # Default gender
@@ -31,3 +32,11 @@ def save_user_profile(sender, instance, **kwargs):
     # Only if profile exists (for staff users, profile might not exist)
     if hasattr(instance, 'profile'):
         instance.profile.save()
+
+
+class MealappConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'mealapp'
+
+    def ready(self):
+        import mealapp.signals
