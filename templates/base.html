@@ -2,12 +2,11 @@
 {% load static %}
 {% csrf_token %}
 {% load crispy_forms_tags %}
-{% load i18n %}
 {% url 'index' as index_url %}
 {% url 'dashboard' as dashboard_url %}
 {% url 'recipe_create' as recipe_create_url %}
 {% url 'recipe_list' as recipe_list_url %}
-{% url 'profile_setup' as profile_setup_url %}
+{% url 'profile' as profile_setup_url %}
 {% url 'meal_plan' as meal_plan_url %}
 {% url 'recipe_detail' recipe.id as recipe_detail_url %}
 {% url 'recipe_edit' recipe.id as recipe_edit_url %}

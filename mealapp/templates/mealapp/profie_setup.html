@@ -1,41 +1,90 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% url 'index' as index_url %}
+{% url 'dashboard' as dashboard_url %}
+{% url 'recipe_create' as recipe_create_url %}
+{% url 'recipe_list' as recipe_list_url %}
+{% url 'profile' as profile_setup_url %}
+{% url 'meal_plan' as meal_plan_url %}
+{% url 'recipe_detail' recipe.id as recipe_detail_url %}
+{% url 'recipe_edit' recipe.id as recipe_edit_url %}
+{% url 'recipe_delete' recipe.id as recipe_delete_url %}
+{% url 'help' as help_url %}
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
 
 
 {% block title %}Profile Setup{% endblock %}
 
 {% block content %}
 <div class="profile-setup-container">
-    <h2>👤 Complete Your Profil</h2>
+    <h2>👤 Complete Your Profile</h2>
     <form method="post" action="{% url 'profile_setup' %}">
         {% csrf_token %}
         {% if messages %}
         {% for message in messages %}
-        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <i class="fas fa-{% if message.tags == 'success' %}check-circle{% else %}exclamation-circle{% endif %}"></i>
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
         {% endfor %}
         {% endif %}
-        {{ form.as_p }}
-        <div class="form-group">
-            <label for="age">Age:</label>
-            <input type="number" id="age" name="age" required>
-        </div>
-        <div class="form-group">
-            <label for="weight">Weight (kg):</label>
-            <input type="number" id="weight" name="weight" step="0.1" required value="{{profile.weight_kg}}">
-        </div>
-        <div class="form-group">
-            <label for="height">Height (cm):</label>
-            <input type="number" id="height" name="height" required value="{{profile.height}}">
-        </div>
-        <div class="form-group">
-            <label for="gender">Gender:</label>
-            <select id="gender" name="gender" required>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-            </select>
-        </div>
+        <p>Let's calculate your BMI and personalized daily calorie goal. First provide some info!
+        </p>
+        <form method="POST" action="dashboard.html">
+            {% csrf_token %}
+
+            <!-- First Name -->
+            <div class="mb-3">
+                <label class="form-label fw-bold">First Name</label>
+                {{ form.first_name }}
+            </div>
+
+            <!-- Last Name -->
+            <div class="mb-3">
+                <label class="form-label fw-bold">Last Name</label>
+                {{ form.last_name }}
+            </div>
+
+            <!-- Age -->
+            <div class="mb-3">
+                <label class="form-label fw-bold">Age *</label>
+                {{ form.age }}
+            </div>
+
+            <!-- Gender -->
+            <div class="mb-3">
+                <label class="form-label fw-bold">Gender *</label>
+                {{ form.gender }}
+            </div>
+
+            <!-- Height -->
+            <div class="mb-3">
+                <label class="form-label fw-bold">Height (cm) *</label>
+                {{ form.height_cm }}
+            </div>
+
+            <!-- Weight -->
+            <div class="mb-3">
+                <label class="form-label fw-bold">Weight (kg) *</label>
+                {{ form.weight_kg }}
+            </div>
+
+            <!-- Activity Level -->
+            <div class="mb-3">
+                <label class="form-label fw-bold">Activity Level</label>
+                {{ form.activity_level }}
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary w-100 btn-lg">
+                <i class="fas fa-check"></i> Save Profile
+            </button>
+        </form>
+
 
         <div class="d-grid gap-2 mt-4">
             <button type="submit" class="btn btn-primary btn-lg" href="{% url 'mealapp:dashboard' %}">

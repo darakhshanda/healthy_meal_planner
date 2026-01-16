@@ -6,12 +6,13 @@ from django.db.models import Q
 from django.core.paginator import Paginator
 from django.urls import reverse_lazy
 from mealapp.forms import MealPlanForm
-from .models import MealPlan, Recipe, UserProfile
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from datetime import datetime, date
+from .models import MealPlan, Recipe, UserProfile
+from .forms import ProfileSetupForm
+from os import path
 import json
-
 # Home & Index
 
 
@@ -74,24 +75,42 @@ def recipe_detail(request, recipe_id):
 
 
 # Profile Setup
-@login_required(login_url='account_login')
+@login_required()
 def profile_setup(request):
     """User profile setup/edit view"""
     profile, created = UserProfile.objects.get_or_create(user=request.user)
 
     if request.method == 'POST':
-        profile.age = request.POST.get('age')
-        profile.gender = request.POST.get('gender')
-        profile.height_cm = request.POST.get('height_cm')
-        profile.weight_kg = request.POST.get('weight_kg')
-        profile.save()
-        messages.success(
-            request, f'✅ Profile saved! Your BMI is {profile.bmi} and daily calorie goal is {profile.daily_calorie_goal} kcal.')
-        messages.info(
-            request, 'You can now start creating meal plans and adding recipes.')
-        return redirect('dashboard')
+        form = ProfileSetupForm(request.POST, instance=profile)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.user = request.user
+            # copy fields to user model
+            profile.first_name = form.cleaned_data.get('first_name')
+            profile.last_name = form.cleaned_data.get('last_name')
+            profile.age = form.cleaned_data.get('age')
+            profile.gender = form.cleaned_data.get('gender')
+            profile.height_cm = form.cleaned_data.get('height_cm')
+            profile.weight_kg = form.cleaned_data.get('weight_kg')
+            profile.daily_calorie_goal = form.cleaned_data.get(
+                'daily_calorie_goal')
+            profile.bmi = form.cleaned_data.get('bmi')
 
-    return render(request, 'mealapp/profile_setup.html', {'profile': profile})
+            profile.save()
+            messages.success(
+                request, f'✅ Profile saved! Your BMI is {profile.bmi} and daily calorie goal is {profile.daily_calorie_goal} kcal.')
+            messages.info(
+                request, 'You can now start creating meal plans and adding recipes.')
+            return redirect('dashboard')
+        else:
+            messages.error(request, '❌ Please correct the errors below.')
+    else:
+        form = ProfileSetupForm(instance=profile)
+
+    return render(request, 'mealapp/profile_setup.html', {
+        'form': form,
+        'profile': profile
+    })
 
 
 # Dashboard
