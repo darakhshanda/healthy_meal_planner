@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 {% load static %}
+{% csrf_token %}
+{% load crispy_forms_tags %}
 {% load i18n %}
 {% url 'index' as index_url %}
 {% url 'dashboard' as dashboard_url %}
+{% url 'recipe_create' as recipe_create_url %}
 {% url 'recipe_list' as recipe_list_url %}
+{% url 'profile_setup' as profile_setup_url %}
+{% url 'meal_plan' as meal_plan_url %}
+{% url 'recipe_detail' recipe.id as recipe_detail_url %}
+{% url 'recipe_edit' recipe.id as recipe_edit_url %}
+{% url 'recipe_delete' recipe.id as recipe_delete_url %}
+{% url 'help' as help_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -14,57 +23,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Healthy Meal Planner{% endblock %}</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- External CSS -->
-    <link rel="stylesheet" href="{% static 'mealapp/css/style.css' %}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Modular CSS Files -->
+    <link rel="stylesheet" href="{% static 'mealapp/css/variables.css' %}">
+    <link rel="stylesheet" href="{% static 'mealapp/css/components.css' %}">
+    <link rel="stylesheet" href="{% static 'mealapp/css/layouts.css' %}">
+    <link rel="stylesheet" href="{% static 'mealapp/css/responsive.css' %}">
 
     {% block extra_css %}{% endblock %}
 </head>
 
 <body>
     <!-- Top Navigation -->
-    <nav class="top-navbar">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container">
-            <a href="{% url 'index' %}" class="logo">Healthy Meal PLanner</a>
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <i class="fas fa-apple-alt"></i> Healthy Meal Planner
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index' %}">Home</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'recipe_create' %}">Create</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle"></i> {{ user.username }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="{% url 'profile_setup' %}">Profile</a></li>
+                            <li><a class="dropdown-item" href="{% url 'help' %}">Help</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
 
-            <div class="nav-buttons">
-                <a href="{% url 'index' %}"
-                    class="nav-btn {% if request.resolver_match.url_name == 'index' %}active{% endif %}">Home</a>
-                <a href="{% url 'dashboard' %}"
-                    class="nav-btn {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}">Dashboard</a>
-                <a href="#" class="nav-btn">Help</a>
-                {% if user.is_authenticated %}
-                <a href="{% url 'account_logout' %}"
-                    class="nav-btn {% if request.path == logout_url %}active{% endif %}" aria-current="page">Logout</a>
-                {% else %}
-                <a href="{% url 'account_signup' %}"
-                    class="nav-btn {% if request.path == signup_url %}active{% endif %}" aria-current="page">Signup</a>
-                <a href="{% url 'account_login' %}" class="nav-btn {% if request.path == login_url %}active{% endif %}"
-                    aria-current="page">Login</a>
-                {% endif %}
+                            <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+                        </ul>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_signup' %}">Sign Up</a>
+                    </li>
+                    {% endif %}
+                </ul>
             </div>
         </div>
     </nav>
     <!-- Messages -->
     {% if messages %}
-    <div class="container" style="margin-top: 20px;">
+    <div class="container mt-3">
         {% for message in messages %}
-        <div class="alert alert-{{ message.tags }}"
-            style="padding: 12px; background: #d4edda; border:  1px solid #c3e6cb; border-radius: 4px; margin-bottom: 10px;">
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
             {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
         {% endfor %}
     </div>
     {% endif %}
 
-
     <!-- Main Content -->
-    {% block content %}{% endblock %}
+    {% block content %}
+    {% endblock %}
 
     <!-- Footer -->
-    <footer>
-        <p>© 2026 Healthy Meal Planner • Made with ❤️ for healthy living</p>
+    <footer class="bg-dark text-white py-2 ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 ">
+                    <h5>Healthy Meal Planner</h5>
+                    <p>Your personal nutrition companion</p>
+                </div>
+                <div class="col-md-4 ">
+                    <h6>Quick Links</h6>
+                    <div class="list-unstyled">
+                        <a href="{% url 'index' %}" class=" text-decoration-none">Home </a>
+                        <a href="{% url 'help' %}" class="text-decoration-none">Help</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h6>Follow Us</h6>
+                    <div class="gap-1 d-flex">
+                        <a href="#" class=" text-decoration-none"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class=" text-decoration-none"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="ext-decoration-none"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <p class="text-center ">&copy; 2026 Healthy Meal Planner. All rights reserved.</p>
+        </div>
     </footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 
     <!-- External JavaScript -->
     <script src="{% static 'mealapp/js/script.js' %}"></script>

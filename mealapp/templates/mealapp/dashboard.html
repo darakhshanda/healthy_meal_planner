@@ -1,276 +1,208 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Dashboard - Healthy Meal Planner{% endblock %}
+{% block title %}Profile Setup - Healthy Meal Planner{% endblock %}
 
 {% block content %}
-<div class="container-fluid py-5"
-    style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh;">
-
-    <!-- Welcome Section -->
-    <div class="container mb-5">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="text-white">
-                    <h1 class="display-4 fw-bold mb-2">Welcome, {{ user.first_name|default:user.username }}! 👋</h1>
-                    <p class="lead">Your personalized meal planning dashboard</p>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0"><i class="fas fa-user-circle"></i> Complete Your Profile</h3>
                 </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Main Content -->
-    <div class="container">
-        {% if messages %}
-        {% for message in messages %}
-        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-            {{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        </div>
-        {% endfor %}
-        {% endif %}
+                <div class="card-body">
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
 
-        <!-- Profile & Stats Section -->
-        <div class="row mb-5">
-            <!-- Profile Card -->
-            <div class="col-md-6 mb-4">
-                <div class="card shadow-lg h-100">
-                    <div class="card-header bg-info text-white">
-                        <h5 class="mb-0">👤 Your Profile</h5>
-                    </div>
-                    <div class="card-body">
-                        {% if user_profile %}
-                        <p><strong>Age:</strong> {{ user_profile.age|default:"Not set" }}</p>
-                        <p><strong>Gender:</strong> {{ user_profile.get_gender_display|default:"Not set" }}</p>
-                        <p><strong>Height:</strong> {{ user_profile.height_cm|default:"Not set" }} cm</p>
-                        <p><strong>Weight:</strong> {{ user_profile.weight_kg|default:"Not set" }} kg</p>
-                        {% if user_profile.bmi %}
-                        <p><strong>BMI:</strong> <span class="badge bg-primary">{{ user_profile.bmi|floatformat:1
-                                }}</span></p>
-                        {% endif %}
-                        {% if user_profile.daily_calorie_goal %}
-                        <p><strong>Daily Calorie Goal:</strong> <span class="badge bg-success">{{
-                                user_profile.daily_calorie_goal }} kcal</span></p>
-                        {% endif %}
-                        {% else %}
-                        <p class="text-muted">Profile not set up yet.</p>
-                        {% endif %}
-                        <a href="{% url 'profile_setup' %}" class="btn btn-sm btn-outline-info mt-3">
-                            ✏️ Edit Profile
-                        </a>
-                    </div>
-                </div>
-            </div>
+                    <p class="text-muted mb-4">
+                        <i class="fas fa-info-circle"></i>
+                        Let's calculate your BMI and personalized daily calorie goal.
+                    </p>
 
-            <!-- Stats Card -->
-            <div class="col-md-6 mb-4">
-                <div class="card shadow-lg h-100">
-                    <div class="card-header bg-success text-white">
-                        <h5 class="mb-0">📊 Your Statistics</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="stat-item mb-3">
-                            <h6 class="text-muted">Total Recipes Created</h6>
-                            <h3 class="text-success">{{ user_recipes_count }}</h3>
+                    <form method="POST" class="needs-validation" novalidate>
+                        {% csrf_token %}
+
+                        <!-- Age Field -->
+                        <div class="mb-3">
+                            <label for="{{ form.age.id_for_label }}" class="form-label fw-bold">
+                                {{ form.age.label }} *
+                            </label>
+                            {{ form.age }}
+                            {% if form.age.errors %}
+                            <div class="invalid-feedback d-block">
+                                {% for error in form.age.errors %}
+                                    <i class="fas fa-exclamation-circle"></i> {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            {% if form.age.help_text %}
+                            <div class="form-text">{{ form.age.help_text|safe }}</div>
+                            {% endif %}
                         </div>
-                        <div class="stat-item mb-3">
-                            <h6 class="text-muted">Today's Total Calories</h6>
-                            <h3 class="text-primary">{{ total_calories|default:"0" }} kcal</h3>
-                        </div>
-                        <div class="stat-item">
-                            <h6 class="text-muted">Meal Plan Status</h6>
-                            <span class="badge bg-success">Active</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Today's Meal Plan Section -->
-        <div class="row mb-5">
-            <div class="col-md-12">
-                <div class="card shadow-lg">
-                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">🍽️ Today's Meal Plan</h5>
-                        {% if meal_plan %}
-                        <a href="{% url 'meal_plan_view' meal_plan.day|date:'Y-m-d' %}" class="btn btn-sm btn-light">
-                            ✏️ Edit Plan
-                        </a>
-                        {% endif %}
-                    </div>
-                    <div class="card-body">
-                        {% if meal_plan %}
-                        <div class="row">
-                            <!-- Breakfast -->
-                            <div class="col-md-6 col-lg-3 mb-4">
-                                <div class="meal-card">
-                                    <h6 class="text-muted mb-2">🌅 Breakfast</h6>
-                                    {% if meal_plan.breakfast_recipe %}
-                                    <div class="recipe-info">
-                                        <h5>{{ meal_plan.breakfast_recipe.title }}</h5>
-                                        <p class="text-muted small">
-                                            <i class="fas fa-fire"></i> {{ meal_plan.breakfast_recipe.total_calories }}
-                                            kcal
-                                        </p>
-                                        <a href="{% url 'recipe_detail' meal_plan.breakfast_recipe.id %}"
-                                            class="btn btn-sm btn-outline-primary">
-                                            View Recipe
-                                        </a>
-                                    </div>
-                                    {% else %}
-                                    <p class="text-muted">Not assigned</p>
-                                    {% endif %}
+                        <!-- Gender Field -->
+                        <div class="mb-3">
+                            <label for="{{ form.gender.id_for_label }}" class="form-label fw-bold">
+                                {{ form.gender.label }} *
+                            </label>
+                            {{ form.gender }}
+                            {% if form.gender.errors %}
+                            <div class="invalid-feedback d-block">
+                                {% for error in form.gender.errors %}
+                                    <i class="fas fa-exclamation-circle"></i> {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <!-- Height Field -->
+                        <div class="mb-3">
+                            <label for="{{ form.height_cm.id_for_label }}" class="form-label fw-bold">
+                                {{ form.height_cm.label }} *
+                            </label>
+                            {{ form.height_cm }}
+                            {% if form.height_cm.errors %}
+                            <div class="invalid-feedback d-block">
+                                {% for error in form.height_cm.errors %}
+                                    <i class="fas fa-exclamation-circle"></i> {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            {% if form.height_cm.help_text %}
+                            <div class="form-text">{{ form.height_cm.help_text|safe }}</div>
+                            {% endif %}
+                        </div>
+
+                        <!-- Weight Field -->
+                        <div class="mb-3">
+                            <label for="{{ form.weight_kg.id_for_label }}" class="form-label fw-bold">
+                                {{ form.weight_kg.label }} *
+                            </label>
+                            {{ form.weight_kg }}
+                            {% if form.weight_kg.errors %}
+                            <div class="invalid-feedback d-block">
+                                {% for error in form.weight_kg.errors %}
+                                    <i class="fas fa-exclamation-circle"></i> {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            {% if form.weight_kg.help_text %}
+                            <div class="form-text">{{ form.weight_kg.help_text|safe }}</div>
+                            {% endif %}
+                        </div>
+
+                        <!-- Activity Level Field -->
+                        <div class="mb-4">
+                            <label for="{{ form.activity_level.id_for_label }}" class="form-label fw-bold">
+                                {{ form.activity_level.label }}
+                            </label>
+                            {{ form.activity_level }}
+                            {% if form.activity_level.errors %}
+                            <div class="invalid-feedback d-block">
+                                {% for error in form.activity_level.errors %}
+                                    <i class="fas fa-exclamation-circle"></i> {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            {% if form.activity_level.help_text %}
+                            <div class="form-text">{{ form.activity_level.help_text|safe }}</div>
+                            {% endif %}
+                        </div>
+
+                        <!-- Current Metrics Display -->
+                        {% if profile.bmi or profile.daily_calorie_goal %}
+                        <div class="alert alert-success mb-4">
+                            <h6 class="alert-heading mb-3">
+                                <i class="fas fa-chart-line"></i> Your Calculated Metrics
+                            </h6>
+                            
+                            {% if profile.bmi %}
+                            <div class="row mb-3">
+                                <div class="col-6">
+                                    <p class="mb-1"><strong>BMI:</strong></p>
+                                    <h5 class="text-success">{{ profile.bmi|floatformat:1 }}</h5>
+                                </div>
+                                <div class="col-6">
+                                    <p class="mb-1"><strong>Category:</strong></p>
+                                    <h5>
+                                        <span class="badge bg-{{ profile.get_bmi_color }}">
+                                            {{ profile.get_bmi_category }}
+                                        </span>
+                                    </h5>
                                 </div>
                             </div>
+                            <hr class="my-2">
+                            {% endif %}
+                            
+                            {% if profile.daily_calorie_goal %}
+                            <p class="mb-1"><strong>Daily Calorie Goal:</strong></p>
+                            <h5 class="text-success">
+                                <i class="fas fa-fire text-danger"></i> {{ profile.daily_calorie_goal }} kcal
+                            </h5>
+                            {% endif %}
+                        </div>
+                        {% endif %}
 
-                            <!-- Lunch -->
-                            <div class="col-md-6 col-lg-3 mb-4">
-                                <div class="meal-card">
-                                    <h6 class="text-muted mb-2">🥗 Lunch</h6>
-                                    {% if meal_plan.lunch_recipe %}
-                                    <div class="recipe-info">
-                                        <h5>{{ meal_plan.lunch_recipe.title }}</h5>
-                                        <p class="text-muted small">
-                                            <i class="fas fa-fire"></i> {{ meal_plan.lunch_recipe.total_calories }} kcal
-                                        </p>
-                                        <a href="{% url 'recipe_detail' meal_plan.lunch_recipe.id %}"
-                                            class="btn btn-sm btn-outline-primary">
-                                            View Recipe
-                                        </a>
-                                    </div>
-                                    {% else %}
-                                    <p class="text-muted">Not assigned</p>
-                                    {% endif %}
-                                </div>
-                            </div>
-
-                            <!-- Dinner -->
-                            <div class="col-md-6 col-lg-3 mb-4">
-                                <div class="meal-card">
-                                    <h6 class="text-muted mb-2">🍴 Dinner</h6>
-                                    {% if meal_plan.dinner_recipe %}
-                                    <div class="recipe-info">
-                                        <h5>{{ meal_plan.dinner_recipe.title }}</h5>
-                                        <p class="text-muted small">
-                                            <i class="fas fa-fire"></i> {{ meal_plan.dinner_recipe.total_calories }}
-                                            kcal
-                                        </p>
-                                        <a href="{% url 'recipe_detail' meal_plan.dinner_recipe.id %}"
-                                            class="btn btn-sm btn-outline-primary">
-                                            View Recipe
-                                        </a>
-                                    </div>
-                                    {% else %}
-                                    <p class="text-muted">Not assigned</p>
-                                    {% endif %}
-                                </div>
-                            </div>
-
-                            <!-- Snack -->
-                            <div class="col-md-6 col-lg-3 mb-4">
-                                <div class="meal-card">
-                                    <h6 class="text-muted mb-2">🍪 Snack</h6>
-                                    {% if meal_plan.snack_recipe %}
-                                    <div class="recipe-info">
-                                        <h5>{{ meal_plan.snack_recipe.title }}</h5>
-                                        <p class="text-muted small">
-                                            <i class="fas fa-fire"></i> {{ meal_plan.snack_recipe.total_calories }} kcal
-                                        </p>
-                                        <a href="{% url 'recipe_detail' meal_plan.snack_recipe.id %}"
-                                            class="btn btn-sm btn-outline-primary">
-                                            View Recipe
-                                        </a>
-                                    </div>
-                                    {% else %}
-                                    <p class="text-muted">Not assigned</p>
-                                    {% endif %}
-                                </div>
+                        <!-- BMI Info Box -->
+                        <div class="card bg-light mb-4 border-0">
+                            <div class="card-body">
+                                <h6 class="card-title mb-2"><i class="fas fa-info-circle text-info"></i> BMI Categories</h6>
+                                <small class="text-muted">
+                                    <div><strong>&lt; 18.5:</strong> Underweight</div>
+                                    <div><strong>18.5 - 24.9:</strong> Normal weight</div>
+                                    <div><strong>25 - 29.9:</strong> Overweight</div>
+                                    <div><strong>≥ 30:</strong> Obese</div>
+                                </small>
                             </div>
                         </div>
-                        {% else %}
-                        <p class="text-muted">No meal plan for today.</p>
-                        {% endif %}
-                    </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-grid gap-2 mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-check-circle"></i> Save Profile & Calculate
+                            </button>
+                        </div>
+
+                        <!-- Skip Button -->
+                        <div class="text-center mt-3">
+                            <a href="{% url 'dashboard' %}" class="btn btn-outline-secondary">
+                                Skip for Now
+                            </a>
+                        </div>
+
+                        <p class="text-center text-muted mt-4 small">
+                            <i class="fas fa-shield-alt"></i> Your data is secure and only used for personalization.
+                        </p>
+                    </form>
                 </div>
             </div>
-        </div>
 
-        <!-- Quick Actions -->
-        <div class="row">
-            <div class="col-md-12">
-                <h5 class="text-white mb-4">Quick Actions</h5>
-            </div>
-            <div class="col-md-4 mb-4">
-                <a href="{% url 'recipe_list' %}" class="card card-action shadow-lg h-100 text-decoration-none">
-                    <div class="card-body text-center">
-                        <h4 class="text-primary mb-3">📚</h4>
-                        <h5>Browse Recipes</h5>
-                        <p class="text-muted">View and add recipes to your meal plan</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <a href="{% url 'recipe_create' %}" class="card card-action shadow-lg h-100 text-decoration-none">
-                    <div class="card-body text-center">
-                        <h4 class="text-success mb-3">➕</h4>
-                        <h5>Create Recipe</h5>
-                        <p class="text-muted">Share your own healthy recipes</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                {% if meal_plan %}
-                <a href="{% url 'meal_plan_view' meal_plan.day|date:'Y-m-d' %}"
-                    class="card card-action shadow-lg h-100 text-decoration-none">
-                    <div class="card-body text-center">
-                        <h4 class="text-info mb-3">📅</h4>
-                        <h5>Plan Meals</h5>
-                        <p class="text-muted">Customize your meal plan</p>
-                    </div>
-                </a>
-                {% else %}
-                <div class="card card-action shadow-lg h-100">
-                    <div class="card-body text-center text-muted">
-                        <h4 class="text-info mb-3">📅</h4>
-                        <h5>Plan Meals</h5>
-                        <p class="text-muted small">Create meal plan first</p>
-                    </div>
-                </div>
-                {% endif %}
+            <!-- Progress Indicator -->
+            <div class="text-center mt-4">
+                <small class="text-muted">
+                    <i class="fas fa-circle-check text-success"></i> 
+                    Account Created &nbsp;
+                    <i class="fas fa-arrow-right"></i>
+                    &nbsp;
+                    <i class="fas fa-user text-primary fw-bold"></i> 
+                    Profile Setup &nbsp;
+                    <i class="fas fa-arrow-right"></i>
+                    &nbsp;
+                    <i class="fas fa-chart-line text-muted"></i> 
+                    Dashboard
+                </small>
             </div>
         </div>
     </div>
 </div>
 
-<style>
-    .meal-card {
-        background: #f8f9fa;
-        border-radius: 10px;
-        padding: 15px;
-        border-left: 4px solid #007bff;
-    }
 
-    .recipe-info h5 {
-        margin-bottom: 5px;
-        font-size: 16px;
-        font-weight: 600;
-    }
-
-    .card-action {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border: none;
-        color: inherit;
-    }
-
-    .card-action:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
-    }
-
-    .stat-item {
-        padding: 10px 0;
-    }
-</style>
 {% endblock %}

@@ -1,0 +1,20 @@
+{{% extends 'base.html' %}}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Meal Plan{% endblock %}
+
+{% block content %}
+<!-- Use AJAX to dynamically add meals -->
+<form method="POST" id="mealPlanForm">
+    {% csrf_token %}
+    {{ form.week_start_date }}
+
+    <div id="meal-selector">
+        <button type="button" class="btn btn-primary" onclick="addMeal()">
+            <i class="fas fa-plus"></i> Add Meal
+        </button>
+    </div>
+
+    <button type="submit" class="btn btn-success">Save Meal Plan</button>
+</form>

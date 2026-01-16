@@ -1,69 +1,80 @@
 {% extends 'base.html' %}
 {% load static %}
-{% url 'recipe_list' %}
-{% url 'dashboard' %}
-{% url 'recipe_detail' recipe.id %}
-{% block title %} Home - Healthy Meal Planner{% endblock %}
+
+{% block title %}Home - Healthy Meal Planner{% endblock %}
 
 {% block content %}
-<div class="main-content">
-
+<div class="container py-5">
     <!-- Hero Section -->
-    <div class="hero-section">
-        <h1 class="hero-title">Healthy Meal Planner</h1>
-
-        <a href="{% url 'meal_plan_view' date='today' %}" class="cta-button">Create meal plan</a>
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold mb-3">🥗 Healthy Meal Planner</h1>
+        <p class="lead text-muted mb-4">Plan, Track, and Enjoy Nutritious Meals Every Day</p>
+        {% if user.is_authenticated %}
+        <a href="{% url 'dashboard' %}" class="btn btn-primary btn-lg">
+            <i class="fas fa-chart-line"></i> Go to Dashboard
+        </a>
+        {% else %}
+        <a href="{% url 'account_signup' %}" class="btn btn-primary btn-lg">
+            <i class="fas fa-rocket"></i> Get Started
+        </a>
+        {% endif %}
     </div>
+
     <!-- Search Bar -->
-    <div class="search-section">
-        <div class="container">
-            <form method="get" action="{% url 'index' %}" class="search-form">
-                <input type="text" name="search" class="search-input" placeholder="Search Recipe"
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-8">
+            <form method="get" action="{% url 'index' %}" class="d-flex gap-2">
+                <input type="text" name="search" class="form-control form-control-lg" placeholder="Search recipes..."
                     value="{{ search_term }}">
-                <button type="submit" class="search-btn">Submit</button>
+                <button type="submit" class="btn btn-primary btn-lg">
+                    <i class="fas fa-search"></i> Search
+                </button>
             </form>
         </div>
     </div>
+
     <!-- Recipes Section -->
     <div class="recipes-section">
-        <h2 class="recipes-title">Recipes</h2>
+        <h2 class="text-center mb-4">📚 Recipe Collection</h2>
 
         <!-- Category Tabs -->
-        <div class="category-tabs">
-            <button class="tab-button active" data-category="all">All Recipes</button>
-            <button class="tab-button" data-category="breakfast">🌅 Breakfast</button>
-            <button class="tab-button" data-category="lunch">🥗 Lunch</button>
-            <button class="tab-button" data-category="dinner">🍽️ Dinner</button>
-            <button class="tab-button" data-category="snack">🍿 Snack</button>
+        <div class="d-flex justify-content-center gap-2 mb-4 flex-wrap">
+            <button class="tab-button btn btn-outline-primary active" data-category="all">All Recipes</button>
+            <button class="tab-button btn btn-outline-primary" data-category="breakfast">🌅 Breakfast</button>
+            <button class="tab-button btn btn-outline-primary" data-category="lunch">🥗 Lunch</button>
+            <button class="tab-button btn btn-outline-primary" data-category="dinner">🍽️ Dinner</button>
+            <button class="tab-button btn btn-outline-primary" data-category="snack">🍿 Snack</button>
         </div>
 
         <!-- Recipe Count -->
-        <div class="recipe-count" id="recipeCount"></div>
+        <div class="text-center text-muted mb-4" id="recipeCount"></div>
 
-        <!-- Recipes Grid -->
-        <div class="recipes-grid" id="recipesContainer" data-default-image="{% static 'mealapp/images/default.jpg' %}">
-            <!-- Grid will be populated by JS -->
+        <!-- Recipes Grid: 3 cards per row on large screens -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="recipesContainer">
+            <!-- Grid populated by JavaScript -->
         </div>
 
         <!-- Pagination -->
-        <nav aria-label="Page navigation" class="pagination-nav">
+        <nav aria-label="Page navigation" class="pagination-nav mt-5" style="display: none;">
             <ul class="pagination justify-content-center">
                 <li class="page-item">
-                    <a href="#" class="page-link">&laquo; PREVIOUS</a>
+                    <a class="page-link" href="#" onclick="changePage(currentPage - 1); return false;">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </a>
                 </li>
-
                 <li class="page-item disabled">
-                    <span class="page-link">Page 1 of 1</span>
+                    <span class="page-link" id="pageInfo">Page 1 of 1</span>
                 </li>
-
                 <li class="page-item">
-                    <a href="#" class="page-link">NEXT &raquo;</a>
+                    <a class="page-link" href="#" onclick="changePage(currentPage + 1); return false;">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </a>
                 </li>
             </ul>
         </nav>
     </div>
 </div>
 
-<!-- Hidden data element for JavaScript -->
+<!-- Hidden recipes data for JavaScript -->
 <script type="application/json" id="recipesData">{{ recipes_json|safe }}</script>
 {% endblock %}

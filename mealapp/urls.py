@@ -6,9 +6,8 @@ urlpatterns = [
     # Home & Profile
     path('', views.index, name='index'),
     path('profile/', views.profile_setup, name='profile_setup'),
-
+    path('help/', views.help_page, name='help'),
     # Recipe CRUD
-    path('recipes/', views.RecipeListView.as_view(), name='recipe_list'),
     path('recipes/create/', views.RecipeCreateView.as_view(), name='recipe_create'),
     path('recipes/<int:recipe_id>/', views.recipe_detail, name='recipe_detail'),
     path('recipes/<int:pk>/edit/',

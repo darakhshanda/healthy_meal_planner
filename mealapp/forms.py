@@ -1,7 +1,9 @@
+from datetime import date, datetime
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 import re
+from mealapp.models import MealPlan, UserProfile, Recipe
 
 
 class CustomRegistrationForm(UserCreationForm):
@@ -144,3 +146,109 @@ class CustomRegistrationForm(UserCreationForm):
         if commit:
             user.save()
         return user
+
+
+class MealPlanForm(forms.ModelForm):
+    """Simplified meal plan form"""
+
+    class Meta:
+        model = MealPlan
+        fields = ['week_start_date']
+        widgets = {
+            'week_start_date': forms.DateInput(attrs={
+                'type': 'date',
+                'class': 'form-control form-control-lg',
+                'min': datetime.date.today().strftime('%d-%m-%Y'),
+            }),
+        }
+        labels = {
+            'week_start_date': 'Select Week Starting Date',
+        }
+        help_texts = {
+            'week_start_date': 'Choose Monday of the week you want to plan',
+        }
+
+    def clean_week_start_date(self):
+        week_start = self.cleaned_data.get('week_start_date')
+
+        # Must be a Monday
+        if week_start and week_start.weekday() != 0:
+            raise forms.ValidationError("Week must start on Monday.")
+
+        # Cannot be in the past
+        if week_start and week_start < date.today():
+            raise forms.ValidationError("Week cannot start in the past.")
+
+        return week_start
+
+
+class MealSelectionForm(forms.Form):
+    """Form for selecting a single meal"""
+    date = forms.DateField(
+        widget=forms.DateInput(attrs={
+            'type': 'date',
+            'class': 'form-control'
+        })
+    )
+    day = forms.ChoiceField(
+        choices=[
+            ('monday', 'Monday'),
+            ('tuesday', 'Tuesday'),
+            ('wednesday', 'Wednesday'),
+            ('thursday', 'Thursday'),
+            ('friday', 'Friday'),
+            ('saturday', 'Saturday'),
+            ('sunday', 'Sunday'),
+        ],
+        widget=forms.Select(attrs={'class': 'form-select'})
+    )
+
+    meal_type = forms.ChoiceField(
+        choices=[
+            ('breakfast', 'Breakfast'),
+            ('lunch', 'Lunch'),
+            ('dinner', 'Dinner'),
+            ('snack', 'Snack'),
+        ],
+        widget=forms.Select(attrs={'class': 'form-select'})
+    )
+
+    recipe = forms.ModelChoiceField(
+        queryset=Recipe.objects.all(),
+        widget=forms.Select(attrs={'class': 'form-select'}),
+        empty_label="-- Select Recipe --"
+    )
+
+    def __init__(self, *args, **kwargs):
+        meal_type = kwargs.pop('meal_type', None)
+        super().__init__(*args, **kwargs)
+
+        # Filter recipes by meal type
+        if meal_type:
+            self.fields['recipe'].queryset = Recipe.objects.filter(
+                category=meal_type
+            )
+         # Filter recipes by user or show all public recipes
+        if User:
+            # Show user's recipes + public recipes
+            self.fields['breakfast'].queryset = Recipe.objects.filter(
+                category='breakfast'
+            ).filter(
+                created_by=User
+            ) | Recipe.objects.filter(category='breakfast', is_public=True)
+
+            self.fields['lunch'].queryset = Recipe.objects.filter(
+                category='lunch'
+            ).filter(
+                created_by=User
+            ) | Recipe.objects.filter(category='lunch', is_public=True)
+            self.fields['dinner'].queryset = Recipe.objects.filter(
+                category='dinner'
+            ).filter(
+                created_by=User
+            ) | Recipe.objects.filter(category='dinner', is_public=True)
+            self.fields['snack'].queryset = Recipe.objects.filter(
+                category='snack'
+            ).filter(
+                created_by=User
+            ) | Recipe.objects.filter(category='snack', is_public=True)

@@ -1,19 +1,97 @@
-// Script for Healthy Meal Planner
+// ============================================
+// UTILITY FUNCTIONS
+// ============================================
 
-// Recipe Grid Functionality
+/**
+ * Show toast notification
+ */
+function showToast(message, type = 'info') {
+    const alertDiv = document.createElement('div');
+    alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+    alertDiv.setAttribute('role', 'alert');
+    alertDiv.innerHTML = `
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    `;
+    
+    const container = document.querySelector('.container');
+    if (container) {
+        container.insertBefore(alertDiv, container.firstChild);
+        setTimeout(() => alertDiv.remove(), 5000);
+    }
+}
+
+/**
+ * Format currency
+ */
+function formatCurrency(value) {
+    return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+    }).format(value);
+}
+
+/**
+ * Debounce function
+ */
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+/**
+ * Add meal entry to MealPlan
+ */
+function addMeal() {
+        const mealSelector = document.getElementById('meal-selector');
+        const mealDiv = document.createElement('div');
+        mealDiv.classList.add('meal-entry', 'mb-3');
+
+        mealDiv.innerHTML = `
+            <select name="meal_type" class="form-select mb-2">
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+                <option value="snack">Snack</option>
+            </select>
+            <select name="recipe" class="form-select mb-2">
+                {% for recipe in recipes %}
+                <option value="{{ recipe.id }}">{{ recipe.title }}</option>
+                {% endfor %}
+            </select>
+            <button type="button" class="btn btn-danger" onclick="removeMeal(this)">
+                <i class="fas fa-trash"></i> Remove
+            </button>
+        `;
+
+        mealSelector.appendChild(mealDiv);
+    }
+
+    function removeMeal(button) {
+        button.parentElement.remove();
+    }
+// ============================================
+// RECIPE GRID FUNCTIONALITY
+// ============================================
+
 let allRecipes = [];
 let currentCategory = 'all';
 let currentPage = 1;
-const recipesPerPage = 12;
+const recipesPerPage = 12; // 3 cards in 4 rows
 
 function initializeRecipeGrid() {
-    // Get recipes data from the template
     const recipesDataElement = document.getElementById('recipesData');
     if (recipesDataElement) {
         try {
             allRecipes = JSON.parse(recipesDataElement.textContent);
-            console.log(`✅ Loaded ${allRecipes.length} recipes`);
-            currentPage = 1; // Reset to first page
+            console.log(`Loaded ${allRecipes.length} recipes`);
+            currentPage = 1;
             displayRecipes();
         } catch (e) {
             console.error('❌ Error parsing recipes data:', e);
@@ -23,12 +101,9 @@ function initializeRecipeGrid() {
 
 function getFilteredRecipes() {
     let filtered = allRecipes;
-
-    // Filter by category
     if (currentCategory !== 'all') {
         filtered = filtered.filter(r => r.category === currentCategory);
     }
-
     return filtered;
 }
 
@@ -37,66 +112,151 @@ function displayRecipes() {
     if (!container) return;
     
     container.innerHTML = '';
-
-    // Get filtered recipes
     const filteredRecipes = getFilteredRecipes();
-    
-    // Calculate pagination
     const totalPages = Math.ceil(filteredRecipes.length / recipesPerPage);
     const startIndex = (currentPage - 1) * recipesPerPage;
     const endIndex = startIndex + recipesPerPage;
     const recipesToDisplay = filteredRecipes.slice(startIndex, endIndex);
 
-    // Display recipes for current page
-    recipesToDisplay.forEach(recipe => {
-        const card = createRecipeCard(recipe);
-        container.appendChild(card);
-    });
+    if (recipesToDisplay.length === 0) {
+        container.innerHTML = `
+            <div class="col-12">
+                <div class="alert alert-info text-center">
+                    <i class="fas fa-info-circle"></i> No recipes found.
+                </div>
+            </div>
+        `;
+    } else {
+        recipesToDisplay.forEach(recipe => {
+            const cardColumn = createRecipeCard(recipe);
+            container.appendChild(cardColumn);
+        });
+    }
 
     // Update count
     const countElement = document.getElementById('recipeCount');
     if (countElement) {
         const startNum = filteredRecipes.length === 0 ? 0 : startIndex + 1;
         const endNum = Math.min(endIndex, filteredRecipes.length);
-        countElement.textContent = `Showing ${startNum}-${endNum} of ${filteredRecipes.length} recipe${filteredRecipes.length !== 1 ? 's' : ''}`;
+        countElement.textContent = `Showing ${startNum}-${endNum} of ${filteredRecipes.length} recipes`;
     }
 
-    // Update pagination UI
     updatePaginationUI(totalPages, filteredRecipes.length);
 }
 
+function createRecipeCard(recipe) {
+    // Create column wrapper for grid layout
+    const col = document.createElement('div');
+    col.className = 'col'; // Bootstrap will handle sizing based on row-cols-*
+
+    // Create card
+    const card = document.createElement('div');
+    card.className = 'card recipe-card shadow-lg h-100';
+
+    // Build card content
+    card.innerHTML = `
+        ${recipe.image_url ? `
+            <img src="${recipe.image_url}" alt="${recipe.title}" class="recipe-image" 
+                 onerror="this.onerror=null;this.src='/static/mealapp/images/default.jpg';" />
+        ` : `
+            <div class="recipe-image-placeholder">
+                <i class="fas fa-utensils fa-3x text-white"></i>
+            </div>
+        `}
+        
+        <div class="card-body d-flex flex-column">
+            <!-- Title & Category -->
+            <div class="mb-3">
+                <h5 class="card-title fw-bold">${recipe.title}</h5>
+                <span class="badge bg-primary">${recipe.category}</span>
+            </div>
+
+            <!-- Description -->
+            <p class="card-text text-muted flex-grow-1">
+                ${recipe.description ? recipe.description.substring(0, 100) + '...' : 'No description available'}
+            </p>
+
+            <!-- Nutrition Info -->
+            <div class="nutrition-info mb-3">
+                <div class="row text-center">
+                    <div class="col-6">
+                        <small class="text-muted d-block">Calories</small>
+                        <p class="mb-0 fw-bold">${recipe.total_calories || '--'}</p>
+                    </div>
+                    <div class="col-6">
+                        <small class="text-muted d-block">Servings</small>
+                        <p class="mb-0 fw-bold">${recipe.servings || '--'}</p>
+                    </div>
+                </div>
+                <hr class="my-2">
+                <div class="row text-center small">
+                    <div class="col-4">
+                        <i class="fas fa-drumstick-bite text-danger"></i>
+                        <p class="mb-0">${recipe.protein || 0}g</p>
+                    </div>
+                    <div class="col-4">
+                        <i class="fas fa-bread-slice text-warning"></i>
+                        <p class="mb-0">${recipe.carbs || 0}g</p>
+                    </div>
+                    <div class="col-4">
+                        <i class="fas fa-bacon text-info"></i>
+                        <p class="mb-0">${recipe.fat || 0}g</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Time Info -->
+            <div class="mb-3">
+                <small class="text-muted">
+                    <i class="fas fa-clock"></i> 
+                    ${recipe.prep_time_minutes ? `Prep: ${recipe.prep_time_minutes}m` : ''} 
+                    ${recipe.cook_time_minutes ? `| Cook: ${recipe.cook_time_minutes}m` : ''}
+                </small>
+            </div>
+
+            <!-- Creator -->
+            <small class="text-muted mb-3">
+                By <strong>${recipe.created_by || 'Unknown'}</strong>
+            </small>
+
+            <!-- Action Button -->
+            <a href="/recipes/${recipe.id}/" class="btn btn-primary w-100 mt-auto">
+                <i class="fas fa-eye"></i> View Recipe
+            </a>
+        </div>
+    `;
+
+    col.appendChild(card);
+    return col;
+}
+
 function updatePaginationUI(totalPages, totalRecipes) {
-    // Hide pagination if only one page or no results
     const paginationNav = document.querySelector('.pagination-nav');
-    if (paginationNav) {
+    const pageInfo = document.getElementById('pageInfo');
+
+    if (paginationNav && pageInfo) {
         if (totalPages <= 1 || totalRecipes === 0) {
             paginationNav.style.display = 'none';
         } else {
             paginationNav.style.display = 'block';
+            pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+
+            // Update previous button
+            const prevButton = paginationNav.querySelector('li:first-child');
+            if (currentPage === 1) {
+                prevButton.classList.add('disabled');
+            } else {
+                prevButton.classList.remove('disabled');
+            }
+
+            // Update next button
+            const nextButton = paginationNav.querySelector('li:last-child');
+            if (currentPage === totalPages) {
+                nextButton.classList.add('disabled');
+            } else {
+                nextButton.classList.remove('disabled');
+            }
         }
-    }
-
-    // Update pagination links (if they exist)
-    const prevLink = document.querySelector('.pagination .page-item:first-child a');
-    const nextLink = document.querySelector('.pagination .page-item:last-child a');
-    const pageInfo = document.querySelector('.pagination .page-link:not([href])');
-
-    if (prevLink) {
-        if (currentPage > 1) {
-            prevLink.href = '#';
-            prevLink.onclick = (e) => { e.preventDefault(); changePage(currentPage - 1); };
-        }
-    }
-
-    if (nextLink) {
-        if (currentPage < totalPages) {
-            nextLink.href = '#';
-            nextLink.onclick = (e) => { e.preventDefault(); changePage(currentPage + 1); };
-        }
-    }
-
-    if (pageInfo) {
-        pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
     }
 }
 
@@ -107,160 +267,50 @@ function changePage(page) {
     if (page >= 1 && page <= totalPages) {
         currentPage = page;
         displayRecipes();
-        // Scroll to top of recipes section
         document.querySelector('.recipes-section')?.scrollIntoView({ behavior: 'smooth' });
     }
 }
 
-function createRecipeCard(recipe) {
-    const card = document.createElement('div');
-    card.className = 'recipe-card active';
+// ============================================
+// FORM VALIDATION
+// ============================================
 
-    const ingredientsList = (recipe.ingredients || [])
-        .slice(0, 6)
-        .map(ing => {
-            const ingName = typeof ing === 'string' ? ing : ing.name || '';
-            return ingName ? `<li>${ingName}</li>` : '';
-        })
-        .join('');
+function validateForm(formSelector) {
+    const form = document.querySelector(formSelector);
+    if (!form) return true;
 
-    const instructionsList = (recipe.instructions || []).slice(0, 1).map(inst => {
-            const cleanInst = inst.replace(/^step\s+\d+\s*:?\s*/i, '').trim();
-            return cleanInst ? `<li>${cleanInst}</li>` : '';
-        })
-        .join('');
-
-    card.innerHTML = `
-        <img src="${recipe.image_url}" alt="${recipe.recipe_name}" class="recipe-image" 
-             onerror="this.onerror=null;this.src='/static/mealapp/images/default.jpg';" />
-        <div class="recipe-content">
-            <div class="recipe-name">${recipe.recipe_name}</div>
-            
-            <div class="recipe-info-bar">
-                <div class="info-badge">👥 ${recipe.servings || 2} servings</div>
-                <div class="info-badge">⏱️ ${recipe.prep_time_minutes} min</div>
-                <div class="info-badge">🔥 ${recipe.total_calories} cal</div>
-            </div>  
-             ${ingredientsList ? `
-            <div class="ingredients-section">
-                <div class="section-title">Key Ingredients</div>
-                <ul class="ingredients-list">
-                    ${ingredientsList}
-                </ul>
-            </div>
-            ` : ''}    
-            <a href="/recipe/${recipe.id}/" class="btn">View Recipe</a>
-        </div>
-    `;
-
-    return card;
+    return form.checkValidity() === false ? false : true;
 }
-function displayRecipe(recipe) {
-    const card = document.createElement('div');
-    card.className = 'recipe-card active';
+// ============================================
+// INITIALIZATION
+// ============================================
 
-    const ingredientsList = (recipe.ingredients || [])
-        .slice(0, 6)
-        .map(ing => {
-            const ingName = typeof ing === 'string' ? ing : ing.name || '';
-            return ingName ? `<li>${ingName}</li>` : '';
-        })
-        .join('');
-
-    const instructionsList = (recipe.instructions || []).slice(0, 1).map(inst => {
-            const cleanInst = inst.replace(/^step\s+\d+\s*:?\s*/i, '').trim();
-            return cleanInst ? `<li>${cleanInst}</li>` : '';
-        })
-        .join('');
-
-    card.innerHTML = `
-        <img src="${recipe.image_url}" alt="${recipe.recipe_name}" class="recipe-image" 
-             onerror="this.onerror=null;this.src='/static/mealapp/images/default.jpg';" />
-        <div class="recipe-content">
-            <div class="recipe-name">${recipe.recipe_name}</div>
-            
-            <div class="recipe-info-bar">
-                <div class="info-badge">👥 ${recipe.servings || 2} servings</div>
-                <div class="info-badge">⏱️ ${recipe.prep_time_minutes} min</div>
-                <div class="info-badge">🔥 ${recipe.total_calories} cal</div>
-            </div>
-            
-            ${ingredientsList ? `
-            <div class="ingredients-section">
-                <div class="section-title">Key Ingredients</div>
-                <ul class="ingredients-list">
-                    ${ingredientsList}
-                </ul>
-            </div>
-            ` : ''}       
-             ${ingredientsList ? `
-            <div class="ingredients-section">
-                <div class="section-title">Key Ingredients</div>
-                <ul class="ingredients-list">
-                    ${ingredientsList}
-                </ul>
-            </div>
-            ` : ''}    
-             ${ingredientsList ? `
-            <div class="ingredients-section">
-                <div class="section-title">Key Ingredients</div>
-                <ul class="ingredients-list">
-                    ${ingredientsList}
-                </ul>
-            </div>
-            ` : ''}    
-             ${ingredientsList ? `
-            <div class="ingredients-section">
-                <div class="section-title">Key Ingredients</div>
-                <ul class="ingredients-list">
-                    ${ingredientsList}
-                </ul>
-            </div>
-            ` : ''}    
-            <a href="/recipe/${recipe.id}/" class="btn">View Recipe</a>
-        </div>
-    `;
-
-    return card;
-}
-function navigateDay(direction) {
-        console.log('Navigate to:', direction);
-        // TODO: Implement day navigation
-        alert('Day navigation:  ' + direction);
-    }
-
-function selectMeal(mealType) {
-        console.log('Select meal:', mealType);
-        // TODO: Navigate to recipe selection
-        window.location.href = '/? category=' + mealType;
-    }
-    
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 Healthy Meal Planner loaded');
     
     // Initialize recipe grid
     initializeRecipeGrid();
 
-    // Event listeners for category tabs
+    // Category filter
     document.querySelectorAll('.tab-button').forEach(button => {
         button.addEventListener('click', (e) => {
             document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
             e.target.classList.add('active');
             currentCategory = e.target.dataset.category;
-            currentPage = 1; // Reset to first page when changing category
+            currentPage = 1;
             displayRecipes();
         });
     });
 
-    // Search form enhancement
-    const searchForm = document.querySelector('.search-form');
-    if (searchForm) {
-        searchForm.addEventListener('submit', function(e) {
-            const searchInput = document.querySelector('.search-input');
-            if (searchInput.value.trim() === '') {
-                e.preventDefault();
-                alert('Please enter a search term');
+    // Bootstrap form validation
+    const forms = document.querySelectorAll('.needs-validation');
+    Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
             }
-        });
-    }
+            form.classList.add('was-validated');
+        }, false);
+    });
 });

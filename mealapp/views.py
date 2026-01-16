@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 from django.core.paginator import Paginator
 from django.urls import reverse_lazy
+
+from mealapp.forms import MealPlanForm
 from . models import MealPlan, Recipe, UserProfile
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -116,12 +118,34 @@ def dashboard(request):
     return render(request, 'mealapp/dashboard.html', context)
 
 
-# Meal Plan Views
+# Meal Plan CRUD
 @login_required
 def meal_plan_current(request):
     """Redirect to today's meal plan"""
     today = date.today()
     return redirect('meal_plan_view', date=today.strftime('%Y-%m-%d'))
+
+
+@login_required
+def create_meal_plan(request):
+    """Create a new meal plan for the week"""
+    if request.method == 'POST':
+        form = MealPlanForm(request.POST)
+        if form.is_valid():
+            meal_plan = form.save(commit=False)
+            meal_plan.user = request.user
+            meal_plan.save()
+
+            messages.success(request, 'Meal plan created successfully!')
+            return redirect('meal_plan_view', date=meal_plan.week_start_date.strftime('%Y-%m-%d'))
+    else:
+        form = MealPlanForm()
+
+    context = {'form': form,
+               'recipes': Recipe.objects.all()
+               }
+
+    return render(request, 'mealapp/meal_plan.html', context)
 
 
 @login_required
@@ -197,7 +221,7 @@ class RecipeListView(LoginRequiredMixin, ListView):
 
 class RecipeCreateView(LoginRequiredMixin, CreateView):
     model = Recipe
-    template_name = 'mealapp/recipe_form.html'
+    template_name = 'mealapp/recipe_create.html'
     fields = ['title', 'description', 'instructions', 'image_url',
               'servings', 'prep_time_minutes', 'cook_time_minutes',
               'ingredients', 'total_calories', 'protein', 'carbs', 'fat', 'category']
@@ -211,7 +235,7 @@ class RecipeCreateView(LoginRequiredMixin, CreateView):
 
 class RecipeUpdateView(LoginRequiredMixin, UpdateView):
     model = Recipe
-    template_name = 'mealapp/recipe_form.html'
+    template_name = 'mealapp/recipe_create.html'
     fields = ['title', 'description', 'instructions', 'image_url',
               'servings', 'prep_time_minutes', 'cook_time_minutes',
               'ingredients', 'total_calories', 'protein', 'carbs', 'fat', 'category']
@@ -236,3 +260,8 @@ class RecipeDeleteView(LoginRequiredMixin, DeleteView):
     def delete(self, request, *args, **kwargs):
         messages.success(request, 'Recipe deleted successfully!')
         return super().delete(request, *args, **kwargs)
+
+
+def help_page(request):
+    """Help page"""
+    return render(request, 'mealapp/help.html', {'title': 'Help'})
