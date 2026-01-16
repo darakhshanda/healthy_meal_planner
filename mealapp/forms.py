@@ -148,38 +148,93 @@ class CustomRegistrationForm(UserCreationForm):
         return user
 
 
+class ProfileSetupForm(forms.ModelForm):
+    """Form for setting up user profile"""
+
+    class Meta:
+        model = UserProfile
+        fields = ['first_name', 'last_name', 'age',
+                  'weight_kg', 'height_cm', 'gender', 'user_image']
+        widgets = {
+            'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter your full name'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter your full name'}),
+            'age': forms.NumberInput(attrs={'class': 'form-control', 'min': 0, 'placeholder': 'Enter your age'}),
+            'weight_kg': forms.NumberInput(attrs={'class': 'form-control', 'min': 0, 'placeholder': 'Enter your weight (kg)'}),
+            'height_cm': forms.NumberInput(attrs={'class': 'form-control', 'min': 0, 'placeholder': 'Enter your height (cm)'}),
+
+        }
+
+        labels = {
+            'age': 'Age (years)',
+            'gender': 'Gender',
+            'height_cm': 'Height (cm)',
+            'weight_kg': 'Weight (kg)',
+
+        }
+
+    def clean(self):
+        cleaned_data = super().clean()
+        age = cleaned_data.get('age')
+        height_cm = cleaned_data.get('height_cm')
+        weight_kg = cleaned_data.get('weight_kg')
+
+        # Validate age
+        if age and (age < 1 or age > 150):
+            self.add_error('age', 'Age must be between 1 and 150.')
+
+        # Validate height
+        if height_cm and (height_cm < 50 or height_cm > 300):
+            self.add_error(
+                'height_cm', 'Height must be between 50 and 300 cm.')
+
+        # Validate weight
+        if weight_kg and (weight_kg < 10 or weight_kg > 500):
+            self.add_error(
+                'weight_kg', 'Weight must be between 10 and 500 kg.')
+
+    def save(self, commit=True):
+        """Save profile and update user name"""
+        user = self.instance.user
+        user.first_name = self.cleaned_data.get('first_name', '')
+        user.last_name = self.cleaned_data.get('last_name', '')
+
+        user.save()
+
+        return super().save(commit=commit)
+
+
 class MealPlanForm(forms.ModelForm):
     """Simplified meal plan form"""
 
     class Meta:
         model = MealPlan
-        fields = ['week_start_date']
+        fields = ['day', 'breakfast_recipe',
+                  'lunch_recipe', 'dinner_recipe', 'snack_recipe']
         widgets = {
-            'week_start_date': forms.DateInput(attrs={
+            'day': forms.DateInput(attrs={
                 'type': 'date',
                 'class': 'form-control form-control-lg',
-                'min': datetime.date.today().strftime('%d-%m-%Y'),
+                'min': datetime.date,
             }),
         }
         labels = {
-            'week_start_date': 'Select Week Starting Date',
+            'day': 'Select Day',
         }
         help_texts = {
-            'week_start_date': 'Choose Monday of the week you want to plan',
+            'day': 'Choose the day for your meal plan',
         }
 
-    def clean_week_start_date(self):
-        week_start = self.cleaned_data.get('week_start_date')
-
+    def clean_day(self):
+        day = self.cleaned_data.get('day')
         # Must be a Monday
-        if week_start and week_start.weekday() != 0:
+        if day and day.weekday() != 0:
             raise forms.ValidationError("Week must start on Monday.")
 
         # Cannot be in the past
-        if week_start and week_start < date.today():
+        if day and day < date.today():
             raise forms.ValidationError("Week cannot start in the past.")
 
-        return week_start
+        return day
 
 
 class MealSelectionForm(forms.Form):

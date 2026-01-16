@@ -20,6 +20,9 @@ class UserProfile(models.Model):
         on_delete=models.CASCADE,
         related_name='profile'
     )
+    first_name = models.CharField(max_length=30, null=True, blank=True)
+    last_name = models.CharField(max_length=30, null=True, blank=True)
+    user_image = CloudinaryField('image', default='default_profile')
     age = models.IntegerField(null=True, blank=True)
     gender = models.CharField(
         max_length=10,
@@ -42,14 +45,6 @@ class UserProfile(models.Model):
         help_text="Body Mass Index"
     )
 
-    # In UserProfile model, add:
-    meal_plan = models.ForeignKey(
-        'MealPlan',
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-        related_name='user_profile'
-    )
     # Timestamps - ADD default=timezone.now
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(
@@ -65,7 +60,7 @@ class UserProfile(models.Model):
 
     def calculate_bmi(self):
         """Calculate and update BMI"""
-        if self. height_cm and self.weight_kg:
+        if self.height_cm and self.weight_kg:
             height_m = self.height_cm / 100
             self.bmi = round(self.weight_kg / (height_m ** 2), 2)
             return self.bmi
@@ -77,7 +72,7 @@ class UserProfile(models.Model):
             return None
 
         if self.gender == 'male':
-            bmr = 10 * self. weight_kg + 6.25 * self.height_cm - 5 * self.age + 5
+            bmr = 10 * self.weight_kg + 6.25 * self.height_cm - 5 * self.age + 5
         else:
             bmr = 10 * self.weight_kg + 6.25 * self.height_cm - 5 * self. age - 161
 
@@ -159,19 +154,10 @@ class Recipe(models.Model):
         """Calculate total time"""
         return self.prep_time_minutes + self.cook_time_minutes
 
-
-"""Override save to ensure data integrity"""
-"""
-def save(self, *args, **kwargs):
-    
-    if self.servings <= 0:
-        self.servings = 1
-    if self.created_by is None:
-        raise ValueError("Recipe must have a creator.")
-    if self.created_at is None:
-        self.created_at = timezone.now()
-    super().save(*args, **kwargs)
-"""""""""
+    def __str__(self):
+        if self.created_by:
+            return f"{self.title} (by {self.created_by.username})"
+        return self.title
 
 # MealPlan Model
 

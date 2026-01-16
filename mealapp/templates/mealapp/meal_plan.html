@@ -8,7 +8,7 @@
 <!-- Use AJAX to dynamically add meals -->
 <form method="POST" id="mealPlanForm">
     {% csrf_token %}
-    {{ form.week_start_date }}
+    {{ form.as_p }}
 
     <div id="meal-selector">
         <button type="button" class="btn btn-primary" onclick="addMeal()">

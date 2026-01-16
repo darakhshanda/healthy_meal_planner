@@ -5,9 +5,8 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 from django.core.paginator import Paginator
 from django.urls import reverse_lazy
-
 from mealapp.forms import MealPlanForm
-from . models import MealPlan, Recipe, UserProfile
+from .models import MealPlan, Recipe, UserProfile
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from datetime import datetime, date
@@ -75,7 +74,7 @@ def recipe_detail(request, recipe_id):
 
 
 # Profile Setup
-@login_required
+@login_required(login_url='account_login')
 def profile_setup(request):
     """User profile setup/edit view"""
     profile, created = UserProfile.objects.get_or_create(user=request.user)
@@ -86,14 +85,17 @@ def profile_setup(request):
         profile.height_cm = request.POST.get('height_cm')
         profile.weight_kg = request.POST.get('weight_kg')
         profile.save()
-        messages.success(request, 'Profile updated successfully!')
+        messages.success(
+            request, f'✅ Profile saved! Your BMI is {profile.bmi} and daily calorie goal is {profile.daily_calorie_goal} kcal.')
+        messages.info(
+            request, 'You can now start creating meal plans and adding recipes.')
         return redirect('dashboard')
 
     return render(request, 'mealapp/profile_setup.html', {'profile': profile})
 
 
 # Dashboard
-@login_required
+@login_required(login_url='account_login')
 def dashboard(request):
     """User dashboard view showing meal plans and progress"""
     user_profile, created = UserProfile.objects.get_or_create(
@@ -199,7 +201,24 @@ def meal_plan_update(request, plan_id):
     })
 
 
+@login_required
+def delete_meal_plan(request, plan_id):
+    """Delete a specific meal plan"""
+    meal_plan = get_object_or_404(MealPlan, id=plan_id, user=request.user)
+
+    if request.method == 'POST':
+        meal_plan.delete()
+        messages.success(request, 'Meal plan deleted successfully!')
+        return redirect('dashboard')
+
+    return render(request, 'mealapp/meal_plan.html', {
+        'meal_plan': meal_plan
+    })
+
+
 # Recipe CRUD - Class-Based Views
+
+
 class RecipeListView(LoginRequiredMixin, ListView):
     model = Recipe
     template_name = 'mealapp/recipe_list.html'
