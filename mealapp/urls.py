@@ -6,6 +6,7 @@ urlpatterns = [
     # Home & Profile
     path('', views.index, name='index'),
     path('profile/', views.profile_setup, name='profile_setup'),
+    path('dashboard/', views.dashboard, name='dashboard'),
     path('help/', views.help_page, name='help'),
     # Recipe CRUD
     path('recipes/create/', views.RecipeCreateView.as_view(), name='recipe_create'),
@@ -16,7 +17,7 @@ urlpatterns = [
          views.RecipeDeleteView.as_view(), name='recipe_delete'),
 
     # Meal Plan
-    path('dashboard/', views.dashboard, name='dashboard'),
+
     path('meal-plan/', views.meal_plan_current, name='meal_plan_current'),
     path('meal-plan/create/', views.create_meal_plan, name='meal_plan_create'),
     path('meal-plan/<str:date>/', views.meal_plan_view, name='meal_plan_view'),

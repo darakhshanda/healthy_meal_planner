@@ -81,7 +81,7 @@ def profile_setup(request):
     profile, created = UserProfile.objects.get_or_create(user=request.user)
 
     if request.method == 'POST':
-        form = ProfileSetupForm(request.POST, instance=profile)
+        form = ProfileSetupForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             profile = form.save(commit=False)
             profile.user = request.user
