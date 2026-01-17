@@ -122,7 +122,7 @@ def dashboard(request):
 
     # Get today's meal plan
     today = date.today()
-    meal_plan, _ = MealPlan.objects.get_or_create(
+    meal_plan, created = MealPlan.objects.get_or_create(
         user=request.user,
         day=today
     )

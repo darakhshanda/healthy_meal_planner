@@ -18,7 +18,8 @@ urlpatterns = [
 
     # Meal Plan
 
-    path('meal-plan/', views.meal_plan_current, name='meal_plan_current'),
+    path('meal-plan/<int:plan_id>/',
+         views.meal_plan_current, name='meal_plan_current'),
     path('meal-plan/create/', views.create_meal_plan, name='meal_plan_create'),
     path('meal-plan/<str:date>/', views.meal_plan_view, name='meal_plan_view'),
     path('meal-plan/<int:plan_id>/update/',

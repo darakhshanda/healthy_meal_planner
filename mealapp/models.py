@@ -232,3 +232,29 @@ class MealPlan(models.Model):
             'dinner': self.dinner_recipe,
             'snack': self.snack_recipe,
         }
+
+    def is_complete(self):
+        """Check if all meal slots are filled"""
+        return all([
+            self.breakfast_recipe,
+            self.lunch_recipe,
+            self.dinner_recipe,
+            self.snack_recipe
+        ])
+
+    def meal_plan_summary(self):
+        """Return a summary of the meal plan"""
+        summary = {}
+        for meal, recipe in self.get_all_recipes().items():
+            if recipe:
+                summary[meal] = {
+                    'title': recipe.title,
+                    'calories': recipe.total_calories
+                }
+            else:
+                summary[meal] = {
+                    'title': 'No recipe selected',
+                    'calories': 0
+                }
+        summary['total_calories'] = self.get_total_calories()
+        return summary
