@@ -25,7 +25,12 @@
 .nav-link:hover {
     color: var(--primary) !important;
 }
-
+.main-container {
+    container: fluid;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
 /* Meal Card */
 .meal-card {
     background: var(--light);

@@ -50,6 +50,17 @@
                             </div>
                         </div>
 
+                        <!-- Display Current BMI and Calorie Goal if Profile Exists -->
+                        {% if profile.bmi %}
+                        <div class="alert alert-info mt-4">
+                            <strong>Your Current Stats:</strong>
+                            <ul class="mb-0 mt-2">
+                                <li><strong>BMI:</strong> {{ profile.bmi }} kg/m²</li>
+                                <li><strong>Daily Calorie Goal:</strong> {{ profile.daily_calorie_goal }} kcal</li>
+                            </ul>
+                        </div>
+                        {% endif %}
+
                         <div class="d-grid mt-4">
                             <button type="submit" class="btn btn-primary btn-lg">
                                 <i class="fas fa-check-circle me-2"></i>Save Profile
