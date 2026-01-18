@@ -100,6 +100,4 @@ textarea:focus {
     color: white;
     padding: 0.5rem 0;
     width: 100%;
-    position: sticky, fixed;
-    bottom: 0;
 }

@@ -29,11 +29,9 @@
                         <p><strong>BMI:</strong> {{ user_profile.bmi|default:"--" }}</p>
                         <p><strong>Total Daily Calories:</strong> {{ user_profile.daily_calorie_goal|default:"--" }}</p>
                         <p><strong>BMI Category:</strong>
-                            {% if user_profile.bmi < 18.5 %} Underweight {% elif user_profile.bmi>= 18.5 and
-                                user_profile.bmi < 25 %} Normal weight {% elif user_profile.bmi>= 25 and
-                                    user_profile.bmi < 30 %} Overweight {% elif user_profile.bmi>= 30 %} Obese {% endif
-                                        %}
-                        </p>
+                            {% if user_profile.bmi < 18.5 %} Underweight {% elif user_profile.bmi >= 18.5 and
+                                user_profile.bmi < 25 %} Normal weight {% elif user_profile.bmi >= 25 and
+                                    user_profile.bmi < 30 %} Overweight {% elif user_profile.bmi >= 30 %} Obese {% endif %}</p>
                         {% else %}
                         <p class="text-muted">Profile not set up yet.</p>
                         {% endif %}
@@ -57,9 +55,8 @@
                         <div class="stat-item mb-3">
                             <h6>Today's Consumption: </h6>
                             <h3 class="text-primary">{{ total_calories|default:"0" }} kcal</h3>
-                            <h6 class="text-muted">Today's Total Calories</h6>
-                            <h6>Remaining Calories: <strong>{{ user_profile.daily_calorie_goal|default:"--" }}
-                                    -mealplan</strong></h6>
+                            <h6 class="text-muted">Today's Total Calories: <strong>{{ user_profile.daily_calorie_goal|default:"--" }}</strong></h6>
+                            <h6>Remaining Calories: <strong>{{ remaining_calories|floatformat:0 }} kcal</strong></h6>
                         </div>
                         <div class="stat-item mb-3">
                             <h6 class="text-muted">Total Recipes Created</h6>
@@ -81,36 +78,37 @@
                 <div class="card shadow-lg">
                     <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
                         <h5 class="mb-0">🍽️ Today's Meal Plan</h5>
-                        {% if user.meal_plan %}
-                        <a href="{% url 'meal_plan_update' user.meal_plan_update %}" class="btn btn-sm btn-light">
-                            ✏️ Edit Meal Plan
-                        </a>
+                        {% if meal_plan %}
+                            {% if meal_plan.day == today %}
+                                <a href="{% url 'meal_plan_update' meal_plan.id %}" class="btn btn-sm btn-light">
+                                    ✏️ Edit Meal Plan
+                                </a>
+                            {% endif %}
                         {% endif %}
                     </div>
                     <div class="card-body">
-                        {% if user.meal_plan %}
+                        {% if meal_plan %}
+                        {% if meal_plan.day == today %}
                         <div class="row">
                             <!-- Breakfast -->
                             <div class="col-md-6 col-lg-3 mb-4">
                                 <div class="meal-card">
                                     <h6 class="text-muted mb-2">🌅 Breakfast</h6>
-                                    {% if user.meal_plan.breakfast_recipe %}
-                                    <div class="recipe-info">
-                                        <h5>{{ user.meal_plan.breakfast_recipe.title }}</h5>
-                                        <p class="text-muted small">
-                                            <i class="fas fa-fire"></i> {{
-                                            user.meal_plan.breakfast_recipe.total_calories }}
-                                            kcal
+                                    {% if meal_plan.breakfast_recipe %}
+                                        <div class="recipe-info">
+                                            <h5>{{ meal_plan.breakfast_recipe.title }}</h5>
+                                              <p class="text-muted small">
+                                            <i class="fas fa-fire"></i> {{ meal_plan.breakfast_recipe.total_calories }} kcal
                                         </p>
-                                        <a href="{% url 'recipe_detail' user.meal_plan.breakfast_recipe.id %}"
-                                            class="btn btn-sm btn-outline-primary">
-                                            View Recipe
-                                        </a>
-                                    </div>
+                                            <a href="{% url 'recipe_detail' meal_plan.breakfast_recipe.id %}"
+                                                class="btn btn-sm btn-outline-primary">
+                                                View Recipe
+                                            </a>
+                                        </div>
                                     {% else %}
                                     <p class="text-muted">Not assigned</p>
                                     <a id="meal-selector"
-                                        href="{% url 'meal_plan_update' user.meal_plan.day|date:'Y-m-d' %}"
+                                        href="{% url 'meal_plan_update' meal_plan.id %}"
                                         class="btn btn-sm btn-outline-secondary mt-2">
                                         Add Recipe
                                     </a>
@@ -197,10 +195,10 @@
                 <h5 class="text-white mb-4">Quick Actions</h5>
             </div>
             <div class="col-md-4 mb-4">
-                <a href="#" class="card card-action shadow-lg h-100 text-decoration-none">
+                <a href="{% url 'index' %}" class="card card-action shadow-lg h-100 text-decoration-none">
                     <div class="card-body text-center">
                         <h4 class="text-primary mb-3">📚</h4>
-                        <h5><a class="" href="{% url 'index' %}">Browse Recipes </a></h5>
+                        <h5>Browse Recipes</h5>
                         <p class="text-muted">View and add recipes to your meal plan</p>
                     </div>
                 </a>

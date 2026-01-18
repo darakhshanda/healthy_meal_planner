@@ -130,10 +130,17 @@ def dashboard(request):
     # Get user's recipes count
     user_recipes_count = Recipe.objects.filter(created_by=request.user).count()
 
+    # Calculate remaining calories
+    total_calories = meal_plan.get_total_calories()
+    remaining_calories = (
+        user_profile.daily_calorie_goal or 0) - total_calories
+
     context = {
         'user_profile': user_profile,
         'meal_plan': meal_plan,
-        'total_calories': meal_plan.get_total_calories(),
+        'today': today,
+        'total_calories': total_calories,
+        'remaining_calories': remaining_calories,
         'user_recipes_count': user_recipes_count,
     }
     return render(request, 'mealapp/dashboard.html', context)

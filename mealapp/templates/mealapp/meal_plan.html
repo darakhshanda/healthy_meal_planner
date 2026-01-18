@@ -23,20 +23,18 @@
                                     <option value="">Select recipe</option>
                                     {% for recipe in recipes %}
                                     {% if recipe.category == 'breakfast' %}
-                                    <p class="{% if review.rating == 5 %}green
-    {% elif review.rating == 1 %}red
-    {% endif %}">Rating: {{review.rating}}/5</p>
-                                    <option value="{{ recipe.id }}{% if meal_plan.breakfast_recipe.id==recipe.id %}
-                                        selected {% endif %}">
+                                    <option value="{{ recipe.id }}" {% if meal_plan.breakfast_recipe.id == recipe.id %}selected{% endif %}>
                                         {{ recipe.title }}
                                     </option>
                                     {% endif %}
+                                    {% empty %}
+                                    <option value="">No recipes available</option>
                                     {% endfor %}
                                 </select>
                                 {% if meal_plan.breakfast_recipe %}
-                                <p class="small text-muted">{{ meal_plan.breakfast_recipe.total_calories|floatformat:0
-                                    }} kcal</p>
+                                <p class="small text-muted">{{ meal_plan.breakfast_recipe.total_calories|floatformat:0 }} kcal</p>
                                 {% endif %}
+                                
                             </div>
                         </div>
                     </div>
@@ -50,11 +48,12 @@
                                     <option value="">Select recipe</option>
                                     {% for recipe in recipes %}
                                     {% if recipe.category == 'lunch' %}
-                                    <option value="{{ recipe.id }}" {% if meal_plan.lunch_recipe.id==recipe.id
-                                        %}selected{% endif %}>
+                                    <option value="{{ recipe.id }}" {% if meal_plan.lunch_recipe.id == recipe.id %}selected{% endif %}>
                                         {{ recipe.title }}
                                     </option>
                                     {% endif %}
+                                    {% empty %}
+                                    <option value="">No recipes available</option>
                                     {% endfor %}
                                 </select>
                                 {% if meal_plan.lunch_recipe %}
@@ -74,16 +73,14 @@
                                     <option value="">Select recipe</option>
                                     {% for recipe in recipes %}
                                     {% if recipe.category == 'dinner' %}
-                                    <option value="{{ recipe.id }}" {% if meal_plan.dinner_recipe.id==recipe.id
-                                        %}selected{% endif %}>
+                                    <option value="{{ recipe.id }}" {% if meal_plan.dinner_recipe.id == recipe.id
+                                        %}selected {% endif %}>
                                         {{ recipe.title }}
                                     </option>
-                                    {% endif %}
                                     {% endfor %}
                                 </select>
                                 {% if meal_plan.dinner_recipe %}
-                                <p class="small text-muted">{{ meal_plan.dinner_recipe.total_calories|floatformat:0 }}
-                                    kcal</p>
+                                <p class="small text-muted">{{ meal_plan.dinner_recipe.total_calories|floatformat:0 }}kcal</p>
                                 {% endif %}
                             </div>
                         </div>
@@ -98,11 +95,12 @@
                                     <option value="">Select recipe</option>
                                     {% for recipe in recipes %}
                                     {% if recipe.category == 'snack' %}
-                                    <option value="{{ recipe.id }}" {% if meal_plan.snack_recipe.id==recipe.id
-                                        %}selected{% endif %}>
+                                    <option value="{{ recipe.id }}" {% if meal_plan.snack_recipe.id == recipe.id %}selected{% endif %}>
                                         {{ recipe.title }}
                                     </option>
                                     {% endif %}
+                                    {% empty %}
+                                    <option value="">No recipes available</option>
                                     {% endfor %}
                                 </select>
                                 {% if meal_plan.snack_recipe %}
@@ -131,5 +129,4 @@
         </div>
     </div>
 </div>
-
 {% endblock %}
