@@ -1,70 +1,135 @@
-{{% extends 'base.html' %}}
+{% extends 'base.html' %}
 {% load static %}
-{% load crispy_forms_tags %}
 
-{% block title %}Meal Plan{% endblock %}
+{% block title %}Meal Plan - {{ date|date:"l, F j, Y" }}{% endblock %}
 
 {% block content %}
 <div class="container py-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card shadow-lg">
-                <div class="card-header bg-primary text-white">
-                    <h3 class="mb-0"><i class="fas fa-user-circle"></i> Complete Your Profile</h3>
-                </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="mb-4">Plan Your Meals for {{ date|date:"l, F j, Y" }}</h2>
 
-                <div class="card-body">
-                    {% if messages %}
-                    {% for message in messages %}
-                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                        {{ message }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                    </div>
-                    {% endfor %}
-                    {% endif %}
+            <form method="POST" id="mealPlanForm">
+                {% csrf_token %}
 
-                    <p class="text-muted mb-4">
-                        <i class="fas fa-info-circle"></i>
-                        Let's calculate your BMI and personalized daily calorie goal.
-                    </p>
-
-
-                    <form method="POST" id="mealPlanForm" class="needs-validation" novalidate>
-                        {% csrf_token %}
-                        {{ form.as_p }}
-
-
-
-                        <!-- Age Field -->
-                        <div class="mb-3">
-                            <label for="{{ form.age.id_for_label }}" class="form-label fw-bold">
-                                {{ form.age.label }} *
-                            </label>
-                            {{ form.age }}
-                            {% if form.age.errors %}
-                            <div class="invalid-feedback d-block">
-                                {% for error in form.age.errors %}
-                                <i class="fas fa-exclamation-circle"></i> {{ error }}
-                                {% endfor %}
+                <!-- Meals Row -->
+                <div class="row g-4 mb-4">
+                    <!-- Breakfast -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card">
+                            <div class="card-header">🌅 Breakfast</div>
+                            <div class="card-body">
+                                <select name="breakfast" class="form-select mb-3">
+                                    <option value="">Select recipe</option>
+                                    {% for recipe in recipes %}
+                                    {% if recipe.category == 'breakfast' %}
+                                    <p class="{% if review.rating == 5 %}green
+    {% elif review.rating == 1 %}red
+    {% endif %}">Rating: {{review.rating}}/5</p>
+                                    <option value="{{ recipe.id }}{% if meal_plan.breakfast_recipe.id==recipe.id %}
+                                        selected {% endif %}">
+                                        {{ recipe.title }}
+                                    </option>
+                                    {% endif %}
+                                    {% endfor %}
+                                </select>
+                                {% if meal_plan.breakfast_recipe %}
+                                <p class="small text-muted">{{ meal_plan.breakfast_recipe.total_calories|floatformat:0
+                                    }} kcal</p>
+                                {% endif %}
                             </div>
-                            {% endif %}
-                            {% if form.age.help_text %}
-                            <div class="form-text">{{ form.age.help_text|safe }}</div>
-                            {% endif %}
                         </div>
+                    </div>
 
-
-                        <div id="meal-selector">
-                            <button type="button" class="btn btn-primary" onclick="addMeal()">
-                                <i class="fas fa-plus"></i> Add Meal
-                            </button>
+                    <!-- Lunch -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card">
+                            <div class="card-header">🥗 Lunch</div>
+                            <div class="card-body">
+                                <select name="lunch" class="form-select mb-3">
+                                    <option value="">Select recipe</option>
+                                    {% for recipe in recipes %}
+                                    {% if recipe.category == 'lunch' %}
+                                    <option value="{{ recipe.id }}" {% if meal_plan.lunch_recipe.id==recipe.id
+                                        %}selected{% endif %}>
+                                        {{ recipe.title }}
+                                    </option>
+                                    {% endif %}
+                                    {% endfor %}
+                                </select>
+                                {% if meal_plan.lunch_recipe %}
+                                <p class="small text-muted">{{ meal_plan.lunch_recipe.total_calories|floatformat:0 }}
+                                    kcal</p>
+                                {% endif %}
+                            </div>
                         </div>
+                    </div>
 
-                        <button type="submit" class="btn btn-success">Save Meal Plan</button>
-                    </form>
+                    <!-- Dinner -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card">
+                            <div class="card-header">🍴 Dinner</div>
+                            <div class="card-body">
+                                <select name="dinner" class="form-select mb-3">
+                                    <option value="">Select recipe</option>
+                                    {% for recipe in recipes %}
+                                    {% if recipe.category == 'dinner' %}
+                                    <option value="{{ recipe.id }}" {% if meal_plan.dinner_recipe.id==recipe.id
+                                        %}selected{% endif %}>
+                                        {{ recipe.title }}
+                                    </option>
+                                    {% endif %}
+                                    {% endfor %}
+                                </select>
+                                {% if meal_plan.dinner_recipe %}
+                                <p class="small text-muted">{{ meal_plan.dinner_recipe.total_calories|floatformat:0 }}
+                                    kcal</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Snack -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card">
+                            <div class="card-header">🍪 Snack</div>
+                            <div class="card-body">
+                                <select name="snack" class="form-select mb-3">
+                                    <option value="">Select recipe</option>
+                                    {% for recipe in recipes %}
+                                    {% if recipe.category == 'snack' %}
+                                    <option value="{{ recipe.id }}" {% if meal_plan.snack_recipe.id==recipe.id
+                                        %}selected{% endif %}>
+                                        {{ recipe.title }}
+                                    </option>
+                                    {% endif %}
+                                    {% endfor %}
+                                </select>
+                                {% if meal_plan.snack_recipe %}
+                                <p class="small text-muted">{{ meal_plan.snack_recipe.total_calories|floatformat:0 }}
+                                    kcal</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+
+                <!-- Total Calories -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5>Total Daily Calories: <strong>{{ meal_plan.get_total_calories|floatformat:0 }} kcal</strong>
+                        </h5>
+                    </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-success">Save Meal Plan</button>
+                    <a href="{% url 'dashboard' %}" class="btn btn-secondary">Back</a>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+
 {% endblock %}

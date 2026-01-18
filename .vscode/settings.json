@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "**/templates/**/*.html": "django-html"
+    },
+    "[django-html]": {
+        "editor.formatOnSave": false,
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true
+        }
+    }
+}
