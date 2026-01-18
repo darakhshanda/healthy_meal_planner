@@ -3,6 +3,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 import re
+import json
 from .models import MealPlan, UserProfile, Recipe
 
 
@@ -307,3 +308,71 @@ class MealSelectionForm(forms.Form):
             ).filter(
                 created_by=User
             ) | Recipe.objects.filter(category='snack', is_public=True)
+
+
+class RecipeForm(forms.ModelForm):
+    """Form for creating and editing recipes"""
+
+    # Override ingredients field to use textarea
+    ingredients = forms.CharField(
+        widget=forms.Textarea(attrs={
+            'class': 'form-control',
+            'rows': 8,
+            'placeholder': 'Enter ingredients as JSON array, e.g., ["2 cups flour", "1 tsp salt", "3 eggs"]'
+        }),
+        help_text='Enter ingredients as e.g., ["2 cups flour", "1 tsp salt", "3 eggs"]'
+    )
+
+    class Meta:
+        model = Recipe
+        fields = ['title', 'description', 'instructions', 'image_url',
+                  'servings', 'prep_time_minutes', 'cook_time_minutes',
+                  'ingredients', 'total_calories', 'protein', 'carbs', 'fat', 'category']
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
+            'instructions': forms.Textarea(attrs={'class': 'form-control', 'rows': 6}),
+            'servings': forms.NumberInput(attrs={'class': 'form-control', 'min': 1}),
+            'prep_time_minutes': forms.NumberInput(attrs={'class': 'form-control', 'min': 0}),
+            'cook_time_minutes': forms.NumberInput(attrs={'class': 'form-control', 'min': 0}),
+            'total_calories': forms.NumberInput(attrs={'class': 'form-control', 'step': '0.01'}),
+            'protein': forms.NumberInput(attrs={'class': 'form-control', 'step': '0.01'}),
+            'carbs': forms.NumberInput(attrs={'class': 'form-control', 'step': '0.01'}),
+            'fat': forms.NumberInput(attrs={'class': 'form-control', 'step': '0.01'}),
+            'category': forms.Select(attrs={'class': 'form-control'}),
+        }
+
+    def clean_ingredients(self):
+        """Validate and parse ingredients JSON"""
+        ingredients_str = self.cleaned_data.get('ingredients')
+
+        if not ingredients_str:
+            raise forms.ValidationError('Ingredients are required.')
+
+        try:
+            # Try to parse as JSON
+            ingredients_list = json.loads(ingredients_str)
+
+            # Validate it's a list
+            if not isinstance(ingredients_list, list):
+                raise forms.ValidationError(
+                    'Ingredients must be a JSON array (list).')
+
+            # Validate all items are strings
+            if not all(isinstance(item, str) for item in ingredients_list):
+                raise forms.ValidationError('All ingredients must be strings.')
+
+            return ingredients_list
+
+        except json.JSONDecodeError as e:
+            raise forms.ValidationError(
+                f'Invalid JSON format: {str(e)}. Please use format: ["ingredient 1", "ingredient 2"]')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        # If editing existing recipe, convert ingredients list to JSON string
+        if self.instance and self.instance.pk and self.instance.ingredients:
+            if isinstance(self.instance.ingredients, list):
+                self.initial['ingredients'] = json.dumps(
+                    self.instance.ingredients, indent=2)

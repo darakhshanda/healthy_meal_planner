@@ -112,11 +112,14 @@ class Recipe(models.Model):
     prep_time_minutes = models.IntegerField(default=0)
     cook_time_minutes = models.IntegerField(default=0)
 
-    # Ingredients (stored as JSON)
-    ingredients = models.JSONField(
-        help_text="List of ingredients with quantities"
+    # Ingredients (stored as JSON) --not MVP
+    # ingredients = models.JSONField(
+    #     help_text="List of ingredients with quantities"
+    # )
+    # Store ingredients as TextField for simplicity
+    ingredients = models.TextField(
+        help_text="List of ingredients with quantities in JSON format"
     )
-
     # Nutrition Info
     total_calories = models.FloatField()
     protein = models.FloatField()

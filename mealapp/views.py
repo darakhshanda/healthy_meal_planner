@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 from django.core.paginator import Paginator
 from django.urls import reverse_lazy
-from mealapp.forms import MealPlanForm
+from mealapp.forms import MealPlanForm, RecipeForm
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from datetime import datetime, date
@@ -284,10 +284,8 @@ class RecipeListView(LoginRequiredMixin, ListView):
 
 class RecipeCreateView(LoginRequiredMixin, CreateView):
     model = Recipe
+    form_class = RecipeForm
     template_name = 'mealapp/recipe_create.html'
-    fields = ['title', 'description', 'instructions', 'image_url',
-              'servings', 'prep_time_minutes', 'cook_time_minutes',
-              'ingredients', 'total_calories', 'protein', 'carbs', 'fat', 'category']
     success_url = reverse_lazy('recipe_list')
 
     def form_valid(self, form):
@@ -298,10 +296,8 @@ class RecipeCreateView(LoginRequiredMixin, CreateView):
 
 class RecipeUpdateView(LoginRequiredMixin, UpdateView):
     model = Recipe
+    form_class = RecipeForm
     template_name = 'mealapp/recipe_create.html'
-    fields = ['title', 'description', 'instructions', 'image_url',
-              'servings', 'prep_time_minutes', 'cook_time_minutes',
-              'ingredients', 'total_calories', 'protein', 'carbs', 'fat', 'category']
     success_url = reverse_lazy('recipe_list')
 
     def get_queryset(self):
