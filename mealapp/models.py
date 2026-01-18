@@ -117,7 +117,7 @@ class Recipe(models.Model):
     #     help_text="List of ingredients with quantities"
     # )
     # Store ingredients as TextField for simplicity
-    ingredients = models.TextField(
+    ingredients = models.JSONField(
         help_text="List of ingredients with quantities in JSON format"
     )
     # Nutrition Info
@@ -125,6 +125,7 @@ class Recipe(models.Model):
     protein = models.FloatField()
     carbs = models.FloatField()
     fat = models.FloatField()
+    fiber = models.FloatField()
 
     # Category
     category = models.CharField(

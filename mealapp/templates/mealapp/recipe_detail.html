@@ -1,18 +1,32 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Profile Setup - Healthy Meal Planner{% endblock %}
+{% block title %}Detail of recipe {{ recipe.title }}{% endblock %}
 
 {% block content %}
 <div class="main-container ">
-
-    <body>
-        <h1>Posts list</h1>
-        {% for post in object_list %}
-        <h2>{{post.title}}</h2>
-        <p>{{post.excerpt}}</p>
-        <p>Author: {{post.author}}</p>
-        {% endfor %}
-    </body>
-
-    </html>
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h2>{{ recipe.title }}</h2>
+                <div>       
+                    <li>Description: {{ recipe.description }}</li>
+                    <li>Ingredients: {% for ingredient in ingredients %}<li>{{ ingredient.value }}<br></li>{% endfor %}</li>
+                    <li>Instructions: {{ recipe.instructions }}</li>
+                    <li>Preparation Time: {{ recipe.prep_time }} minutes</li>
+                    <li>Cooking Time: {{ recipe.cook_time }} minutes</li>
+                    <li>Servings: {{ recipe.servings }}</li>
+                    <li>Calories: {{ recipe.calories }} kcal</li>
+                    <li>Created At: {{ recipe.created_at }}</li>    
+                    <li>Updated At: {{ recipe.updated_at }}</li>
+                    <br>
+                    <a class="btn btn-warning" href="{% url 'recipe_update' recipe.id %}">Edit Recipe</a>
+                    <a class="btn btn-danger" href="{% url 'recipe_delete' recipe.id %}">Delete Recipe</a>         
+                </div>
+                <a class="btn btn-primary mt-4" href="{% url 'recipe_list' %}">Back to Recipes List</a>  
+                <a class="btn btn-secondary mt-4" href="{% url 'dashboard' %}">Back to Dashboard</a>  
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

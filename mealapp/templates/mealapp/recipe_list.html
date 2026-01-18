@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Recipes List{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            {% if recipes.exists %}
+                <h2>Your Recipes</h2>
+                <p>You have {{ recipes|length }} recipe(s).</p>
+                <ul class="list-group">
+                    {% for recipe in recipes %}
+                        <li class="list-group-item">
+                            <a href="{% url 'recipe_detail' recipe.id %}">{{ recipe.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <h2>No Recipes Yet</h2>
+                <p>You do not have any recipes created yet. <a href="{% url 'recipe_create' %}">Create one</a></p>
+            {% endif %}
+        </div>
+    </div>
+    <a class="btn btn-primary mt-4" href="{% url 'dashboard' %}">Back to Dashboard</a>
+</div>
+
+{% endblock %}

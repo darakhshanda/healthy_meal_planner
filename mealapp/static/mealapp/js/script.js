@@ -1,10 +1,10 @@
-// ============================================
-// UTILITY FUNCTIONS
-// ============================================
 
-/**
- * Show toast notification
- */
+// UTILITY FUNCTIONS
+
+
+
+ // Show toast notification
+ 
 function showToast(message, type = 'info') {
     const alertDiv = document.createElement('div');
     alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
@@ -21,19 +21,8 @@ function showToast(message, type = 'info') {
     }
 }
 
-/**
- * Format currency
- */
-function formatCurrency(value) {
-    return new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD'
-    }).format(value);
-}
 
-/**
- * Debounce function
- */
+// Debounce function
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -45,9 +34,8 @@ function debounce(func, wait) {
         timeout = setTimeout(later, wait);
     };
 }
-/**
- * Add meal entry to MealPlan
- */
+// Add meal entry to MealPlan
+
 function addMeal() {
         const mealSelector = document.getElementById('meal-selector');
         const mealDiv = document.createElement('div');
@@ -76,9 +64,9 @@ function addMeal() {
     function removeMeal(button) {
         button.parentElement.remove();
     }
-// ============================================
+
 // RECIPE GRID FUNCTIONALITY
-// ============================================
+
 
 let allRecipes = [];
 let currentCategory = 'all';
@@ -98,7 +86,7 @@ function initializeRecipeGrid() {
         }
     }
 }
-
+// Filter recipes by category
 function getFilteredRecipes() {
     let filtered = allRecipes;
     if (currentCategory !== 'all') {
@@ -106,7 +94,14 @@ function getFilteredRecipes() {
     }
     return filtered;
 }
-
+// Filter recipes by user who created them
+function getFilteredRecipesByUser(user) {
+    let filtered = allRecipes;
+    if (currentCategory !== 'all') {
+        filtered = filtered.filter(r => r.created_by === user);
+    }
+    return filtered;
+}
 function displayRecipes() {
     const container = document.getElementById('recipesContainer');
     if (!container) return;
@@ -271,9 +266,9 @@ function changePage(page) {
     }
 }
 
-// ============================================
+
 // FORM VALIDATION
-// ============================================
+
 
 function validateForm(formSelector) {
     const form = document.querySelector(formSelector);
@@ -281,9 +276,9 @@ function validateForm(formSelector) {
 
     return form.checkValidity() === false ? false : true;
 }
-// ============================================
+
 // INITIALIZATION
-// ============================================
+
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 Healthy Meal Planner loaded');

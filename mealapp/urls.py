@@ -15,6 +15,9 @@ urlpatterns = [
          views.RecipeUpdateView.as_view(), name='recipe_update'),
     path('recipes/<int:pk>/delete/',
          views.RecipeDeleteView.as_view(), name='recipe_delete'),
+    path('recipes/', views.RecipeListView.as_view(), name='recipe_list'),
+    path('recipes/user/<str:username>/',
+         views.recipe_list_user, name='recipe_list_user'),
 
     # Meal Plan
 

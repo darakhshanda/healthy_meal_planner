@@ -1,3 +1,4 @@
+from unicodedata import category
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.decorators import login_required
@@ -5,7 +6,7 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 from django.core.paginator import Paginator
 from django.urls import reverse_lazy
-from mealapp.forms import MealPlanForm, RecipeForm
+from mealapp.forms import MealPlanForm
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from datetime import datetime, date
@@ -64,14 +65,6 @@ def index(request):
         'is_paginated': page_obj.has_other_pages(),
     }
     return render(request, 'mealapp/index.html', context)
-
-
-# Recipe Detail
-def recipe_detail(request, recipe_id):
-    """View for displaying a single recipe's details"""
-    recipe = get_object_or_404(Recipe, id=recipe_id)
-    context = {'recipe': recipe}
-    return render(request, 'mealapp/recipe_detail.html', context)
 
 
 # Profile Setup
@@ -260,7 +253,17 @@ def delete_meal_plan(request, plan_id):
     })
 
 
-# Recipe CRUD - Class-Based Views
+# Recipe CRUD
+# Recipe Detail to show single recipe
+def recipe_detail(request, recipe_id):
+    """View for displaying a single recipe's details"""
+    recipe = get_object_or_404(Recipe, id=recipe_id)
+    context = {
+        'recipe': recipe,
+        'ingredients': recipe.ingredients if isinstance(recipe.ingredients, list) else [recipe.ingredients]
+    }
+
+    return render(request, 'mealapp/recipe_detail.html', context)
 
 
 class RecipeListView(LoginRequiredMixin, ListView):
@@ -282,10 +285,24 @@ class RecipeListView(LoginRequiredMixin, ListView):
         return context
 
 
+def recipe_list_user(request, username):
+    """List recipes created by a specific user"""
+    user = get_object_or_404(User, username=username)
+    recipes = Recipe.objects.filter(created_by=user).order_by('-created_at')
+
+    context = {
+        'recipes': recipes,
+        'created_by': user,
+    }
+    return render(request, 'mealapp/recipe_list.html', context)
+
+
 class RecipeCreateView(LoginRequiredMixin, CreateView):
     model = Recipe
-    form_class = RecipeForm
     template_name = 'mealapp/recipe_create.html'
+    fields = ['title', 'description', 'instructions', 'image_url',
+              'servings', 'prep_time_minutes', 'cook_time_minutes',
+              'ingredients', 'total_calories', 'protein', 'carbs', 'fat', 'fiber', 'category']
     success_url = reverse_lazy('recipe_list')
 
     def form_valid(self, form):
@@ -296,8 +313,10 @@ class RecipeCreateView(LoginRequiredMixin, CreateView):
 
 class RecipeUpdateView(LoginRequiredMixin, UpdateView):
     model = Recipe
-    form_class = RecipeForm
     template_name = 'mealapp/recipe_create.html'
+    fields = ['title', 'description', 'instructions', 'image_url',
+              'servings', 'prep_time_minutes', 'cook_time_minutes',
+              'ingredients', 'total_calories', 'protein', 'carbs', 'fat', 'fiber', 'category']
     success_url = reverse_lazy('recipe_list')
 
     def get_queryset(self):
