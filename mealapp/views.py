@@ -148,6 +148,18 @@ def dashboard(request):
 
 # Meal Plan CRUD
 @login_required
+def meal_plan_list_view(request):
+    """List all meal plans for the user, sorted by date (newest first)"""
+    meal_plans = MealPlan.objects.filter(user=request.user).order_by('-day')
+
+    context = {
+        'meal_plans': meal_plans,
+        'is_list_view': True,
+    }
+    return render(request, 'mealapp/meal_plan.html', context)
+
+
+@login_required
 def meal_plan_current(request):
     """Redirect to today's meal plan"""
     today = date.today()
@@ -224,6 +236,7 @@ def meal_plan_update(request, plan_id):
     return render(request, 'mealapp/meal_plan.html', {
         'meal_plan': meal_plan,
         'recipes': recipes,
+        'date': meal_plan.day,
     })
 
 
@@ -237,8 +250,13 @@ def delete_meal_plan(request, plan_id):
         messages.success(request, 'Meal plan deleted successfully!')
         return redirect('dashboard')
 
+    # GET request - show confirmation
+    recipes = Recipe.objects.all().order_by('category', 'title')
     return render(request, 'mealapp/meal_plan.html', {
-        'meal_plan': meal_plan
+        'meal_plan': meal_plan,
+        'recipes': recipes,
+        'date': meal_plan.day,
+        'confirm_delete': True,
     })
 
 
