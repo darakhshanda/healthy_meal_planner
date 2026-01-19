@@ -325,7 +325,7 @@ class RecipeForm(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Recipe Title'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': 'Brief description of the recipe'}),
-            'ingredients': forms.Textarea(attrs={'class': 'form-control', 'rows': 5, 'placeholder': 'List ingredients here'}),
+            'ingredients': forms.JSONField(widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 5, 'placeholder': 'List ingredients here'})),
             'instructions': forms.Textarea(attrs={'class': 'form-control', 'rows': 7, 'placeholder': 'Step-by-step cooking instructions'}),
             'category': forms.Select(attrs={'class': 'form-select'}),
             'prep_time_minutes': forms.NumberInput(attrs={'class': 'form-control', 'min': 0, 'placeholder': 'Preparation time in minutes'}),

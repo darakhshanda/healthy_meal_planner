@@ -34,7 +34,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 ALLOWED_HOSTS = ['.herokuapp.com', '127.0.0.1', 'localhost']
 
-CSRF_TRUSTED_ORIGINS = ["https://*.herokuapp.com"]
+CSRF_TRUSTED_ORIGINS = ["https://*.herokuapp.com",
+                        "https://healthy-meal-planner-cc66090aa001.herokuapp.com/"]
 # Application definition
 
 INSTALLED_APPS = [
