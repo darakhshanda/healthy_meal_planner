@@ -1,70 +1,4 @@
 
-// UTILITY FUNCTIONS
-
-
-
- // Show toast notification
- 
-function showToast(message, type = 'info') {
-    const alertDiv = document.createElement('div');
-    alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
-    alertDiv.setAttribute('role', 'alert');
-    alertDiv.innerHTML = `
-        ${message}
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    `;
-    
-    const container = document.querySelector('.container');
-    if (container) {
-        container.insertBefore(alertDiv, container.firstChild);
-        setTimeout(() => alertDiv.remove(), 5000);
-    }
-}
-
-
-// Debounce function
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-// Add meal entry to MealPlan
-
-function addMeal() {
-        const mealSelector = document.getElementById('meal-selector');
-        const mealDiv = document.createElement('div');
-        mealDiv.classList.add('meal-entry', 'mb-3');
-
-        mealDiv.innerHTML = `
-            <select name="meal_type" class="form-select mb-2">
-                <option value="breakfast">Breakfast</option>
-                <option value="lunch">Lunch</option>
-                <option value="dinner">Dinner</option>
-                <option value="snack">Snack</option>
-            </select>
-            <select name="recipe" class="form-select mb-2">
-                {% for recipe in recipes %}
-                <option value="{{ recipe.id }}">{{ recipe.title }}</option>
-                {% endfor %}
-            </select>
-            <button type="button" class="btn btn-danger" onclick="removeMeal(this)">
-                <i class="fas fa-trash"></i> Remove
-            </button>
-        `;
-
-        mealSelector.appendChild(mealDiv);
-    }
-
-    function removeMeal(button) {
-        button.parentElement.remove();
-    }
-
 // RECIPE GRID FUNCTIONALITY
 
 
@@ -94,14 +28,7 @@ function getFilteredRecipes() {
     }
     return filtered;
 }
-// Filter recipes by user who created them
-function getFilteredRecipesByUser(user) {
-    let filtered = allRecipes;
-    if (currentCategory !== 'all') {
-        filtered = filtered.filter(r => r.created_by === user);
-    }
-    return filtered;
-}
+// Display recipes in grid
 function displayRecipes() {
     const container = document.getElementById('recipesContainer');
     if (!container) return;
