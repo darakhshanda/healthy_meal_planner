@@ -73,8 +73,11 @@ class UserProfile(models.Model):
 
         if self.gender == 'male':
             bmr = 10 * self.weight_kg + 6.25 * self.height_cm - 5 * self.age + 5
+        elif self.gender == 'female':
+            bmr = 10 * self.weight_kg + 6.25 * self.height_cm - 5 * self.age - 161
         else:
-            bmr = 10 * self.weight_kg + 6.25 * self.height_cm - 5 * self. age - 161
+            # Fallback if gender is not set/other: use female constant to avoid None
+            bmr = 10 * self.weight_kg + 6.25 * self.height_cm - 5 * self.age - 161
 
         activity_factor = 1.2  # Sedentary
         self.daily_calorie_goal = round(bmr * activity_factor, 2)

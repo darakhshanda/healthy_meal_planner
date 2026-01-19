@@ -224,14 +224,11 @@ def delete_meal_plan(request, plan_id):
     meal_plan = get_object_or_404(MealPlan, id=plan_id, user=request.user)
 
     if request.method == 'POST':
+        day_str = meal_plan.day.strftime('%Y-%m-%d')
         meal_plan.delete()
-        messages.success(request, 'Meal plan deleted successfully!')
+        messages.success(
+            request, f'✅ Meal plan for {day_str} deleted successfully!')
         return redirect('meal_plan_list')
-
-    # Adds a success message upon deletion
-    def delete(self, request, *args, **kwargs):
-        messages.success(request, 'Meal plan deleted successfully!')
-        return super().delete(request, *args, **kwargs)
 
     # GET request - show confirmation
     recipes = Recipe.objects.all().order_by('category', 'title')

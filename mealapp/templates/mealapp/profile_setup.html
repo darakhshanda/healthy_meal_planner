@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 {% load static %}
 
-{% block title %}Profile Setup{% endblock %}
+{% block title %}{% if user.profile %}Update Profile{% else %}Create Profile{% endif %}{% endblock %}
 
 {% block content %}
 <div class="container py-5">
@@ -55,7 +55,7 @@
                         <div class="alert alert-info mt-4">
                             <strong>Your Current Stats:</strong>
                             <ul class="mb-0 mt-2">
-                                <li><strong>BMI:</strong> {{ profile.bmi }} kg/m²</li>
+                                <li><strong>BMI:</strong> {{ profile.bmi }} kg/cm²</li>
                                 <li><strong>Daily Calorie Goal:</strong> {{ profile.daily_calorie_goal }} kcal</li>
                             </ul>
                         </div>

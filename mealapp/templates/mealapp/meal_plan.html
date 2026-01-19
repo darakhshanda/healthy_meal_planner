@@ -33,15 +33,7 @@
                             <a href="{% url 'dashboard' %}" class="btn btn-secondary">Back to Dashboard</a>
                         </div>
                     </form>
-                    <script>
-                        document.getElementById('createMealPlanForm').addEventListener('submit', function(e) {
-                            e.preventDefault();
-                            const date = document.getElementById('date').value;
-                            if (date) {
-                                window.location.href = '/meal-plan/' + date + '/';
-                            }
-                        });
-                    </script>
+                  
                 </div>
             </div>
 
@@ -49,7 +41,7 @@
             <!-- Meal Plans Table -->
             <div class="card mb-4">
                 <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">Your Meal Plans</h5>
+                    <h5 class="mb-0">📋 Your Meal Plans ({{ meal_plans.count }} total)</h5>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -116,9 +108,12 @@
                 </div>
             </div>
             {% else %}
+            <!-- Empty State -->
             <div class="card mb-4">
-                <div class="card-body text-center">
-                    <p class="mb-3">No meal plans yet. Use the form above to create your first meal plan!</p>
+                <div class="card-body text-center py-5">
+                    <h5 class="mb-3">📭 No Meal Plans Yet</h5>
+                    <p class="text-muted mb-4">You haven't created any meal plans. Get started by creating your first meal plan!</p>
+                    <a href="{% url 'meal_plan_list' %}" class="btn btn-success btn-lg">➕ Create Your First Meal Plan</a>
                 </div>
             </div>
             {% endif %}

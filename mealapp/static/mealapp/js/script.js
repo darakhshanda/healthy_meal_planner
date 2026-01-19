@@ -1,6 +1,14 @@
 
 // RECIPE GRID FUNCTIONALITY
 
+document.getElementById('createMealPlanForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const date = document.getElementById('date').value;
+    if (date) {
+        window.location.href = '/meal-plan/' + date + '/';
+    }
+});
+
 
 let allRecipes = [];
 let currentCategory = 'all';
