@@ -7,7 +7,11 @@
 <div class="container  py-5">
     <aside class="user-profile">
         <div class="user-avatar">
-
+           {% if user_profile.user_image %}
+              <img src="{{ user_profile.user_image.url }}" alt="{{ user.username }}" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; display: block;">
+           {% else %}
+           <i class="fas fa-user-circle fa-5x text-secondary"></i>
+           {% endif %}
         </div>
     </aside>
     <div class="dashboard-main">
@@ -233,32 +237,13 @@
             </div>
              
             <div class="col-md-4 mb-4">
-                            
-                {% if meal_plan %}
-                    <a href="{% url 'meal_plan_list' %}" class="card card-action shadow-lg h-100 text-decoration-none">
-                        <div class="card-body text-center">
-                            <h4 class="text-info mb-3">📅</h4>
-                            <h5>Plan Meals</h5>
-                            <p class="text-muted">Manage your meal plans</p>
-                        </div>
-                    </a>
-                {% elif not meal_plan %}
-                <a href="{% url 'meal_plan_list' %}" class="card card-action shadow-lg h-100">
-                    <div class="card-body text-center">
-                        <h4 class="text-info mb-3">📅</h4>
-                        <h5 href="{% url 'meal_plan_list' %}" >Plan Meals</h5>
-                        <p class="text-muted">Manage your meal plans</p>                   
-                    </div>
-                </a>
-                {% else %}
                 <a href="{% url 'meal_plan_list' %}" class="card card-action shadow-lg h-100 text-decoration-none">
                     <div class="card-body text-center">
                         <h4 class="text-info mb-3">📅</h4>
                         <h5>Plan Meals</h5>
-                        <p class="text-muted">Create your first meal plan</p>
+                        <p class="text-muted">Manage your meal plans</p>
                     </div>
                 </a>
-                {% endif %}
             </div>
         </div>
     </div>
