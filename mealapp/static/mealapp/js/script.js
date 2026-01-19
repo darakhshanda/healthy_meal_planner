@@ -12,11 +12,11 @@ function initializeRecipeGrid() {
     if (recipesDataElement) {
         try {
             allRecipes = JSON.parse(recipesDataElement.textContent);
-            console.log(`Loaded ${allRecipes.length} recipes`);
+            //console.log(`Loaded ${allRecipes.length} recipes`);
             currentPage = 1;
             displayRecipes();
         } catch (e) {
-            console.error('❌ Error parsing recipes data:', e);
+            //console.error('❌ Error parsing recipes data:', e);
         }
     }
 }
@@ -208,7 +208,7 @@ function validateForm(formSelector) {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🚀 Healthy Meal Planner loaded');
+    //console.log('🚀 Healthy Meal Planner loaded');
     
     // Initialize recipe grid
     initializeRecipeGrid();
