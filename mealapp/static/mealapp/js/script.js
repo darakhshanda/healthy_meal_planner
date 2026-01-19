@@ -1,15 +1,6 @@
 
 // RECIPE GRID FUNCTIONALITY
 
-document.getElementById('createMealPlanForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const date = document.getElementById('date').value;
-    if (date) {
-        window.location.href = '/meal-plan/' + date + '/';
-    }
-});
-
-
 let allRecipes = [];
 let currentCategory = 'all';
 let currentPage = 1;
@@ -87,7 +78,7 @@ function createRecipeCard(recipe) {
     card.innerHTML = `
         ${recipe.image_url ? `
             <img src="${recipe.image_url}" alt="${recipe.title}" class="recipe-image" 
-                 onerror="this.onerror=null;this.src='/static/mealapp/images/default.jpg';" />
+                 onerror="this.onerror=null;this.src='/staticfiles/mealapp/images/default.jpg';" />
         ` : `
             <div class="recipe-image-placeholder">
                 <i class="fas fa-utensils fa-3x text-white"></i>
@@ -132,6 +123,10 @@ function createRecipeCard(recipe) {
                         <i class="fas fa-bacon text-info"></i>
                         <p class="mb-0">${recipe.fat || 0}g</p>
                     </div>
+                     <div class="col-4">
+                        <i class="fas fa-bacon text-info"></i>
+                        <p class="mb-0">${recipe.fiber || 0}g</p>
+                    </div>
                 </div>
             </div>
 
@@ -148,11 +143,13 @@ function createRecipeCard(recipe) {
             <small class="text-muted mb-3">
                 By <strong>${recipe.created_by || 'Unknown'}</strong>
             </small>
-
+            
             <!-- Action Button -->
+
             <a href="/recipes/${recipe.id}/" class="btn btn-primary w-100 mt-auto">
                 <i class="fas fa-eye"></i> View Recipe
             </a>
+            
         </div>
     `;
 
@@ -243,4 +240,12 @@ document.addEventListener('DOMContentLoaded', function() {
             form.classList.add('was-validated');
         }, false);
     });
+});
+// MEAL PLAN DATE SELECTION
+document.getElementById('createMealPlanForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const date = document.getElementById('date').value;
+    if (date) {
+        window.location.href = '/meal-plan/' + date + '/';
+    }
 });

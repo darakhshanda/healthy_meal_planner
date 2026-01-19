@@ -37,8 +37,13 @@
                     {% endif %}
                 </div>
                 </div>
-                <a class="btn btn-primary mt-4" href="{% url 'recipe_list_user' user.username %}">Back to Recipes List</a>  
+                {% if user.is_authenticated %}
+                <a class="btn btn-primary mt-4" href="{% url 'recipe_list_user' user.username %}">Back to Recipes List</a> 
                 <a class="btn btn-secondary mt-4" href="{% url 'dashboard' %}">Back to Dashboard</a>  
+                {% else %}
+                <a class="btn btn-primary mt-4" href="{% url 'index' %}">Back to Recipes List</a>
+                {% endif %} 
+                
             </div>
         </div>
     </div>
