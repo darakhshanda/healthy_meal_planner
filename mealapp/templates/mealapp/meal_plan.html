@@ -23,18 +23,25 @@
                     <h5 class="mb-0">➕ Add New Meal Plan</h5>
                 </div>
                 <div class="card-body">
-                    <form method="GET" action="{% url 'meal_plan_view' '2000-01-01' %}" class="row g-3 align-items-end">
+                    <form method="GET" id="createMealPlanForm" class="row g-3 align-items-end">
                         <div class="col-md-4">
                             <label for="date" class="form-label">Select Date</label>
                             <input type="date" class="form-control" id="date" name="date" required>
                         </div>
                         <div class="col-md-8">
-                            <button type="submit" class="btn btn-success" onclick="this.form.action = this.form.action.replace('2000-01-01', document.getElementById('date').value)">
-                                Create Meal Plan for Selected Date
-                            </button>
+                            <button type="submit" class="btn btn-success">Create Meal Plan for Selected Date</button>
                             <a href="{% url 'dashboard' %}" class="btn btn-secondary">Back to Dashboard</a>
                         </div>
                     </form>
+                    <script>
+                        document.getElementById('createMealPlanForm').addEventListener('submit', function(e) {
+                            e.preventDefault();
+                            const date = document.getElementById('date').value;
+                            if (date) {
+                                window.location.href = '/meal-plan/' + date + '/';
+                            }
+                        });
+                    </script>
                 </div>
             </div>
 
@@ -244,8 +251,11 @@
                     </div>
                     {% else %}
                     <button type="submit" class="btn btn-success">Save Meal Plan</button>
-                    <a href="{% url 'meal_plan_delete' meal_plan.id %}" class="btn btn-primary">Delete Meal Plan</a>
-                    <a href="{% url 'dashboard' %}" class="btn btn-secondary">Back</a>
+                    <a href="{% url 'meal_plan_list' %}" class="btn btn-primary">Create New Meal Plan</a>
+                    {% if meal_plan and meal_plan.id %}
+                    <a href="{% url 'meal_plan_delete' meal_plan.id %}" class="btn btn-danger">Delete Meal Plan</a>
+                    {% endif %}
+                    <a href="{% url 'dashboard' %}" class="btn btn-secondary">Back to Dashboard</a>
                     {% endif %}
                 </div>
             </form>

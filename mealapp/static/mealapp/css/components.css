@@ -95,6 +95,7 @@ textarea:focus {
 }
 
 .footer {
+    height: 100vh;
     background: var(--dark);
     text-align: center;
     color: white;

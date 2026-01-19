@@ -12,9 +12,6 @@ main, .main-content {
     flex: 1;
 }
 
-footer {
-    margin-top: auto;
-}
 
 /* Gradient Backgrounds */
 .gradient-bg {

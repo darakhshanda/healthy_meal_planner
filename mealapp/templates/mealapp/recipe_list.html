@@ -11,13 +11,26 @@
             {% if recipes.exists %}
                 <h2>Your Recipes</h2>
                 <p>You have {{ recipes|length }} recipe(s).</p>
-                <ul class="list-group">
+                <a href="{% url 'recipe_create' %}" class="btn btn-success mb-3">Create New Recipe</a>
+                <div class="list-group">
                     {% for recipe in recipes %}
-                        <li class="list-group-item">
-                            <a href="{% url 'recipe_detail' recipe.id %}">{{ recipe.title }}</a>
-                        </li>
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <h5 class="mb-1">
+                                    <a href="{% url 'recipe_detail' recipe.id %}" class="text-decoration-none">{{ recipe.title }}</a>
+                                </h5>
+                                <small class="text-muted">{{ recipe.category|title }} | {{ recipe.total_calories }} cal</small>
+                            </div>
+                            <div class="btn-group" role="group">
+                                <a href="{% url 'recipe_detail' recipe.id %}" class="btn btn-sm btn-info">View</a>
+                                {% if recipe.created_by == user %}
+                                <a href="{% url 'recipe_update' recipe.id %}" class="btn btn-sm btn-warning">Edit</a>
+                                <a href="{% url 'recipe_delete' recipe.id %}" class="btn btn-sm btn-danger">Delete</a>
+                                {% endif %}
+                            </div>
+                        </div>
                     {% endfor %}
-                </ul>
+                </div>
             {% else %}
                 <h2>No Recipes Yet</h2>
                 <p>You do not have any recipes created yet. <a href="{% url 'recipe_create' %}">Create one</a></p>

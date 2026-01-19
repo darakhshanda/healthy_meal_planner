@@ -1,3 +1,4 @@
+from multiprocessing import context
 from unicodedata import category
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, render, redirect
@@ -161,24 +162,8 @@ def meal_plan_current(request):
 
 @login_required
 def create_meal_plan(request):
-    """Create a new meal plan for the week"""
-    if request.method == 'POST':
-        form = MealPlanForm(request.POST)
-        if form.is_valid():
-            meal_plan = form.save(commit=False)
-            meal_plan.user = request.user
-            meal_plan.save()
-
-            messages.success(request, 'Meal plan created successfully!')
-            return redirect('meal_plan_view', date=meal_plan.week_start_date.strftime('%Y-%m-%d'))
-    else:
-        form = MealPlanForm()
-
-    context = {'form': form,
-               'recipes': Recipe.objects.all()
-               }
-
-    return render(request, 'mealapp/meal_plan.html', context)
+    """Redirect to meal plan list where users can select a date"""
+    return redirect('meal_plan_list')
 
 
 @login_required
@@ -241,7 +226,12 @@ def delete_meal_plan(request, plan_id):
     if request.method == 'POST':
         meal_plan.delete()
         messages.success(request, 'Meal plan deleted successfully!')
-        return redirect('dashboard')
+        return redirect('meal_plan_list')
+
+    # Adds a success message upon deletion
+    def delete(self, request, *args, **kwargs):
+        messages.success(request, 'Meal plan deleted successfully!')
+        return super().delete(request, *args, **kwargs)
 
     # GET request - show confirmation
     recipes = Recipe.objects.all().order_by('category', 'title')
@@ -273,7 +263,8 @@ class RecipeListView(LoginRequiredMixin, ListView):
     paginate_by = 12
 
     def get_queryset(self):
-        queryset = Recipe.objects.all().order_by('-created_at')
+        queryset = Recipe.objects.filter(
+            created_by=self.request.user).order_by('-created_at')
         category = self.request.GET.get('category')
         if category:
             queryset = queryset.filter(category=category)
@@ -330,11 +321,16 @@ class RecipeUpdateView(LoginRequiredMixin, UpdateView):
 class RecipeDeleteView(LoginRequiredMixin, DeleteView):
     model = Recipe
     template_name = 'mealapp/recipe_confirm_delete.html'
-    success_url = reverse_lazy('recipe_list')
 
+    # Limit deletion to recipes created by the logged-in user
     def get_queryset(self):
         return Recipe.objects.filter(created_by=self.request.user)
+    # Redirect to the user's recipe list after deletion
 
+    def get_success_url(self):
+        return reverse_lazy('recipe_list_user', kwargs={'username': self.request.user.username})
+
+    # Adds a success message upon deletion
     def delete(self, request, *args, **kwargs):
         messages.success(request, 'Recipe deleted successfully!')
         return super().delete(request, *args, **kwargs)

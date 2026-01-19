@@ -4,7 +4,7 @@
 {% block title %}Profile Setup - Healthy Meal Planner{% endblock %}
 
 {% block content %}
-<div class="main-container ">
+<div class="container  py-5">
     <aside class="user-profile">
         <div class="user-avatar">
 
@@ -78,13 +78,16 @@
                 <div class="card shadow-lg">
                     <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
                         <h5 class="mb-0">🍽️ Today's Meal Plan</h5>
-                        {% if meal_plan %}
-                            {% if meal_plan.day == today %}
+                        {% if meal_plan.exists %}                            
                                 <a href="{% url 'meal_plan_update' meal_plan.id %}" class="btn btn-sm btn-light">
                                     ✏️ Edit Meal Plan
                                 </a>
-                            {% endif %}
+                        {% else %}
+                                <a href="{% url 'meal_plan_create' %}" class="btn btn-sm btn-light">
+                                    ➕ Create Today's Meal Plan
+                                </a> 
                         {% endif %}
+                        
                     </div>
                     <div class="card-body">
                         {% if meal_plan %}
@@ -106,12 +109,12 @@
                                             </a>
                                         </div>
                                     {% else %}
-                                    <p class="text-muted">Not assigned</p>
-                                    <a id="meal-selector"
-                                        href="{% url 'meal_plan_update' meal_plan.id %}"
-                                        class="btn btn-sm btn-outline-secondary mt-2">
-                                        Add Recipe
-                                    </a>
+                                        <p class="text-muted">Not assigned</p>
+                                        <a id="meal-selector"
+                                            href="{% url 'meal_plan_update' meal_plan.id %}"
+                                            class="btn btn-sm btn-outline-secondary mt-2">
+                                            Add Recipe
+                                        </a>
                                     {% endif %}
                                 </div>
                             </div>
@@ -132,6 +135,11 @@
                                     </div>
                                     {% else %}
                                     <p class="text-muted">Not assigned</p>
+                                    <a id="meal-selector"
+                                            href="{% url 'meal_plan_update' meal_plan.id %}"
+                                            class="btn btn-sm btn-outline-secondary mt-2">
+                                            Add Recipe
+                                        </a>
                                     {% endif %}
                                 </div>
                             </div>
@@ -154,6 +162,11 @@
                                     </div>
                                     {% else %}
                                     <p class="text-muted">Not assigned</p>
+                                    <a id="meal-selector"
+                                            href="{% url 'meal_plan_update' meal_plan.id %}"
+                                            class="btn btn-sm btn-outline-secondary mt-2">
+                                            Add Recipe
+                                        </a>
                                     {% endif %}
                                 </div>
                             </div>
@@ -176,6 +189,11 @@
                                     </div>
                                     {% else %}
                                     <p class="text-muted">Not assigned</p>
+                                    <a id="meal-selector"
+                                            href="{% url 'meal_plan_update' meal_plan.id %}"
+                                            class="btn btn-sm btn-outline-secondary mt-2">
+                                            Add Recipe
+                                        </a>
                                     {% endif %}
                                 </div>
                             </div>
@@ -213,25 +231,33 @@
                     </div>
                 </a>
             </div>
-
+             
             <div class="col-md-4 mb-4">
+                            
                 {% if meal_plan %}
-                <a href="{% url 'meal_plan_view' meal_plan.day|date:'Y-m-d' %}"
-                    class="card card-action shadow-lg h-100 text-decoration-none">
+                    <a href="{% url 'meal_plan_list' %}" class="card card-action shadow-lg h-100 text-decoration-none">
+                        <div class="card-body text-center">
+                            <h4 class="text-info mb-3">📅</h4>
+                            <h5>Plan Meals</h5>
+                            <p class="text-muted">Manage your meal plans</p>
+                        </div>
+                    </a>
+                {% elif not meal_plan %}
+                <a href="{% url 'meal_plan_list' %}" class="card card-action shadow-lg h-100">
                     <div class="card-body text-center">
                         <h4 class="text-info mb-3">📅</h4>
-                        <h5>Plan Meals</h5>
-                        <p class="text-muted">Customize your meal plan</p>
+                        <h5 href="{% url 'meal_plan_list' %}" >Plan Meals</h5>
+                        <p class="text-muted">Manage your meal plans</p>                   
                     </div>
                 </a>
                 {% else %}
-                <div class="card card-action shadow-lg h-100">
-                    <div class="card-body text-center text-muted">
+                <a href="{% url 'meal_plan_list' %}" class="card card-action shadow-lg h-100 text-decoration-none">
+                    <div class="card-body text-center">
                         <h4 class="text-info mb-3">📅</h4>
                         <h5>Plan Meals</h5>
-                        <p class="text-muted small">Create meal plan first</p>
+                        <p class="text-muted">Create your first meal plan</p>
                     </div>
-                </div>
+                </a>
                 {% endif %}
             </div>
         </div>
