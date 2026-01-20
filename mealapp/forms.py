@@ -3,10 +3,14 @@ import json
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Row, Column, Field, HTML
+from django.forms import formset_factory
 import re
 
 from django.urls import reverse
 from .models import MealPlan, UserProfile, Recipe
+from mealapp import models
 
 
 class CustomRegistrationForm(UserCreationForm):
@@ -312,35 +316,35 @@ class MealSelectionForm(forms.Form):
             ) | Recipe.objects.filter(category='snack', is_public=True)
 
 
+class IngredientInlineForm(forms.Form):  # NOT ModelForm
+    name = forms.CharField(max_length=200, widget=forms.TextInput(
+        attrs={'class': 'form-control', 'label': 'Ingredient'}),
+    )
+    unit = forms.ChoiceField(choices=[
+        ('g', 'g'), ('kg', 'kg'), ('oz', 'oz'), ('lb', 'lb'), ('tsp', 'tsp'), ('tbsp',
+                                                                               'tbsp'), ('cup', 'cup'), ('ml', 'ml'), ('l', 'l'), ('piece', 'piece')
+    ], widget=forms.Select(attrs={'class': 'form-selectcontrol'}), label='Unit', required=False)
+    quantity = forms.DecimalField(max_length=10, widget=forms.NumberInput(
+        attrs={'class': 'form-control', 'step': '0.25'}), label='Quantity', required=False)
+    DELETE = forms.BooleanField(
+        required=False, label='', widget=forms.HiddenInput())
+
+
 class RecipeForm(forms.ModelForm):
     """Form for creating and editing recipes"""
+
+    # Customize widgets for multi-lie instructions for better UI
+    instruction_text = forms.CharField(widget=forms.Textarea(
+        attrs={'class': 'form-control', 'rows': 8, 'placeholder': 'one step per line. e.g. 1 - preheat oven. 2- mix ingredients. 3- bake for 20 minutes.'}), required=False, label='Instructions',
+        help_text="One instruction per line")
 
     class Meta:
         model = Recipe
         fields = [
-            'title', 'description', 'ingredients',
-            'instructions', 'prep_time_minutes',
+            'title', 'description', 'prep_time_minutes',
             'cook_time_minutes', 'servings', 'image_url', 'category', 'total_calories', 'carbs', 'protein', 'fat', 'fiber',
         ]
-        widgets = {
-            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Recipe Title'}),
-            'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': 'Brief description of the recipe'}),
-            'ingredients': forms.JSONField(widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 5, 'placeholder': 'List ingredients here'})),
-            'instructions': forms.Textarea(attrs={'class': 'form-control', 'rows': 7, 'placeholder': 'Step-by-step cooking instructions'}),
-            'category': forms.Select(attrs={'class': 'form-select'}),
-            'prep_time_minutes': forms.NumberInput(attrs={'class': 'form-control', 'min': 0, 'placeholder': 'Preparation time in minutes'}),
-            'cook_time_minutes': forms.NumberInput(attrs={'class': 'form-control', 'min': 0, 'placeholder': 'Cooking time in minutes'}),
-            'servings': forms.NumberInput(attrs={'class': 'form-control', 'min': 1, 'placeholder': 'Number of servings'}),
-            'total_calories': forms.NumberInput(attrs={'class': 'form-control', 'min': 0, 'placeholder': 'Total calories'}),
-            'carbs': forms.NumberInput(attrs={'class': 'form-control', 'min': 0, 'placeholder': 'Total carbohydrates (g)'}),
-            'protein': forms.NumberInput(attrs={'class': 'form-control', 'min': 0, 'placeholder': 'Total protein (g)'}),
-            'fat': forms.NumberInput(attrs={'class': 'form-control', 'min': 0, 'placeholder': 'Total fat (g)'}),
-            'fiber': forms.NumberInput(attrs={'class': 'form-control', 'min': 0, 'placeholder': 'Total fiber (g)'}),
-            'image': forms.ClearableFileInput(attrs={'class': 'form-control'}),
-        }
-        help_texts = {
-            'ingredients': 'Enter ingredients as a JSON array of strings, e.g., ["ingredient 1", "ingredient 2"] including quantities. like "2 cups of flour". 3 eggs, 1 cup sugar',
-        }
+        excludes = ['created_by', 'created_at', 'updated_at']
 
     # Validation for ingredients field to ensure it's a JSON array of strings
 
@@ -369,15 +373,76 @@ class RecipeForm(forms.ModelForm):
                 f'Invalid JSON format: {str(e)}. Please use format: ["ingredient 1", "ingredient 2"]')
 
     def __init__(self, *args, **kwargs):
+        initial_ingredients = kwargs.pop('initial_ingredients', [])
         super().__init__(*args, **kwargs)
 
-        # If editing existing recipe, format the JSON string nicely
-        if self.instance and self.instance.pk and self.instance.ingredients:
-            try:
-                # Parse and re-format for better display
-                ingredients_data = json.loads(self.instance.ingredients)
-                self.initial['ingredients'] = json.dumps(
-                    ingredients_data, indent=2)
-            except (json.JSONDecodeError, TypeError):
-                # If not valid JSON, just use the raw string
-                self.initial['ingredients'] = self.instance.ingredients
+        # Pre-fill instructions textarea with existing instructions
+        if self.instance.pk and self.instance.instructions:
+            self.fields['instructions_text'].initial = '\n'.join(
+                self.instance.instructions)
+        # Prepare initial data for ingredient inline forms
+        self.ingredient_forms = forms.formset_factory(IngredientInlineForm, extra=1 if not initial_ingredients else 0, min_num=len(
+            initial_ingredients), validate_min=True)()
+        if initial_ingredients:
+            for i, ingredient in enumerate(initial_ingredients):
+                self.ingredient_forms.forms[i] = IngredientInlineForm(
+                    initial=ingredient)
+
+        # Layout for ingredient inline forms. Crispy layout
+        self.helper = FormHelper()
+        self.helper.form_tag = False
+        self.helper.layout = Layout(
+            'title',
+            'description',
+            Row(
+                'image_url',  # ✅ Image URL field now included
+                css_class='mb-4'
+            ),
+            'category',
+            Row(
+                Column('servings', css_class='col-md-3'),
+                Column('prep_time_minutes', css_class='col-md-3'),
+                Column('cook_time_minutes', css_class='col-md-3'),
+                Column('total_calories', css_class='col-md-3'),
+                css_class='g-3 mb-4'
+            ),
+            Row(
+                Column('protein', css_class='col-md-3'),
+                Column('carbs', css_class='col-md-3'),
+                Column('fat', css_class='col-md-3'),
+                Column('fiber', css_class='col-md-3'),
+                css_class='g-3 mb-4'
+            ),
+            Field('instructions_text', css_class='mb-4')
+        )
+        self.helper.layout.append(
+            HTML('<h5>Ingredients</h5>')
+        )
+
+     def is_valid(self):
+        main_valid = super().is_valid()
+        ingredients_valid = all(form.is_valid() for form in self.ingredient_forms)
+        return main_valid and ingredients_valid
+
+    def save(self, commit=True, created_by=None):
+        instance = super().save(commit=False)
+        
+        # ✅ Save instructions to ArrayField
+        instance.instructions = self.cleaned_data['instructions']
+        
+        # ✅ Save ingredients to JSONField
+        ingredients = []
+        for form in self.ingredient_forms:
+            if form.is_valid() and not form.cleaned_data.get('DELETE', False):
+                ingredients.append({
+                    'name': form.cleaned_data['name'],
+                    'unit': form.cleaned_data['unit'],
+                    'quantity': form.cleaned_data['quantity']
+                })
+        instance.ingredients = ingredients
+        
+        if created_by:
+            instance.created_by = created_by
+        if commit:
+            instance.save()
+        return instance

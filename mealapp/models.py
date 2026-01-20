@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404
 from datetime import timezone
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.postgres.fields import ArrayField
 
 
 class UserProfile(models.Model):
@@ -104,8 +105,14 @@ class Recipe(models.Model):
     # Basic Info
     title = models.CharField(max_length=255)
     description = models.TextField()
-    instructions = models.TextField()
-    image_url = CloudinaryField('image', default='placeholder')
+
+    instructions = ArrayField(
+        base_field=models.CharField(max_length=500),
+        default=list,
+        blank=True,
+        default_factory=list,
+    )
+    image_url = CloudinaryField('image', default='default.jpg')
 
     # Servings and Time
     servings = models.IntegerField(default=1)
@@ -117,8 +124,8 @@ class Recipe(models.Model):
     #     help_text="List of ingredients with quantities"
     # )
     # Store ingredients as TextField for simplicity
-    ingredients = models.JSONField(default=list,  help_text='List of ingredients with quantity and unit. Format: [{"name": "Flour", "quantity": "2.5 for 2 1/2" , "unit": "cup"}, ...]'
-                                   )
+    ingredients = models.JSONField(
+        default=list,  help_text='List of ingredients with quantity and unit. Format: [{"name": "Flour", "quantity": "2.5 for 2 1/2" , "unit": "cup"}, ...]')
     # Nutrition Info
     total_calories = models.FloatField()
     protein = models.FloatField()
@@ -128,18 +135,15 @@ class Recipe(models.Model):
 
     # Category
     category = models.CharField(
-        max_length=20,
-        choices=CATEGORY_CHOICES
-    )
+        max_length=20, choices=CATEGORY_CHOICES, default='dinner')
 
     # Ownership
     created_by = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name='recipes', default=1
-    )
+        related_name='recipes')
 
-   # Timestamps - ADD default=timezone.now
+    # Timestamps - ADD default=timezone.now
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     updated_at = models.DateTimeField(
         auto_now=True, null=True, blank=True)      # Use auto_now for updates
@@ -150,9 +154,6 @@ class Recipe(models.Model):
         verbose_name_plural = 'Recipes'
         ordering = ['-created_at']
 
-    def __str__(self):
-        return f"{self.title} {self.description}"
-
     def total_time(self):
         """Calculate total time"""
         return self.prep_time_minutes + self.cook_time_minutes
@@ -160,9 +161,9 @@ class Recipe(models.Model):
     def __str__(self):
         if self.created_by:
             return f"{self.title} (by {self.created_by.username})"
-        return self.title
+        return "Unknown"
 
-# MealPlan Model
+    # MealPlan Model
 
 
 class MealPlan(models.Model):
@@ -170,10 +171,8 @@ class MealPlan(models.Model):
     User's meal plan with one recipe for each meal category
     """
     user = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE,
-        related_name='meal_plans'
-    )
+        User, on_delete=models.CASCADE, related_name='meal_plans')
+
     day = models.DateField(help_text="Date for this meal plan")
     # One recipe for each category
     breakfast_recipe = models.ForeignKey(
@@ -209,6 +208,7 @@ class MealPlan(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
+
         db_table = 'meal_plan'
         verbose_name = 'Meal Plan'
         verbose_name_plural = 'Meal Plans'
@@ -216,6 +216,7 @@ class MealPlan(models.Model):
         ordering = ['-day']  # ADD THIS - show newest first
 
     def __str__(self):
+
         return f"{self.user.username} - {self.day}"
 
     def get_total_calories(self):
@@ -225,7 +226,7 @@ class MealPlan(models.Model):
                        self.dinner_recipe, self.snack_recipe]:
             if recipe:
                 total += recipe.total_calories
-        return total
+                return total
 
     def get_all_recipes(self):
         """Get all recipes as a dictionary"""
@@ -259,5 +260,5 @@ class MealPlan(models.Model):
                     'title': 'No recipe selected',
                     'calories': 0
                 }
-        summary['total_calories'] = self.get_total_calories()
-        return summary
+                summary['total_calories'] = self.get_total_calories()
+                return summary
