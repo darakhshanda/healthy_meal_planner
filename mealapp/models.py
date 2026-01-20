@@ -1,4 +1,5 @@
 from cloudinary.models import CloudinaryField
+from django.forms import formset_factory
 from django.shortcuts import get_object_or_404
 from datetime import timezone
 from django.db import models
@@ -106,12 +107,8 @@ class Recipe(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
 
-    instructions = ArrayField(
-        base_field=models.CharField(max_length=500),
-        default=list,
-        blank=True,
-        default_factory=list,
-    )
+    instructions = models.TextField(max_length=500, blank=True)
+
     image_url = CloudinaryField('image', default='default.jpg')
 
     # Servings and Time
@@ -144,7 +141,8 @@ class Recipe(models.Model):
         related_name='recipes')
 
     # Timestamps - ADD default=timezone.now
-    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    created_at = models.DateTimeField(
+        auto_now_add=True, null=True, blank=True)
     updated_at = models.DateTimeField(
         auto_now=True, null=True, blank=True)      # Use auto_now for updates
 
@@ -163,7 +161,7 @@ class Recipe(models.Model):
             return f"{self.title} (by {self.created_by.username})"
         return "Unknown"
 
-    # MealPlan Model
+        # MealPlan Model
 
 
 class MealPlan(models.Model):
@@ -176,33 +174,13 @@ class MealPlan(models.Model):
     day = models.DateField(help_text="Date for this meal plan")
     # One recipe for each category
     breakfast_recipe = models.ForeignKey(
-        'Recipe',
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-        related_name='meal_plan_breakfast'
-    )
+        'Recipe', on_delete=models.SET_NULL, null=True, blank=True,  related_name='meal_plan_breakfast')
     lunch_recipe = models.ForeignKey(
-        'Recipe',
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-        related_name='meal_plan_lunch'
-    )
+        'Recipe', on_delete=models.SET_NULL, null=True, blank=True,  related_name='meal_plan_lunch')
     dinner_recipe = models.ForeignKey(
-        'Recipe',
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-        related_name='meal_plan_dinner'
-    )
+        'Recipe', on_delete=models.SET_NULL, null=True, blank=True,  related_name='meal_plan_dinner')
     snack_recipe = models.ForeignKey(
-        'Recipe',
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-        related_name='meal_plan_snack'
-    )
+        'Recipe', on_delete=models.SET_NULL, null=True, blank=True,  related_name='meal_plan_snack')
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -219,46 +197,50 @@ class MealPlan(models.Model):
 
         return f"{self.user.username} - {self.day}"
 
-    def get_total_calories(self):
-        """Calculate total calories for the day"""
-        total = 0
-        for recipe in [self.breakfast_recipe, self.lunch_recipe,
-                       self.dinner_recipe, self.snack_recipe]:
-            if recipe:
-                total += recipe.total_calories
-                return total
 
-    def get_all_recipes(self):
-        """Get all recipes as a dictionary"""
-        return {
-            'breakfast': self.breakfast_recipe,
-            'lunch': self.lunch_recipe,
-            'dinner': self.dinner_recipe,
-            'snack': self.snack_recipe,
-        }
+def get_total_calories(self):
+    """Calculate total calories for the day"""
+    total = 0
+    for recipe in [self.breakfast_recipe, self.lunch_recipe,
+                   self.dinner_recipe, self.snack_recipe]:
+        if recipe:
+            total += recipe.total_calories
+            return total
 
-    def is_complete(self):
-        """Check if all meal slots are filled"""
-        return all([
-            self.breakfast_recipe,
-            self.lunch_recipe,
-            self.dinner_recipe,
-            self.snack_recipe
-        ])
 
-    def meal_plan_summary(self):
-        """Return a summary of the meal plan"""
-        summary = {}
-        for meal, recipe in self.get_all_recipes().items():
-            if recipe:
-                summary[meal] = {
-                    'title': recipe.title,
-                    'calories': recipe.total_calories
-                }
-            else:
-                summary[meal] = {
-                    'title': 'No recipe selected',
-                    'calories': 0
-                }
-                summary['total_calories'] = self.get_total_calories()
-                return summary
+def get_all_recipes(self):
+    """Get all recipes as a dictionary"""
+    return {
+        'breakfast': self.breakfast_recipe,
+        'lunch': self.lunch_recipe,
+        'dinner': self.dinner_recipe,
+        'snack': self.snack_recipe,
+    }
+
+
+def is_complete(self):
+    """Check if all meal slots are filled"""
+    return all([
+        self.breakfast_recipe,
+        self.lunch_recipe,
+        self.dinner_recipe,
+        self.snack_recipe
+    ])
+
+
+def meal_plan_summary(self):
+    """Return a summary of the meal plan"""
+    summary = {}
+    for meal, recipe in self.get_all_recipes().items():
+        if recipe:
+            summary[meal] = {
+                'title': recipe.title,
+                'calories': recipe.total_calories
+            }
+        else:
+            summary[meal] = {
+                'title': 'No recipe selected',
+                'calories': 0
+            }
+        summary['total_calories'] = self.get_total_calories()
+        return summary

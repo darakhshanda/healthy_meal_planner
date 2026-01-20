@@ -15,16 +15,19 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='recipe',
             name='image_url',
-            field=cloudinary.models.CloudinaryField(default='default.jpg', max_length=255, verbose_name='image'),
+            field=cloudinary.models.CloudinaryField(
+                default='default.jpg', max_length=255, verbose_name='image'),
         ),
         migrations.AlterField(
             model_name='recipe',
             name='ingredients',
-            field=models.JSONField(default=list, help_text='List of ingredients with quantity and unit. Format: [{"name": "Flour", "quantity": "2.5 for 2 1/2" , "unit": "cup"}, ...]'),
+            field=models.JSONField(
+                default=list, help_text='List of ingredients with quantity and unit. Format: [{"name": "Flour", "quantity": "2.5 for 2 1/2" , "unit": "cup"}, ...]'),
         ),
         migrations.AlterField(
             model_name='recipe',
             name='instructions',
-            field=django.contrib.postgres.fields.ArrayField(base_field=models.CharField(max_length=500), blank=True, default=list, size=None),
+            field=django.contrib.postgres.fields.ArrayField(base_field=models.CharField(
+                max_length=500), blank=True, default=list, size=None),
         ),
     ]

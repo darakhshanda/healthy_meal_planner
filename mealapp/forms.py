@@ -6,11 +6,10 @@ from django.contrib.auth.forms import UserCreationForm
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Row, Column, Field, HTML
 from django.forms import formset_factory
-import re
-
 from django.urls import reverse
 from .models import MealPlan, UserProfile, Recipe
 from mealapp import models
+import re
 
 
 class CustomRegistrationForm(UserCreationForm):
@@ -324,7 +323,7 @@ class IngredientInlineForm(forms.Form):  # NOT ModelForm
         ('g', 'g'), ('kg', 'kg'), ('oz', 'oz'), ('lb', 'lb'), ('tsp', 'tsp'), ('tbsp',
                                                                                'tbsp'), ('cup', 'cup'), ('ml', 'ml'), ('l', 'l'), ('piece', 'piece')
     ], widget=forms.Select(attrs={'class': 'form-selectcontrol'}), label='Unit', required=False)
-    quantity = forms.DecimalField(max_length=10, widget=forms.NumberInput(
+    quantity = forms.DecimalField(max_digits=10, decimal_places=2, widget=forms.NumberInput(
         attrs={'class': 'form-control', 'step': '0.25'}), label='Quantity', required=False)
     DELETE = forms.BooleanField(
         required=False, label='', widget=forms.HiddenInput())
@@ -345,32 +344,6 @@ class RecipeForm(forms.ModelForm):
             'cook_time_minutes', 'servings', 'image_url', 'category', 'total_calories', 'carbs', 'protein', 'fat', 'fiber',
         ]
         excludes = ['created_by', 'created_at', 'updated_at']
-
-    # Validation for ingredients field to ensure it's a JSON array of strings
-
-    def clean_ingredients(self):
-        ingredients_str = self.cleaned_data.get('ingredients', '')
-        if not ingredients_str:
-            raise forms.ValidationError('Ingredients field cannot be empty.')
-        try:
-            # Try to parse as JSON to validate format
-            ingredients_list = json.loads(ingredients_str)
-
-            # Validate it's a list
-            if not isinstance(ingredients_list, list):
-                raise forms.ValidationError(
-                    'Ingredients must be a JSON array (list).')
-
-            # Validate all items are strings
-            if not all(isinstance(item, str) for item in ingredients_list):
-                raise forms.ValidationError(
-                    'All ingredients must be strings.')
-
-            # Return the JSON string (since model field is TextField)
-            return ingredients_str
-        except json.JSONDecodeError as e:
-            raise forms.ValidationError(
-                f'Invalid JSON format: {str(e)}. Please use format: ["ingredient 1", "ingredient 2"]')
 
     def __init__(self, *args, **kwargs):
         initial_ingredients = kwargs.pop('initial_ingredients', [])
@@ -418,19 +391,31 @@ class RecipeForm(forms.ModelForm):
         self.helper.layout.append(
             HTML('<h5>Ingredients</h5>')
         )
+    # validation to ensure both main form and ingredient forms are valid
 
-     def is_valid(self):
+    def is_valid(self):
         main_valid = super().is_valid()
-        ingredients_valid = all(form.is_valid() for form in self.ingredient_forms)
+        ingredients_valid = all(form.is_valid()
+                                for form in self.ingredient_forms)
         return main_valid and ingredients_valid
+
+    # Validation for ingredients field to ensure it's a JSON array of strings
+
+    def clean(self):
+        cleaned_data = super().clean()
+        instructions_text = cleaned_data.get('instructions_text', '')
+        instructions = [line.strip()
+                        for line in instructions_text.split('\n') if line.strip()]
+        cleaned_data['instructions'] = instructions
+        return cleaned_data
 
     def save(self, commit=True, created_by=None):
         instance = super().save(commit=False)
-        
-        # ✅ Save instructions to ArrayField
+
+        #  Save instructions to ArrayField
         instance.instructions = self.cleaned_data['instructions']
-        
-        # ✅ Save ingredients to JSONField
+
+        #  Save ingredients to JSONField
         ingredients = []
         for form in self.ingredient_forms:
             if form.is_valid() and not form.cleaned_data.get('DELETE', False):
@@ -440,7 +425,7 @@ class RecipeForm(forms.ModelForm):
                     'quantity': form.cleaned_data['quantity']
                 })
         instance.ingredients = ingredients
-        
+
         if created_by:
             instance.created_by = created_by
         if commit:

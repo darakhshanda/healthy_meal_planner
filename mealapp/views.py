@@ -7,12 +7,13 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 from django.core.paginator import Paginator
 from django.urls import reverse_lazy
+from requests import request
 from mealapp.forms import MealPlanForm
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from datetime import datetime, date
 from .models import MealPlan, Recipe, UserProfile
-from .forms import ProfileSetupForm
+from .forms import ProfileSetupForm, MealPlanForm, RecipeForm, IngredientInlineForm
 from os import path
 import json
 # Home & Index
@@ -300,6 +301,78 @@ class RecipeCreateView(LoginRequiredMixin, CreateView):
         form.instance.created_by = self.request.user
         messages.success(self.request, 'Recipe created successfully!')
         return super().form_valid(form)
+
+
+@login_required
+def recipe_edit_view(request, recipe_id):
+    recipe = get_object_or_404(Recipe, id=recipe_id, created_by=request.user)
+
+    if request.method == 'POST':
+        initial_ingredients = recipe.ingredients if isinstance(
+            recipe.ingredients, list) else []
+        total_forms = request.POST.get('form-TOTAL_FORMS', 0)
+        for i in range(int(total_forms)):
+            if not request.POST.get(f'form-{i}-DELETE'):
+                initial_ingredients.append({
+                    'name': request.POST.get(f'form-{i}-name', ''),
+                    'quantity': request.POST.get(f'form-{i}-quantity', ''),
+                    'unit': request.POST.get(f'form-{i}-unit', ''),
+                })
+        form = RecipeForm(request.POST, instance=recipe,
+                          initial_ingredients=initial_ingredients)
+        if form.is_valid():
+            form.save(created_by=request.user)
+            messages.success(request, 'Recipe updated successfully!')
+            return redirect('recipe_detail', recipe_id=recipe.id)
+    else:
+        form = RecipeForm(
+            instance=recipe, initial_ingredients=recipe.ingredients or [])
+
+    return render(request, 'mealapp/recipe_create.html', {
+        'form': form,
+        'recipe': recipe,
+    })
+
+
+def recipe_detail(request, pk):
+    """Display single recipe"""
+    recipe = get_object_or_404(Recipe, pk=pk)
+    return render(request, 'recipes/recipe_detail.html', {'recipe': recipe})
+
+
+@login_required
+def recipe_delete(request, pk):
+    """Delete recipe"""
+    recipe = get_object_or_404(Recipe, pk=pk, created_by=request.user)
+    if request.method == 'POST':
+        recipe.delete()
+        messages.success(request, 'Recipe deleted successfully!')
+        return redirect('recipe_list')
+    return render(request, 'recipes/recipe_confirm_delete.html', {'recipe': recipe})
+
+
+@login_required
+def recipeCreateView(request):
+    if request.method == 'POST':
+        initial_ingredients = []
+        total_forms = request.POST.get('form-TOTAL_FORMS', 0)
+        for i in range(int(total_forms)):
+            if not request.POST.get(f'form-{i}-DELETE'):
+                initial_ingredients.append({
+                    'name': request.POST.get(f'form-{i}-name', ''),
+                    'quantity': request.POST.get(f'form-{i}-quantity', ''),
+                    'unit': request.POST.get(f'form-{i}-unit', ''),
+                })
+        form = RecipeForm(
+            request.POST, initial_ingredients=initial_ingredients)
+        if form.is_valid():
+            recipe = form.save(created_by=request.user)
+            messages.success(request, 'Recipe created successfully!')
+            return redirect('recipe_detail', recipe_id=recipe.id)
+    else:
+        form = RecipeForm()
+
+    return render(request, 'mealapp/recipe_create.html', {'form': form})
 
 
 class RecipeUpdateView(LoginRequiredMixin, UpdateView):
