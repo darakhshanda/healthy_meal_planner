@@ -337,7 +337,6 @@ class RecipeForm(forms.ModelForm):
             'fat': forms.NumberInput(attrs={'class': 'form-control', 'min': 0, 'placeholder': 'Total fat (g)'}),
             'fiber': forms.NumberInput(attrs={'class': 'form-control', 'min': 0, 'placeholder': 'Total fiber (g)'}),
             'image': forms.ClearableFileInput(attrs={'class': 'form-control'}),
-
         }
         help_texts = {
             'ingredients': 'Enter ingredients as a JSON array of strings, e.g., ["ingredient 1", "ingredient 2"] including quantities. like "2 cups of flour". 3 eggs, 1 cup sugar',

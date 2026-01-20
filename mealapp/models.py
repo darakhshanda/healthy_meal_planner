@@ -73,11 +73,8 @@ class UserProfile(models.Model):
 
         if self.gender == 'male':
             bmr = 10 * self.weight_kg + 6.25 * self.height_cm - 5 * self.age + 5
-        elif self.gender == 'female':
-            bmr = 10 * self.weight_kg + 6.25 * self.height_cm - 5 * self.age - 161
         else:
-            # Fallback if gender is not set/other: use female constant to avoid None
-            bmr = 10 * self.weight_kg + 6.25 * self.height_cm - 5 * self.age - 161
+            bmr = 10 * self.weight_kg + 6.25 * self.height_cm - 5 * self. age - 161
 
         activity_factor = 1.2  # Sedentary
         self.daily_calorie_goal = round(bmr * activity_factor, 2)
@@ -120,9 +117,8 @@ class Recipe(models.Model):
     #     help_text="List of ingredients with quantities"
     # )
     # Store ingredients as TextField for simplicity
-    ingredients = models.JSONField(
-        help_text="List of ingredients with quantities in JSON format"
-    )
+    ingredients = models.JSONField(default=list,  help_text='List of ingredients with quantity and unit. Format: [{"name": "Flour", "quantity": "2.5 for 2 1/2" , "unit": "cup"}, ...]'
+                                   )
     # Nutrition Info
     total_calories = models.FloatField()
     protein = models.FloatField()
