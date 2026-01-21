@@ -25,11 +25,16 @@ def index(request):
 
     # Get all recipes
     all_recipes = Recipe.objects.all()
+    category = request.GET.get('category', '')
+    if category:
+        all_recipes = all_recipes.filter(category=category)
 
     if search:
         all_recipes = all_recipes.filter(
             Q(title__icontains=search) |
-            Q(description__icontains=search)
+            Q(description__icontains=search) |
+            Q(category_icontains=search)
+
         )
 
     # Serialize ALL recipes manually to handle JSONField and CloudinaryField
@@ -42,7 +47,7 @@ def index(request):
                 'category': recipe.category,
                 'description': recipe.description,
                 'ingredients': recipe.ingredients if isinstance(recipe.ingredients, list) else [],
-                'instructions': recipe.instructions.split('\n') if recipe.instructions else [],
+                'instructions': recipe.instructions if isinstance(recipe.instructions, list) else [],
                 'image_url': recipe.image_url.url if hasattr(recipe.image_url, 'url') else str(recipe.image_url),
                 'prep_time_minutes': recipe.prep_time_minutes,
                 'total_calories': recipe.total_calories,
@@ -50,6 +55,7 @@ def index(request):
                 'protein': recipe.protein,
                 'carbs': recipe.carbs,
                 'fat': recipe.fat,
+                'fiber': recipe.fiber,
             })
         except Exception as e:
             print(f"Error serializing recipe {recipe.id}: {e}")
@@ -273,20 +279,21 @@ class RecipeListView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+
         context['selected_category'] = self.request.GET.get('category', '')
         return context
 
+    def recipe_list_user(self, username):
+        """List recipes created by a specific user"""
+        user = get_object_or_404(User, username=username)
+        recipes = Recipe.objects.filter(
+            created_by=user).order_by('-created_at')
 
-def recipe_list_user(request, username):
-    """List recipes created by a specific user"""
-    user = get_object_or_404(User, username=username)
-    recipes = Recipe.objects.filter(created_by=user).order_by('-created_at')
-
-    context = {
-        'recipes': recipes,
-        'created_by': user,
-    }
-    return render(request, 'mealapp/recipe_list.html', context)
+        context = {
+            'recipes': recipes,
+            'created_by': user,
+        }
+        return render(request, 'mealapp/recipe_list.html', context)
 
 
 class RecipeCreateView(LoginRequiredMixin, CreateView):
@@ -334,12 +341,6 @@ def recipe_edit_view(request, recipe_id):
     })
 
 
-def recipe_detail(request, pk):
-    """Display single recipe"""
-    recipe = get_object_or_404(Recipe, pk=pk)
-    return render(request, 'recipes/recipe_detail.html', {'recipe': recipe})
-
-
 @login_required
 def recipe_delete(request, pk):
     """Delete recipe"""
@@ -355,16 +356,31 @@ def recipe_delete(request, pk):
 def recipeCreateView(request):
     if request.method == 'POST':
         initial_ingredients = []
-        total_forms = request.POST.get('form-TOTAL_FORMS', 0)
-        for i in range(int(total_forms)):
-            if not request.POST.get(f'form-{i}-DELETE'):
+        initial_instructions = []
+
+        # Parse ingredient formset data
+        ingredient_total_forms = request.POST.get(
+            'ingredient_forms-TOTAL_FORMS', 0)
+        for i in range(int(ingredient_total_forms)):
+            if not request.POST.get(f'ingredient_forms-{i}-DELETE'):
                 initial_ingredients.append({
-                    'name': request.POST.get(f'form-{i}-name', ''),
-                    'quantity': request.POST.get(f'form-{i}-quantity', ''),
-                    'unit': request.POST.get(f'form-{i}-unit', ''),
+                    'name': request.POST.get(f'ingredient_forms-{i}-name', ''),
+                    'quantity': request.POST.get(f'ingredient_forms-{i}-quantity', ''),
+                    'unit': request.POST.get(f'ingredient_forms-{i}-unit', ''),
                 })
+
+        # Parse instruction formset data
+        instruction_total_forms = request.POST.get(
+            'instruction_forms-TOTAL_FORMS', 0)
+        for i in range(int(instruction_total_forms)):
+            if not request.POST.get(f'instruction_forms-{i}-DELETE'):
+                step = request.POST.get(
+                    f'instruction_forms-{i}-step', '').strip()
+                if step:
+                    initial_instructions.append(step)
+
         form = RecipeForm(
-            request.POST, initial_ingredients=initial_ingredients)
+            request.POST, initial_ingredients=initial_ingredients, initial_instructions=initial_instructions)
         if form.is_valid():
             recipe = form.save(created_by=request.user)
             messages.success(request, 'Recipe created successfully!')

@@ -1,768 +1,35 @@
 [
   {
     "model": "mealapp.recipe",
-    "pk": 1,
+    "pk": 11,
     "fields": {
       "title": "Algerian Kefta (Meatballs)",
       "description": "A delicious dinner recipe",
-      "instructions": "1. Combine ground beef with 1/2 of the minced garlic and 1 tablespoon chopped onion in a large bowl. Mix with your hands until fully incorporated. Shape meat mixture into 1 1/2-inch oblong patties; you should have 12 to 14 meatballs.\n2. Heat a large skillet over medium-high heat. Brown patties in batches in the hot skillet until crispy on both sides and no longer pink in the center, about 10 minutes. Set meatballs aside in a rimmed serving dish.\n3. Reduce heat to medium and stir remaining chopped onion into drippings in the skillet. Season with salt and pepper. Cook, stirring constantly, until onion has softened and turned translucent, about 5 minutes. Stir in remaining garlic and cook for 30 seconds. Stir in Roma tomatoes, dried parsley, and ras el hanout. Pour in water. Cook until tomatoes are soft, about 5 minutes.\n4. Pour tomato sauce over meatballs to serve.",
+        "instructions": [
+      "Combine ground beef with 1/2 of the minced garlic and 1 tablespoon chopped onion in a large bowl. Mix with your hands until fully incorporated. Shape meat mixture into 1 1/2-inch oblong patties; you should have 12 to 14 meatballs.",
+      "Heat a large skillet over medium-high heat. Brown patties in batches in the hot skillet until crispy on both sides and no longer pink in the center, about 10 minutes. Set meatballs aside in a rimmed serving dish.",
+      "Reduce heat to medium and stir remaining chopped onion into drippings in the skillet. Season with salt and pepper. Cook, stirring constantly, until onion has softened and turned translucent, about 5 minutes. Stir in remaining garlic and cook for 30 seconds. Stir in Roma tomatoes, dried parsley, and ras el hanout. Pour in water. Cook until tomatoes are soft, about 5 minutes.",
+      "Pour tomato sauce over meatballs to serve."
+    ],
       "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452878/recipes/recipes/algerian_kefta_%28meatballs%29_1.jpg",
-      "servings": 2,
+      "servings": 12,
       "prep_time_minutes": 10,
       "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "lb Ground Beef",
-          "quantity": "1"
-        },
-        {
-          "name": "Cloves Crushed Garlic",
-          "quantity": "4"
-        },
-        {
-          "name": "cup Onion",
-          "quantity": "1/2"
-        },
-        {
-          "name": "taste Salt",
-          "quantity": "To"
-        },
-        {
-          "name": "taste Pepper",
-          "quantity": "To"
-        },
-        {
-          "name": "Plum Tomatoes",
-          "quantity": "3"
-        },
-        {
-          "name": "tsp Parsley",
-          "quantity": "1"
-        },
-        {
-          "name": "cup Water",
-          "quantity": "1/2"
-        }
-      ],
+       "ingredients": [
+      "1 lb Ground Beef",
+      "4 Cloves Crushed Garlic",
+      "1/2 cup Onion",
+      "To taste Salt",
+      "To taste Pepper",
+      "3 Plum Tomatoes",
+      "1 tsp Parsley",
+      "1/2 cup Water"
+    ],
       "total_calories": 340,
       "protein": 9.0,
       "carbs": 36,
       "fat": 7.4,
-      "category": "dinner",
-      "created_by": 1
-    }
-  },
-  {
-    "model": "mealapp.recipe",
-    "pk": 2,
-    "fields": {
-      "title": "Arepa Pabellón",
-      "description": "A delicious dinner recipe",
-      "instructions": "1. Prepare the meat in a skillet and add salt and pepper to taste, heat the beans over medium heat in a pan, fry or grill the ripe plantains as indicated on its package and cut the tomato into small cubes. Reserve these ingredients until filling.\n2. Preheat the grill or pan and grill the arepa, putting it once on each side until they are golden brown.\n3. With the help of a knife, open it by the edge through the middle, creating a space to fill it with the ripe plantain, the beans, meat and chopped tomato.\n4. Serve with a little pico de gallo or guacamole dip sauce.",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452878/recipes/recipes/arepa_pabell%C3%B3n_2.jpg",
-      "servings": 2,
-      "prep_time_minutes": 10,
-      "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "Corn Arepa Filled With Mozarella Cheese",
-          "quantity": "2"
-        },
-        {
-          "name": "Fried Ripe Bananas",
-          "quantity": "1"
-        },
-        {
-          "name": "Can Black Beans",
-          "quantity": "1"
-        },
-        {
-          "name": "Pico De Gallo Sauce",
-          "quantity": "1"
-        },
-        {
-          "name": "Shredded Meat",
-          "quantity": "2kg"
-        },
-        {
-          "name": "chopped Tomato",
-          "quantity": "1"
-        },
-        {
-          "name": "Salt",
-          "quantity": "Pinch"
-        },
-        {
-          "name": "Pepper",
-          "quantity": "Pinch"
-        }
-      ],
-      "total_calories": 340,
-      "protein": 9.0,
-      "carbs": 36,
-      "fat": 7.4,
-      "category": "dinner",
-      "created_by": 1
-    }
-  },
-  {
-    "model": "mealapp.recipe",
-    "pk": 3,
-    "fields": {
-      "title": "Arepa pelua",
-      "description": "A delicious dinner recipe",
-      "instructions": "1. Cook the meat: Place the flank steak in a pot with broth or water and salt. Cook over low heat for about 2 hours, until tender and easy to shred.\n2. Shred the meat: Once cooked, drain and shred the meat using two forks.\n3. Prepare the vegetables: Sauté chopped onion, bell pepper, and garlic in a little oil. Add cumin, oregano, paprika, and salt. Stir in the meat and cook for a few minutes until the flavors are well combined.\n4. Make the dough: In a bowl, mix the cornmeal with warm water and salt until a soft dough forms. Let it rest for 5 minutes.\n5. Form the arepas: Divide the dough into 6 portions, shape into balls, and flatten into thick discs.\n6. Cook: Cook the arepas on a griddle or skillet over medium heat for 2–3 minutes on each side until golden. You can then bake them for a few minutes if you prefer them crispier.\n7. Fill: Slice the arepas open on one side, fill with the hot shredded beef, and top with grated cheese.",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452879/recipes/recipes/arepa_pelua_3.jpg",
-      "servings": 4,
-      "prep_time_minutes": 10,
-      "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "Beef",
-          "quantity": "500g"
-        },
-        {
-          "name": "Onion",
-          "quantity": "1"
-        },
-        {
-          "name": "Red Pepper",
-          "quantity": "1"
-        },
-        {
-          "name": "cloves Garlic",
-          "quantity": "2"
-        },
-        {
-          "name": "tsp Cumin",
-          "quantity": "1"
-        },
-        {
-          "name": "tsp Oregano",
-          "quantity": "1"
-        },
-        {
-          "name": "tsp Paprika",
-          "quantity": "1"
-        },
-        {
-          "name": "L Beef Stock",
-          "quantity": "1"
-        },
-        {
-          "name": "1/2 cups Water",
-          "quantity": "2"
-        },
-        {
-          "name": "Salt",
-          "quantity": "Pinch"
-        },
-        {
-          "name": "Cheese",
-          "quantity": "200g"
-        },
-        {
-          "name": "Extra Virgin Olive Oil",
-          "quantity": "Pinch"
-        }
-      ],
-      "total_calories": 460,
-      "protein": 11.0,
-      "carbs": 44,
-      "fat": 8.6,
-      "category": "dinner",
-      "created_by": 1
-    }
-  },
-  {
-    "model": "mealapp.recipe",
-    "pk": 4,
-    "fields": {
-      "title": "Asado",
-      "description": "A delicious dinner recipe",
-      "instructions": "1. Prepare the Fire: Start a wood fire in your grill and let it burn down to coals.\n2. Season the Meat: Generously salt the beef cuts.\n3. Grill the Meat: Place the beef on the grill, starting with the thickest cuts farthest from the coals. Add chorizo and morcilla after the beef has been cooking for a while.\n4. Cook to Perfection: Cook the meat, turning occasionally, until it reaches your desired doneness. Typically, ribs may take up to 2 hours; thinner cuts will cook faster.\n5. Rest and Serve: Let the meat rest for about 10 minutes before slicing. Serve with chimichurri sauce and grilled vegetables.\n6. Pro Tips:\n7. Use a mix of wood and charcoal for a consistent heat source. Wood adds flavor, while charcoal maintains temperature.\n8. Season the meat just before grilling to ensure it retains its moisture and flavor.\n9. Serving Suggestions:\n10. Serve with a side of chimichurri sauce, a fresh tomato salad, and crusty bread. Pair with a robust Malbec wine to complement the rich flavors of the meat.",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452880/recipes/recipes/asado_4.jpg",
-      "servings": 2,
-      "prep_time_minutes": 10,
-      "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "Mixed Beef Cuts",
-          "quantity": "2kg"
-        },
-        {
-          "name": "Chorizo",
-          "quantity": "4"
-        },
-        {
-          "name": "Morcilla",
-          "quantity": "2"
-        },
-        {
-          "name": "taste Salt",
-          "quantity": "To"
-        }
-      ],
-      "total_calories": 220,
-      "protein": 7.0,
-      "carbs": 28,
-      "fat": 6.2,
-      "category": "dinner",
-      "created_by": 1
-    }
-  },
-  {
-    "model": "mealapp.recipe",
-    "pk": 5,
-    "fields": {
-      "title": "Aussie Burgers",
-      "description": "A delicious dinner recipe",
-      "instructions": "1. step 1\n2. Make the burgers: Tip the meat into a bowl and sprinkle over 1 tsp salt and a good grinding of black pepper.Work with wet hands to mix in the seasoning. Divide into four with your hands and shape into burgers. (It can be frozen at this stage.)\n3. step 2\n4. Sort out your ingredients: Slice the beetroot and split the naan breads.\n5. step 3\n6. Toast the naans: Heat a griddle pan or barbecue. Griddle the naans on both sides until lightly toasted and set aside. Add the burgers to the grill or barbecue and cook for 2-3 minutes, then turn and cook the other side for a further 2-3 minutes.\n7. step 4\n8. Assemble the dish: Set half a toasted naan on each serving plate and put a pile of rocket on each. Top with a burger, then a few slices of beetroot and a dollop of soured cream. Sprinkle with salt and freshly ground black pepper and serve immediately with a big green salad and chips. A glass of red wine wouldn’t go amiss, either.",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452881/recipes/recipes/aussie_burgers_5.jpg",
-      "servings": 2,
-      "prep_time_minutes": 10,
-      "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "Lean Minced Steak",
-          "quantity": "500g"
-        },
-        {
-          "name": "Cooked Beetroot",
-          "quantity": "100g"
-        },
-        {
-          "name": "small Naan Bread",
-          "quantity": "2"
-        },
-        {
-          "name": "Rocket",
-          "quantity": "50g"
-        },
-        {
-          "name": "tablespoons Soured cream and chive dip",
-          "quantity": "4"
-        }
-      ],
-      "total_calories": 250,
-      "protein": 7.5,
-      "carbs": 30,
-      "fat": 6.5,
-      "category": "dinner",
-      "created_by": 1
-    }
-  },
-  {
-    "model": "mealapp.recipe",
-    "pk": 6,
-    "fields": {
-      "title": "Beef and Broccoli Stir-Fry",
-      "description": "A delicious dinner recipe",
-      "instructions": "1. Marinate the beef:\n2. Stir together the beef marinade ingredients (1 teaspoon soy sauce, 1 teaspoon Chinese rice wine, 1/2 teaspoon cornstarch, 1/8 teaspoon black pepper) in a medium bowl.\n3. Add the beef slices and stir until coated. Let stand for 10 minutes.\n4. Prepare the sauce:\n5. Stir together the sauce ingredients (2 tablespoons oyster sauce, 1 teaspoon Chinese rice wine, 1 teaspoon soy sauce, 1/4 cup chicken broth) in a small bowl. Set aside.\n6. Blanch or steam the broccoli:\n7. Bring a pot of water to a boil. Add the broccoli and cook until crisp-tender, about 2 minutes. Drain thoroughly.\n8. Stir-fry the beef:\n9. Heat a large frying pan or wok over high heat until a bead of water sizzles and instantly evaporates upon contact. Add the cooking oil and swirl to coat.\n10. Add the beef and immediately spread it out all over the surface of the wok or pan in a single layer (preferably not touching).\n11. Let the beef fry undisturbed for 1 minute. Flip the beef slices over, add the garlic to the pan, and fry for an additional 30 seconds to 1 minute until no longer pink.\n12. Add the sauce, cornstarch, and broccoli:\n13. Pour in the sauce and the cornstarch slurry (1 teaspoon cornstarch dissolved in 1 tablespoon of water). Stir until the sauce boils and thickens, about 30 seconds. Stir in the broccoli.\n14. Serve immediately, with steamed rice or on its own.",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452882/recipes/recipes/beef_and_broccoli_stir-fry_6.jpg",
-      "servings": 4,
-      "prep_time_minutes": 10,
-      "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "tsp Soy Sauce",
-          "quantity": "1"
-        },
-        {
-          "name": "tsp Dry sherry",
-          "quantity": "1"
-        },
-        {
-          "name": "tsp Cornstarch",
-          "quantity": "1/2"
-        },
-        {
-          "name": "teaspoon Black Pepper",
-          "quantity": "1/8"
-        },
-        {
-          "name": "lb Sirloin steak",
-          "quantity": "1"
-        },
-        {
-          "name": "tablespoons Oyster Sauce",
-          "quantity": "2"
-        },
-        {
-          "name": "tsp Dry sherry",
-          "quantity": "1"
-        },
-        {
-          "name": "tablespoon Soy Sauce",
-          "quantity": "1"
-        },
-        {
-          "name": "cup Chicken Stock",
-          "quantity": "1/4"
-        },
-        {
-          "name": "lb Broccoli",
-          "quantity": "1"
-        },
-        {
-          "name": "tablespoons High Heat Cooking Oil",
-          "quantity": "2"
-        },
-        {
-          "name": "cloves minced Garlic",
-          "quantity": "2"
-        },
-        {
-          "name": "tsp Cornstarch",
-          "quantity": "1"
-        },
-        {
-          "name": "tablespoon Water",
-          "quantity": "1"
-        }
-      ],
-      "total_calories": 520,
-      "protein": 12.0,
-      "carbs": 48,
-      "fat": 9.2,
-      "category": "dinner",
-      "created_by": 1
-    }
-  },
-  {
-    "model": "mealapp.recipe",
-    "pk": 7,
-    "fields": {
-      "title": "Beef and Mustard Pie",
-      "description": "A delicious dinner recipe",
-      "instructions": "1. Preheat the oven to 150C/300F/Gas 2.\n2. Toss the beef and flour together in a bowl with some salt and black pepper.\n3. Heat a large casserole until hot, add half of the rapeseed oil and enough of the beef to just cover the bottom of the casserole.\n4. Fry until browned on each side, then remove and set aside. Repeat with the remaining oil and beef.\n5. Return the beef to the pan, add the wine and cook until the volume of liquid has reduced by half, then add the stock, onion, carrots, thyme and mustard, and season well with salt and pepper.\n6. Cover with a lid and place in the oven for two hours.\n7. Remove from the oven, check the seasoning and set aside to cool. Remove the thyme.\n8. When the beef is cool and you're ready to assemble the pie, preheat the oven to 200C/400F/Gas 6.\n9. Transfer the beef to a pie dish, brush the rim with the beaten egg yolks and lay the pastry over the top. Brush the top of the pastry with more beaten egg.\n10. Trim the pastry so there is just enough excess to crimp the edges, then place in the oven and bake for 30 minutes, or until the pastry is golden-brown and cooked through.\n11. For the green beans, bring a saucepan of salted water to the boil, add the beans and cook for 4-5 minutes, or until just tender.\n12. Drain and toss with the butter, then season with black pepper.\n13. To serve, place a large spoonful of pie onto each plate with some green beans alongside.",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452882/recipes/recipes/beef_and_mustard_pie_7.jpg",
-      "servings": 5,
-      "prep_time_minutes": 10,
-      "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "Beef",
-          "quantity": "1kg"
-        },
-        {
-          "name": "tbs Plain Flour",
-          "quantity": "2"
-        },
-        {
-          "name": "tbs Rapeseed Oil",
-          "quantity": "2"
-        },
-        {
-          "name": "Red Wine",
-          "quantity": "200ml"
-        },
-        {
-          "name": "Beef Stock",
-          "quantity": "400ml"
-        },
-        {
-          "name": "finely sliced Onion",
-          "quantity": "1"
-        },
-        {
-          "name": "chopped Carrots",
-          "quantity": "2"
-        },
-        {
-          "name": "sprigs Thyme",
-          "quantity": "3"
-        },
-        {
-          "name": "tbs Mustard",
-          "quantity": "2"
-        },
-        {
-          "name": "free-range Egg Yolks",
-          "quantity": "2"
-        },
-        {
-          "name": "Puff Pastry",
-          "quantity": "400g"
-        },
-        {
-          "name": "Green Beans",
-          "quantity": "300g"
-        },
-        {
-          "name": "Butter",
-          "quantity": "25g"
-        },
-        {
-          "name": "Salt",
-          "quantity": "pinch"
-        },
-        {
-          "name": "Pepper",
-          "quantity": "pinch"
-        }
-      ],
-      "total_calories": 550,
-      "protein": 12.5,
-      "carbs": 50,
-      "fat": 9.5,
-      "category": "dinner",
-      "created_by": 1
-    }
-  },
-  {
-    "model": "mealapp.recipe",
-    "pk": 8,
-    "fields": {
-      "title": "Beef and Oyster pie",
-      "description": "A delicious dinner recipe",
-      "instructions": "1. Season the beef cubes with salt and black pepper. Heat a tablespoon of oil in the frying pan and fry the meat over a high heat. Do this in three batches so that you don’t overcrowd the pan, transferring the meat to a large flameproof casserole dish once it is browned all over. Add extra oil if the pan seems dry.\n2. In the same pan, add another tablespoon of oil and cook the shallots for 4-5 minutes, then add the garlic and fry for 30 seconds. Add the bacon and fry until slightly browned. Transfer the onion and bacon mixture to the casserole dish and add the herbs.\n3. Preheat the oven to 180C/350F/Gas 4.\n4. Pour the stout into the frying pan and bring to the boil, stirring to lift any stuck-on browned bits from the bottom of the pan. Pour the stout over the beef in the casserole dish and add the stock. Cover the casserole and place it in the oven for 1½-2 hours, or until the beef is tender and the sauce is reduced.\n5. Skim off any surface fat, taste and add salt and pepper if necessary, then stir in the cornflour paste. Put the casserole dish on the hob – don’t forget that it will be hot – and simmer for 1-2 minutes, stirring, until thickened. Leave to cool.\n6. Increase the oven to 200C/400F/Gas 6. To make the pastry, put the flour and salt in a very large bowl. Grate the butter and stir it into the flour in three batches. Gradually add 325ml/11fl oz cold water – you may not need it all – and stir with a round-bladed knife until the mixture just comes together. Knead the pastry lightly into a ball on a lightly floured surface and set aside 250g/9oz for the pie lid.\n7. Roll the rest of the pastry out until about 2cm/¾in larger than the dish you’re using. Line the dish with the pastry then pile in the filling, tucking the oysters in as well. Brush the edge of the pastry with beaten egg.\n8. Roll the remaining pastry until slightly larger than your dish and gently lift over the filling, pressing the edges firmly to seal, then trim with a sharp knife. Brush with beaten egg to glaze. Put the dish on a baking tray and bake for 25-30 minutes, or until the pastry is golden-brown and the filling is bubbling.",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452883/recipes/recipes/beef_and_oyster_pie_8.jpg",
-      "servings": 5,
-      "prep_time_minutes": 10,
-      "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "Beef",
-          "quantity": "900g"
-        },
-        {
-          "name": "tbs Olive Oil",
-          "quantity": "3"
-        },
-        {
-          "name": "Shallots",
-          "quantity": "3"
-        },
-        {
-          "name": "cloves minced Garlic",
-          "quantity": "2"
-        },
-        {
-          "name": "Bacon",
-          "quantity": "125g"
-        },
-        {
-          "name": "tbs chopped Thyme",
-          "quantity": "1"
-        },
-        {
-          "name": "Bay Leaf",
-          "quantity": "2"
-        },
-        {
-          "name": "Stout",
-          "quantity": "330ml"
-        },
-        {
-          "name": "Beef Stock",
-          "quantity": "400ml"
-        },
-        {
-          "name": "tbs Corn Flour",
-          "quantity": "2"
-        },
-        {
-          "name": "Oysters",
-          "quantity": "8"
-        },
-        {
-          "name": "Plain Flour",
-          "quantity": "400g"
-        },
-        {
-          "name": "Salt",
-          "quantity": "pinch"
-        },
-        {
-          "name": "Butter",
-          "quantity": "250g"
-        },
-        {
-          "name": "Glaze Eggs",
-          "quantity": "To"
-        }
-      ],
-      "total_calories": 550,
-      "protein": 12.5,
-      "carbs": 50,
-      "fat": 9.5,
-      "category": "dinner",
-      "created_by": 1
-    }
-  },
-  {
-    "model": "mealapp.recipe",
-    "pk": 9,
-    "fields": {
-      "title": "Beef Asado",
-      "description": "A delicious dinner recipe",
-      "instructions": "1. 0.\tCombine beef, crushed peppercorn, soy sauce, vinegar, dried bay leaves, lemon, and tomato sauce. Mix well. Marinate beef for at least 30 minutes.\n2. 1.\tPut the marinated beef in a cooking pot along with remaining marinade. Add water. Let boil.\n3. 2.\tAdd Knorr Beef Cube. Stir. Cover the pot and cook for 40 minutes in low heat.\n4. 3.\tTurn the beef over. Add tomato paste. Continue cooking until beef tenderizes. Set aside.\n5. 4.\tHeat oil in a pan. Fry the potato until it browns. Turn over and continue frying the opposite side. Remove from the pan and place on a clean plate. Do the same with the carrots.\n6. 5.\tSave 3 tablespoons of cooking oil from the pan where the potato was fried. Saute onion and garlic until onion softens.\n7. 6.\tPour-in the sauce from the beef stew. Let boil. Add the beef. Cook for 2 minutes.\n8. 7.\tAdd butter and let it melt. Continue cooking until the sauce reduces to half.",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452885/recipes/recipes/beef_asado_9.jpg",
-      "servings": 4,
-      "prep_time_minutes": 10,
-      "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "Beef",
-          "quantity": "1.5kg"
-        },
-        {
-          "name": "Beef Stock Concentrate",
-          "quantity": "1"
-        },
-        {
-          "name": "ounces Tomato Puree",
-          "quantity": "8"
-        },
-        {
-          "name": "cups Water",
-          "quantity": "3"
-        },
-        {
-          "name": "tablespoons Soy Sauce",
-          "quantity": "6"
-        },
-        {
-          "name": "tbs White Wine Vinegar",
-          "quantity": "1"
-        },
-        {
-          "name": "tbs Pepper",
-          "quantity": "2"
-        },
-        {
-          "name": "Bay Leaf",
-          "quantity": "4"
-        },
-        {
-          "name": "Lemon",
-          "quantity": "1/2"
-        },
-        {
-          "name": "tbs Tomato Sauce",
-          "quantity": "2"
-        },
-        {
-          "name": "tbs Butter",
-          "quantity": "3"
-        },
-        {
-          "name": "cup Olive Oil",
-          "quantity": "1/2"
-        },
-        {
-          "name": "chopped Onion",
-          "quantity": "1"
-        },
-        {
-          "name": "cloves Garlic",
-          "quantity": "4"
-        }
-      ],
-      "total_calories": 520,
-      "protein": 12.0,
-      "carbs": 48,
-      "fat": 9.2,
-      "category": "dinner",
-      "created_by": 1
-    }
-  },
-  {
-    "model": "mealapp.recipe",
-    "pk": 10,
-    "fields": {
-      "title": "Beef Banh Mi Bowls with Sriracha Mayo, Carrot & Pickled Cucumber",
-      "description": "A delicious dinner recipe",
-      "instructions": "1. Add'l ingredients: mayonnaise, siracha\n2. 1\n3. Place rice in a fine-mesh sieve and rinse until water runs clear. Add to a small pot with 1 cup water (2 cups for 4 servings) and a pinch of salt. Bring to a boil, then cover and reduce heat to low. Cook until rice is tender, 15 minutes. Keep covered off heat for at least 10 minutes or until ready to serve.\n4. 2\n5. Meanwhile, wash and dry all produce. Peel and finely chop garlic. Zest and quarter lime (for 4 servings, zest 1 lime and quarter both). Trim and halve cucumber lengthwise; thinly slice crosswise into half-moons. Halve, peel, and medium dice onion. Trim, peel, and grate carrot.\n6. 3\n7. In a medium bowl, combine cucumber, juice from half the lime, ¼ tsp sugar (½ tsp for 4 servings), and a pinch of salt. In a small bowl, combine mayonnaise, a pinch of garlic, a squeeze of lime juice, and as much sriracha as you’d like. Season with salt and pepper.\n8. 4\n9. Heat a drizzle of oil in a large pan over medium-high heat. Add onion and cook, stirring, until softened, 4-5 minutes. Add beef, remaining garlic, and 2 tsp sugar (4 tsp for 4 servings). Cook, breaking up meat into pieces, until beef is browned and cooked through, 4-5 minutes. Stir in soy sauce. Turn off heat; taste and season with salt and pepper.\n10. 5\n11. Fluff rice with a fork; stir in lime zest and 1 TBSP butter. Divide rice between bowls. Arrange beef, grated carrot, and pickled cucumber on top. Top with a squeeze of lime juice. Drizzle with sriracha mayo.",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768453359/recipes/recipes/beef_banh_mi_bowls_with_sriracha_mayo_carrot_pickled_cucumber.jpg",
-      "servings": 2,
-      "prep_time_minutes": 10,
-      "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "Rice",
-          "quantity": "White"
-        },
-        {
-          "name": "Onion",
-          "quantity": "1"
-        },
-        {
-          "name": "Lime",
-          "quantity": "1"
-        },
-        {
-          "name": "Garlic Clove",
-          "quantity": "3"
-        },
-        {
-          "name": "Cucumber",
-          "quantity": "1"
-        },
-        {
-          "name": "oz Carrots",
-          "quantity": "3"
-        },
-        {
-          "name": "lb Ground Beef",
-          "quantity": "1"
-        },
-        {
-          "name": "oz Soy Sauce",
-          "quantity": "2"
-        }
-      ],
-      "total_calories": 340,
-      "protein": 9.0,
-      "carbs": 36,
-      "fat": 7.4,
-      "category": "dinner",
-      "created_by": 1
-    }
-  },
-  {
-    "model": "mealapp.recipe",
-    "pk": 11,
-    "fields": {
-      "title": "Beef Bourguignon",
-      "description": "A delicious dinner recipe",
-      "instructions": "1. Heat a large casserole pan and add 1 tbsp goose fat. Season the beef and fry until golden brown, about 3-5 mins, then turn over and fry the other side until the meat is browned all over, adding more fat if necessary. Do this in 2-3 batches, transferring the meat to a colander set over a bowl when browned.\n2. In the same pan, fry the bacon, shallots or pearl onions, mushrooms, garlic and bouquet garni until lightly browned. Mix in the tomato purée and cook for a few mins, stirring into the mixture. This enriches the bourguignon and makes a great base for the stew. Then return the beef and any drained juices to the pan and stir through.\n3. Pour over the wine and about 100ml water so the meat bobs up from the liquid, but isn’t completely covered. Bring to the boil and use a spoon to scrape the caramelised cooking juices from the bottom of the pan – this will give the stew more flavour.\n4. Heat oven to 150C/fan 130C/gas 2. Make a cartouche: tear off a square of foil slightly larger than the casserole, arrange it in the pan so it covers the top of the stew and trim away any excess foil. Then cook for 3 hrs. If the sauce looks watery, remove the beef and veg with a slotted spoon, and set aside. Cook the sauce over a high heat for a few mins until the sauce has thickened a little, then return the beef and vegetables to the pan.\n5. To make the celeriac mash, peel the celeriac and cut into cubes. Heat the olive oil in a large frying pan. Tip in the celeriac and fry for 5 mins until it turns golden. Season well with salt and pepper. Stir in the rosemary, thyme, bay and cardamom pods, then pour over 200ml water, enough to nearly cover the celeriac. Turn the heat to low, partially cover the pan and leave to simmer for 25-30 mins.\n6. After 25-30 mins, the celeriac should be soft and most of the water will have evaporated. Drain away any remaining water, then remove the herb sprigs, bay and cardamom pods. Lightly crush with a potato masher, then finish with a glug of olive oil and season to taste. Spoon the beef bourguignon into serving bowls and place a large spoonful of the celeriac mash on top. Garnish with one of the bay leaves, if you like.",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452885/recipes/recipes/beef_bourguignon_11.jpg",
-      "servings": 5,
-      "prep_time_minutes": 10,
-      "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "tsp Goose Fat",
-          "quantity": "3"
-        },
-        {
-          "name": "Beef Shin",
-          "quantity": "600g"
-        },
-        {
-          "name": "Bacon",
-          "quantity": "100g"
-        },
-        {
-          "name": "Challots",
-          "quantity": "350g"
-        },
-        {
-          "name": "Chestnut Mushroom",
-          "quantity": "250g"
-        },
-        {
-          "name": "sliced Garlic Clove",
-          "quantity": "2"
-        },
-        {
-          "name": "Bouquet Garni",
-          "quantity": "1"
-        },
-        {
-          "name": "tbs Tomato Puree",
-          "quantity": "1"
-        },
-        {
-          "name": "ml Red Wine",
-          "quantity": "750"
-        },
-        {
-          "name": "Celeriac",
-          "quantity": "600g"
-        },
-        {
-          "name": "tbs Olive Oil",
-          "quantity": "2"
-        },
-        {
-          "name": "of fresh Thyme",
-          "quantity": "sprigs"
-        },
-        {
-          "name": "of fresh Rosemary",
-          "quantity": "sprigs"
-        },
-        {
-          "name": "Bay Leaf",
-          "quantity": "2"
-        },
-        {
-          "name": "Cardamom",
-          "quantity": "4"
-        }
-      ],
-      "total_calories": 550,
-      "protein": 12.5,
-      "carbs": 50,
-      "fat": 9.5,
-      "category": "dinner",
-      "created_by": 1
-    }
-  },
-  {
-    "model": "mealapp.recipe",
-    "pk": 12,
-    "fields": {
-      "title": "Beef Brisket Pot Roast",
-      "description": "A delicious dinner recipe",
-      "instructions": "1. 1 Prepare the brisket for cooking: On one side of the brisket there should be a layer of fat, which you want. If there are any large chunks of fat, cut them off and discard them. Large pieces of fat will not be able to render out completely.\n2. Using a sharp knife, score the fat in parallel lines, about 3/4-inch apart. Slice through the fat, not the beef. Repeat in the opposite direction to make a cross-hatch pattern.\n3. Salt the brisket well and let it sit at room temperature for 30 minutes.\n4. 2 Sear the brisket: You'll need an oven-proof, thick-bottomed pot with a cover, or Dutch oven, that is just wide enough to hold the brisket roast with a little room for the onions.\n5. Pat the brisket dry and place it, fatty side down, into the pot and place it on medium high heat. Cook for 5-8 minutes, lightly sizzling, until the fat side is nicely browned. (If the roast seems to be cooking too fast, turn the heat down to medium. You want a steady sizzle, not a raging sear.)\n6. Turn the brisket over and cook for a few minutes more to brown the other side.\n7. 3 Sauté the onions and garlic: When the brisket has browned, remove it from the pot and set aside. There should be a couple tablespoons of fat rendered in the pot, if not, add some olive oil.\n8. Add the chopped onions and increase the heat to high. Sprinkle a little salt on the onions. Sauté, stirring often, until the onions are lightly browned, 5-8 minutes. Stir in the garlic and cook 1-2 more minutes.\n9. 4 Return brisket to pot, add herbs, stock, bring to simmer, cover, cook in oven: Preheat the oven to 300°F. Use kitchen twine to tie together the bay leaves, rosemary and thyme.\n10. Move the onions and garlic to the sides of the pot and nestle the brisket inside. Add the beef stock and the tied-up herbs. Bring the stock to a boil on the stovetop.\n11. Cover the pot, place the pot in the 300°F oven and cook for 3 hours. Carefully flip the brisket every hour so it cooks evenly.\n12. 5 Add carrots, continue to cook: After 3 hours, add the carrots. Cover the pot and cook for 1 hour more, or until the carrots are cooked through and the brisket is falling-apart tender.\n13. 6 Remove brisket to cutting board, tent with foil: When the brisket is falling-apart tender, take the pot out of the oven and remove the brisket to a cutting board. Cover it with foil. Pull out and discard the herbs.\n14. 7 Make sauce (optional): At this point you have two options. You can serve as is, or you can make a sauce with the drippings and some of the onions. If you serve as is, skip this step.\n15. To make a sauce, remove the carrots and half of the onions, set aside and cover them with foil. Pour the ingredients that are remaining into the pot into a blender, and purée until smooth. If you want, add 1 tablespoon of mustard to the mix. Put into a small pot and keep warm.\n16. 8 Slice the meat across the grain: Notice the lines of the muscle fibers of the roast. This is the \"grain\" of the meat. Slice the meat perpendicular to these lines, or across the grain (cutting this way further tenderizes the meat), in 1/4-inch to 1/2-inch slices.\n17. Serve with the onions, carrots and gravy. Serve with mashed, roasted or boiled potatoes, egg noodles or polenta.",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452887/recipes/recipes/beef_brisket_pot_roast_12.jpg",
-      "servings": 3,
-      "prep_time_minutes": 10,
-      "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "pound Beef Brisket",
-          "quantity": "4-5"
-        },
-        {
-          "name": "Salt",
-          "quantity": "Dash"
-        },
-        {
-          "name": "Onion",
-          "quantity": "3"
-        },
-        {
-          "name": "cloves Garlic",
-          "quantity": "5"
-        },
-        {
-          "name": "Sprig Thyme",
-          "quantity": "1"
-        },
-        {
-          "name": "sprig Rosemary",
-          "quantity": "1"
-        },
-        {
-          "name": "Bay Leaves",
-          "quantity": "4"
-        },
-        {
-          "name": "cups beef stock",
-          "quantity": "2"
-        },
-        {
-          "name": "Large Carrots",
-          "quantity": "3"
-        },
-        {
-          "name": "Tbsp Mustard",
-          "quantity": "1"
-        },
-        {
-          "name": "Mashed Potatoes",
-          "quantity": "4"
-        }
-      ],
-      "total_calories": 430,
-      "protein": 10.5,
-      "carbs": 42,
-      "fat": 8.3,
+      "fiber": 4,
       "category": "dinner",
       "created_by": 1
     }
@@ -771,75 +38,33 @@
     "model": "mealapp.recipe",
     "pk": 13,
     "fields": {
-      "title": "Beef Caldereta",
+      "title": "Arepa Pabellón",
       "description": "A delicious dinner recipe",
-      "instructions": "1. 0.\tHeat oil in a cooking pot. Saute onion and garlic until onion softens\n2. 1.\tAdd beef. Saute until the outer part turns light brown.\n3. 2.\tAdd soy sauce. Pour tomato sauce and water. Let boil.\n4. 3.\tAdd Knorr Beef Cube. Cover the pressure cooker. Cook for 30 minutes.\n5. 4.\tPan-fry carrot and potato until it browns. Set aside.\n6. 5.\tAdd chili pepper, liver spread and peanut butter. Stir.\n7. 6.\tAdd bell peppers, fried potato and carrot. Cover the pot. Continue cooking for 5 to 7 minutes.\n8. 7.\tSeason with salt and ground black pepper. Serve.",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452888/recipes/recipes/beef_caldereta_13.jpg",
-      "servings": 4,
+      "instructions": [
+      "Prepare the meat in a skillet and add salt and pepper to taste, heat the beans over medium heat in a pan, fry or grill the ripe plantains as indicated on its package and cut the tomato into small cubes. Reserve these ingredients until filling.",
+      "Preheat the grill or pan and grill the arepa, putting it once on each side until they are golden brown.",
+      "With the help of a knife, open it by the edge through the middle, creating a space to fill it with the ripe plantain, the beans, meat and chopped tomato.",
+      "Serve with a little pico de gallo or guacamole dip sauce."
+    ],
+      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452878/recipes/recipes/arepa_pabell%C3%B3n_2.jpg",
+      "servings": 2,
       "prep_time_minutes": 10,
       "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "cut cubes Beef",
-          "quantity": "2kg"
-        },
-        {
-          "name": "Beef Stock",
-          "quantity": "1"
-        },
-        {
-          "name": "tbs Soy Sauce",
-          "quantity": "1"
-        },
-        {
-          "name": "cups Water",
-          "quantity": "2"
-        },
-        {
-          "name": "sliced Green Pepper",
-          "quantity": "1"
-        },
-        {
-          "name": "sliced Red Pepper",
-          "quantity": "1"
-        },
-        {
-          "name": "sliced Potatoes",
-          "quantity": "1"
-        },
-        {
-          "name": "sliced Carrots",
-          "quantity": "1"
-        },
-        {
-          "name": "ounces Tomato Puree",
-          "quantity": "8"
-        },
-        {
-          "name": " tablespoons Peanut Butter",
-          "quantity": "3"
-        },
-        {
-          "name": "Chilli Powder",
-          "quantity": "5"
-        },
-        {
-          "name": "chopped Onion",
-          "quantity": "1"
-        },
-        {
-          "name": "cloves Garlic",
-          "quantity": "5"
-        },
-        {
-          "name": "tbs Olive Oil",
-          "quantity": "3"
-        }
-      ],
-      "total_calories": 520,
-      "protein": 12.0,
-      "carbs": 48,
-      "fat": 9.2,
+     "ingredients": [
+      "2 Corn Arepa Filled With Mozarella Cheese",
+      "1 Fried Ripe Bananas",
+      "1 Can Black Beans",
+      "1 Pico De Gallo Sauce",
+      "2kg Shredded Meat",
+      "1 chopped Tomato",
+      "Pinch Salt",
+      "Pinch Pepper"
+    ],
+      "total_calories": 340,
+      "protein": 9.0,
+      "carbs": 36,
+      "fat": 7.4,
+      "fiber": 4,
       "category": "dinner",
       "created_by": 1
     }
@@ -848,95 +73,40 @@
     "model": "mealapp.recipe",
     "pk": 14,
     "fields": {
-      "title": "Beef Dumpling Stew",
+      "title": "Arepa pelua",
       "description": "A delicious dinner recipe",
-      "instructions": "1. Preheat the oven to 180C/350F/Gas 4.\n2. For the beef stew, heat the oil and butter in an ovenproof casserole and fry the beef until browned on all sides.\n3. Sprinkle over the flour and cook for a further 2-3 minutes.\n4. Add the garlic and all the vegetables and fry for 1-2 minutes.\n5. Stir in the wine, stock and herbs, then add the Worcestershire sauce and balsamic vinegar, to taste. Season with salt and freshly ground black pepper.\n6. Cover with a lid, transfer to the oven and cook for about two hours, or until the meat is tender.\n7. For the dumplings, sift the flour, baking powder and salt into a bowl.\n8. Add the suet and enough water to form a thick dough.\n9. With floured hands, roll spoonfuls of the dough into small balls.\n10. After two hours, remove the lid from the stew and place the balls on top of the stew. Cover, return to the oven and cook for a further 20 minutes, or until the dumplings have swollen and are tender. (If you prefer your dumplings with a golden top, leave the lid off when returning to the oven.)\n11. To serve, place a spoonful of mashed potato onto each of four serving plates and top with the stew and dumplings. Sprinkle with chopped parsley.",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452890/recipes/recipes/beef_dumpling_stew_14.jpg",
-      "servings": 6,
+      "instructions": [
+      "Cook the meat: Place the flank steak in a pot with broth or water and salt. Cook over low heat for about 2 hours, until tender and easy to shred.",
+      "Shred the meat: Once cooked, drain and shred the meat using two forks.",
+      "Prepare the vegetables: Sauté chopped onion, bell pepper, and garlic in a little oil. Add cumin, oregano, paprika, and salt. Stir in the meat and cook for a few minutes until the flavors are well combined.",
+      "Make the dough: In a bowl, mix the cornmeal with warm water and salt until a soft dough forms. Let it rest for 5 minutes.",
+      "Form the arepas: Divide the dough into 6 portions, shape into balls, and flatten into thick discs.",
+      "Cook: Cook the arepas on a griddle or skillet over medium heat for 2–3 minutes on each side until golden. You can then bake them for a few minutes if you prefer them crispier.",
+      "Fill: Slice the arepas open on one side, fill with the hot shredded beef, and top with grated cheese."
+    ],
+      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452879/recipes/recipes/arepa_pelua_3.jpg",
+      "servings": 4,
       "prep_time_minutes": 10,
       "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "tbs Olive Oil",
-          "quantity": "2"
-        },
-        {
-          "name": "Butter",
-          "quantity": "25g"
-        },
-        {
-          "name": "Beef",
-          "quantity": "750g"
-        },
-        {
-          "name": "tblsp Plain Flour",
-          "quantity": "2"
-        },
-        {
-          "name": "cloves minced Garlic",
-          "quantity": "2"
-        },
-        {
-          "name": "Onions",
-          "quantity": "175g"
-        },
-        {
-          "name": "Celery",
-          "quantity": "150g"
-        },
-        {
-          "name": "Carrots",
-          "quantity": "150g"
-        },
-        {
-          "name": "chopped Leek",
-          "quantity": "2"
-        },
-        {
-          "name": "Swede",
-          "quantity": "200g"
-        },
-        {
-          "name": "Red Wine",
-          "quantity": "150ml"
-        },
-        {
-          "name": "Beef Stock",
-          "quantity": "500g"
-        },
-        {
-          "name": "Bay Leaf",
-          "quantity": "2"
-        },
-        {
-          "name": "tbs Thyme",
-          "quantity": "3"
-        },
-        {
-          "name": "tblsp chopped Parsley",
-          "quantity": "3"
-        },
-        {
-          "name": "Plain Flour",
-          "quantity": "125g"
-        },
-        {
-          "name": "tsp Baking Powder",
-          "quantity": "1"
-        },
-        {
-          "name": "Suet",
-          "quantity": "60g"
-        },
-        {
-          "name": "Water",
-          "quantity": "Splash"
-        }
-      ],
-      "total_calories": 670,
-      "protein": 14.5,
-      "carbs": 58,
-      "fat": 10.7,
+       "ingredients": [
+      "500g Beef",
+      "1 Onion",
+      "1 Red Pepper",
+      "2 cloves Garlic",
+      "1 tsp Cumin",
+      "1 tsp Oregano",
+      "1 tsp Paprika",
+      "1 L Beef Stock",
+      "2 1/2 cups Water",
+      "Pinch Salt",
+      "200g Cheese",
+      "Pinch Extra Virgin Olive Oil"
+    ],
+      "total_calories": 460,
+      "protein": 11.0,
+      "carbs": 44,
+      "fat": 8.6,
+      "fiber": 5,
       "category": "dinner",
       "created_by": 1
     }
@@ -945,91 +115,35 @@
     "model": "mealapp.recipe",
     "pk": 15,
     "fields": {
-      "title": "Beef Empanadas",
+      "title": "Asado",
       "description": "A delicious dinner recipe",
-      "instructions": "1. For the dough place lard, warm water and salt in a large kneading bowl and stir. Add flour and oregano and either knead five miutes by hand or with the kneading function of your machine. Let rest covered for at least half an hour or overnight in the fridge.\n2. 2\n3. For the filling place tomatoes for about 30 seconds in boiling water, then cool with cold water and peel of skin and cut into cubes. Press garlic through garlic press, cut onions into cubes. Simmer garlic and onions in some olive oil until translucent. Take out onions and garlic and brown the meat at high heat from all sides. Season with all herbs and add the onions, garlic and tomatoes. Let simmer for a few minutes, add salt, pepper and additional spices to taste. You can prepare the meat the night before, chill in fridge if doing so. Boil eggs and also cut into cubes and mix with prepared meat.\n4. 3\n5. Cut dough into half and roll out one half thinnly on floured surface. Cut out circles about 12-15cm in diameter. Mine have a diameter of 12.5 cm. Place about 2-4 teaspoons of filling on one circle, put a bit of water all around the edges and fold over the other half so that you get half moons. Be sure to seal the edges with a fork. Repeat until you have no dough and filling left.\n6. 4\n7. Meanwhile preheat oven to 200 degrees Celsius. Brush empanadas with egg wash and bake about 8 empanadas on a baking sheet lined with parchment paper for about 25min or until golden. Serve warm with chimichurri sauce.",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452890/recipes/recipes/beef_empanadas_15.jpg",
-      "servings": 6,
+      "instructions": [
+      "Prepare the Fire: Start a wood fire in your grill and let it burn down to coals.",
+      "Season the Meat: Generously salt the beef cuts.",
+      "Grill the Meat: Place the beef on the grill, starting with the thickest cuts farthest from the coals. Add chorizo and morcilla after the beef has been cooking for a while.",
+      "Cook to Perfection: Cook the meat, turning occasionally, until it reaches your desired doneness. Typically, ribs may take up to 2 hours; thinner cuts will cook faster.",
+      "Rest and Serve: Let the meat rest for about 10 minutes before slicing. Serve with chimichurri sauce and grilled vegetables.",
+      "Pro Tips:",
+      "Use a mix of wood and charcoal for a consistent heat source. Wood adds flavor, while charcoal maintains temperature.",
+      "Season the meat just before grilling to ensure it retains its moisture and flavor.",
+      "Serving Suggestions:",
+      "Serve with a side of chimichurri sauce, a fresh tomato salad, and crusty bread. Pair with a robust Malbec wine to complement the rich flavors of the meat."
+    ],
+      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452880/recipes/recipes/asado_4.jpg",
+      "servings": 2,
       "prep_time_minutes": 10,
       "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "Lard",
-          "quantity": "60g"
-        },
-        {
-          "name": "Water",
-          "quantity": "340g"
-        },
-        {
-          "name": "tsp Salt",
-          "quantity": "1"
-        },
-        {
-          "name": "All purpose flour",
-          "quantity": "600g"
-        },
-        {
-          "name": "Tomato",
-          "quantity": "3"
-        },
-        {
-          "name": "clove Garlic",
-          "quantity": "1"
-        },
-        {
-          "name": "large Red Onions",
-          "quantity": "1"
-        },
-        {
-          "name": "Spring Onions",
-          "quantity": "Bunch"
-        },
-        {
-          "name": "Sirloin steak",
-          "quantity": "750g"
-        },
-        {
-          "name": "tablespoon Dried Oregano",
-          "quantity": "1"
-        },
-        {
-          "name": "tsp Paprika",
-          "quantity": "1"
-        },
-        {
-          "name": "tsp Red Pepper Flakes",
-          "quantity": "1"
-        },
-        {
-          "name": "tsp Parsley",
-          "quantity": "1"
-        },
-        {
-          "name": "taste Salt",
-          "quantity": "To"
-        },
-        {
-          "name": "taste Pepper",
-          "quantity": "To"
-        },
-        {
-          "name": "Egg",
-          "quantity": "3"
-        },
-        {
-          "name": "Egg Wash",
-          "quantity": "Splash"
-        },
-        {
-          "name": "Chimichurri sauce",
-          "quantity": "Drizzle"
-        }
-      ],
-      "total_calories": 640,
-      "protein": 14.0,
-      "carbs": 56,
-      "fat": 10.4,
+        "ingredients": [
+      "2kg Mixed Beef Cuts",
+      "4 Chorizo",
+      "2 Morcilla",
+      "To taste Salt"
+    ],
+      "total_calories": 220,
+      "protein": 7.0,
+      "carbs": 28,
+      "fat": 6.2,
+      "fiber": 3,
       "category": "dinner",
       "created_by": 1
     }
@@ -1038,87 +152,34 @@
     "model": "mealapp.recipe",
     "pk": 16,
     "fields": {
-      "title": "Beef Lo Mein",
+      "title": "Aussie Burgers",
       "description": "A delicious dinner recipe",
-      "instructions": "1. STEP 1 - MARINATING THE BEEF\n2. In a bowl, add the beef, salt, 1 pinch white pepper, 1 Teaspoon sesame seed oil, 1/2 egg, corn starch,1 Tablespoon of oil and mix together.\n3. STEP 2 - BOILING THE THE NOODLES\n4. In a 6 qt pot add your noodles to boiling water until the noodles are submerged and boil on high heat for 10 seconds. After your noodles is done boiling strain and cool with cold water.\n5. STEP 3 - STIR FRY\n6. Add 2 Tablespoons of oil, beef and cook on high heat untill beef is medium cooked.\n7. Set the cooked beef aside\n8. In a wok add 2 Tablespoon of oil, onions, minced garlic, minced ginger, bean sprouts, mushrooms, peapods and 1.5 cups of water or until the vegetables are submerged in water.\n9. Add the noodles to wok\n10. To make the sauce, add oyster sauce, 1 pinch white pepper, 1 teaspoon sesame seed oil, sugar, and 1 Teaspoon of soy sauce.\n11. Next add the beef to wok and stir-fry",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452891/recipes/recipes/beef_lo_mein_16.jpg",
-      "servings": 5,
+      "instructions": [
+      "step 1",
+      "Make the burgers: Tip the meat into a bowl and sprinkle over 1 tsp salt and a good grinding of black pepper.Work with wet hands to mix in the seasoning. Divide into four with your hands and shape into burgers. (It can be frozen at this stage.)",
+      "step 2",
+      "Sort out your ingredients: Slice the beetroot and split the naan breads.",
+      "step 3",
+      "Toast the naans: Heat a griddle pan or barbecue. Griddle the naans on both sides until lightly toasted and set aside. Add the burgers to the grill or barbecue and cook for 2-3 minutes, then turn and cook the other side for a further 2-3 minutes.",
+      "step 4",
+      "Assemble the dish: Set half a toasted naan on each serving plate and put a pile of rocket on each. Top with a burger, then a few slices of beetroot and a dollop of soured cream. Sprinkle with salt and freshly ground black pepper and serve immediately with a big green salad and chips. A glass of red wine wouldn’t go amiss, either."
+    ],
+      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452881/recipes/recipes/aussie_burgers_5.jpg",
+      "servings": 2,
       "prep_time_minutes": 10,
       "cook_time_minutes": 20,
       "ingredients": [
-        {
-          "name": "lb Beef",
-          "quantity": "1/2"
-        },
-        {
-          "name": "Salt",
-          "quantity": "pinch"
-        },
-        {
-          "name": "Pepper",
-          "quantity": "pinch"
-        },
-        {
-          "name": "tsp Sesame Seed Oil",
-          "quantity": "2"
-        },
-        {
-          "name": "Egg",
-          "quantity": "1/2"
-        },
-        {
-          "name": "tbs Starch",
-          "quantity": "3"
-        },
-        {
-          "name": "tbs Oil",
-          "quantity": "5"
-        },
-        {
-          "name": "lb Noodles",
-          "quantity": "1/4"
-        },
-        {
-          "name": "cup Onion",
-          "quantity": "1/2"
-        },
-        {
-          "name": "tsp Minced Garlic",
-          "quantity": "1"
-        },
-        {
-          "name": "tsp Ginger",
-          "quantity": "1"
-        },
-        {
-          "name": "cup Bean Sprouts",
-          "quantity": "1"
-        },
-        {
-          "name": "cup Mushrooms",
-          "quantity": "1"
-        },
-        {
-          "name": "cup Water",
-          "quantity": "1"
-        },
-        {
-          "name": "tbs Oyster Sauce",
-          "quantity": "1"
-        },
-        {
-          "name": "tsp Sugar",
-          "quantity": "1"
-        },
-        {
-          "name": "tsp Soy Sauce",
-          "quantity": "1"
-        }
-      ],
-      "total_calories": 610,
-      "protein": 13.5,
-      "carbs": 54,
-      "fat": 10.1,
+      "500g Lean Minced Steak",
+      "100g Cooked Beetroot",
+      "2 small Naan Bread",
+      "50g Rocket",
+      "4 tablespoons Soured cream and chive dip"
+    ],
+      "total_calories": 250,
+      "protein": 7.5,
+      "carbs": 30,
+      "fat": 6.5,
+      "fiber": 4,
       "category": "dinner",
       "created_by": 1
     }
@@ -1127,67 +188,49 @@
     "model": "mealapp.recipe",
     "pk": 17,
     "fields": {
-      "title": "Beef Mandi",
+      "title": "Beef and Broccoli Stir-Fry",
       "description": "A delicious dinner recipe",
-      "instructions": "1. 1. Wash the beef and cut into large pieces. Season lightly with salt and turmeric.\n2. 2. Heat ghee/oil in a large pot. Add sliced onions and sauté until light golden.\n3. 3. Add garlic, green chilies, and tomato; cook until softened.\n4. 4. Add the mandi spice mix: coriander, cumin, black pepper, cinnamon, cardamom, cloves, and bay leaves.\n5. 5. Add beef pieces and stir on medium heat until the meat is well coated with spices.\n6. 6. Pour in water or beef stock. Cover and simmer until beef is tender (about 1.5–2 hours depending on cut).\n7. 7. Remove beef carefully and set aside. Strain and measure the broth.\n8. 8. Add washed, soaked basmati rice to the broth (usually 1 cup rice = 1.5–2 cups liquid). Adjust seasoning and bring to a boil.\n9. 9. Lower heat, cover, and cook the rice until fluffy.\n10. 10. Place the beef pieces over the rice and steam on low heat for 10 minutes so flavors combine.\n11. 11. Optional: For smoky flavor, place a small hot charcoal on foil in the pot, add 1 tsp butter/oil, immediately cover for 5 minutes. Remove coal before serving.\n12. 12. Fluff rice and serve beef mandi with salad or chutney.",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452892/recipes/recipes/beef_mandi_17.jpg",
+      "instructions": [
+      "Marinate the beef:",
+      "Stir together the beef marinade ingredients (1 teaspoon soy sauce, 1 teaspoon Chinese rice wine, 1/2 teaspoon cornstarch, 1/8 teaspoon black pepper) in a medium bowl.",
+      "Add the beef slices and stir until coated. Let stand for 10 minutes.",
+      "Prepare the sauce:",
+      "Stir together the sauce ingredients (2 tablespoons oyster sauce, 1 teaspoon Chinese rice wine, 1 teaspoon soy sauce, 1/4 cup chicken broth) in a small bowl. Set aside.",
+      "Blanch or steam the broccoli:",
+      "Bring a pot of water to a boil. Add the broccoli and cook until crisp-tender, about 2 minutes. Drain thoroughly.",
+      "Stir-fry the beef:",
+      "Heat a large frying pan or wok over high heat until a bead of water sizzles and instantly evaporates upon contact. Add the cooking oil and swirl to coat.",
+      "Add the beef and immediately spread it out all over the surface of the wok or pan in a single layer (preferably not touching).",
+      "Let the beef fry undisturbed for 1 minute. Flip the beef slices over, add the garlic to the pan, and fry for an additional 30 seconds to 1 minute until no longer pink.",
+      "Add the sauce, cornstarch, and broccoli:",
+      "Pour in the sauce and the cornstarch slurry (1 teaspoon cornstarch dissolved in 1 tablespoon of water). Stir until the sauce boils and thickens, about 30 seconds. Stir in the broccoli.",
+      "Serve immediately, with steamed rice or on its own."
+    ],
+      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452882/recipes/recipes/beef_and_broccoli_stir-fry_6.jpg",
       "servings": 4,
       "prep_time_minutes": 10,
       "cook_time_minutes": 20,
       "ingredients": [
-        {
-          "name": "kg Basmati Rice",
-          "quantity": "1"
-        },
-        {
-          "name": "Cups Beef Stock",
-          "quantity": "5"
-        },
-        {
-          "name": "medium Onion",
-          "quantity": "2"
-        },
-        {
-          "name": "chopped cloves Garlic",
-          "quantity": "5"
-        },
-        {
-          "name": "Green Chilli",
-          "quantity": "2"
-        },
-        {
-          "name": "small Tomato",
-          "quantity": "1"
-        },
-        {
-          "name": "1/2 Tsp Salt",
-          "quantity": "2"
-        },
-        {
-          "name": " tablespoons Oil",
-          "quantity": "3"
-        },
-        {
-          "name": "½ tsp Turmeric Powder",
-          "quantity": "1"
-        },
-        {
-          "name": "tsp Cardamom",
-          "quantity": "1/2"
-        },
-        {
-          "name": "tsp Cloves",
-          "quantity": "1/2"
-        },
-        {
-          "name": "tsp Bay Leaf",
-          "quantity": "1/2"
-        }
-      ],
-      "total_calories": 460,
-      "protein": 11.0,
-      "carbs": 44,
-      "fat": 8.6,
+      "1 tsp Soy Sauce",
+      "1 tsp Dry sherry",
+      "1/2 tsp Cornstarch",
+      "1/8 teaspoon Black Pepper",
+      "1 lb Sirloin steak",
+      "2 tablespoons Oyster Sauce",
+      "1 tsp Dry sherry",
+      "1 tablespoon Soy Sauce",
+      "1/4 cup Chicken Stock",
+      "1 lb Broccoli",
+      "2 tablespoons High Heat Cooking Oil",
+      "2 cloves minced Garlic",
+      "1 tsp Cornstarch",
+      "1 tablespoon Water"
+    ],
+      "total_calories": 520,
+      "protein": 12.0,
+      "carbs": 48,
+      "fat": 9.2,
+      "fiber": 5,
       "category": "dinner",
       "created_by": 1
     }
@@ -1196,225 +239,49 @@
     "model": "mealapp.recipe",
     "pk": 18,
     "fields": {
-      "title": "Beef Mechado",
+      "title": "Beef and Mustard Pie",
       "description": "A delicious dinner recipe",
-      "instructions": "1. 0.\tMake the beef tenderloin marinade by combining soy sauce, vinegar, ginger, garlic, sesame oil, olive oil, sugar, salt, and ground black pepper in a large bowl. Mix well.\n2. 1.\tAdd the cubed beef tenderloin to the bowl with the beef tenderloin marinade. Gently toss to coat the beef. Let it stay for 1 hour.\n3. 2.\tUsing a metal or bamboo skewer, assemble the beef kebob by skewering the vegetables and marinated beef tenderloin.\n4. 3.\tHeat-up the grill and start grilling the beef kebobs for 3 minutes per side. This will give you a medium beef that is juicy and tender on the inside. Add more time if you want your beef well done, but it will be less tender.\n5. 4.\tTransfer to a serving plate. Serve with Saffron rice.\n6. 5.\tShare and enjoy!",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452893/recipes/recipes/beef_mechado_18.jpg",
-      "servings": 4,
-      "prep_time_minutes": 10,
-      "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "cloves Garlic",
-          "quantity": "3"
-        },
-        {
-          "name": "sliced Onion",
-          "quantity": "1"
-        },
-        {
-          "name": "Lbs Beef",
-          "quantity": "2"
-        },
-        {
-          "name": "ounces Tomato Puree",
-          "quantity": "8"
-        },
-        {
-          "name": "cup Water",
-          "quantity": "1"
-        },
-        {
-          "name": "tbs Olive Oil",
-          "quantity": "3"
-        },
-        {
-          "name": "Slice Lemon",
-          "quantity": "1"
-        },
-        {
-          "name": "large Potatoes",
-          "quantity": "1"
-        },
-        {
-          "name": "cup Soy Sauce",
-          "quantity": "1/4"
-        },
-        {
-          "name": "tsp Black Pepper",
-          "quantity": "1/2"
-        },
-        {
-          "name": "Bay Leaves",
-          "quantity": "2"
-        },
-        {
-          "name": "taste Salt",
-          "quantity": "To"
-        }
-      ],
-      "total_calories": 460,
-      "protein": 11.0,
-      "carbs": 44,
-      "fat": 8.6,
-      "category": "dinner",
-      "created_by": 1
-    }
-  },
-  {
-    "model": "mealapp.recipe",
-    "pk": 19,
-    "fields": {
-      "title": "Beef pho",
-      "description": "A delicious dinner recipe",
-      "instructions": "1. step 1\n2. Tip the beef stock along with 500ml of water into a large saucepan. Sit the onion and ginger in a frying pan over a high heat and char on all sides, around 3-5 mins (you can also do this under your grill). Once charred, add to the beef stock. In the same pan, toast the spices for 2-3 mins and once they begin to smell fragrant, add them to the beef stock as well. Bring the stock to the boil, then turn to a simmer and cook for 30mins before straining.\n3. step 2\n4. Meanwhile, cut the fat from the steak and wrap in cling film, then put into the freezer for 15 mins – this will make your steak really easy to slice! Slice it thinly, then cover with cling film again and pop into the fridge.\n5. step 3\n6. Taste the beef stock and use the palm sugar, fish sauce and soy to season. Cook the noodles according to package instructions and split between two bowls, topping each with the sliced beef. Bring the stock to the boil and then pour into the bowls (the heat will cook the beef). Top each with the spring onions, chilli slices and herbs. Serve with the lime wedges to squeeze over.",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452893/recipes/recipes/beef_pho_19.jpg",
+     "instructions": [
+      "Preheat the oven to 150C/300F/Gas 2.",
+      "Toss the beef and flour together in a bowl with some salt and black pepper.",
+      "Heat a large casserole until hot, add half of the rapeseed oil and enough of the beef to just cover the bottom of the casserole.",
+      "Fry until browned on each side, then remove and set aside. Repeat with the remaining oil and beef.",
+      "Return the beef to the pan, add the wine and cook until the volume of liquid has reduced by half, then add the stock, onion, carrots, thyme and mustard, and season well with salt and pepper.",
+      "Cover with a lid and place in the oven for two hours.",
+      "Remove from the oven, check the seasoning and set aside to cool. Remove the thyme.",
+      "When the beef is cool and you're ready to assemble the pie, preheat the oven to 200C/400F/Gas 6.",
+      "Transfer the beef to a pie dish, brush the rim with the beaten egg yolks and lay the pastry over the top. Brush the top of the pastry with more beaten egg.",
+      "Trim the pastry so there is just enough excess to crimp the edges, then place in the oven and bake for 30 minutes, or until the pastry is golden-brown and cooked through.",
+      "For the green beans, bring a saucepan of salted water to the boil, add the beans and cook for 4-5 minutes, or until just tender.",
+      "Drain and toss with the butter, then season with black pepper.",
+      "To serve, place a large spoonful of pie onto each plate with some green beans alongside."
+    ],
+      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452882/recipes/recipes/beef_and_mustard_pie_7.jpg",
       "servings": 5,
       "prep_time_minutes": 10,
       "cook_time_minutes": 20,
       "ingredients": [
-        {
-          "name": "L Beef Stock",
-          "quantity": "1"
-        },
-        {
-          "name": "large Onion",
-          "quantity": "1"
-        },
-        {
-          "name": "Large Chopped Ginger",
-          "quantity": "1"
-        },
-        {
-          "name": "Cinnamon Stick",
-          "quantity": "1"
-        },
-        {
-          "name": "Star Anise",
-          "quantity": "2"
-        },
-        {
-          "name": "tsp Coriander Seeds",
-          "quantity": "1"
-        },
-        {
-          "name": "teaspoon Cloves",
-          "quantity": "1/2"
-        },
-        {
-          "name": "Sirloin steak",
-          "quantity": "225g"
-        },
-        {
-          "name": "tsp Palm Sugar",
-          "quantity": "1"
-        },
-        {
-          "name": "tablespoon Fish Sauce",
-          "quantity": "1"
-        },
-        {
-          "name": "½ tbsp Soy Sauce",
-          "quantity": "1"
-        },
-        {
-          "name": "Rice Noodles",
-          "quantity": "200g"
-        },
-        {
-          "name": "sliced Spring Onions",
-          "quantity": "2"
-        },
-        {
-          "name": "small Birds-eye Chillies",
-          "quantity": "1"
-        },
-        {
-          "name": "Basil",
-          "quantity": "Handful"
-        },
-        {
-          "name": "Coriander",
-          "quantity": "Handful"
-        },
-        {
-          "name": "Lime",
-          "quantity": "1"
-        }
-      ],
-      "total_calories": 610,
-      "protein": 13.5,
-      "carbs": 54,
-      "fat": 10.1,
-      "category": "dinner",
-      "created_by": 1
-    }
-  },
-  {
-    "model": "mealapp.recipe",
-    "pk": 20,
-    "fields": {
-      "title": "Beef Rendang",
-      "description": "A delicious dinner recipe",
-      "instructions": "1. Chop the spice paste ingredients and then blend it in a food processor until fine.\n2. Heat the oil in a stew pot, add the spice paste, cinnamon, cloves, star anise, and cardamom and stir-fry until aromatic. Add the beef and the pounded lemongrass and stir for 1 minute. Add the coconut milk, tamarind juice, water, and simmer on medium heat, stirring frequently until the meat is almost cooked. Add the kaffir lime leaves, kerisik (toasted coconut), sugar or palm sugar, stirring to blend well with the meat.\n3. Lower the heat to low, cover the lid, and simmer for 1 to 1 1/2 hours or until the meat is really tender and the gravy has dried up. Add more salt and sugar to taste. Serve immediately with steamed rice and save some for overnight.",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452894/recipes/recipes/beef_rendang_20.jpg",
-      "servings": 4,
-      "prep_time_minutes": 10,
-      "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "Beef",
-          "quantity": "1lb"
-        },
-        {
-          "name": "tbs Vegetable Oil",
-          "quantity": "5"
-        },
-        {
-          "name": "Cinnamon Stick",
-          "quantity": "1"
-        },
-        {
-          "name": "Cloves",
-          "quantity": "3"
-        },
-        {
-          "name": "Star Anise",
-          "quantity": "3"
-        },
-        {
-          "name": "Cardamom",
-          "quantity": "3"
-        },
-        {
-          "name": "cup Coconut Cream",
-          "quantity": "1"
-        },
-        {
-          "name": "cup Water",
-          "quantity": "1"
-        },
-        {
-          "name": "tbs Tamarind Paste",
-          "quantity": "2"
-        },
-        {
-          "name": "Lime",
-          "quantity": "6"
-        },
-        {
-          "name": "tbs Sugar",
-          "quantity": "1"
-        },
-        {
-          "name": "Challots",
-          "quantity": "5"
-        }
-      ],
-      "total_calories": 460,
-      "protein": 11.0,
-      "carbs": 44,
-      "fat": 8.6,
+      "1kg Beef",
+      "2 tbs Plain Flour",
+      "2 tbs Rapeseed Oil",
+      "200ml Red Wine",
+      "400ml Beef Stock",
+      "1 finely sliced Onion",
+      "2 chopped Carrots",
+      "3 sprigs Thyme",
+      "2 tbs Mustard",
+      "2 free-range Egg Yolks",
+      "400g Puff Pastry",
+      "300g Green Beans",
+      "25g Butter",
+      "pinch Salt",
+      "pinch Pepper"
+    ],
+      "total_calories": 550,
+      "protein": 12.5,
+      "carbs": 50,
+      "fat": 9.5,
+      "fiber": 4,
       "category": "dinner",
       "created_by": 1
     }

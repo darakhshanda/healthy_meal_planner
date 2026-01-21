@@ -1,1250 +1,445 @@
 [
   {
     "model": "mealapp.recipe",
-    "pk": 1,
+    "pk": 31,
     "fields": {
       "title": "Arroz con gambas y calamar",
       "description": "A delicious lunch recipe",
-      "instructions": "1. step 1\n2. Peel and devein most of the prawns (a fishmonger should be able to do this for you), keeping a few whole for decoration, if you like. Heat the olive oil in a large frying pan or shallow flameproof casserole over a medium-low heat and fry the onion for 5 mins until softened. Add the bay leaf, saffron, rice and tomato purée, and cook for 1-2 mins more, stirring.\n3. step 2\n4. Pour in the wine and bubble for 1-2 mins, then pour in the seafood stock and 150ml water. Cook for 5 mins, then add the squid, season well and stir to combine. Bring to the boil, then cover and reduce the heat to a gentle simmer. Cook for 12 mins more, adding a little more water if the mixture starts to look dry.\n5. step 3\n6. Uncover the pan and stir through the peeled prawns, then arrange any whole prawns on top of the rice mixture. Cover again and simmer for a further 5-6 mins until the prawns are pink and cooked through. Leave to stand for a couple of minutes before serving from the pan.",
+      "instructions": [
+      "step 1",
+      "Peel and devein most of the prawns (a fishmonger should be able to do this for you), keeping a few whole for decoration, if you like. Heat the olive oil in a large frying pan or shallow flameproof casserole over a medium-low heat and fry the onion for 5 mins until softened. Add the bay leaf, saffron, rice and tomato purée, and cook for 1-2 mins more, stirring.",
+      "step 2",
+      "Pour in the wine and bubble for 1-2 mins, then pour in the seafood stock and 150ml water. Cook for 5 mins, then add the squid, season well and stir to combine. Bring to the boil, then cover and reduce the heat to a gentle simmer. Cook for 12 mins more, adding a little more water if the mixture starts to look dry.",
+      "step 3",
+      "Uncover the pan and stir through the peeled prawns, then arrange any whole prawns on top of the rice mixture. Cover again and simmer for a further 5-6 mins until the prawns are pink and cooked through. Leave to stand for a couple of minutes before serving from the pan."
+    ],
       "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452862/recipes/recipes/arroz_con_gambas_y_calamar_1.jpg",
       "servings": 3,
       "prep_time_minutes": 10,
       "cook_time_minutes": 20,
       "ingredients": [
-        {
-          "name": "Raw King Prawns",
-          "quantity": "24"
-        },
-        {
-          "name": "tbsp Olive Oil",
-          "quantity": "2"
-        },
-        {
-          "name": "small Onion",
-          "quantity": "1"
-        },
-        {
-          "name": "Bay Leaf",
-          "quantity": "1"
-        },
-        {
-          "name": "pinch Saffron",
-          "quantity": "1"
-        },
-        {
-          "name": "Paella Rice",
-          "quantity": "450g"
-        },
-        {
-          "name": "teaspoons Tomato Puree",
-          "quantity": "2"
-        },
-        {
-          "name": "White Wine",
-          "quantity": "200ml"
-        },
-        {
-          "name": "Seafood stock",
-          "quantity": "650ml"
-        },
-        {
-          "name": "Medium Squid",
-          "quantity": "3"
-        }
-      ],
+      "24 Raw King Prawns",
+      "2 tbsp Olive Oil",
+      "1 small Onion",
+      "1 Bay Leaf",
+      "1 pinch Saffron",
+      "450g Paella Rice",
+      "2 teaspoons Tomato Puree",
+      "200ml White Wine",
+      "650ml Seafood stock",
+      "3 Medium Squid"
+    ],
       "total_calories": 400,
       "protein": 10.0,
       "carbs": 40,
       "fat": 8.0,
+      "fiber": 3,
       "category": "lunch",
       "created_by": 1
     }
   },
   {
     "model": "mealapp.recipe",
-    "pk": 2,
+    "pk": 32,
     "fields": {
       "title": "Baked salmon with fennel & tomatoes",
       "description": "A delicious lunch recipe",
-      "instructions": "1. Heat oven to 180C/fan 160C/gas 4. Trim the fronds from the fennel and set aside. Cut the fennel bulbs in half, then cut each half into 3 wedges. Cook in boiling salted water for 10 mins, then drain well. Chop the fennel fronds roughly, then mix with the parsley and lemon zest.\n2. Spread the drained fennel over a shallow ovenproof dish, then add the tomatoes. Drizzle with olive oil, then bake for 10 mins. Nestle the salmon among the veg, sprinkle with lemon juice, then bake 15 mins more until the fish is just cooked. Scatter over the parsley and serve.",
+     "instructions": [
+      "Heat oven to 180C/fan 160C/gas 4. Trim the fronds from the fennel and set aside. Cut the fennel bulbs in half, then cut each half into 3 wedges. Cook in boiling salted water for 10 mins, then drain well. Chop the fennel fronds roughly, then mix with the parsley and lemon zest.",
+      "Spread the drained fennel over a shallow ovenproof dish, then add the tomatoes. Drizzle with olive oil, then bake for 10 mins. Nestle the salmon among the veg, sprinkle with lemon juice, then bake 15 mins more until the fish is just cooked. Scatter over the parsley and serve."
+    ],
       "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768453357/recipes/recipes/baked_salmon_with_fennel_tomatoes.jpg",
       "servings": 2,
       "prep_time_minutes": 10,
       "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "medium Fennel",
-          "quantity": "2"
-        },
-        {
-          "name": "tbs chopped Parsley",
-          "quantity": "2"
-        },
-        {
-          "name": "of 1 Lemon",
-          "quantity": "Juice"
-        },
-        {
-          "name": "Cherry Tomatoes",
-          "quantity": "175g"
-        },
-        {
-          "name": "tbs Olive Oil",
-          "quantity": "1"
-        },
-        {
-          "name": "Salmon",
-          "quantity": "350g"
-        },
-        {
-          "name": "serve Black Olives",
-          "quantity": "to"
-        }
-      ],
+        "ingredients": [
+      "2 medium Fennel",
+      "2 tbs chopped Parsley",
+      "Juice of 1 Lemon",
+      "175g Cherry Tomatoes",
+      "1 tbs Olive Oil",
+      "350g Salmon",
+      "to serve Black Olives"
+    ],
       "total_calories": 310,
       "protein": 8.5,
       "carbs": 34,
       "fat": 7.1,
+      "fiber": 3,
       "category": "lunch",
       "created_by": 1
     }
   },
   {
     "model": "mealapp.recipe",
-    "pk": 3,
+    "pk": 33,
     "fields": {
       "title": "Bang bang prawn salad",
       "description": "A delicious lunch recipe",
-      "instructions": "1. step 1\n2. Cook the noodles following pack instructions, then rinse under cold water and drain thoroughly. In a small saucepan melt together the peanut butter, coconut milk, sweet chilli sauce and half the spring onions, adding 1-2 tbsp of water to loosen the mixture to a drizzling consistency.\n3. step 2\n4. Mix the noodles, cucumber and beansprouts in a serving dish. Top with the prawns, drizzle over the peanut sauce and scatter over the remaining spring onions.",
+       "instructions": [
+      "step 1",
+      "Cook the noodles following pack instructions, then rinse under cold water and drain thoroughly. In a small saucepan melt together the peanut butter, coconut milk, sweet chilli sauce and half the spring onions, adding 1-2 tbsp of water to loosen the mixture to a drizzling consistency.",
+      "step 2",
+      "Mix the noodles, cucumber and beansprouts in a serving dish. Top with the prawns, drizzle over the peanut sauce and scatter over the remaining spring onions."
+    ],
       "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452863/recipes/recipes/bang_bang_prawn_salad_3.jpg",
       "servings": 2,
       "prep_time_minutes": 10,
       "cook_time_minutes": 20,
       "ingredients": [
-        {
-          "name": "Rice Noodles",
-          "quantity": "140g"
-        },
-        {
-          "name": "tablespoons Peanut Butter",
-          "quantity": "3"
-        },
-        {
-          "name": "tablespoons Coconut Milk",
-          "quantity": "4"
-        },
-        {
-          "name": " tablespoons sweet chilli sauce",
-          "quantity": "3"
-        },
-        {
-          "name": "sliced thinly Spring Onions",
-          "quantity": "3"
-        },
-        {
-          "name": "sliced Cucumber",
-          "quantity": "1"
-        },
-        {
-          "name": "Bean Sprouts",
-          "quantity": "300g"
-        },
-        {
-          "name": "Prawns",
-          "quantity": "200g"
-        }
-      ],
+      "140g Rice Noodles",
+      "3 tablespoons Peanut Butter",
+      "4 tablespoons Coconut Milk",
+      "3  tablespoons sweet chilli sauce",
+      "3 sliced thinly Spring Onions",
+      "1 sliced Cucumber",
+      "300g Bean Sprouts",
+      "200g Prawns"
+    ],
       "total_calories": 340,
       "protein": 9.0,
       "carbs": 36,
       "fat": 7.4,
+      "fiber": 4,
       "category": "lunch",
       "created_by": 1
     }
   },
   {
     "model": "mealapp.recipe",
-    "pk": 4,
+    "pk": 34,
     "fields": {
       "title": "Barramundi with Moroccan spices",
       "description": "A delicious lunch recipe",
-      "instructions": "1. step 1\n2. Tip all the dressing ingredients into a food processor with a pinch of salt and blitz to a dressing. Slash the fish three times on each side, coat with half of the dressing, then set aside to marinate for about 30 mins.\n3. step 2\n4. Heat oven to 220C/fan 200C/gas 7. Place the fish on a roasting tray, then cook in the oven for 20 mins until the flesh is firm and the eyes have turned white. Serve the fish with the rest of the dressing and steamed couscous or rice.\n5. step 3\n6. KNOW HOW: HOW TO COOK IT: Cooking barramundi on the bone, as we have done here, has its advantages – it will stay more moist during cooking, and some would say that the flavour is enhanced, too. If you want to take out the bones they are easy to locate and less likely to be lodged in the fillet if the fish is cooked whole. Fillets can be simply pan-fried or grilled. If you like trout, you will really enjoy the flavour of barramundi, which lends itself to similar ingredients and cooking methods – citrus flavours are particularly good, as are garlic and wild mushrooms. Simply roasting the fish with some fresh herbs, olive oil and seasoning is delicious, and in the summer months you could barbecue it, too. One thing that you mustn’t miss are the cheeks or ‘pearls’ of the fish, these are simply lovely, moist and really sweet – well worth leaving the head on for!",
+      "instructions": [
+      "step 1",
+      "Tip all the dressing ingredients into a food processor with a pinch of salt and blitz to a dressing. Slash the fish three times on each side, coat with half of the dressing, then set aside to marinate for about 30 mins.",
+      "step 2",
+      "Heat oven to 220C/fan 200C/gas 7. Place the fish on a roasting tray, then cook in the oven for 20 mins until the flesh is firm and the eyes have turned white. Serve the fish with the rest of the dressing and steamed couscous or rice.",
+      "step 3",
+      "KNOW HOW: HOW TO COOK IT: Cooking barramundi on the bone, as we have done here, has its advantages – it will stay more moist during cooking, and some would say that the flavour is enhanced, too. If you want to take out the bones they are easy to locate and less likely to be lodged in the fillet if the fish is cooked whole. Fillets can be simply pan-fried or grilled. If you like trout, you will really enjoy the flavour of barramundi, which lends itself to similar ingredients and cooking methods – citrus flavours are particularly good, as are garlic and wild mushrooms. Simply roasting the fish with some fresh herbs, olive oil and seasoning is delicious, and in the summer months you could barbecue it, too. One thing that you mustn’t miss are the cheeks or ‘pearls’ of the fish, these are simply lovely, moist and really sweet – well worth leaving the head on for!"
+    ],
       "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452863/recipes/recipes/barramundi_with_moroccan_spices_4.jpg",
       "servings": 3,
       "prep_time_minutes": 10,
       "cook_time_minutes": 20,
       "ingredients": [
-        {
-          "name": "x 400g barramundi",
-          "quantity": "2"
-        },
-        {
-          "name": "teaspoon Ground Cumin",
-          "quantity": "1/2"
-        },
-        {
-          "name": "tsp Coriander",
-          "quantity": "1/2"
-        },
-        {
-          "name": "Paprika",
-          "quantity": "Pinch"
-        },
-        {
-          "name": "Chili Powder",
-          "quantity": "Pinch"
-        },
-        {
-          "name": "Garlic Clove",
-          "quantity": "2"
-        },
-        {
-          "name": "of 1 Lemon",
-          "quantity": "Juice"
-        },
-        {
-          "name": "tablespoons Olive Oil",
-          "quantity": "5"
-        },
-        {
-          "name": "Coriander",
-          "quantity": "Bunch"
-        }
-      ],
+      "2 x 400g barramundi",
+      "1/2 teaspoon Ground Cumin",
+      "1/2 tsp Coriander",
+      "Pinch Paprika",
+      "Pinch Chili Powder",
+      "2 Garlic Clove",
+      "Juice of 1 Lemon",
+      "5 tablespoons Olive Oil",
+      "Bunch Coriander"
+    ],
       "total_calories": 370,
       "protein": 9.5,
       "carbs": 38,
       "fat": 7.7,
+      "fiber": 4,
       "category": "lunch",
       "created_by": 1
     }
   },
   {
     "model": "mealapp.recipe",
-    "pk": 5,
+    "pk": 35,
     "fields": {
       "title": "Cajun spiced fish tacos",
       "description": "A delicious lunch recipe",
-      "instructions": "1. Cooking in a cajun spice and cayenne pepper marinade makes this fish super succulent and flavoursome. Top with a zesty dressing and serve in a tortilla for a quick, fuss-free main that's delightfully summery.\n2. On a large plate, mix the cajun spice and cayenne pepper with a little seasoning and use to coat the fish all over.\n3. Heat a little oil in a frying pan, add in the fish and cook over a medium heat until golden. Reduce the heat and continue frying until the fish is cooked through, about 10 minutes. Cook in batches if you don’t have enough room in the pan.\n4. Meanwhile, prepare the dressing by combining all the ingredients with a little seasoning.\n5. Soften the tortillas by heating in the microwave for 5-10 seconds. Pile high with the avocado, lettuce and spring onion, add a spoonful of salsa, top with large flakes of fish and drizzle over the dressing.",
+      "instructions": [
+      "Cooking in a cajun spice and cayenne pepper marinade makes this fish super succulent and flavoursome. Top with a zesty dressing and serve in a tortilla for a quick, fuss-free main that's delightfully summery.",
+      "On a large plate, mix the cajun spice and cayenne pepper with a little seasoning and use to coat the fish all over.",
+      "Heat a little oil in a frying pan, add in the fish and cook over a medium heat until golden. Reduce the heat and continue frying until the fish is cooked through, about 10 minutes. Cook in batches if you don’t have enough room in the pan.",
+      "Meanwhile, prepare the dressing by combining all the ingredients with a little seasoning.",
+      "Soften the tortillas by heating in the microwave for 5-10 seconds. Pile high with the avocado, lettuce and spring onion, add a spoonful of salsa, top with large flakes of fish and drizzle over the dressing."
+    ],
       "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452864/recipes/recipes/cajun_spiced_fish_tacos_5.jpg",
       "servings": 4,
       "prep_time_minutes": 10,
       "cook_time_minutes": 20,
       "ingredients": [
-        {
-          "name": "tbsp cajun",
-          "quantity": "2"
-        },
-        {
-          "name": "tsp cayenne pepper",
-          "quantity": "1"
-        },
-        {
-          "name": "fillets white fish",
-          "quantity": "4"
-        },
-        {
-          "name": "tsp vegetable oil",
-          "quantity": "1"
-        },
-        {
-          "name": "flour tortilla",
-          "quantity": "8"
-        },
-        {
-          "name": "sliced avocado",
-          "quantity": "1"
-        },
-        {
-          "name": "shredded little gem lettuce",
-          "quantity": "2"
-        },
-        {
-          "name": "shredded Spring Onions",
-          "quantity": "4"
-        },
-        {
-          "name": "x 300ml salsa",
-          "quantity": "1"
-        },
-        {
-          "name": "pot sour cream",
-          "quantity": "1"
-        },
-        {
-          "name": "lemon",
-          "quantity": "1"
-        },
-        {
-          "name": "clove finely chopped garlic",
-          "quantity": "1"
-        }
-      ],
+      "2 tbsp cajun",
+      "1 tsp cayenne pepper",
+      "4 fillets white fish",
+      "1 tsp vegetable oil",
+      "8 flour tortilla",
+      "1 sliced avocado",
+      "2 shredded little gem lettuce",
+      "4 shredded Spring Onions",
+      "1 x 300ml salsa",
+      "1 pot sour cream",
+      "1 lemon",
+      "1 clove finely chopped garlic"
+    ],
       "total_calories": 460,
       "protein": 11.0,
       "carbs": 44,
       "fat": 8.6,
+      "fiber": 4,
       "category": "lunch",
       "created_by": 1
     }
   },
   {
     "model": "mealapp.recipe",
-    "pk": 6,
+    "pk": 36,
     "fields": {
       "title": "Clam, chorizo & white bean stew",
       "description": "A delicious lunch recipe",
-      "instructions": "1. step 1\n2. Fry the chorizo in a large frying pan with a lid, over a medium heat until it is starting to crisp up and release its oil. Add the onion and cook for 5 mins until starting to soften. Then add the garlic and finely chopped parsley, and fry for 1 min more.\n3. step 2\n4. Pour on the stock and tomatoes. Bring to the boil, reduce the heat, then add the beans and sherry vinegar. Simmer for 10 mins until the liquid is slightly reduced.\n5. step 3\n6. Scatter over the clams, cover with the lid and steam for 2-4 mins, shaking the pan occasionally until the clams are open. Have a little taste before seasoning, as the clams can be quite salty. Then scatter over the chopped parsley. Eat with lots of crusty bread.",
+     "instructions": [
+      "step 1",
+      "Fry the chorizo in a large frying pan with a lid, over a medium heat until it is starting to crisp up and release its oil. Add the onion and cook for 5 mins until starting to soften. Then add the garlic and finely chopped parsley, and fry for 1 min more.",
+      "step 2",
+      "Pour on the stock and tomatoes. Bring to the boil, reduce the heat, then add the beans and sherry vinegar. Simmer for 10 mins until the liquid is slightly reduced.",
+      "step 3",
+      "Scatter over the clams, cover with the lid and steam for 2-4 mins, shaking the pan occasionally until the clams are open. Have a little taste before seasoning, as the clams can be quite salty. Then scatter over the chopped parsley. Eat with lots of crusty bread."
+    ],
       "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768453358/recipes/recipes/clam_chorizo_white_bean_stew.jpg",
       "servings": 3,
       "prep_time_minutes": 10,
       "cook_time_minutes": 20,
       "ingredients": [
-        {
-          "name": "Chorizo",
-          "quantity": "50g"
-        },
-        {
-          "name": "chopped Onion",
-          "quantity": "1"
-        },
-        {
-          "name": "Garlic Clove",
-          "quantity": "1"
-        },
-        {
-          "name": "Parsley",
-          "quantity": "Bunch"
-        },
-        {
-          "name": "Vegetable Stock",
-          "quantity": "200ml"
-        },
-        {
-          "name": "Tinned Tomatos",
-          "quantity": "400g"
-        },
-        {
-          "name": "Butter Beans",
-          "quantity": "400g"
-        },
-        {
-          "name": "teaspoon Sherry vinegar",
-          "quantity": "1"
-        },
-        {
-          "name": "Clams",
-          "quantity": "600g"
-        },
-        {
-          "name": "serve Crusty Bread",
-          "quantity": "To"
-        }
-      ],
+      "50g Chorizo",
+      "1 chopped Onion",
+      "1 Garlic Clove",
+      "Bunch Parsley",
+      "200ml Vegetable Stock",
+      "400g Tinned Tomatos",
+      "400g Butter Beans",
+      "1 teaspoon Sherry vinegar",
+      "600g Clams",
+      "To serve Crusty Bread"
+    ],
       "total_calories": 400,
       "protein": 10.0,
       "carbs": 40,
       "fat": 8.0,
+      "fiber": 3,
       "category": "lunch",
       "created_by": 1
     }
   },
   {
     "model": "mealapp.recipe",
-    "pk": 7,
+    "pk": 37,
     "fields": {
       "title": "Egg Foo Young",
       "description": "A delicious lunch recipe",
-      "instructions": "1. Make the gravy:\n2. In a small saucepan, add the beef stock, soy sauce, Shaoxing wine, oyster sauce, and white pepper powder over medium heat. Whisk together and bring to a simmer.\n3. Combine the cornstarch and water in a small bowl and whisk to dissolve. Add to the saucepan and whisk until the gravy thickens and coats the back of the spoon, 2 to 3 minutes. Cover the saucepan with a lid and keep it warm on the lowest possible heat.\n4. Make the egg foo young batter:\n5. In a medium bowl, whisk together the cornstarch and water until dissolved. Add the eggs, salt, and sugar. Whisk until well combined and there are no more egg white clumps.\n6. Add the green onion, bean sprouts, and shrimp. Stir until everything is evenly coated.\n7. Fry the egg foo young:\n8. Add the vegetable oil to a large wok; it should reach about 2 inches up the sides. Heat the oil over medium-high heat to 350°F, or until vigorous bubbles form around an inserted wooden chopstick.\n9. With a ladle, gently and slowly add 1/4 of the omelet batter. Egg foo young should immediately bubble and puff up like magic. Fry until golden brown and crispy on each side, about 2 minutes per side. If there are any light spots, use a ladle to gently baste it with hot oil.\n10. Tip\n11. Egg foo young can be a bit tricky to flip. The easiest method is to put a tool in each hand (a spider, slotted spoon, tongs, and large chopsticks are all good candidates) and gently coax the omelet over, pulling up on one side and pushing down and around on the other.\n12. Remove the omelet and place it on a paper towel-lined baking sheet. Let it cool for 5 minutes. Meanwhile, repeat with the remaining batter to make 4 omelets. If needed, add more oil to the pan between batches.\n13. Serve and enjoy:\n14. Plate each egg foo young over a bed of rice. Spoon the warm gravy over the top and serve immediately.",
+       "instructions": [
+      "Make the gravy:",
+      "In a small saucepan, add the beef stock, soy sauce, Shaoxing wine, oyster sauce, and white pepper powder over medium heat. Whisk together and bring to a simmer.",
+      "Combine the cornstarch and water in a small bowl and whisk to dissolve. Add to the saucepan and whisk until the gravy thickens and coats the back of the spoon, 2 to 3 minutes. Cover the saucepan with a lid and keep it warm on the lowest possible heat.",
+      "Make the egg foo young batter:",
+      "In a medium bowl, whisk together the cornstarch and water until dissolved. Add the eggs, salt, and sugar. Whisk until well combined and there are no more egg white clumps.",
+      "Add the green onion, bean sprouts, and shrimp. Stir until everything is evenly coated.",
+      "Fry the egg foo young:",
+      "Add the vegetable oil to a large wok; it should reach about 2 inches up the sides. Heat the oil over medium-high heat to 350°F, or until vigorous bubbles form around an inserted wooden chopstick.",
+      "With a ladle, gently and slowly add 1/4 of the omelet batter. Egg foo young should immediately bubble and puff up like magic. Fry until golden brown and crispy on each side, about 2 minutes per side. If there are any light spots, use a ladle to gently baste it with hot oil.",
+      "Tip",
+      "Egg foo young can be a bit tricky to flip. The easiest method is to put a tool in each hand (a spider, slotted spoon, tongs, and large chopsticks are all good candidates) and gently coax the omelet over, pulling up on one side and pushing down and around on the other.",
+      "Remove the omelet and place it on a paper towel-lined baking sheet. Let it cool for 5 minutes. Meanwhile, repeat with the remaining batter to make 4 omelets. If needed, add more oil to the pan between batches.",
+      "Serve and enjoy:",
+      "Plate each egg foo young over a bed of rice. Spoon the warm gravy over the top and serve immediately."
+    ],
       "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452865/recipes/recipes/egg_foo_young_7.jpg",
       "servings": 5,
       "prep_time_minutes": 10,
       "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "cup Unsalted Beef Stock",
-          "quantity": "1"
-        },
-        {
-          "name": "tablespoon Soy Sauce",
-          "quantity": "1"
-        },
-        {
-          "name": "tablespoon Shaoxing Wine",
-          "quantity": "1"
-        },
-        {
-          "name": "tablespoon Oyster Sauce",
-          "quantity": "1"
-        },
-        {
-          "name": "tsp Pepper",
-          "quantity": "1/2"
-        },
-        {
-          "name": "tablespoon Cornstarch",
-          "quantity": "1"
-        },
-        {
-          "name": "tablespoon Water",
-          "quantity": "1"
-        },
-        {
-          "name": "tablespoon Cornstarch",
-          "quantity": "1"
-        },
-        {
-          "name": "tablespoon Water",
-          "quantity": "1"
-        },
-        {
-          "name": "large Egg",
-          "quantity": "8"
-        },
-        {
-          "name": "tsp Kosher Salt",
-          "quantity": "1/2"
-        },
-        {
-          "name": "tsp Sugar",
-          "quantity": "1/4"
-        },
-        {
-          "name": "Spring Onions",
-          "quantity": "1"
-        },
-        {
-          "name": "cup Mung Bean Sprouts",
-          "quantity": "1"
-        },
-        {
-          "name": "Shrimp",
-          "quantity": "20"
-        },
-        {
-          "name": "Cups Vegetable Oil",
-          "quantity": "3"
-        },
-        {
-          "name": "cups Jasmine Rice",
-          "quantity": "2"
-        }
-      ],
+     "ingredients": [
+      "1 cup Unsalted Beef Stock",
+      "1 tablespoon Soy Sauce",
+      "1 tablespoon Shaoxing Wine",
+      "1 tablespoon Oyster Sauce",
+      "1/2 tsp Pepper",
+      "1 tablespoon Cornstarch",
+      "1 tablespoon Water",
+      "1 tablespoon Cornstarch",
+      "1 tablespoon Water",
+      "8 large Egg",
+      "1/2 tsp Kosher Salt",
+      "1/4 tsp Sugar",
+      "1 Spring Onions",
+      "1 cup Mung Bean Sprouts",
+      "20 Shrimp",
+      "3 Cups Vegetable Oil",
+      "2 cups Jasmine Rice"
+    ],
       "total_calories": 610,
       "protein": 13.5,
       "carbs": 54,
       "fat": 10.1,
+      "fiber": 4,
       "category": "lunch",
       "created_by": 1
     }
   },
   {
     "model": "mealapp.recipe",
-    "pk": 8,
+    "pk": 38,
     "fields": {
       "title": "Escovitch Fish",
       "description": "A delicious lunch recipe",
-      "instructions": "1. Rinse fish; rub with lemon or lime, seasoned with salt and pepper or use your favorite seasoning. I used creole seasoning. Set aside or place in the oven to keep it warm until sauce is ready.\n2. In large skillet heat oil over medium heat, until hot, add the fish, cook each side- for about 5-7 minutes until cooked through and crispy on both sides. Remove fish and set aside. Drain oil and leave about 2-3 tablespoons of oil\n3. Add, bay leave, garlic and ginger, stir-fry for about a minute making sure the garlic does not burn\n4. Then add onion, bell peppers, thyme, scotch bonnet, sugar, all spice-continue stirring for about 2-3 minutes. Add vinegar, mix an adjust salt and pepper according to preference. Let it simmer for about 2 more minutes.\n5. Discard bay leave, thyme spring and serve over fish with a side of this bammy. You may make the sauce about 2 days in advance.",
+      "instructions": [
+      "Rinse fish; rub with lemon or lime, seasoned with salt and pepper or use your favorite seasoning. I used creole seasoning. Set aside or place in the oven to keep it warm until sauce is ready.",
+      "In large skillet heat oil over medium heat, until hot, add the fish, cook each side- for about 5-7 minutes until cooked through and crispy on both sides. Remove fish and set aside. Drain oil and leave about 2-3 tablespoons of oil",
+      "Add, bay leave, garlic and ginger, stir-fry for about a minute making sure the garlic does not burn",
+      "Then add onion, bell peppers, thyme, scotch bonnet, sugar, all spice-continue stirring for about 2-3 minutes. Add vinegar, mix an adjust salt and pepper according to preference. Let it simmer for about 2 more minutes.",
+      "Discard bay leave, thyme spring and serve over fish with a side of this bammy. You may make the sauce about 2 days in advance."
+    ],
       "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452866/recipes/recipes/escovitch_fish_8.jpg",
       "servings": 5,
       "prep_time_minutes": 10,
       "cook_time_minutes": 20,
       "ingredients": [
-        {
-          "name": "Pounds Red Snapper",
-          "quantity": "2"
-        },
-        {
-          "name": "cup Vegetable Oil",
-          "quantity": "1/2"
-        },
-        {
-          "name": "clove peeled crushed Garlic",
-          "quantity": "1"
-        },
-        {
-          "name": "tsp Ginger",
-          "quantity": "1/2"
-        },
-        {
-          "name": "sprigs Thyme",
-          "quantity": "2"
-        },
-        {
-          "name": "Bay Leaf",
-          "quantity": "1"
-        },
-        {
-          "name": "Red Pepper",
-          "quantity": "0.5"
-        },
-        {
-          "name": "Yellow Pepper",
-          "quantity": "0.5"
-        },
-        {
-          "name": "sliced Onion",
-          "quantity": "1"
-        },
-        {
-          "name": "chopped Carrots",
-          "quantity": "1"
-        },
-        {
-          "name": "tbs Sugar",
-          "quantity": "1"
-        },
-        {
-          "name": "tsp Allspice",
-          "quantity": "1/2"
-        },
-        {
-          "name": "tsp Worcestershire Sauce",
-          "quantity": "1"
-        },
-        {
-          "name": "Scotch Bonnet",
-          "quantity": "1"
-        },
-        {
-          "name": "Lime",
-          "quantity": "1"
-        },
-        {
-          "name": "cup Malt Vinegar",
-          "quantity": "3/4"
-        },
-        {
-          "name": "Pepper",
-          "quantity": "pinch"
-        }
-      ],
+      "2 Pounds Red Snapper",
+      "1/2 cup Vegetable Oil",
+      "1 clove peeled crushed Garlic",
+      "1/2 tsp Ginger",
+      "2 sprigs Thyme",
+      "1 Bay Leaf",
+      "0.5 Red Pepper",
+      "0.5 Yellow Pepper",
+      "1 sliced Onion",
+      "1 chopped Carrots",
+      "1 tbs Sugar",
+      "1/2 tsp Allspice",
+      "1 tsp Worcestershire Sauce",
+      "1 Scotch Bonnet",
+      "1 Lime",
+      "3/4 cup Malt Vinegar",
+      "pinch Pepper"
+    ],
       "total_calories": 610,
       "protein": 13.5,
       "carbs": 54,
       "fat": 10.1,
+      "fiber": 4,
       "category": "lunch",
       "created_by": 1
     }
   },
   {
     "model": "mealapp.recipe",
-    "pk": 9,
+    "pk": 39,
     "fields": {
       "title": "Fish fofos",
       "description": "A delicious lunch recipe",
-      "instructions": "1. STEP 1\n2. Put the fish into a lidded pan and pour over enough water to cover. Bring to a simmer and gently poach for 10 minutes over a low heat with the lid on. Drain and flake the fish.\n3. STEP 2\n4. Put the fish, potato, green chilli, coriander, cumin, black pepper, garlic and ginger in a large bowl. Season, add the rice flour, mix well and break in 1 egg. Stir the mixture and divide into 15, then form into small logs. Break the remaining eggs into a bowl and whisk lightly. Put the breadcrumbs into another bowl. Dip each fofo in the beaten egg followed by the breadcrumb mixture. Chill for 20 minutes.\n5. STEP 3\n6. Heat 1cm of oil in a large frying pan over a medium heat. Fry the fofos in batches for 2 minutes on each side, turning gently to get an even golden brown colour all over. Drain on kitchen paper and repeat with the remaining fofos.\n7. STEP 4\n8. For the onion salad, mix together the onion, coriander and lemon juice with a pinch of salt. Serve with the fofos and mango chutney.",
+         "instructions": [
+      "STEP 1",
+      "Put the fish into a lidded pan and pour over enough water to cover. Bring to a simmer and gently poach for 10 minutes over a low heat with the lid on. Drain and flake the fish.",
+      "STEP 2",
+      "Put the fish, potato, green chilli, coriander, cumin, black pepper, garlic and ginger in a large bowl. Season, add the rice flour, mix well and break in 1 egg. Stir the mixture and divide into 15, then form into small logs. Break the remaining eggs into a bowl and whisk lightly. Put the breadcrumbs into another bowl. Dip each fofo in the beaten egg followed by the breadcrumb mixture. Chill for 20 minutes.",
+      "STEP 3",
+      "Heat 1cm of oil in a large frying pan over a medium heat. Fry the fofos in batches for 2 minutes on each side, turning gently to get an even golden brown colour all over. Drain on kitchen paper and repeat with the remaining fofos.",
+      "STEP 4",
+      "For the onion salad, mix together the onion, coriander and lemon juice with a pinch of salt. Serve with the fofos and mango chutney."
+    ],
       "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452866/recipes/recipes/fish_fofos_9.jpg",
       "servings": 4,
       "prep_time_minutes": 10,
       "cook_time_minutes": 20,
       "ingredients": [
-        {
-          "name": "Haddock",
-          "quantity": "600g"
-        },
-        {
-          "name": "Potatoes",
-          "quantity": "300g"
-        },
-        {
-          "name": "chopped Green Chilli",
-          "quantity": "1"
-        },
-        {
-          "name": "tbs Coriander",
-          "quantity": "3"
-        },
-        {
-          "name": "tsp Cumin Seeds",
-          "quantity": "1"
-        },
-        {
-          "name": "tsp Pepper",
-          "quantity": "1/2"
-        },
-        {
-          "name": "cloves Garlic",
-          "quantity": "3"
-        },
-        {
-          "name": "pieces Ginger",
-          "quantity": "2"
-        },
-        {
-          "name": "tbs Flour",
-          "quantity": "2"
-        },
-        {
-          "name": "Eggs",
-          "quantity": "3"
-        },
-        {
-          "name": "Breadcrumbs",
-          "quantity": "75g"
-        },
-        {
-          "name": "frying Vegetable Oil",
-          "quantity": "For"
-        }
-      ],
+      "600g Haddock",
+      "300g Potatoes",
+      "1 chopped Green Chilli",
+      "3 tbs Coriander",
+      "1 tsp Cumin Seeds",
+      "1/2 tsp Pepper",
+      "3 cloves Garlic",
+      "2 pieces Ginger",
+      "2 tbs Flour",
+      "3 Eggs",
+      "75g Breadcrumbs",
+      "For frying Vegetable Oil"
+    ],
       "total_calories": 460,
       "protein": 11.0,
       "carbs": 44,
       "fat": 8.6,
+      "fiber": 4,
       "category": "lunch",
       "created_by": 1
     }
   },
   {
     "model": "mealapp.recipe",
-    "pk": 10,
+    "pk": 40,
     "fields": {
       "title": "Fish pie",
       "description": "A delicious lunch recipe",
-      "instructions": "1. 01.Put the potatoes in a large pan of cold salted water and bring to the boil. Lower the heat, cover, then simmer gently for 15 minutes until tender. Drain, then return to the pan over a low heat for 30 seconds to drive off any excess water. Mash with 1 tbsp olive oil, then season.\n2. 02.Meanwhile put the milk in a large sauté pan, add the fish and bring to the boil. Remove from the heat, cover and stand for 3 minutes. Remove the fish (reserving the milk) and pat dry with kitchen paper, then gently flake into an ovenproof dish, discarding the skin and any bones.\n3. 03.Heat the remaining oil in a pan, stir in the flour and cook for 30 seconds. Gradually stir in 200-250ml of the reserved milk (discard the rest). Grate in nutmeg, season, then bubble until thick. Stir in the cream.\n4. 04.Preheat the oven to 190°C/fan170°C/gas 5. Grate the artichokes and add to the dish with the leek, prawns and herbs. Stir the lemon zest and juice into the sauce, then pour over. Mix gently with a wooden spoon.\n5. 05.Spoon the mash onto the fish mixture, then use a fork to make peaks, which will crisp and brown as it cooks. Sprinkle over the cheese, then bake for 35-40 minutes until golden and bubbling. Serve with wilted greens.",
+       "instructions": [
+      "01.Put the potatoes in a large pan of cold salted water and bring to the boil. Lower the heat, cover, then simmer gently for 15 minutes until tender. Drain, then return to the pan over a low heat for 30 seconds to drive off any excess water. Mash with 1 tbsp olive oil, then season.",
+      "02.Meanwhile put the milk in a large sauté pan, add the fish and bring to the boil. Remove from the heat, cover and stand for 3 minutes. Remove the fish (reserving the milk) and pat dry with kitchen paper, then gently flake into an ovenproof dish, discarding the skin and any bones.",
+      "03.Heat the remaining oil in a pan, stir in the flour and cook for 30 seconds. Gradually stir in 200-250ml of the reserved milk (discard the rest). Grate in nutmeg, season, then bubble until thick. Stir in the cream.",
+      "04.Preheat the oven to 190°C/fan170°C/gas 5. Grate the artichokes and add to the dish with the leek, prawns and herbs. Stir the lemon zest and juice into the sauce, then pour over. Mix gently with a wooden spoon.",
+      "05.Spoon the mash onto the fish mixture, then use a fork to make peaks, which will crisp and brown as it cooks. Sprinkle over the cheese, then bake for 35-40 minutes until golden and bubbling. Serve with wilted greens."
+    ],
       "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452867/recipes/recipes/fish_pie_10.jpg",
       "servings": 5,
       "prep_time_minutes": 10,
       "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "Floury Potatoes",
-          "quantity": "900g"
-        },
-        {
-          "name": "tbsp Olive Oil",
-          "quantity": "2"
-        },
-        {
-          "name": "Semi-skimmed Milk",
-          "quantity": "600ml"
-        },
-        {
-          "name": "White Fish Fillets",
-          "quantity": "800g"
-        },
-        {
-          "name": "tbsp Plain flour",
-          "quantity": "1"
-        },
-        {
-          "name": "Nutmeg",
-          "quantity": "Grating"
-        },
-        {
-          "name": "tbsp Double Cream",
-          "quantity": "3"
-        },
-        {
-          "name": "Jerusalem Artichokes",
-          "quantity": "200g"
-        },
-        {
-          "name": "finely sliced Leek",
-          "quantity": "1"
-        },
-        {
-          "name": "peeled raw Prawns",
-          "quantity": "200g"
-        },
-        {
-          "name": "handful Parsley",
-          "quantity": "Large"
-        },
-        {
-          "name": "Dill",
-          "quantity": "Handful"
-        },
-        {
-          "name": "zest of 1 Lemon",
-          "quantity": "Grated"
-        },
-        {
-          "name": "grated Gruyère",
-          "quantity": "25g"
-        },
-        {
-          "name": "of 1 Lemon",
-          "quantity": "Juice"
-        }
-      ],
+     "ingredients": [
+      "900g Floury Potatoes",
+      "2 tbsp Olive Oil",
+      "600ml Semi-skimmed Milk",
+      "800g White Fish Fillets",
+      "1 tbsp Plain flour",
+      "Grating Nutmeg",
+      "3 tbsp Double Cream",
+      "200g Jerusalem Artichokes",
+      "1 finely sliced Leek",
+      "200g peeled raw Prawns",
+      "Large handful Parsley",
+      "Handful Dill",
+      "Grated zest of 1 Lemon",
+      "25g grated Gruyère",
+      "Juice of 1 Lemon"
+    ],
       "total_calories": 550,
       "protein": 12.5,
       "carbs": 50,
       "fat": 9.5,
+      "fiber": 4,
       "category": "lunch",
       "created_by": 1
     }
   },
   {
     "model": "mealapp.recipe",
-    "pk": 11,
+    "pk": 41,
     "fields": {
       "title": "Fish Soup (Ukha)",
       "description": "A delicious lunch recipe",
-      "instructions": "1. In a medium pot, heat the olive oil over medium-high heat. Add the onions and cook, stirring occasionally until the onions start to caramelize. Add the carrots and cook until the carrots start to soften, about 4 more minutes.\n2. Add the stock, water, potatoes, bay leaves, and black peppercorns. Season with salt and bring to a boil. Reduce heat, cover and cook for 10 minutes. Add the millet and cook for 15 more minutes until millet and potatoes are cooked.\n3. Gently add the fish cubes. Stir and bring the soup to a simmer. The fish will cook through very fast, so make sure to not overcook them. They are done when the flesh is opaque and flakes easily.\n4. Garnish the soup with chopped fresh dill or parsley before serving.",
+      "instructions": [
+      "In a medium pot, heat the olive oil over medium-high heat. Add the onions and cook, stirring occasionally until the onions start to caramelize. Add the carrots and cook until the carrots start to soften, about 4 more minutes.",
+      "Add the stock, water, potatoes, bay leaves, and black peppercorns. Season with salt and bring to a boil. Reduce heat, cover and cook for 10 minutes. Add the millet and cook for 15 more minutes until millet and potatoes are cooked.",
+      "Gently add the fish cubes. Stir and bring the soup to a simmer. The fish will cook through very fast, so make sure to not overcook them. They are done when the flesh is opaque and flakes easily.",
+      "Garnish the soup with chopped fresh dill or parsley before serving."
+    ],
       "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452868/recipes/recipes/fish_soup_%28ukha%29_11.jpg",
       "servings": 3,
       "prep_time_minutes": 10,
       "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "tbs Olive Oil",
-          "quantity": "2"
-        },
-        {
-          "name": "sliced Onion",
-          "quantity": "1"
-        },
-        {
-          "name": "medium Carrots",
-          "quantity": "2"
-        },
-        {
-          "name": "cups Fish Stock",
-          "quantity": "3"
-        },
-        {
-          "name": "cups Water",
-          "quantity": "3"
-        },
-        {
-          "name": "large Potatoes",
-          "quantity": "4"
-        },
-        {
-          "name": "Bay Leaf",
-          "quantity": "3"
-        },
-        {
-          "name": "Cod",
-          "quantity": "1"
-        },
-        {
-          "name": "Salmon",
-          "quantity": "1"
-        }
-      ],
+       "ingredients": [
+      "2 tbs Olive Oil",
+      "1 sliced Onion",
+      "2 medium Carrots",
+      "3 cups Fish Stock",
+      "3 cups Water",
+      "4 large Potatoes",
+      "3 Bay Leaf",
+      "1 Cod",
+      "1 Salmon"
+    ],
       "total_calories": 370,
       "protein": 9.5,
       "carbs": 38,
       "fat": 7.7,
+      "fiber": 4,
       "category": "lunch",
       "created_by": 1
     }
-  },
-  {
-    "model": "mealapp.recipe",
-    "pk": 12,
-    "fields": {
-      "title": "Fish Stew with Rouille",
-      "description": "A delicious lunch recipe",
-      "instructions": "1. Twist the heads from the prawns, then peel away the legs and shells, but leave the tails intact. Devein each prawn. Fry the shells in 1 tbsp oil for 5 mins, until dark pink and golden in patches. Add the wine, boil down by two thirds, then pour in the stock. Strain into a jug, discarding the shells.\n2. Heat the rest of the oil in a deep frying pan or casserole. Add the fennel, onion and garlic, season, then cover and gently cook for 10 mins until softened. Meanwhile, peel the potato and cut into 2cm-ish chunks. Put into a pan of cold water, bring to the boil and cook for 5 mins until almost tender. Drain in a colander.\n3. Peel a strip of zest from the orange. Put the zest, star anise, bay and ½ tsp harissa into the pan. Fry gently, uncovered, for 5-10 mins, until the vegetables are soft, sweet and golden.\n4. Stir in the tomato purée, cook for 2 mins, then add the tomatoes and stock. Simmer for 10 mins until the sauce thickens slightly. Season to taste. The sauce can be made ahead, then reheated later in the day. Meantime, scrub the mussels or clams and pull away any stringy beards. Any that are open should be tapped sharply on the worktop – if they don’t close after a few seconds, discard them.\n5. Reheat the sauce if necessary, then stir the potato, chunks of fish and prawns very gently into the stew. Bring back to the boil, then cover and gently simmer for 3 mins. Scatter the mussels or clams over the stew, then cover and cook for 2 mins more or until the shells have opened wide. Discard any that remain closed. The chunks of fish should flake easily and the prawns should be pink through. Scatter with the thyme leaves.\n6. To make the quick rouille, stir the rest of the harissa through the mayonnaise. Serve the stew in bowls, topped with spoonfuls of rouille, which will melt into the sauce and enrich it. Have some good bread ready, as you’ll definitely want to mop up the juices.",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452868/recipes/recipes/fish_stew_with_rouille_12.jpg",
-      "servings": 6,
-      "prep_time_minutes": 10,
-      "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "large Prawns",
-          "quantity": "6"
-        },
-        {
-          "name": "tbs Olive Oil",
-          "quantity": "3"
-        },
-        {
-          "name": "Dry White Wine",
-          "quantity": "150ml"
-        },
-        {
-          "name": "Fish Stock",
-          "quantity": "200ml"
-        },
-        {
-          "name": "small finely diced Fennel",
-          "quantity": "1"
-        },
-        {
-          "name": "small finely diced Onion",
-          "quantity": "1"
-        },
-        {
-          "name": "cloves Chopped Garlic",
-          "quantity": "3"
-        },
-        {
-          "name": "large Potatoes",
-          "quantity": "1"
-        },
-        {
-          "name": "Orange",
-          "quantity": "1"
-        },
-        {
-          "name": "Star Anise",
-          "quantity": "1"
-        },
-        {
-          "name": "Bay Leaf",
-          "quantity": "1"
-        },
-        {
-          "name": "1/2 tsp Harissa Spice",
-          "quantity": "1"
-        },
-        {
-          "name": "tbs Tomato Puree",
-          "quantity": "2"
-        },
-        {
-          "name": "Chopped Tomatoes",
-          "quantity": "400g"
-        },
-        {
-          "name": "Mussels",
-          "quantity": "Handful"
-        },
-        {
-          "name": "White Fish",
-          "quantity": "200g"
-        },
-        {
-          "name": "Thyme",
-          "quantity": "2"
-        },
-        {
-          "name": "serve Bread",
-          "quantity": "to"
-        }
-      ],
-      "total_calories": 640,
-      "protein": 14.0,
-      "carbs": 56,
-      "fat": 10.4,
-      "category": "lunch",
-      "created_by": 1
-    }
-  },
-  {
-    "model": "mealapp.recipe",
-    "pk": 13,
-    "fields": {
-      "title": "Fiskesuppe (Creamy Norwegian Fish Soup)",
-      "description": "A delicious lunch recipe",
-      "instructions": "1. ▢\n2. Cut the fish fillets in cubes or strips. Crush or chop the garlic. Rinse the vegetables and cut into thin strips.\n3. ▢\n4. Heat the butter in a pot and add the garlic. Once the garlic starts to turn golden add the flour, whisking well.\n5. ▢\n6. Add the fish stock and continue to whisk until there are no lumps.\n7. ▢\n8. Add the vegetables and milk and bring to a boil. Cook for about 10 minutes.\n9. ▢\n10. Add the crème fraîche (or sour cream). Bring the soup back to a simmer and once the soup begins to bubble again turn off the heat. Keep the soup on the burner and add the fish. Let the fish cook in the hot soup for 5 minutes. If using shrimp, add right before serving.\n11. ▢\n12. Sprinkle with chives (or dill or parsley) before serving.",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452869/recipes/recipes/fiskesuppe_%28creamy_norwegian_fish_soup%29_13.jpg",
-      "servings": 4,
-      "prep_time_minutes": 10,
-      "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "lb Fish fillet",
-          "quantity": "1"
-        },
-        {
-          "name": "clove Garlic",
-          "quantity": "1"
-        },
-        {
-          "name": "medium Potatoes",
-          "quantity": "2"
-        },
-        {
-          "name": "Carrots",
-          "quantity": "2"
-        },
-        {
-          "name": "Leek",
-          "quantity": "1"
-        },
-        {
-          "name": " tablespoons Butter",
-          "quantity": "3"
-        },
-        {
-          "name": "tablespoons Flour",
-          "quantity": "5"
-        },
-        {
-          "name": "cups Fish Stock",
-          "quantity": "4"
-        },
-        {
-          "name": "cup Milk",
-          "quantity": "1"
-        },
-        {
-          "name": "1/4 cup Creme Fraiche",
-          "quantity": "1"
-        },
-        {
-          "name": "cup Shrimp",
-          "quantity": "1"
-        },
-        {
-          "name": "tablespoon Chives",
-          "quantity": "1"
-        }
-      ],
-      "total_calories": 460,
-      "protein": 11.0,
-      "carbs": 44,
-      "fat": 8.6,
-      "category": "lunch",
-      "created_by": 1
-    }
-  },
-  {
-    "model": "mealapp.recipe",
-    "pk": 14,
-    "fields": {
-      "title": "Fried calamari",
-      "description": "A delicious lunch recipe",
-      "instructions": "1. step 1\n2. Cut the squid into rings about ½cm thick. Tip the flour into a freezer bag and season well. Add the capers, then give everything a good shake to mix together. Tip the squid into the bag, then shake again until all the rings are well coated. Mix together the garlic and mayonnaise, then place in a serving bowl.\n3. step 2\n4. Pour some oil into a large pan until it comes about 7cm up the sides, but the pan is no more than a third full. Place over a medium heat and let the oil warm up. To test that the oil is ready, place a small piece of bread in the pan – it should sizzle when it touches the oil.\n5. step 3\n6. Remove a handful of squid from the flour and shake off any excess. Gently drop into the oil, then cook for about 3 mins until crisp. Remove with a slotted spoon and place on kitchen paper. Repeat with the remaining squid. Serve straight away with the mayonnaise and lemon wedges.",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452870/recipes/recipes/fried_calamari_14.jpg",
-      "servings": 2,
-      "prep_time_minutes": 10,
-      "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "Squid",
-          "quantity": "300g"
-        },
-        {
-          "name": "Plain Flour",
-          "quantity": "200g"
-        },
-        {
-          "name": "tblsp Capers",
-          "quantity": "2"
-        },
-        {
-          "name": "clove peeled crushed Garlic",
-          "quantity": "1"
-        },
-        {
-          "name": "tblsp Mayonnaise",
-          "quantity": "5"
-        },
-        {
-          "name": "frying Vegetable Oil",
-          "quantity": "For"
-        },
-        {
-          "name": "serve Lemon",
-          "quantity": "To"
-        }
-      ],
-      "total_calories": 310,
-      "protein": 8.5,
-      "carbs": 34,
-      "fat": 7.1,
-      "category": "lunch",
-      "created_by": 1
-    }
-  },
-  {
-    "model": "mealapp.recipe",
-    "pk": 15,
-    "fields": {
-      "title": "Gambas al ajillo",
-      "description": "A delicious lunch recipe",
-      "instructions": "1. step 1\n2. Peel the prawns, leaving the tails intact, and, using a cocktail stick, remove the digestive tracts. Or, if you are using a frying pan rather than a terracotta pot, you can cook the prawns in their shells. Season with a little sea salt.\n3. step 2\n4. Put the garlic, olive oil and chillies in a flameproof terracotta pot or frying pan and set over a high heat. When the garlic starts to turn golden, add the prawns and cook for 1-2 mins on each side until just pink. Sprinkle over the chopped parsley and some freshly cracked black pepper, and serve immediately. If using a terracotta pot, you can take that straight to the table, but be careful with it as the oil and terracotta will remain hot for several minutes.",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452871/recipes/recipes/gambas_al_ajillo_15.jpg",
-      "servings": 2,
-      "prep_time_minutes": 10,
-      "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "Raw King Prawns",
-          "quantity": "12"
-        },
-        {
-          "name": "Garlic Clove",
-          "quantity": "3"
-        },
-        {
-          "name": "ml Olive Oil",
-          "quantity": "100"
-        },
-        {
-          "name": "Cayenne Pepper",
-          "quantity": "3"
-        },
-        {
-          "name": "tablespoon chopped Parsley",
-          "quantity": "1"
-        }
-      ],
-      "total_calories": 250,
-      "protein": 7.5,
-      "carbs": 30,
-      "fat": 6.5,
-      "category": "lunch",
-      "created_by": 1
-    }
-  },
-  {
-    "model": "mealapp.recipe",
-    "pk": 16,
-    "fields": {
-      "title": "Garides Saganaki",
-      "description": "A delicious lunch recipe",
-      "instructions": "1. Place the prawns in a pot and add enough water to cover. Boil for 5 minutes. Drain, reserving the liquid, and set aside.\n2. Heat 2 tablespoons of oil in a saucepan. Add the onion; cook and stir until soft. Mix in the parsley, wine, tomatoes, garlic and remaining olive oil. Simmer, stirring occasionally, for about 30 minutes, or until the sauce is thickened.\n3. While the sauce is simmering, the prawns should become cool enough to handle. First remove the legs by pinching them, and then pull off the shells, leaving the head and tail on.\n4. When the sauce has thickened, stir in the prawns. Bring to a simmer again if the sauce has cooled with the prawns, and cook for about 5 minutes. Add the feta and remove from the heat. Let stand until the cheese starts to melt. Serve warm with slices of crusty bread.\n5. Though completely untraditional, you can add a few tablespoons of stock or passata to this recipe to make a delicious pasta sauce. Toss with pasta after adding the feta, and serve.",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452873/recipes/recipes/garides_saganaki_16.jpg",
-      "servings": 2,
-      "prep_time_minutes": 10,
-      "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "Raw king prawns",
-          "quantity": "500g"
-        },
-        {
-          "name": "tablespoons Olive oil",
-          "quantity": "3"
-        },
-        {
-          "name": "Chopped onion",
-          "quantity": "1"
-        },
-        {
-          "name": "Freshly chopped parsley",
-          "quantity": "pinch"
-        },
-        {
-          "name": "White wine",
-          "quantity": "250ml"
-        },
-        {
-          "name": "(400g) tin Chopped tomatoes",
-          "quantity": "1"
-        },
-        {
-          "name": "teaspoon Minced garlic",
-          "quantity": "1/2"
-        },
-        {
-          "name": "(200g) pack Cubed Feta cheese",
-          "quantity": "1"
-        }
-      ],
-      "total_calories": 340,
-      "protein": 9.0,
-      "carbs": 36,
-      "fat": 7.4,
-      "category": "lunch",
-      "created_by": 1
-    }
-  },
-  {
-    "model": "mealapp.recipe",
-    "pk": 17,
-    "fields": {
-      "title": "Garlicky prawns with sherry",
-      "description": "A delicious lunch recipe",
-      "instructions": "1. step 1\n2. Heat the olive oil in a large frying pan. Tip in the garlic slices and cook for a few secs. Then stir through the prawns and cook for a couple of mins until they start to turn pink.\n3. step 2\n4. Pour over the sherry and cook for a few mins more, just until the prawns are cooked through. Sprinkle with parsley before serving.",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452874/recipes/recipes/garlicky_prawns_with_sherry_17.jpg",
-      "servings": 2,
-      "prep_time_minutes": 10,
-      "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": " tablespoons Olive Oil",
-          "quantity": "3"
-        },
-        {
-          "name": "cloves Chopped Garlic",
-          "quantity": "3"
-        },
-        {
-          "name": "Prawns",
-          "quantity": "400g"
-        },
-        {
-          "name": "tbsp Dry sherry",
-          "quantity": "2"
-        },
-        {
-          "name": "Parsley",
-          "quantity": "Handful"
-        }
-      ],
-      "total_calories": 250,
-      "protein": 7.5,
-      "carbs": 30,
-      "fat": 6.5,
-      "category": "lunch",
-      "created_by": 1
-    }
-  },
-  {
-    "model": "mealapp.recipe",
-    "pk": 18,
-    "fields": {
-      "title": "Grilled Portuguese sardines",
-      "description": "A delicious lunch recipe",
-      "instructions": "1. STEP 1\n2. Put all of the ingredients, except the sardines, into a bowl and mix together with some seasoning. Pour into a baking dish, add the sardines and toss really well. Cover and chill for a few hours.\n3. STEP 2\n4. Heat a BBQ or griddle pan until hot. Cook the sardines for 4-5 minutes on each side or until really caramelised and charred. Put onto a serving plate, drizzle with oil, sprinkle with a little more paprika and squeeze over the lemon wedges.",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452875/recipes/recipes/grilled_portuguese_sardines_18.jpg",
-      "servings": 2,
-      "prep_time_minutes": 10,
-      "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "Sardines",
-          "quantity": "8"
-        },
-        {
-          "name": "tbs Olive Oil",
-          "quantity": "2"
-        },
-        {
-          "name": "cloves Garlic",
-          "quantity": "3"
-        },
-        {
-          "name": "tbs Paprika",
-          "quantity": "1"
-        },
-        {
-          "name": "Lemon",
-          "quantity": "1/2"
-        },
-        {
-          "name": "sprigs Rosemary",
-          "quantity": "4"
-        },
-        {
-          "name": "Red Chilli",
-          "quantity": "1"
-        }
-      ],
-      "total_calories": 310,
-      "protein": 8.5,
-      "carbs": 34,
-      "fat": 7.1,
-      "category": "lunch",
-      "created_by": 1
-    }
-  },
-  {
-    "model": "mealapp.recipe",
-    "pk": 19,
-    "fields": {
-      "title": "Honey Teriyaki Salmon",
-      "description": "A delicious lunch recipe",
-      "instructions": "1. Mix all the ingredients in the Honey Teriyaki Glaze together. Whisk to blend well. Combine the salmon and the Glaze together.\n2. Heat up a skillet on medium-low heat. Add the oil, Pan-fry the salmon on both sides until it’s completely cooked inside and the glaze thickens.\n3. Garnish with sesame and serve immediately.",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452876/recipes/recipes/honey_teriyaki_salmon_19.jpg",
-      "servings": 2,
-      "prep_time_minutes": 10,
-      "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "lb Salmon",
-          "quantity": "1"
-        },
-        {
-          "name": "tablespoon Olive oil",
-          "quantity": "1"
-        },
-        {
-          "name": "tablespoons Soy Sauce",
-          "quantity": "2"
-        },
-        {
-          "name": "tablespoons Sake",
-          "quantity": "2"
-        },
-        {
-          "name": "tablespoons Sesame Seed",
-          "quantity": "4"
-        }
-      ],
-      "total_calories": 250,
-      "protein": 7.5,
-      "carbs": 30,
-      "fat": 6.5,
-      "category": "lunch",
-      "created_by": 1
-    }
-  },
-  {
-    "model": "mealapp.recipe",
-    "pk": 20,
-    "fields": {
-      "title": "Jamaican Curry Shrimp Recipe",
-      "description": "A delicious lunch recipe",
-      "instructions": "1. Season shrimp with 1 Tablespoon of curry powder and all-purpose seasoning and set aside for about 10 minutes while you prepare the other ingredients like chopping your onions, peppers, and garlic.\n2. Heat 2 Tablespoons of olive oil in a large skillet over medium heat. Add sliced yellow onion, red bell pepper, green bell pepper, scotch bonnet pepper, if using, and chopped garlic and stir for 5 minutes, until peppers are slightly softened.\n3. Add 1.5 Tablespoons of curry powder to the skillet and stir for an additional minute.\n4. Then add coconut milk, seasoned shrimp, ketchup, and thyme, making sure the shrimp is covered in the sauce.\n5. Allow the sauce to come to a simmer and continue to cook over medium heat, stirring occasionally and flipping the shrimp halfway, until the shrimp is fully cooked on both sides. This should take about 5-6 minutes. Salt and pepper to taste.",
-      "image_url": "https://res.cloudinary.com/dz3tztxgb/image/upload/v1768452877/recipes/recipes/jamaican_curry_shrimp_recipe_20.jpg",
-      "servings": 4,
-      "prep_time_minutes": 10,
-      "cook_time_minutes": 20,
-      "ingredients": [
-        {
-          "name": "lb Jumbo Shrimp",
-          "quantity": "1"
-        },
-        {
-          "name": "tbsp Jamaican Curry Powder",
-          "quantity": "2.5"
-        },
-        {
-          "name": "tsp All-purpose Seasoning",
-          "quantity": "1"
-        },
-        {
-          "name": "tablespoons Olive Oil",
-          "quantity": "2"
-        },
-        {
-          "name": "sliced Onion",
-          "quantity": "1"
-        },
-        {
-          "name": "sliced Red Pepper",
-          "quantity": "1"
-        },
-        {
-          "name": "sliced Green Pepper",
-          "quantity": "1"
-        },
-        {
-          "name": "sliced Scotch Bonnet",
-          "quantity": "1"
-        },
-        {
-          "name": "cloves Chopped Garlic",
-          "quantity": "3"
-        },
-        {
-          "name": "Unsweetened Coconut Milk",
-          "quantity": "380g"
-        },
-        {
-          "name": "tbs Tomato Ketchup",
-          "quantity": "1/2"
-        },
-        {
-          "name": "sprigs Thyme",
-          "quantity": "4"
-        },
-        {
-          "name": "taste Salt",
-          "quantity": "To"
-        },
-        {
-          "name": "taste Pepper",
-          "quantity": "To"
-        }
-      ],
-      "total_calories": 520,
-      "protein": 12.0,
-      "carbs": 48,
-      "fat": 9.2,
-      "category": "lunch",
-      "created_by": 1
-    }
-  }
-]
+  }]

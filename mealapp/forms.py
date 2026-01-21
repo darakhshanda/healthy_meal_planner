@@ -329,13 +329,22 @@ class IngredientInlineForm(forms.Form):  # NOT ModelForm
         required=False, label='', widget=forms.HiddenInput())
 
 
+class InstructionInlineForm(forms.Form):  # NOT ModelForm
+    """Form for individual instruction steps"""
+    step = forms.CharField(
+        max_length=500,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'e.g., Preheat oven to 350°F'
+        }),
+        label='Step'
+    )
+    DELETE = forms.BooleanField(
+        required=False, label='', widget=forms.HiddenInput())
+
+
 class RecipeForm(forms.ModelForm):
     """Form for creating and editing recipes"""
-
-    # Customize widgets for multi-lie instructions for better UI
-    instruction_text = forms.CharField(widget=forms.Textarea(
-        attrs={'class': 'form-control', 'rows': 8, 'placeholder': 'one step per line. e.g. 1 - preheat oven. 2- mix ingredients. 3- bake for 20 minutes.'}), required=False, label='Instructions',
-        help_text="One instruction per line")
 
     class Meta:
         model = Recipe
@@ -346,76 +355,67 @@ class RecipeForm(forms.ModelForm):
         excludes = ['created_by', 'created_at', 'updated_at']
 
     def __init__(self, *args, **kwargs):
-        initial_ingredients = kwargs.pop('initial_ingredients', [])
+        initial_ingredients = kwargs.pop('initial_ingredients', None)
+        initial_instructions = kwargs.pop('initial_instructions', None)
         super().__init__(*args, **kwargs)
 
-        # Pre-fill instructions textarea with existing instructions
-        if self.instance.pk and self.instance.instructions:
-            self.fields['instructions_text'].initial = '\n'.join(
-                self.instance.instructions)
-        # Prepare initial data for ingredient inline forms
-        self.ingredient_forms = forms.formset_factory(IngredientInlineForm, extra=1 if not initial_ingredients else 0, min_num=len(
-            initial_ingredients), validate_min=True)()
-        if initial_ingredients:
-            for i, ingredient in enumerate(initial_ingredients):
-                self.ingredient_forms.forms[i] = IngredientInlineForm(
-                    initial=ingredient)
+        # Build formset classes
+        IngredientFormSet = forms.formset_factory(
+            IngredientInlineForm,
+            extra=1 if not initial_ingredients else 0,
+            min_num=(len(initial_ingredients) if initial_ingredients else 0),
+            validate_min=False,
+        )
+        InstructionFormSet = forms.formset_factory(
+            InstructionInlineForm,
+            extra=1 if not initial_instructions else 0,
+            min_num=(len(initial_instructions) if initial_instructions else 0),
+            validate_min=False,
+        )
 
-        # Layout for ingredient inline forms. Crispy layout
+        # Instantiate formsets with explicit prefixes so template/view can target them
+        self.ingredient_forms = IngredientFormSet(
+            initial=(initial_ingredients or []),
+            prefix='ingredient_forms',
+        )
+        self.instruction_forms = InstructionFormSet(
+            initial=([{'step': s} for s in initial_instructions]
+                     if initial_instructions else []),
+            prefix='instruction_forms',
+        )
+
+        # Crispy Layout - DISABLED (render all fields manually in template)
         self.helper = FormHelper()
         self.helper.form_tag = False
-        self.helper.layout = Layout(
-            'title',
-            'description',
-            Row(
-                'image_url',  # ✅ Image URL field now included
-                css_class='mb-4'
-            ),
-            'category',
-            Row(
-                Column('servings', css_class='col-md-3'),
-                Column('prep_time_minutes', css_class='col-md-3'),
-                Column('cook_time_minutes', css_class='col-md-3'),
-                Column('total_calories', css_class='col-md-3'),
-                css_class='g-3 mb-4'
-            ),
-            Row(
-                Column('protein', css_class='col-md-3'),
-                Column('carbs', css_class='col-md-3'),
-                Column('fat', css_class='col-md-3'),
-                Column('fiber', css_class='col-md-3'),
-                css_class='g-3 mb-4'
-            ),
-            Field('instructions_text', css_class='mb-4')
-        )
-        self.helper.layout.append(
-            HTML('<h5>Ingredients</h5>')
-        )
-    # validation to ensure both main form and ingredient forms are valid
+        self.helper.layout = Layout()
+        # NOTE: All fields will be rendered manually in template with custom card styling
 
+    # validation to ensure main form, ingredient forms, and instruction forms are valid
     def is_valid(self):
         main_valid = super().is_valid()
         ingredients_valid = all(form.is_valid()
                                 for form in self.ingredient_forms)
-        return main_valid and ingredients_valid
+        instructions_valid = all(form.is_valid()
+                                 for form in self.instruction_forms)
+        return main_valid and ingredients_valid and instructions_valid
 
-    # Validation for ingredients field to ensure it's a JSON array of strings
-
+    # Validation for ingredients and instructions
     def clean(self):
         cleaned_data = super().clean()
-        instructions_text = cleaned_data.get('instructions_text', '')
+        # Parse aggregated instructions from hidden field populated by JS
+        raw = self.data.get('instructions_text', '')
         instructions = [line.strip()
-                        for line in instructions_text.split('\n') if line.strip()]
+                        for line in raw.split('\n') if line.strip()]
         cleaned_data['instructions'] = instructions
         return cleaned_data
 
     def save(self, commit=True, created_by=None):
         instance = super().save(commit=False)
 
-        #  Save instructions to ArrayField
-        instance.instructions = self.cleaned_data['instructions']
+        # Save instructions from cleaned data (aggregated via hidden field)
+        instance.instructions = self.cleaned_data.get('instructions', [])
 
-        #  Save ingredients to JSONField
+        # Save ingredients to JSONField
         ingredients = []
         for form in self.ingredient_forms:
             if form.is_valid() and not form.cleaned_data.get('DELETE', False):

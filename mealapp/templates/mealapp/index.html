@@ -40,44 +40,137 @@
 
         <!-- Category Tabs -->
         <div class="d-flex justify-content-center gap-2 mb-4 flex-wrap">
-            <button class="tab-button btn btn-outline-primary active" data-category="all">All Recipes</button>
-            <button class="tab-button btn btn-outline-primary" data-category="breakfast">🌅 Breakfast</button>
-            <button class="tab-button btn btn-outline-primary" data-category="lunch">🥗 Lunch</button>
-            <button class="tab-button btn btn-outline-primary" data-category="dinner">🍽️ Dinner</button>
-            <button class="tab-button btn btn-outline-primary" data-category="snack">🍿 Snack</button>
+            <a href="{% url 'index' %}" class="btn btn-outline-primary{% if not request.GET.category %} active{% endif %}">All Recipes</a>
+            <a href="{% url 'index' %}?category=breakfast" class="btn btn-outline-primary{% if request.GET.category == 'breakfast' %} active{% endif %}">🌅 Breakfast</a>
+            <a href="{% url 'index' %}?category=lunch" class="btn btn-outline-primary{% if request.GET.category == 'lunch' %} active{% endif %}">🥗 Lunch</a>
+            <a href="{% url 'index' %}?category=dinner" class="btn btn-outline-primary{% if request.GET.category == 'dinner' %} active{% endif %}">🍽️ Dinner</a>
+            <a href="{% url 'index' %}?category=snack" class="btn btn-outline-primary{% if request.GET.category == 'snack' %} active{% endif %}">🍿 Snack</a>
         </div>
 
         <!-- Recipe Count -->
         <div class="text-center text-muted mb-4" id="recipeCount"></div>
 
         <!-- Recipes Grid: 3 cards per row on large screens -->
-        {% if user.is_authenticated or user.is_staff or not user.is_authenticated %}    
+        {% if user.is_authenticated or user.is_staff or not user.is_authenticated %}   
+             
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="recipesContainer" >
-            <!-- Grid populated by JavaScript -->
+            {% for recipe in recipes %}
+            <div class="col d-flex align-items-stretch">
+                <div class="recipe-card card h-100 w-100 d-flex flex-column shadow-sm">
+                    <!-- Recipe Image -->
+                    {% if recipe.image_url and recipe.image_url != '' %}
+                        <img src="{{ recipe.image_url }}" class="recipe-image" alt="{{ recipe.title }}">
+                    {% else %}
+                        <img src="/staticfiles/mealapp/images/default.jpg" class="recipe-image" alt="Default Image">
+                    {% endif %}
+                    <!-- Header-->
+                    <div class="card-body d-flex flex-column flex-grow-1 justify-content-between">
+                    <div class="mb-3">
+                      <h5 class="card-title fw-bold mb-3">{{recipe.title}}</h5>
+                      <span class="badge bg-primary">{{recipe.category}}</span>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="card-text text-muted flex-grow-1">
+                        {{ recipe.description|default:"No description available"|truncatechars:100 }}
+                    </p>
+
+                    <!-- Nutrition Info -->
+                    <div class="nutrition-info mb-3">
+                <div class="row text-center">
+                    <div class="col-6">
+                        <small class="text-muted d-block">Calories</small>
+                        <p class="mb-0 fw-bold">{{ recipe.total_calories|default:"--" }}</p>
+                    </div>
+                    <div class="col-6">
+                        <small class="text-muted d-block">Servings</small>
+                        <p class="mb-0 fw-bold">{{ recipe.servings|default:"--" }}</p>
+                    </div>
+                </div>
+                <hr class="my-2">
+                <div class="row text-center small">
+                    <div class="col-4">
+                        <i class="fas fa-drumstick-bite text-danger"></i>
+                        <p class="mb-0">{{ recipe.protein|default:"0" }}g</p>
+                    </div>
+                    <div class="col-4">
+                        <i class="fas fa-bread-slice text-warning"></i>
+                        <p class="mb-0">{{ recipe.carbs|default:"0" }}g</p>
+                    </div>
+                    <div class="col-4">
+                        <i class="fas fa-bacon text-info"></i>
+                        <p class="mb-0">{{ recipe.fat|default:"0" }}g</p>
+                    </div>
+                    <div class="col-4">
+                        <i class="fas fa-bacon text-info"></i>
+                        <p class="mb-0">{{ recipe.fiber|default:"0" }}g</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Time Info -->
+            <div class="mb-3">
+                <small class="text-muted">
+                    <i class="fas fa-clock"></i> 
+                    {{ recipe.prep_time_minutes|default:"" }}m Prep 
+                    {% if recipe.prep_time_minutes and recipe.cook_time_minutes %}|{% endif %} 
+                    {{ recipe.cook_time_minutes|default:"" }}m Cook
+                </small>
+            </div>
+
+            <!-- Creator -->
+            <small class="text-muted mb-3">
+                By <strong>{{ recipe.created_by|default:"Unknown" }}</strong>
+            </small>
+            
+            <!-- Action Button -->
+
+            <a href="/recipes/{{ recipe.id }}/" class="btn btn-primary w-100 mt-auto">
+                <i class="fas fa-eye"></i> View Recipe
+            </a>
+            
+        </div>
+                    
+                </div>
+            </div>
+            {% endfor %}        
         </div>
         {% endif %}
 
         <!-- Pagination -->
-        <nav aria-label="Page navigation" class="pagination-nav mt-5" style="display: none;">
+        {% if is_paginated %}
+        <nav aria-label="Page navigation" class="pagination-nav mt-5">
             <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
                 <li class="page-item">
-                    <a class="page-link" href="#" onclick="changePage(currentPage - 1); return false;">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}{% if search_term %}&search={{ search_term }}{% endif %}">
                         <i class="fas fa-chevron-left"></i> Previous
                     </a>
                 </li>
+                {% else %}
                 <li class="page-item disabled">
-                    <span class="page-link" id="pageInfo">Page 1 of 1</span>
+                    <span class="page-link"><i class="fas fa-chevron-left"></i> Previous</span>
                 </li>
+                {% endif %}
+
+                <li class="page-item disabled">
+                    <span class="page-link">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+                </li>
+
+                {% if page_obj.has_next %}
                 <li class="page-item">
-                    <a class="page-link" href="#" onclick="changePage(currentPage + 1); return false;">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}{% if search_term %}&search={{ search_term }}{% endif %}">
                         Next <i class="fas fa-chevron-right"></i>
                     </a>
                 </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link">Next <i class="fas fa-chevron-right"></i></span>
+                </li>
+                {% endif %}
             </ul>
         </nav>
+        {% endif %}
     </div>
 </div>
-
-<!-- Hidden recipes data for JavaScript -->
-<script type="application/json" id="recipesData">{{ recipes_json|safe }}</script>
 {% endblock %}

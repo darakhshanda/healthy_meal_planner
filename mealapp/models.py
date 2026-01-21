@@ -121,8 +121,8 @@ class Recipe(models.Model):
     #     help_text="List of ingredients with quantities"
     # )
     # Store ingredients as TextField for simplicity
-    ingredients = models.JSONField(
-        default=list,  help_text='List of ingredients with quantity and unit. Format: [{"name": "Flour", "quantity": "2.5 for 2 1/2" , "unit": "cup"}, ...]')
+    ingredients = models.TextField(
+        help_text='List of ingredients with quantity and unit. Format: 2 cups of rice, 1 tbsp olive oil, etc.')
     # Nutrition Info
     total_calories = models.FloatField()
     protein = models.FloatField()
@@ -161,9 +161,8 @@ class Recipe(models.Model):
             return f"{self.title} (by {self.created_by.username})"
         return "Unknown"
 
-        # MealPlan Model
 
-
+# MealPlan Model
 class MealPlan(models.Model):
     """
     User's meal plan with one recipe for each meal category
