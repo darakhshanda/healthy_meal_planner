@@ -33,8 +33,7 @@ def index(request):
         all_recipes = all_recipes.filter(
             Q(title__icontains=search) |
             Q(description__icontains=search) |
-            Q(category_icontains=search)
-
+            Q(category__icontains=search)
         )
 
     # Serialize ALL recipes manually to handle JSONField and CloudinaryField
@@ -255,11 +254,40 @@ def delete_meal_plan(request, plan_id):
 def recipe_detail(request, recipe_id):
     """View for displaying a single recipe's details"""
     recipe = get_object_or_404(Recipe, id=recipe_id)
+    # Split ingredients by comma or newline, and clean up brackets/quotes
+    import re
+    if recipe.ingredients:
+        raw = recipe.ingredients
+        # Remove brackets and quotes
+        raw = re.sub(r"[\[\]\'\"]", '', raw)
+        if '\n' in raw:
+            ingredients_list = [i.strip()
+                                for i in raw.split('\n') if i.strip()]
+        else:
+            ingredients_list = [i.strip() for i in raw.split(',') if i.strip()]
+    else:
+        ingredients_list = []
+
+    # Split instructions by newline or period
+    if recipe.instructions:
+        raw_instructions = recipe.instructions
+        # Remove brackets and quotes
+        raw_instructions = re.sub(r"[\[\]\'\"]", '', raw_instructions)
+        if '\n' in raw_instructions:
+            instructions_list = [
+                s.strip() for s in raw_instructions.split('\n') if s.strip()]
+        else:
+            instructions_list = [
+                s.strip() for s in raw_instructions.split('.') if s.strip()]
+    else:
+        instructions_list = []
+
     context = {
         'recipe': recipe,
-        'ingredients': recipe.ingredients if isinstance(recipe.ingredients, list) else [recipe.ingredients]
+        
+        'ingredients_list': ingredients_list,
+        'instructions_list': instructions_list,
     }
-
     return render(request, 'mealapp/recipe_detail.html', context)
 
 
