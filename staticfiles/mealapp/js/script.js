@@ -78,7 +78,7 @@ function createRecipeCard(recipe) {
     card.innerHTML = `
         ${recipe.image_url ? `
             <img src="${recipe.image_url}" alt="${recipe.title}" class="recipe-image" 
-                 onerror="this.onerror=null;this.src='/static/mealapp/images/default.jpg';" />
+                 onerror="this.onerror=null;this.src='/staticfiles/mealapp/images/default.jpg';" />
         ` : `
             <div class="recipe-image-placeholder">
                 <i class="fas fa-utensils fa-3x text-white"></i>
@@ -123,6 +123,10 @@ function createRecipeCard(recipe) {
                         <i class="fas fa-bacon text-info"></i>
                         <p class="mb-0">${recipe.fat || 0}g</p>
                     </div>
+                     <div class="col-4">
+                        <i class="fas fa-bacon text-info"></i>
+                        <p class="mb-0">${recipe.fiber || 0}g</p>
+                    </div>
                 </div>
             </div>
 
@@ -139,11 +143,13 @@ function createRecipeCard(recipe) {
             <small class="text-muted mb-3">
                 By <strong>${recipe.created_by || 'Unknown'}</strong>
             </small>
-
+            
             <!-- Action Button -->
+
             <a href="/recipes/${recipe.id}/" class="btn btn-primary w-100 mt-auto">
                 <i class="fas fa-eye"></i> View Recipe
             </a>
+            
         </div>
     `;
 
@@ -242,4 +248,116 @@ document.getElementById('createMealPlanForm').addEventListener('submit', functio
     if (date) {
         window.location.href = '/meal-plan/' + date + '/';
     }
+});
+
+// Recipe Creation form
+
+// Handle adding new ingredient rows
+document.addEventListener('DOMContentLoaded', function() {
+    let ingredientCount = parseInt(document.querySelector('input[name="form-TOTAL_FORMS"]').value) || 0;
+    
+    // Add ingredient row
+    document.getElementById('add-ingredient')?.addEventListener('click', function() {
+        const formset = document.getElementById('ingredient-forms');
+        const totalForms = document.querySelector('input[name="form-TOTAL_FORMS"]');
+        
+        // Clone last form
+        const lastForm = formset.querySelector('.ingredient-row:last-child');
+        const newForm = lastForm.cloneNode(true);
+        
+        // Update form field names/ids and clear values
+        newForm.querySelectorAll('[name]').forEach(field => {
+            const name = field.getAttribute('name');
+            const newName = name.replace(/form-\d+-/, `form-${ingredientCount}-`);
+            field.setAttribute('name', newName);
+            field.setAttribute('id', newName);
+            
+            // Clear input values and reset DELETE checkbox
+            if (field.tagName === 'INPUT' || field.tagName === 'TEXTAREA' || field.tagName === 'SELECT') {
+                field.value = '';
+            }
+        });
+        
+        // Update label 'for' attributes
+        newForm.querySelectorAll('label').forEach(label => {
+            const forAttr = label.getAttribute('for');
+            if (forAttr) {
+                const newFor = forAttr.replace(/form-\d+-/, `form-${ingredientCount}-`);
+                label.setAttribute('for', newFor);
+            }
+        });
+        
+        // Reset DELETE checkbox
+        const deleteCheckbox = newForm.querySelector('[name$="-DELETE"]');
+        if (deleteCheckbox) deleteCheckbox.checked = false;
+        
+        formset.appendChild(newForm);
+        totalForms.value = ++ingredientCount;
+        
+        attachRemoveListener(newForm);
+        setupQuantityField(newForm);  // Setup dynamic quantity for new row
+    });
+    
+    // Remove ingredient row (soft delete)
+    function attachRemoveListener(formElement) {
+        const removeBtn = formElement.querySelector('.remove-row');
+        if (removeBtn && !removeBtn.hasListener) {
+            removeBtn.hasListener = true;
+            removeBtn.addEventListener('click', function() {
+                const deleteCheckbox = formElement.querySelector('[name$="-DELETE"]');
+                if (deleteCheckbox) {
+                    deleteCheckbox.checked = true;
+                }
+                formElement.style.opacity = '0.5';
+                formElement.style.pointerEvents = 'none';
+            });
+        }
+    }
+    
+    // Dynamic quantity field (cups dropdown vs number input)
+    const cupQuantities = ['1/4', '1/3', '1/2', '2/3', '3/4', '1', '1 1/4', '1 1/2', '1 3/4', '2'];
+    
+    function setupQuantityField(rowElement) {
+        const unitSelect = rowElement.querySelector('[id$="-unit"]');
+        const quantityField = rowElement.querySelector('[id$="-quantity"]');
+        
+        if (!unitSelect || !quantityField) return;
+        
+        const updateQuantityField = () => {
+            const isCup = unitSelect.value === 'cup';
+            const currentValue = quantityField.value;
+            
+            if (isCup && quantityField.tagName !== 'SELECT') {
+                // Convert to dropdown
+                const select = document.createElement('select');
+                select.className = quantityField.className;
+                select.name = quantityField.name;
+                select.id = quantityField.id;
+                select.innerHTML = '<option value="">Select quantity</option>' + 
+                    cupQuantities.map(q => `<option value="${q}" ${q === currentValue ? 'selected' : ''}>${q}</option>`).join('');
+                quantityField.replaceWith(select);
+            } else if (!isCup && quantityField.tagName === 'SELECT') {
+                // Convert to number input
+                const input = document.createElement('input');
+                input.type = 'number';
+                input.className = quantityField.className;
+                input.name = quantityField.name;
+                input.id = quantityField.id;
+                input.step = '0.25';
+                input.min = '0';
+                input.value = currentValue || '';
+                quantityField.replaceWith(input);
+            }
+        };
+        
+        unitSelect.removeEventListener('change', updateQuantityField); // Prevent duplicates
+        unitSelect.addEventListener('change', updateQuantityField);
+        updateQuantityField(); // Initial setup
+    }
+    
+    // Initialize all existing rows
+    document.querySelectorAll('.ingredient-row').forEach((row, index) => {
+        attachRemoveListener(row);
+        setupQuantityField(row);
+    });
 });
