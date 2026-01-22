@@ -143,6 +143,7 @@ def dashboard(request):
         'total_calories': total_calories,
         'remaining_calories': remaining_calories,
         'user_recipes_count': user_recipes_count,
+        'today': date.today(),
     }
     return render(request, 'mealapp/dashboard.html', context)
 
@@ -229,7 +230,15 @@ def meal_plan_update(request, plan_id):
 def delete_meal_plan(request, plan_id):
     """Delete a specific meal plan"""
     meal_plan = get_object_or_404(MealPlan, id=plan_id, user=request.user)
-
+    # After fetching meal_plan
+    if meal_plan.breakfast_recipe and not Recipe.objects.filter(id=meal_plan.breakfast_recipe_id).exists():
+        meal_plan.breakfast_recipe = None
+    if meal_plan.lunch_recipe and not Recipe.objects.filter(id=meal_plan.lunch_recipe_id).exists():
+        meal_plan.lunch_recipe = None
+    if meal_plan.dinner_recipe and not Recipe.objects.filter(id=meal_plan.dinner_recipe_id).exists():
+        meal_plan.dinner_recipe = None
+    if meal_plan.snack_recipe and not Recipe.objects.filter(id=meal_plan.snack_recipe_id).exists():
+        meal_plan.snack_recipe = None
     if request.method == 'POST':
         meal_plan.delete()
         messages.success(request, 'Meal plan deleted successfully!')

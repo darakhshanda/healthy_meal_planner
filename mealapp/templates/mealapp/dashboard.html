@@ -87,127 +87,126 @@
                 <div class="card shadow-lg">
                     <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
                         <h5 class="mb-0">🍽️ Today's Meal Plan</h5>
-                           {% if meal_plan.day == today %}                        
+                            {% if meal_plan.day == today %}                        
                                 <a href="{% url 'meal_plan_update' meal_plan.id %}" class="btn btn-sm btn-light">
                                     ✏️ Edit Meal Plan
                                 </a>
-                        {% else %}
+                            {% else %}
                                 <a href="{% url 'meal_plan_create' %}" class="btn btn-sm btn-light">
                                     ➕ Create Today's Meal Plan
                                 </a> 
-                        {% endif %}
+                            {% endif %}
                         
                     </div>
                     <div class="card-body">
                         {% if meal_plan %}
-                        {% if meal_plan.day == today %}
-                        <div class="row">
-                            <!-- Breakfast -->
-                            <div class="col-md-6 col-lg-3 mb-4">
-                                <div class="meal-card">
-                                    <h6 class="text-muted mb-2">🌅 Breakfast</h6>
-                                    {% if meal_plan.breakfast_recipe %}
-                                        <div class="recipe-info">
-                                            <h5>{{ meal_plan.breakfast_recipe.title }}</h5>
-                                              <p class="text-muted small">
-                                            <i class="fas fa-fire"></i> {{ meal_plan.breakfast_recipe.total_calories }} kcal
-                                        </p>
-                                            <a href="{% url 'recipe_detail' meal_plan.breakfast_recipe.id %}"
-                                                class="btn btn-sm btn-outline-primary">
-                                                View Recipe
-                                            </a>
+                            {% if meal_plan.day == today %}
+                                <div class="row">
+                                    <!-- Breakfast -->
+                                    <div class="col-md-6 col-lg-3 mb-4">
+                                        <div class="meal-card">
+                                            <h6 class="text-muted mb-2">🌅 Breakfast</h6>
+                                            {% if meal_plan.breakfast_recipe %}
+                                                <div class="recipe-info">
+                                                    <h5>{{ meal_plan.breakfast_recipe.title }}</h5>
+                                                    <p class="text-muted small">
+                                                    <i class="fas fa-fire"></i> {{ meal_plan.breakfast_recipe.total_calories }} kcal
+                                                </p>
+                                                    <a href="{% url 'recipe_detail' meal_plan.breakfast_recipe.id %}"
+                                                        class="btn btn-sm btn-outline-primary">
+                                                        View Recipe
+                                                    </a>
+                                                </div>
+                                            {% else %}
+                                                <p class="text-muted">Not assigned</p>
+                                                <a id="meal-selector"
+                                                    href="{% url 'meal_plan_update' meal_plan.id %}"
+                                                    class="btn btn-sm btn-outline-secondary mt-2">
+                                                    Add Recipe
+                                                </a>
+                                            {% endif %}
                                         </div>
-                                    {% else %}
-                                        <p class="text-muted">Not assigned</p>
-                                        <a id="meal-selector"
-                                            href="{% url 'meal_plan_update' meal_plan.id %}"
-                                            class="btn btn-sm btn-outline-secondary mt-2">
-                                            Add Recipe
-                                        </a>
-                                    {% endif %}
-                                </div>
-                            </div>
-                            <!-- Lunch -->
-                            <div class="col-md-6 col-lg-3 mb-4">
-                                <div class="meal-card">
-                                    <h6 class="text-muted mb-2">🥗 Lunch</h6>
-                                    {% if meal_plan.lunch_recipe %}
-                                    <div class="recipe-info">
-                                        <h5>{{ meal_plan.lunch_recipe.title }}</h5>
-                                        <p class="text-muted small">
-                                            <i class="fas fa-fire"></i> {{ meal_plan.lunch_recipe.total_calories }} kcal
-                                        </p>
-                                        <a href="{% url 'recipe_detail' meal_plan.lunch_recipe.id %}"
-                                            class="btn btn-sm btn-outline-primary">
-                                            View Recipe
-                                        </a>
                                     </div>
-                                    {% else %}
-                                    <p class="text-muted">Not assigned</p>
-                                    <a id="meal-selector"
-                                            href="{% url 'meal_plan_update' meal_plan.id %}"
-                                            class="btn btn-sm btn-outline-secondary mt-2">
-                                            Add Recipe
-                                        </a>
-                                    {% endif %}
-                                </div>
-                            </div>
-
-                            <!-- Dinner -->
-                            <div class="col-md-6 col-lg-3 mb-4">
-                                <div class="meal-card">
-                                    <h6 class="text-muted mb-2">🍴 Dinner</h6>
-                                    {% if meal_plan.dinner_recipe %}
-                                    <div class="recipe-info">
-                                        <h5>{{ meal_plan.dinner_recipe.title }}</h5>
-                                        <p class="text-muted small">
-                                            <i class="fas fa-fire"></i> {{ meal_plan.dinner_recipe.total_calories }}
-                                            kcal
-                                        </p>
-                                        <a href="{% url 'recipe_detail' meal_plan.dinner_recipe.id %}"
-                                            class="btn btn-sm btn-outline-primary">
-                                            View Recipe
-                                        </a>
+                                    <!-- Lunch -->
+                                    <div class="col-md-6 col-lg-3 mb-4">
+                                        <div class="meal-card">
+                                            <h6 class="text-muted mb-2">🥗 Lunch</h6>
+                                            {% if meal_plan.lunch_recipe %}
+                                            <div class="recipe-info">
+                                                <h5>{{ meal_plan.lunch_recipe.title }}</h5>
+                                                <p class="text-muted small">
+                                                    <i class="fas fa-fire"></i> {{ meal_plan.lunch_recipe.total_calories }} kcal
+                                                </p>
+                                                <a href="{% url 'recipe_detail' meal_plan.lunch_recipe.id %}"
+                                                    class="btn btn-sm btn-outline-primary">
+                                                    View Recipe
+                                                </a>
+                                            </div>
+                                            {% else %}
+                                            <p class="text-muted">Not assigned</p>
+                                            <a id="meal-selector"
+                                                    href="{% url 'meal_plan_update' meal_plan.id %}"
+                                                    class="btn btn-sm btn-outline-secondary mt-2">
+                                                    Add Recipe
+                                                </a>
+                                            {% endif %}
+                                        </div>
                                     </div>
-                                    {% else %}
-                                    <p class="text-muted">Not assigned</p>
-                                    <a id="meal-selector"
-                                            href="{% url 'meal_plan_update' meal_plan.id %}"
-                                            class="btn btn-sm btn-outline-secondary mt-2">
-                                            Add Recipe
-                                        </a>
-                                    {% endif %}
-                                </div>
-                            </div>
-
-                            <!-- Snack -->
-                            <div class="col-md-6 col-lg-3 mb-4">
-                                <div class="meal-card">
-                                    <h6 class="text-muted mb-2">🍪 Snack</h6>
-                                    {% if meal_plan.snack_recipe %}
-                                    <div class="recipe-info">
-                                        <h5>{{ meal_plan.snack_recipe.title }}</h5>
-                                        <p class="text-muted small">
-
-                                            <i class="fas fa-fire"></i> {{ meal_plan.snack_recipe.total_calories }} kcal
-                                        </p>
-                                        <a href="{% url 'recipe_detail' meal_plan.snack_recipe.id %}"
-                                            class="btn btn-sm btn-outline-primary">
-                                            View Recipe
-                                        </a>
+                                    <!-- Dinner -->
+                                    <div class="col-md-6 col-lg-3 mb-4">
+                                        <div class="meal-card">
+                                            <h6 class="text-muted mb-2">🍴 Dinner</h6>
+                                            {% if meal_plan.dinner_recipe %}
+                                            <div class="recipe-info">
+                                                <h5>{{ meal_plan.dinner_recipe.title }}</h5>
+                                                <p class="text-muted small">
+                                                    <i class="fas fa-fire"></i> {{ meal_plan.dinner_recipe.total_calories }}
+                                                    kcal
+                                                </p>
+                                                <a href="{% url 'recipe_detail' meal_plan.dinner_recipe.id %}"
+                                                    class="btn btn-sm btn-outline-primary">
+                                                    View Recipe
+                                                </a>
+                                            </div>
+                                            {% else %}
+                                            <p class="text-muted">Not assigned</p>
+                                            <a id="meal-selector"
+                                                    href="{% url 'meal_plan_update' meal_plan.id %}"
+                                                    class="btn btn-sm btn-outline-secondary mt-2">
+                                                    Add Recipe
+                                                </a>
+                                            {% endif %}
+                                        </div>
                                     </div>
-                                    {% else %}
-                                    <p class="text-muted">Not assigned</p>
-                                    <a id="meal-selector"
-                                            href="{% url 'meal_plan_update' meal_plan.id %}"
-                                            class="btn btn-sm btn-outline-secondary mt-2">
-                                            Add Recipe
-                                        </a>
-                                    {% endif %}
+                                    <!-- Snack -->
+                                    <div class="col-md-6 col-lg-3 mb-4">
+                                        <div class="meal-card">
+                                            <h6 class="text-muted mb-2">🍪 Snack</h6>
+                                            {% if meal_plan.snack_recipe %}
+                                            <div class="recipe-info">
+                                                <h5>{{ meal_plan.snack_recipe.title }}</h5>
+                                                <p class="text-muted small">
+
+                                                    <i class="fas fa-fire"></i> {{ meal_plan.snack_recipe.total_calories }} kcal
+                                                </p>
+                                                <a href="{% url 'recipe_detail' meal_plan.snack_recipe.id %}"
+                                                    class="btn btn-sm btn-outline-primary">
+                                                    View Recipe
+                                                </a>
+                                            </div>
+                                            {% else %}
+                                            <p class="text-muted">Not assigned</p>
+                                            <a id="meal-selector"
+                                                    href="{% url 'meal_plan_update' meal_plan.id %}"
+                                                    class="btn btn-sm btn-outline-secondary mt-2">
+                                                    Add Recipe
+                                                </a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
                         {% else %}
+
                         <p class="text-muted">No meal plan for today.</p>
                         {% endif %}
                         {% endif %}
