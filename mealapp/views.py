@@ -46,9 +46,12 @@ def index(request):
                 'recipe_name': recipe.title,
                 'category': recipe.category,
                 'description': recipe.description,
-                'ingredients': recipe.ingredients if isinstance(recipe.ingredients, list) else [],
-                'instructions': recipe.instructions if isinstance(recipe.instructions, list) else [],
-                'image_url': recipe.image_url.url if hasattr(recipe.image_url, 'url') else str(recipe.image_url),
+                'ingredients': recipe.ingredients if isinstance(
+                    recipe.ingredients, list) else [],
+                'instructions': recipe.instructions if isinstance(
+                    recipe.instructions, list) else [],
+                'image_url': recipe.image_url.url if hasattr(
+                    recipe.image_url, 'url') else str(recipe.image_url),
                 'prep_time_minutes': recipe.prep_time_minutes,
                 'total_calories': recipe.total_calories,
                 'servings': recipe.servings,
@@ -79,10 +82,12 @@ def index(request):
 @login_required()
 def profile_setup(request):
     """User profile setup/edit view"""
-    profile, created = UserProfile.objects.get_or_create(user=request.user)
+    profile, created = UserProfile.objects.get_or_create(
+        user=request.user)
 
     if request.method == 'POST':
-        form = ProfileSetupForm(request.POST, request.FILES, instance=profile)
+        form = ProfileSetupForm(
+            request.POST, request.FILES, instance=profile)
         if form.is_valid():
             profile = form.save(commit=False)
             profile.user = request.user
@@ -99,9 +104,13 @@ def profile_setup(request):
 
             profile.save()
             messages.success(
-                request, f'✅ Profile saved! Your BMI is {profile.bmi} and daily calorie goal is {profile.daily_calorie_goal} kcal.')
+                request,
+                f'✅ Profile saved! Your BMI is {
+                    profile.bmi} and daily calorie goal is {
+                        profile.daily_calorie_goal} kcal.')
             messages.info(
-                request, 'You can now start creating meal plans and adding recipes.')
+                request,
+                'You can now start creating meal plans and adding recipes.')
             return redirect('dashboard')
         else:
             messages.error(request, '❌ Please correct the errors below.')
@@ -231,13 +240,17 @@ def delete_meal_plan(request, plan_id):
     """Delete a specific meal plan"""
     meal_plan = get_object_or_404(MealPlan, id=plan_id, user=request.user)
     # After fetching meal_plan
-    if meal_plan.breakfast_recipe and not Recipe.objects.filter(id=meal_plan.breakfast_recipe_id).exists():
+    if meal_plan.breakfast_recipe and not Recipe.objects.filter(
+            id=meal_plan.breakfast_recipe_id).exists():
         meal_plan.breakfast_recipe = None
-    if meal_plan.lunch_recipe and not Recipe.objects.filter(id=meal_plan.lunch_recipe_id).exists():
+    if meal_plan.lunch_recipe and not Recipe.objects.filter(
+            id=meal_plan.lunch_recipe_id).exists():
         meal_plan.lunch_recipe = None
-    if meal_plan.dinner_recipe and not Recipe.objects.filter(id=meal_plan.dinner_recipe_id).exists():
+    if meal_plan.dinner_recipe and not Recipe.objects.filter(
+            id=meal_plan.dinner_recipe_id).exists():
         meal_plan.dinner_recipe = None
-    if meal_plan.snack_recipe and not Recipe.objects.filter(id=meal_plan.snack_recipe_id).exists():
+    if meal_plan.snack_recipe and not Recipe.objects.filter(
+            id=meal_plan.snack_recipe_id).exists():
         meal_plan.snack_recipe = None
     if request.method == 'POST':
         meal_plan.delete()
@@ -337,9 +350,7 @@ class RecipeListView(LoginRequiredMixin, ListView):
 class RecipeCreateView(LoginRequiredMixin, CreateView):
     model = Recipe
     template_name = 'mealapp/recipe_create.html'
-
     form_class = RecipeForm
-
     success_url = reverse_lazy('recipe_list')
 
     def form_valid(self, form):
@@ -375,7 +386,8 @@ class RecipeDeleteView(LoginRequiredMixin, DeleteView):
     # Redirect to the user's recipe list after deletion
 
     def get_success_url(self):
-        return reverse_lazy('recipe_list_user', kwargs={'username': self.request.user.username})
+        return reverse_lazy('recipe_list_user',
+                            kwargs={'username': self.request.user.username})
 
     # Adds a success message upon deletion
     def delete(self, request, *args, **kwargs):

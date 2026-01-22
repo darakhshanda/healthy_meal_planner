@@ -20,12 +20,21 @@ class ProfileSetupForm(forms.ModelForm):
         fields = ['first_name', 'last_name', 'age',
                   'weight_kg', 'height_cm', 'gender', 'user_image']
         widgets = {
-            'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter your full name'}),
-            'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter your full name'}),
-            'age': forms.NumberInput(attrs={'class': 'form-control', 'min': 0, 'placeholder': 'Enter your age'}),
-            'weight_kg': forms.NumberInput(attrs={'class': 'form-control', 'min': 0, 'placeholder': 'Enter your weight (kg)'}),
-            'height_cm': forms.NumberInput(attrs={'class': 'form-control', 'min': 0, 'placeholder': 'Enter your height (cm)'}),
-
+            'first_name': forms.TextInput(
+                attrs={'class': 'form-control',
+                       'placeholder': 'Enter your full name'}),
+            'last_name': forms.TextInput(
+                attrs={'class': 'form-control',
+                       'placeholder': 'Enter your full name'}),
+            'age': forms.NumberInput(
+                attrs={'class': 'form-control', 'min': 0,
+                       'placeholder': 'Enter your age'}),
+            'weight_kg': forms.NumberInput(
+                attrs={'class': 'form-control', 'min': 0,
+                       'placeholder': 'Enter your weight (kg)'}),
+            'height_cm': forms.NumberInput(
+                attrs={'class': 'form-control', 'min': 0,
+                       'placeholder': 'Enter your height (cm)'}),
         }
 
         labels = {
@@ -178,7 +187,8 @@ class RecipeForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # Pre-populate ingredients_text and instructions_text for textarea fields
+        # Pre-populate ingredients_text
+        # and instructions_text for textarea fields
         if self.instance and self.instance.pk:
             # Ingredients
             ingredients = self.instance.ingredients
@@ -201,15 +211,17 @@ class RecipeForm(forms.ModelForm):
         model = Recipe
         fields = [
             'title', 'description', 'prep_time_minutes',
-            'cook_time_minutes', 'servings', 'image_url', 'category', 'total_calories', 'carbs', 'protein', 'fat', 'fiber',
+            'cook_time_minutes', 'servings', 'image_url',
+            'category', 'total_calories', 'carbs', 'protein',
+            'fat', 'fiber',
         ]
         excludes = ['created_by', 'created_at', 'updated_at']
         widgets = {
-            'description': forms.Textarea(attrs={'rows': 2, 'cols': 40, 'class': 'form-control'}),
-            'image_url': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'description': forms.Textarea(
+                attrs={'rows': 2, 'cols': 40, 'class': 'form-control'}),
+            'image_url': forms.ClearableFileInput(
+                attrs={'class': 'form-control'}),
         }
-
-    # __init__ removed: all ingredient/instruction processing is handled in clean/save
 
     # Validation for ingredients and instructions
     def clean(self):
@@ -227,7 +239,8 @@ class RecipeForm(forms.ModelForm):
 
         raw_instructions = self.data.get('instructions_text', '')
         instructions = [line.strip()
-                        for line in raw_instructions.split('\n') if line.strip()]
+                        for line in raw_instructions.split('\n')
+                        if line.strip()]
         cleaned_data['instructions'] = instructions
         return cleaned_data
 

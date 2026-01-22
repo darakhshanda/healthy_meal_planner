@@ -74,9 +74,9 @@ class UserProfile(models.Model):
             return None
 
         if self.gender == 'male':
-            bmr = 10 * self.weight_kg + 6.25 * self.height_cm - 5 * self.age + 5
+            bmr = 10*self.weight_kg+6.25*self.height_cm-5*self.age+5
         else:
-            bmr = 10 * self.weight_kg + 6.25 * self.height_cm - 5 * self. age - 161
+            bmr = 10*self.weight_kg+6.25*self.height_cm-5*self.age-161
 
         activity_factor = 1.2  # Sedentary
         self.daily_calorie_goal = round(bmr * activity_factor, 2)
@@ -122,7 +122,7 @@ class Recipe(models.Model):
     # )
     # Store ingredients as TextField for simplicity
     ingredients = models.TextField(
-        help_text='List of ingredients with quantity and unit. Format: 2 cups of rice, 1 tbsp olive oil, etc.')
+        help_text='e.g. 2 cups of rice, 1 tbsp olive oil, etc.')
     # Nutrition Info
     total_calories = models.FloatField()
     protein = models.FloatField()
@@ -173,13 +173,17 @@ class MealPlan(models.Model):
     day = models.DateField(help_text="Date for this meal plan")
     # One recipe for each category
     breakfast_recipe = models.ForeignKey(
-        'Recipe', on_delete=models.SET_NULL, null=True, blank=True,  related_name='meal_plan_breakfast')
+        'Recipe', on_delete=models.SET_NULL, null=True, blank=True,
+        related_name='meal_plan_breakfast')
     lunch_recipe = models.ForeignKey(
-        'Recipe', on_delete=models.SET_NULL, null=True, blank=True,  related_name='meal_plan_lunch')
+        'Recipe', on_delete=models.SET_NULL, null=True, blank=True,
+        related_name='meal_plan_lunch')
     dinner_recipe = models.ForeignKey(
-        'Recipe', on_delete=models.SET_NULL, null=True, blank=True,  related_name='meal_plan_dinner')
+        'Recipe', on_delete=models.SET_NULL, null=True, blank=True,
+        related_name='meal_plan_dinner')
     snack_recipe = models.ForeignKey(
-        'Recipe', on_delete=models.SET_NULL, null=True, blank=True,  related_name='meal_plan_snack')
+        'Recipe', on_delete=models.SET_NULL, null=True, blank=True,
+        related_name='meal_plan_snack')
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

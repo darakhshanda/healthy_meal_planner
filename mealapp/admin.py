@@ -50,7 +50,8 @@ class UserProfileAdmin(admin.ModelAdmin):
                     'weight_kg', 'bmi', 'daily_calorie_goal']
     list_filter = ['gender', 'created_at']
     search_fields = ['user__username', 'user__email']
-    readonly_fields = ['bmi', 'daily_calorie_goal', 'created_at', 'updated_at']
+    readonly_fields = [
+        'bmi', 'daily_calorie_goal', 'created_at', 'updated_at']
 
     fieldsets = (
         ('User', {
@@ -81,12 +82,16 @@ class RecipeAdmin(admin.ModelAdmin):
     readonly_fields = ['created_at', 'updated_at', 'created_by']
 
     fieldsets = (
-        ('Recipe Information', {
-            'fields': ('title', 'description', 'category', 'image_url', 'servings', 'total_calories')
-        }),
-        ('Cooking Details', {
-            'fields': ('prep_time_minutes', 'cook_time_minutes', 'ingredients', 'instructions')
-        }),
+        ('Recipe Information',
+         {'fields':
+          ('title', 'description', 'category',
+           'image_url', 'servings', 'total_calories')
+          }),
+        ('Cooking Details',
+         {'fields':
+          ('prep_time_minutes', 'cook_time_minutes',
+           'ingredients', 'instructions')
+          }),
         ('Nutrition Information', {
             'fields': ('protein', 'carbs', 'fat'),
             'classes': ('collapse',)
@@ -121,9 +126,10 @@ class MealPlanAdmin(admin.ModelAdmin):
         ('User & Date', {
             'fields': ('user', 'day')
         }),
-        ('Meal Assignments', {
-            'fields': ('breakfast_recipe', 'lunch_recipe', 'dinner_recipe', 'snack_recipe')
-        }),
+        ('Meal Assignments',
+         {'fields':
+          ('breakfast_recipe', 'lunch_recipe', 'dinner_recipe', 'snack_recipe')
+          }),
         ('Timestamps', {
             'fields': ('created_at', 'updated_at'),
             'classes': ('collapse',)

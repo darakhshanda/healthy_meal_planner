@@ -1,16 +1,12 @@
+import sys
+from django.contrib.auth.models import User
+
+from django.contrib.auth.models import User
 from django.test import TestCase
 
-# Create your tests here.
-from mealapp.models import Recipe
 
-# Update a single recipe
-recipe = Recipe.objects.first()
-recipe.image_url = 'https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1234567890/recipe.jpg'
-recipe.save()
-
-# Or update multiple recipes
-Recipe.objects.filter(title='Oatmeal').update(
-    image_url='https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1234567890/oatmeal.jpg'
-)
-
-exit()
+class UserCreationTest(TestCase):
+    def test_user_creation(self):
+        user = User.objects.create_user(
+            username='testuser', password='testpass')
+        self.assertTrue(User.objects.filter(username='testuser').exists())

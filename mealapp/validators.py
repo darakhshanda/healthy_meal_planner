@@ -40,6 +40,7 @@ class CustomPasswordValidator:
     def get_help_text(self):
         """Return help text for password requirements"""
         return _(
-            "Your password must contain at least 8 characters, including one uppercase "
+            "Your password must contain at least 8 characters,"
+            " including one uppercase "
             "letter, one number, and one special character."
         )

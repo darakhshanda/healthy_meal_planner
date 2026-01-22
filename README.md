@@ -6,6 +6,38 @@ A Django-based meal preparation platform with calorie tracking, BMI calculation,
 📂 **Repository:** [darakhshanda/healthy_meal_planner](https://github.com/darakhshanda/healthy_meal_planner)
 
 ---
+A responsive site layout enables easy navigation on all devices.
+
+## Desktop
+<p><img width="1787" alt="desktop" src="https://github.com/"></p>
+
+## Tablet
+<p><img width="600" alt="tablet" src="https://github.com/"></p>
+
+## Mobile
+<p><img width="400" alt="iphone" src="https://github.com/"></p>
+
+
+## UX Design
+
+### Typography
+
+[**Font Awesome**](https://fontawesome.com) icons were used for the site icons. For example, the social media icons in the footer of the pages.
+
+[**Lato**](https://fonts.google.com/specimen/Lato) was used for the primary headers and titles.
+
+
+
+
+### Colour Palette ###
+![screenshot](docs/images/swatch.png)
+
+A simple colour palette was chosen to compliment the vibrant images of the band, with a plain white page background, blue icons and a dark gray footer and individual blog page  header background. A simple red was chosen for the link hover to blog pages.
+
+
+
+### Home Page Wireframe Design
+<img width="1043" alt="Home" src="https://github.com/mbriscoe/broken-lines-blog/assets/86828720/fc1c7075-0936-462b-a62c-97e1c3dc9bf1" style="width:70%;">
 
 ## 📑 Table of Contents
 

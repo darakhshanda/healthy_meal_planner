@@ -21,7 +21,9 @@ def create_user_profile(sender, instance, created, **kwargs):
                 height_cm=170,  # Default height
                 weight_kg=70  # Default weight
             )
-            print(f"✅ Auto-created profile for user: {instance.username}")
+            print(
+                f"✅ Auto-created profile for user: {instance.username}"
+            )
 
 
 @receiver(post_save, sender=User)
