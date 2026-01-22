@@ -137,7 +137,7 @@
                                     <option value="">Select recipe</option>
                                     {% for recipe in recipes %}
                                     {% if recipe.category == 'breakfast' %}
-                                    <option value="{{ recipe.id }}" {% if meal_plan.breakfast_recipe.id == recipe.id %}selected{% endif %}>
+                                    <option value="{{ recipe.id }}" {% if meal_plan.breakfast_recipe.id == recipe.id %}  selected{% endif %}>
                                         {{ recipe.title }}
                                     </option>
                                     {% endif %}

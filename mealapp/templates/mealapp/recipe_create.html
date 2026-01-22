@@ -17,7 +17,7 @@
             </h2>
             <form method="POST" enctype="multipart/form-data" id="RecipeForm">
                 {% csrf_token %}
-                 {{ form.title.label_tag }} {{ form.title }}
+                s{{ form.title.label_tag }} {{ form.title }}
                 {{ form.description.label_tag }} {{ form.description }}
                 {{ form.image_url.label_tag }} {{ form.image_url }}
                 {{ form.servings.label_tag }} {{ form.servings }}
@@ -50,5 +50,4 @@
         </div>
     </div>
 </div>
-
 {% endblock %}
