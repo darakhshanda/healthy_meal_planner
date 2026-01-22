@@ -340,9 +340,12 @@ class RecipeCreateView(LoginRequiredMixin, CreateView):
 
 
 class RecipeUpdateView(LoginRequiredMixin, UpdateView):
+
     model = Recipe
     template_name = 'mealapp/recipe_create.html'
+
     form_class = RecipeForm
+
     success_url = reverse_lazy('recipe_list')
 
     def get_queryset(self):

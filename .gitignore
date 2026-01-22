@@ -9,3 +9,9 @@ __pycache__/
 *.log
 coverage/
 db.sqlite3
+/staticfiles/
+media/  
+*.sqlite3
+*.env
+*.pot
+*.mo

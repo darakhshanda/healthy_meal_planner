@@ -20,13 +20,6 @@ footer {
     margin-top: auto;
 }
 
-
-/* Gradient Backgrounds */
-.gradient-bg {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-}
-
 /* Navbar */
 .navbar {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -47,20 +40,6 @@ footer {
 
 .nav-link:hover {
     color: var(--primary) !important;
-}
-.main-container {
-    container: fluid;
-    padding: 2rem 1rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-}
-/* Meal Card */
-.meal-card {
-    background: var(--light);
-    border-radius: var(--border-radius);
-    padding: 15px;
-    border-left: 4px solid var(--primary);
-    height: 100%;
 }
 
 .recipe-info h5 {
@@ -91,15 +70,6 @@ footer {
 
 .recipe-card:hover .recipe-image {
     transform: scale(1.05);
-}
-
-.recipe-image-placeholder {
-    height: 250px;
-    width: 100%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 /* Nutrition Info */
@@ -134,35 +104,7 @@ footer {
 .stat-item:last-child {
     border-bottom: none;
 }
-
-.stat-item h6 {
-    color: #6b7280;
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.stat-item h3 {
-    color: var(--primary);
-    font-weight: 700;
-    margin-top: 0.5rem;
-}
-
-/* Nutrition Info */
-.nutrition-info {
-    background-color: var(--light);
-    border: 1px solid #e5e7eb;
-    border-radius: var(--border-radius);
-    padding: 1rem;
-}
-
-.nutrition-item {
-    padding: 1rem;
-    border-radius: var(--border-radius);
-    background: var(--light);
-    transition: var(--transition);
-}
-
+ 
 .nutrition-item:hover {
     background-color: white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
