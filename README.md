@@ -1,4 +1,4 @@
-# 🍽️ Healthy Meal Planner
+# 🥗 Healthy Meal Planner
 
 A Django-based meal preparation platform with calorie tracking, BMI calculation, and personalized recipe management. This can be a freesource for a comprehensive database to healthy recipies with customisation per user needs. Keeping track of your meals will be a easy job and once a recipe is store on profile, can be reused indefinitly on the account. User can change portion size to control calorie intake, change recipe ingredients and quantities to make better healthy choices. Profile will keep the trak of weight and BMI. Recipies are free to browse while to gain all benifits of the website user will have to sign up.
 
@@ -1454,7 +1454,7 @@ ALLOWED_HOSTS=yourdomain.com
 
 - [Django Documentation](https://docs.djangoproject.com/)
 - [Real Python Tutorials](https://realpython.com/)
-- Stack Overflow community
+- [The Meal DB](https://www.themealdb.com/) for recipies and images
 - MDN Web Docs for JavaScript
 
 ### **Resources**
@@ -1474,8 +1474,6 @@ ALLOWED_HOSTS=yourdomain.com
 
 ## 🙏 Acknowledgments
 
-- **Development Team:** darakhshanda, abdul
-- **Beta Testers:** Thanks to early users for valuable feedback
 - **Code Institute / Mentor:** For project guidance and support
 - **Django Community:** For excellent documentation and support
 
@@ -1483,7 +1481,7 @@ ALLOWED_HOSTS=yourdomain.com
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is for learnig purposes and woould appreciate suggestions and contributions.
 
 ---
 
