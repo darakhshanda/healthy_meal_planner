@@ -8,7 +8,8 @@
     <!-- Hero Section -->
     <div class="text-center mb-5">
         <h1 class="display-4 fw-bold mb-3">🥗 Healthy Meal Planner</h1>
-        <p class="lead text-muted mb-4">Plan, Track, and Enjoy Nutritious Meals Every Day</p>
+        <p class="lead text-muted mb-4">
+        Plan, Track, and Enjoy Nutritious Meals Every Day</p>
         {% if user.is_authenticated %}
         <a href="{% url 'dashboard' %}" class="btn btn-primary btn-lg">
             <i class="fas fa-chart-line"></i> Go to Dashboard
@@ -25,7 +26,9 @@
         <div class="col-md-8">
             <form method="get" action="{% url 'index' %}" class="d-flex gap-2">
                 <label for="search" class="d-none">Search</label>
-                <input type="text" label="Search Recipes" name="search" class="form-control form-control-lg" placeholder="Search recipes..." value="{{ search_term }}">
+                <input type="text" label="Search Recipes" 
+                name="search" class="form-control form-control-lg" 
+                placeholder="Search recipes..." value="{{ search_term }}">
                 <button type="submit" class="btn btn-primary btn-lg">
                     <i class="fas fa-search"></i> Search
                 </button>
@@ -39,11 +42,16 @@
 
         <!-- Category Tabs -->
         <div class="d-flex justify-content-center gap-2 mb-4 flex-wrap">
-            <a href="{% url 'index' %}" class="btn btn-outline-primary{% if not request.GET.category %} active{% endif %}">All Recipes</a>
-            <a href="{% url 'index' %}?category=breakfast" class="btn btn-outline-primary{% if request.GET.category == 'breakfast' %} active{% endif %}">🌅 Breakfast</a>
-            <a href="{% url 'index' %}?category=lunch" class="btn btn-outline-primary{% if request.GET.category == 'lunch' %} active{% endif %}">🥗 Lunch</a>
-            <a href="{% url 'index' %}?category=dinner" class="btn btn-outline-primary{% if request.GET.category == 'dinner' %} active{% endif %}">🍽️ Dinner</a>
-            <a href="{% url 'index' %}?category=snack" class="btn btn-outline-primary{% if request.GET.category == 'snack' %} active{% endif %}">🍿 Snack</a>
+            <a href="{% url 'index' %}" class="btn btn-outline-primary
+            {% if not request.GET.category %} active{% endif %}">All Recipes</a>
+            <a href="{% url 'index' %}?category=breakfast" class="btn btn-outline-primary
+            {% if request.GET.category == 'breakfast' %} active{% endif %}">🌅 Breakfast</a>
+            <a href="{% url 'index' %}?category=lunch" class="btn btn-outline-primary
+            {% if request.GET.category == 'lunch' %} active{% endif %}">🥗 Lunch</a>
+            <a href="{% url 'index' %}?category=dinner" class="btn btn-outline-primary
+            {% if request.GET.category == 'dinner' %} active{% endif %}">🍽️ Dinner</a>
+            <a href="{% url 'index' %}?category=snack" class="btn btn-outline-primary
+            {% if request.GET.category == 'snack' %} active{% endif %}">🍿 Snack</a>
         </div>
 
         <!-- Recipe Count -->
