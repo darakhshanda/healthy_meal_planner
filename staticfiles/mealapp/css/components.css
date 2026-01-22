@@ -73,7 +73,7 @@
 .form-control,
 .form-select,
 textarea {
-    border: 1px solid #e5e7eb;
+    border: 2px solid #e5e7eb;
     border-radius: 5px;
     padding: 0.625rem 0.875rem;
     font-size: 1rem;

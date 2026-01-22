@@ -147,7 +147,7 @@ class MealSelectionForm(forms.Form):
             self.fields['recipe'].queryset = Recipe.objects.filter(
                 category=meal_type
             )
-         # Filter recipes by user or show all public recipes
+        # Filter recipes by user or show all public recipes
         if User:
             # Show user's recipes + public recipes
             self.fields['breakfast'].queryset = Recipe.objects.filter(

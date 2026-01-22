@@ -8,9 +8,9 @@
     <aside class="user-profile">
         <div class="user-avatar">
            {% if user_profile.user_image %}
-              <img src="{{ user_profile.user_image.url }}" alt="{{ user.username }}" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; display: block;">
+              <img src="{{ user_profile.user_image.url }}" alt="{{ user.username }}" class="profile-image">
            {% else %}
-           <i class="fas fa-user-circle fa-5x text-secondary"></i>
+           <img src="{% static '/mealapp/images/nobody.jpg' %}" class="profile-image" alt="placeholder image" >
            {% endif %}
         </div>
     </aside>

@@ -24,8 +24,8 @@
     <div class="row justify-content-center mb-5">
         <div class="col-md-8">
             <form method="get" action="{% url 'index' %}" class="d-flex gap-2">
-                <input type="text" name="search" class="form-control form-control-lg" label="Search Recipes" placeholder="Search recipes..." value="{{ search_term }}">
-                
+                <label for="search" class="d-none">Search</label>
+                <input type="text" label="Search Recipes" name="search" class="form-control form-control-lg" placeholder="Search recipes..." value="{{ search_term }}">
                 <button type="submit" class="btn btn-primary btn-lg">
                     <i class="fas fa-search"></i> Search
                 </button>
