@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block title %}{% if user.profile %}Update Profile{% else %}Create Profile{% endif %}{% endblock %}
-
+{% load crispy_forms_tags %}
 {% block content %}
 <div class="container py-5">
     <div class="row justify-content-center">
