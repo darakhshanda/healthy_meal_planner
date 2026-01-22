@@ -13,9 +13,10 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from datetime import datetime, date
 from .models import MealPlan, Recipe, UserProfile
-from .forms import ProfileSetupForm, MealPlanForm, RecipeForm, IngredientInlineForm
+from .forms import ProfileSetupForm, MealPlanForm, RecipeForm
 from os import path
 import json
+import re
 # Home & Index
 
 
@@ -255,7 +256,7 @@ def recipe_detail(request, recipe_id):
     """View for displaying a single recipe's details"""
     recipe = get_object_or_404(Recipe, id=recipe_id)
     # Split ingredients by comma or newline, and clean up brackets/quotes
-    import re
+
     if recipe.ingredients:
         raw = recipe.ingredients
         # Remove brackets and quotes
@@ -284,7 +285,7 @@ def recipe_detail(request, recipe_id):
 
     context = {
         'recipe': recipe,
-        
+
         'ingredients_list': ingredients_list,
         'instructions_list': instructions_list,
     }
@@ -327,9 +328,9 @@ class RecipeListView(LoginRequiredMixin, ListView):
 class RecipeCreateView(LoginRequiredMixin, CreateView):
     model = Recipe
     template_name = 'mealapp/recipe_create.html'
-    fields = ['title', 'description', 'instructions', 'image_url',
-              'servings', 'prep_time_minutes', 'cook_time_minutes',
-              'ingredients', 'total_calories', 'protein', 'carbs', 'fat', 'fiber', 'category']
+
+    form_class = RecipeForm
+
     success_url = reverse_lazy('recipe_list')
 
     def form_valid(self, form):
@@ -338,93 +339,10 @@ class RecipeCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-@login_required
-def recipe_edit_view(request, recipe_id):
-    recipe = get_object_or_404(Recipe, id=recipe_id, created_by=request.user)
-
-    if request.method == 'POST':
-        initial_ingredients = recipe.ingredients if isinstance(
-            recipe.ingredients, list) else []
-        total_forms = request.POST.get('form-TOTAL_FORMS', 0)
-        for i in range(int(total_forms)):
-            if not request.POST.get(f'form-{i}-DELETE'):
-                initial_ingredients.append({
-                    'name': request.POST.get(f'form-{i}-name', ''),
-                    'quantity': request.POST.get(f'form-{i}-quantity', ''),
-                    'unit': request.POST.get(f'form-{i}-unit', ''),
-                })
-        form = RecipeForm(request.POST, instance=recipe,
-                          initial_ingredients=initial_ingredients)
-        if form.is_valid():
-            form.save(created_by=request.user)
-            messages.success(request, 'Recipe updated successfully!')
-            return redirect('recipe_detail', recipe_id=recipe.id)
-    else:
-        form = RecipeForm(
-            instance=recipe, initial_ingredients=recipe.ingredients or [])
-
-    return render(request, 'mealapp/recipe_create.html', {
-        'form': form,
-        'recipe': recipe,
-    })
-
-
-@login_required
-def recipe_delete(request, pk):
-    """Delete recipe"""
-    recipe = get_object_or_404(Recipe, pk=pk, created_by=request.user)
-    if request.method == 'POST':
-        recipe.delete()
-        messages.success(request, 'Recipe deleted successfully!')
-        return redirect('recipe_list')
-    return render(request, 'recipes/recipe_confirm_delete.html', {'recipe': recipe})
-
-
-@login_required
-def recipeCreateView(request):
-    if request.method == 'POST':
-        initial_ingredients = []
-        initial_instructions = []
-
-        # Parse ingredient formset data
-        ingredient_total_forms = request.POST.get(
-            'ingredient_forms-TOTAL_FORMS', 0)
-        for i in range(int(ingredient_total_forms)):
-            if not request.POST.get(f'ingredient_forms-{i}-DELETE'):
-                initial_ingredients.append({
-                    'name': request.POST.get(f'ingredient_forms-{i}-name', ''),
-                    'quantity': request.POST.get(f'ingredient_forms-{i}-quantity', ''),
-                    'unit': request.POST.get(f'ingredient_forms-{i}-unit', ''),
-                })
-
-        # Parse instruction formset data
-        instruction_total_forms = request.POST.get(
-            'instruction_forms-TOTAL_FORMS', 0)
-        for i in range(int(instruction_total_forms)):
-            if not request.POST.get(f'instruction_forms-{i}-DELETE'):
-                step = request.POST.get(
-                    f'instruction_forms-{i}-step', '').strip()
-                if step:
-                    initial_instructions.append(step)
-
-        form = RecipeForm(
-            request.POST, initial_ingredients=initial_ingredients, initial_instructions=initial_instructions)
-        if form.is_valid():
-            recipe = form.save(created_by=request.user)
-            messages.success(request, 'Recipe created successfully!')
-            return redirect('recipe_detail', recipe_id=recipe.id)
-    else:
-        form = RecipeForm()
-
-    return render(request, 'mealapp/recipe_create.html', {'form': form})
-
-
 class RecipeUpdateView(LoginRequiredMixin, UpdateView):
     model = Recipe
     template_name = 'mealapp/recipe_create.html'
-    fields = ['title', 'description', 'instructions', 'image_url',
-              'servings', 'prep_time_minutes', 'cook_time_minutes',
-              'ingredients', 'total_calories', 'protein', 'carbs', 'fat', 'fiber', 'category']
+    form_class = RecipeForm
     success_url = reverse_lazy('recipe_list')
 
     def get_queryset(self):

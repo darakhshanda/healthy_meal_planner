@@ -17,7 +17,26 @@
             </h2>
             <form method="POST" enctype="multipart/form-data" id="RecipeForm">
                 {% csrf_token %}
-                {{ form.as_p }}
+                 {{ form.title.label_tag }} {{ form.title }}
+                {{ form.description.label_tag }} {{ form.description }}
+                {{ form.image_url.label_tag }} {{ form.image_url }}
+                {{ form.servings.label_tag }} {{ form.servings }}
+                {{ form.prep_time_minutes.label_tag }} {{ form.prep_time_minutes }}
+                {{ form.cook_time_minutes.label_tag }} {{ form.cook_time_minutes }}
+                {{ form.total_calories.label_tag }} {{ form.total_calories }}
+                {{ form.protein.label_tag }} {{ form.protein }}
+                {{ form.carbs.label_tag }} {{ form.carbs }}
+                {{ form.fat.label_tag }} {{ form.fat }}
+                {{ form.fiber.label_tag }} {{ form.fiber }}
+                {{ form.category.label_tag }} {{ form.category }}
+                <div class="mb-3">
+                    <label for="id_ingredients_text" class="form-label"><strong>Ingredients</strong> (one per line or comma separated)</label>
+                    <textarea name="ingredients_text" id="id_ingredients_text" class="form-control" rows="5">{{ form.initial.ingredients_text|default_if_none:'' }}</textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="id_instructions_text" class="form-label"><strong>Instructions</strong> (one step per line)</label>
+                    <textarea name="instructions_text" id="id_instructions_text" class="form-control" rows="5">{{ form.initial.instructions_text|default_if_none:'' }}</textarea>
+                </div>
                 <div class="d-flex gap-2">
                     <button type="submit" class="btn {% if object %}btn-warning{% else %}btn-success{% endif %}">
                         {% if object %}Update Recipe{% else %}Create Recipe{% endif %}
