@@ -22,20 +22,87 @@ A responsive site layout for easy navigation on different devices.
 
 ![iphone](/mealapp/static/mealapp/images/mobile_home.jpeg)
 
+
 ## 📑 Table of Contents
 
 - [Summary](#-summary)
 - [Site Goals](#-site-goals)
+  - [Core Functionality](#core-functionality)
+  - [User Experience](#user-experience)
+  - [Scalability](#scalability)
+- [Overview](#overview)
 - [User Stories](#-user-stories)
 - [Technical Architecture](#-technical-architecture)
+  - [ERD (Entity Relation Diagram)](#erd-entity-relation-diagram)
+  - [Project Scope](#project-scope)
+  - [Tech Stack](#tech-stack)
+  - [Django Planner Project Structure](#django-planner-project-structure)
 - [Database Models](#️-database-models)
+  - [Regular User (default)](#regular-user-default)
+  - [Staff User (can access admin)](#staff-user-can-access-admin)
+  - [Superuser (full access)](#superuser-full-access)
+  - [User Profile Fields](#user-profile-fields)
+  - [Methods](#methods)
+  - [Recipe Model](#recipe-model)
+  - [Recipe Fields](#recipe-fields)
+  - [Pre Calculated Properties](#pre-calculated-properties)
+  - [Meal Plan Model](#meal-plan-model)
+  - [Meal Plan Fields](#meal-plan-fields)
 - [Design](#-design)
+  - [Color Palette](#color-palette)
+  - [Typography](#typography)
+  - [UI Elements](#ui-elements)
+    - [Buttons](#buttons)
+    - [Cards](#cards)
+    - [Forms](#forms)
+    - [Progress Bars](#progress-bars)
 - [Features](#-features)
+  - [User Registration & Authentication](#1-user-registration--authentication)
+  - [BMI & Calorie Goal Calculator](#2-bmi--calorie-goal-calculator)
+  - [Recipe Management (CRUD)](#3-recipe-management-crud)
+  - [Meal Plan & Calrie Tracking](#4-meal-plan--calrie-tracking)
+  - [Meal Planning Calendar](#5-meal-planning-calendar)
+  - [Responsive Design](#6-responsive-design)
+  - [Admin Panel](#7-admin-panel)
 - [Testing](#-testing)
+  - [Manual Testing Table](#manual-testing-table)
+    - [Authentication & Profiles](#authentication--profiles)
+    - [Recipe Management](#recipe-management)
+    - [Meal Plan & Calorie Tracking](#meal-plan--calorie-tracking)
+    - [Responsiveness](#responsiveness)
+  - [Automated Testing](#automated-testing)
+    - [Django Unit Tests](#django-unit-tests)
+    - [Code Quality](#code-quality)
+    - [Performance (Lighthouse)](#performance-lighthouse)
+  - [Known Bugs & Issues](#known-bugs--issues)
+    - [Fixed Issues](#fixed-issues)
+    - [Unfixed Issues](#unfixed-issues)
 - [Deployment](#-deployment)
+  - [Local Development Setup](#local-development-setup)
+  - [Production Deployment](#production-deployment)
+    - [Platform Options](#platform-options)
+    - [Production Checklist](#production-checklist)
 - [Technologies Used](#️-technologies-used)
+  - [Languages](#languages)
+  - [Frameworks & Libraries](#frameworks--libraries)
+    - [Backend](#backend)
+    - [Database](#database)
+    - [Frontend](#frontend)
+  - [Development Tools](#development-tools)
+  - [Hosting & Deployment](#hosting--deployment)
+- [Best Practices & Architecture Notes](#-best-practices--architecture-notes)
+  - [Django Signals](#django-signals)
+  - [Security](#security)
+  - [Database Optimization](#database-optimization)
+  - [Code Organization](#code-organization)
+  - [Future Enhancements](#future-enhancements)
 - [Credits](#-credits)
+  - [Code References](#code-references)
+  - [Resources](#resources)
+  - [Assets](#assets)
 - [Acknowledgments](#-acknowledgments)
+- [License](#-license)
+- [Contact](#-contact)
 
 ## 📖 Summary
 
@@ -458,13 +525,28 @@ Users can create accounts, login securely, and manage profiles.
 - Register new account![:](/mealapp/static/mealapp/images/signup.png)
 - Login
 ![Login](/mealapp/static/mealapp/images/login.png)
+
 - Logout
+
+
 ![Logout](/mealapp/static/mealapp/images/logout.png)
+
+
 - Profile creation on first login
+
+
 ![Profile creation on first login](/mealapp/static/mealapp/images/profile.png)
+
+
 - Redirection to Dashboard upon profile completion
+
+
 ![Redirection to Dashboard upon profile completion](/mealapp/static/mealapp/images/user_profile_completed.png)
+
+
 - Login notification and dashboard landing
+
+
 ![Login notification and dashboard landing](/mealapp/static/mealapp/images/signed%20in%20notification.png)
 
 
@@ -490,12 +572,22 @@ Automatically calculates personalized daily calorie targets.
 
 **Key Functionality:**
 
-- [Auto-calculate on profile save
+- Auto-calculate on profile save
+
 ![Auto-calculate on profile save](/mealapp/static/mealapp/images/BMI_BMR.png)
+
+
 - Update when weight/activity changes
+
+
 ![Update when weight/activity changes](/mealapp/static/mealapp/images/calories_mealplan.png)
+
+
 - Display in user dashboard
+
+
 ![Display in user dashboard](/mealapp/static/mealapp/images/recipe_user_dashboard_updated.png)
+
 
 ### 3. **Recipe Management (CRUD)**
 
@@ -511,22 +603,57 @@ Create, browse, edit, and delete custom recipes.
 **Key Functionality:**
 
 -Add recipes with multiple ingredients
+
+
  ![Add recipes with multiple ingredients](/mealapp/static/mealapp/images/recipies_grid_homepage.png)
+
+
 - Upload recipe photos
+
+
 ![Upload recipe photos](/mealapp/static/mealapp/images/recipe_card.png)
+
+
 - Create own recipe
+
+
 ![Create own recipe](/mealapp/static/mealapp/images/recipe_creation_form.png)
+
+
 - View/delete own recipes
+
+
 ![View/delete own recipes](/mealapp/static/mealapp/images/recipe_CRUD.png)
+
+
 -Edit/Update own recipe
+
+
  ![Edit/Update own recipe](/mealapp/static/mealapp/images/recipe_update.png)
+
+
+
 - Recipe update confirmation
+
+
 ![Recipe update confirmation](/mealapp/static/mealapp/images/recipe_user_dashboard_updated.png)
+
+
 - View all recipes list(user-filtered)
+
+
 ![View all recipes list(user-filtered)](/mealapp/static/mealapp/images/recipe_user_Confirmation_CRUD.png)
+
+
 - View all recipes list public
+
+
 ![View all recipes list public](/mealapp/static/mealapp/images/recipe_list.png)
+
+
 -Filter by category (Breakfast/Lunch/Dinner/Snack)
+
+
  ![Filter by category (Breakfast/Lunch/Dinner/Snack)](/mealapp/static/mealapp/images/recipies_lunch.png)
 
 
@@ -544,12 +671,26 @@ Log daily meals and monitor nutrition intake.
 **Key Functionality:**
 
 - Add recipes to daily meal plan
+
+
 ![Add recipes to daily meal plan](/mealapp/static/mealapp/images/recipe_mealplan_user.png)
+
+
 - View total calories consumed
+
+
 ![View total calories consumed](/mealapp/static/mealapp/images/mealplan_recipe_deleted.png)
+
+
 -Edit/remove logged meals
+
+
  ![Edit/remove logged meals](/mealapp/static/mealapp/images/recipe_mealplan_user.png)
+
+
 - Recive confirmations for CRUD operations
+
+
 ![Recive confirmations for CRUD operations](/mealapp/static/mealapp/images/mealplan_deletion.png)
 
 ### 5. **Meal Planning Calendar**
@@ -559,17 +700,37 @@ Plan meals in advance with visual calendar interface.
 **Implementation Details:**
 
 - Date-based meal organization
+
+
 ![Date-based meal organization](/mealapp/static/mealapp/images/mealplan_list.png)
+
+
 - Daily calorie summaries
+
+
 ![Daily calorie summaries](/mealapp/static/mealapp/images/calories_mealplan.png)
+
+
 - Week/month view options (future)
 
 **Key Functionality:**
 
-- ![Select date and add recipes](/mealapp/static/mealapp/images/plan_creation.png)
-- ![View weekly meal plan](/mealapp/static/mealapp/images/mealplan_user_list.png)
-- ![Deletion of a meal plan](/mealapp/static/mealapp/images/mealplan_recipe_deleted.png)
+- Select date and add recipes
+
+![Select date and add recipes](/mealapp/static/mealapp/images/plan_creation.png)
+
+
+- View weekly meal plan
+
+![View weekly meal plan](/mealapp/static/mealapp/images/mealplan_user_list.png)
+
+
+- Deletion of a meal plan
+
+![Deletion of a meal plan](/mealapp/static/mealapp/images/mealplan_recipe_deleted.png)
+
 - Export meal plan (future)
+
 
 
 
@@ -580,34 +741,77 @@ Mobile-first, accessible across all devices.
 **Implementation Details:**
 
 - CSS Grid and Flexbox layouts
+
+
 ![CSS Grid and Flexbox layouts](/mealapp/static/mealapp/images/mobile_home.jpeg)
+
+
 - Media queries for breakpoints
+
+
 ![Media queries for breakpoints](/mealapp/static/mealapp/images/mobile_mealplan_right.jpeg)
+
+
 - Touch-friendly buttons on mobile
+
+
 ![Touch-friendly buttons on mobile](/mealapp/static/mealapp/images/mobile_mealplan_single.jpeg)
 
 **Key Functionality:**
 
 -Works on desktop, tablet, mobile
+
+
  ![Works on desktop, tablet, mobile](/mealapp/static/mealapp/images/mobile_meal_selection.jpeg)
+
+
 - Optimized forms for mobile input
+
+
 ![Optimized forms for mobile input](/mealapp/static/mealapp/images/create_recipe_mobile.jpeg)
+
+
 -[Readable text at all screen sizes
+
+
  ![Readable text at all screen sizes](/mealapp/static/mealapp/images/create_recipe_mobile.jpeg)
+
+
 
 ### 7. **Admin Panel**
 
 - Admin can access database and filter by users/userprofile/mealplan
+
+
 ![Admin can access database and filter by users/userprofile/mealplan](/mealapp/static/mealapp/images/admin_home.png)
+
+
 - Admin can perfor CRUD on all models
+
+
 ![Admin can perfor CRUD on all models ](/mealapp/static/mealapp/images/admin_search_recipe.png)
+
+
 - View]
+
 ![View](/mealapp/static/mealapp/images/admin_recipe_db.png)
+
+
 -Edit
+
+
 ![Edit](/mealapp/static/mealapp/images/admin_edit_user_profile.png)
+
+
 -Delete
+
+
 ![Delete](/mealapp/static/mealapp/images/admin_delete_user.png)
+
+
 -Password change for users
+
+
 ![Password change for users](/mealapp/static/mealapp/images/admin_password_users.png)
 
 ## 🧪 Testing
@@ -675,24 +879,46 @@ tests/
 #### **Code Quality**
 
 - **PEP8 Compliance:**  All Python files
+
+
 ![All Python files](/mealapp/static/mealapp/images/CLI%20linter.png)
 
 - **HTML Validator (W3C):** All templates
+
+
  ![All templates](/mealapp/static/mealapp/images/html-checker-error.png)
 
 --Error due to fontawsom icons
+
+
  ![Error due to fontawsom icons](/mealapp/static/mealapp/images/html_checker_error2.png)
 
 - Debugged
+
+
 ![Debugged](/mealapp/static/mealapp/images/html_checker_debug.png)
+
+
 - **CSS Validator (Jigsaw):**All stylesheets
+
+
  ![All stylesheets](/mealapp/static/mealapp/images/W3C_CSS_validator.png)
+
+
 - W3C warnings due to Bootstrap use
+
+
 ![W3C warnings due to Bootstrap use](/mealapp/static/mealapp/images/W3C_validator_warnings.png)
+
+
 - **Accessibility (WAVE):** All public pages
+
+
 ![All public pages](/mealapp/static/mealapp/images/WAVE.png)
 
 #### **Performance (Lighthouse)**
+
+
 ![(Lighthouse)**](/mealapp/static/mealapp/images/lighthouse.png)
 
 - Performance: Target 96+
