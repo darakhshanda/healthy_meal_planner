@@ -12,29 +12,20 @@ A responsive site layout for easy navigation on different devices.
 
 ## Desktop view
 
-<p><img width="1787" alt="desktop" src="/mealapp/static/mealapp/images/desktop_home.png></p>
+![desktop](/mealapp/static/mealapp/images/desktop_home.png)
 
 ## Tablet view
 
-<p><img width="600" alt="tablet" src="/mealapp/static/mealapp/images/tablet.png"></p>
+![tablet](/mealapp/static/mealapp/images/tablet.png)
 
 ## Mobile view
 
-<p><img width="400" alt="iphone" src="/mealapp/static/mealapp/images/mobile_home.jpeg"></p>
-
+![iphone](/mealapp/static/mealapp/images/mobile_home.jpeg)
 
 ## 📑 Table of Contents
 
 - [Summary](#-summary)
 - [Site Goals](#-site-goals)
-- [User Management](#1-user-management)
-- [User Profile Management](#2-user-profile-management)
-- [Recipe Management](#3-recipe-management)
-- [Meal Planning](#4-meal-planning)
-- [Nutrition Tracking](#5-nutrition-tracking)
-- [Search & Discovery](#6-search--discovery)
-- [Data Models](#7-data-models)
-- [Authentication & Security](#8-authentication--security)
 - [User Stories](#-user-stories)
 - [Technical Architecture](#-technical-architecture)
 - [Database Models](#️-database-models)
@@ -45,8 +36,6 @@ A responsive site layout for easy navigation on different devices.
 - [Technologies Used](#️-technologies-used)
 - [Credits](#-credits)
 - [Acknowledgments](#-acknowledgments)
-
-
 
 ## 📖 Summary
 
@@ -105,569 +94,11 @@ This project solves:
 - Potential API integration for third-party apps
 - Multi-user household management
 
----
-# Project Functionalities
 ## Overview
+
 This document outlines all the functionalities and features available in the Healthy Meal Planner application, a Django-based web platform designed to help users manage their nutrition through calorie tracking, meal planning, and personalized recipe management.
 
-
-## 1. User Management
-
-### Registration
-- **Custom User Registration Form** (`CustomRegistrationForm`)
-- Features:
-  - Username validation (minimum 3 characters, unique)
-  - Email validation (unique, case-insensitive)
-  - Strong password validation
-  - Password confirmation requirement
-  - Bootstrap-styled form inputs
-  - Error handling and user feedback
-
-### Login & Authentication
-- Django Allauth integration for authentication
-- Login-required decorators on protected views
-- Session management
-- User authentication persistence
-
-### Profile Access
-- Each user has a unique profile
-- View and edit personal information
-- Account management through Django Allauth
-
----
-
-## 2. User Profile Management
-
-### Profile Setup
-**Endpoint:** `profile/`
-**View:** `profile_setup(request)`
-
-#### User Health Information Stored:
-- **Personal Details:**
-  - First Name
-  - Last Name
-  - Age
-  - Gender (Male, Female, Other)
-  - Profile Image (Cloudinary storage)
-
-- **Physical Measurements:**
-  - Height (in centimeters)
-  - Weight (in kilograms)
-
-#### Automatic Calculations:
-1. **BMI (Body Mass Index)**
-   - Formula: weight_kg / (height_m²)
-   - Automatically calculated and stored
-   - Updated whenever health data changes
-
-2. **Daily Calorie Goal**
-   - Formula: Mifflin-St Jeor Equation
-   - Adjusts based on:
-     - Gender
-     - Age
-     - Weight
-     - Height
-     - Activity Factor (Default: 1.2 - Sedentary)
-   - Calculated as: BMR × Activity Factor
-   - Auto-calculated on profile save
-
-#### Features:
-- One-to-one relationship with Django User model
-- Image upload via Cloudinary
-- Timestamp tracking (created_at, updated_at)
-- Automatic calculations before saving
-- Success messages confirming profile updates
-
----
-
-## 3. Recipe Management
-
-### Recipe Model
-**Database Table:** `recipe`
-
-#### Recipe Information:
-- **Basic Details:**
-  - Title (max 255 characters)
-  - Description
-  - Instructions
-  - Recipe Image (Cloudinary storage)
-
-- **Cooking Information:**
-  - Servings (default: 1)
-  - Prep Time (in minutes)
-  - Cook Time (in minutes)
-  - Total Time (calculated: prep_time + cook_time)
-
-- **Ingredients:**
-  - Stored as JSON format
-  - Supports detailed ingredient lists with quantities
-
-- **Nutritional Information (per serving):**
-  - Total Calories
-  - Protein (grams)
-  - Carbohydrates (grams)
-  - Fat (grams)
-  - Fiber (grams)
-
-- **Categorization:**
-  - Breakfast
-  - Lunch
-  - Dinner
-  - Snack
-
-- **Ownership & Timestamps:**
-  - Created by (User ForeignKey)
-  - Created at (auto-generated)
-  - Updated at (auto-tracked)
-
-### Recipe CRUD Operations
-
-#### Create Recipe
-**Endpoint:** `recipes/create/`
-**View:** `RecipeCreateView` (Class-based)
-- Authentication required
-- Upload recipe image
-- Enter ingredient list
-- Set nutritional values
-- Categorize recipe
-- Auto-timestamps creation
-
-#### Read/View Recipes
-**Multiple Views:**
-1. **Recipe List View** (`recipes/`)
-   - `RecipeListView` - Browse all recipes
-   - Paginated display (12 recipes per page)
-   - Search functionality
-
-2. **Recipe Detail View** (`recipes/<int:recipe_id>/`)
-   - Full recipe information
-   - Nutritional breakdown
-   - Ingredient list
-   - Instructions
-   - Creator information
-
-3. **User's Recipes** (`recipes/user/<username>/`)
-   - View all recipes created by specific user
-   - Filtered by username
-
-#### Update Recipe
-**Endpoint:** `recipes/<int:pk>/edit/`
-**View:** `RecipeUpdateView`
-- Edit recipe details
-- Update nutritional information
-- Modify ingredients
-- Change category
-- Update timestamps automatically
-
-#### Delete Recipe
-**Endpoint:** `recipes/<int:pk>/delete/`
-**View:** `RecipeDeleteView`
-- Permanent deletion
-- Login required
-
-### Recipe Display on Homepage
-**Endpoint:** `/` (index)
-**Features:**
-- All recipes displayed with search
-- Search by title and description
-- Pagination support
-- Recipe serialization to JSON
-- Responsive grid layout
-
----
-
-## 4. Meal Planning
-
-### Meal Plan Model
-**Database Table:** `meal_plan`
-
-#### Structure:
-- **User Association:**
-  - Foreign Key to User
-  - One meal plan per user per day (unique_together constraint)
-
-- **Daily Meal Slots:**
-  - Breakfast Recipe (nullable, Foreign Key to Recipe)
-  - Lunch Recipe (nullable, Foreign Key to Recipe)
-  - Dinner Recipe (nullable, Foreign Key to Recipe)
-  - Snack Recipe (nullable, Foreign Key to Recipe)
-
-- **Timestamps:**
-  - Created at
-  - Updated at
-
-#### Meal Plan Features:
-
-1. **Get Total Calories**
-   - Sums calories from all selected recipes
-   - Handles null recipes gracefully
-
-2. **Get All Recipes**
-   - Returns dictionary of all meal slots
-   - Structure: `{'breakfast': recipe, 'lunch': recipe, ...}`
-
-3. **Is Complete Check**
-   - Validates if all meal slots are filled
-
-4. **Meal Plan Summary**
-   - Returns structured summary:
-     ```
-     {
-       'breakfast': {'title': 'Recipe Title', 'calories': 350},
-       'lunch': {'title': 'Recipe Title', 'calories': 450},
-       'dinner': {'title': 'Recipe Title', 'calories': 600},
-       'snack': {'title': 'Recipe Title', 'calories': 150},
-       'total_calories': 1550
-     }
-     ```
-
-### Meal Plan CRUD Operations
-
-#### Create Meal Plan
-**Endpoint:** `meal-plan/create/`
-**View:** `create_meal_plan(request)`
-- Create meal plan for specific date
-- Optional: Pre-fill recipes
-- Auto-creates plan if doesn't exist
-
-#### View Meal Plans
-**Multiple Endpoints:**
-
-1. **Current Day Meal Plan** (`dashboard/`)
-   - Shows today's meal plan
-   - Displays selected recipes
-   - Shows total calories consumed
-   - Calculates remaining calories
-   - `meal_plan_current` view
-
-2. **All User Meal Plans** (`meal-plans/`)
-   - List of all meal plans
-   - Sorted by date (newest first)
-   - `meal_plan_list_view`
-
-3. **Specific Date Meal Plan** (`meal-plan/<date>/`)
-   - View meal plan for specific date
-   - `meal_plan_view` view
-
-#### Update Meal Plan
-**Endpoint:** `meal-plan/<int:plan_id>/update/`
-**View:** `meal_plan_update(request, plan_id)`
-- Modify recipe selections
-- Change any meal slot
-- Auto-updates timestamps
-
-#### Delete Meal Plan
-**Endpoint:** `meal-plan/<int:plan_id>/delete/`
-**View:** `delete_meal_plan(request, plan_id)`
-- Remove entire meal plan
-- Permanent deletion
-
-### Meal Plan Form
-**Form:** `MealPlanForm`
-- Select recipes for each meal
-- Dropdown selection from available recipes
-- Form validation
-
----
-
-## 5. Nutrition Tracking
-
-### Dashboard View
-**Endpoint:** `dashboard/`
-**View:** `dashboard(request)`
-
-#### Displays:
-1. **User Profile Summary**
-   - BMI Status
-   - Daily Calorie Goal
-
-2. **Today's Meal Plan**
-   - Current date's meal plan
-   - All meal slots and selections
-
-3. **Nutrition Summary**
-   - Total calories consumed today
-   - Remaining calories for the day
-   - Calculation: `remaining = daily_goal - total_consumed`
-
-4. **Progress Information**
-   - Count of user's created recipes
-   - Meal plan status
-
-### Nutrition Calculations:
-
-#### BMI Calculation
-```
-BMI = weight_kg / (height_m²)
-```
-- Performed on UserProfile.save()
-- Rounded to 2 decimal places
-
-#### Daily Calorie Goal (Mifflin-St Jeor Equation)
-```
-For Males:
-  BMR = 10×weight + 6.25×height - 5×age + 5
-  Daily Goal = BMR × Activity Factor
-
-For Females:
-  BMR = 10×weight + 6.25×height - 5×age - 161
-  Daily Goal = BMR × Activity Factor
-
-Activity Factor = 1.2 (Sedentary, default)
-```
-
-#### Meal-based Nutrition:
-- Each recipe stores macro breakdown:
-  - Protein (g)
-  - Carbohydrates (g)
-  - Fat (g)
-  - Fiber (g)
-- Total daily macros sum from selected recipes
-
----
-
-## 6. Search & Discovery
-
-### Homepage Search
-**Endpoint:** `/`
-**Features:**
-- Real-time search capability
-- Search fields:
-  - Recipe title (case-insensitive)
-  - Recipe description (case-insensitive)
-- Pagination (12 recipes per page)
-- Displays all matching recipes
-
-### Browse by Category
-- Recipes organized by:
-  - Breakfast
-  - Lunch
-  - Dinner
-  - Snack
-
-### Browse User Recipes
-**Endpoint:** `recipes/user/<username>/`
-- View all recipes created by specific user
-- Filter by username
-- User-specific recipe discovery
-
----
-
-## 7. Data Models
-
-### UserProfile
-```
-- user (OneToOneField to User)
-- first_name, last_name (CharField)
-- user_image (CloudinaryField)
-- age (IntegerField)
-- gender (CharField: male, female, other)
-- height_cm (FloatField)
-- weight_kg (FloatField)
-- daily_calorie_goal (FloatField)
-- bmi (FloatField)
-- created_at (DateTimeField)
-- updated_at (DateTimeField)
-
-Methods:
-- calculate_bmi()
-- calculate_daily_calorie_needs()
-- save() - auto-calculates on save
-```
-
-### Recipe
-```
-- title (CharField, max 255)
-- description (TextField)
-- instructions (TextField)
-- image_url (CloudinaryField)
-- servings (IntegerField)
-- prep_time_minutes (IntegerField)
-- cook_time_minutes (IntegerField)
-- ingredients (TextField)
-- total_calories (FloatField)
-- protein (FloatField)
-- carbs (FloatField)
-- fat (FloatField)
-- fiber (FloatField)
-- category (CharField: breakfast, lunch, dinner, snack)
-- created_by (ForeignKey to User)
-- created_at (DateTimeField)
-- updated_at (DateTimeField)
-
-Methods:
-- total_time() - returns prep + cook time
-```
-
-### MealPlan
-```
-- user (ForeignKey to User)
-- day (DateField)
-- breakfast_recipe (ForeignKey to Recipe, nullable)
-- lunch_recipe (ForeignKey to Recipe, nullable)
-- dinner_recipe (ForeignKey to Recipe, nullable)
-- snack_recipe (ForeignKey to Recipe, nullable)
-- created_at (DateTimeField)
-- updated_at (DateTimeField)
-
-Constraints:
-- unique_together: ['user', 'day']
-
-Methods:
-- get_total_calories() - sums all recipe calories
-- get_all_recipes() - returns dict of all meals
-- is_complete() - checks if all slots filled
-- meal_plan_summary() - returns structured summary
-```
-
----
-
-## 8. Authentication & Security
-
-### Security Features
-1. **Login Required Decorators**
-   - `@login_required()` on protected views
-   - Automatic redirect to login page
-
-2. **User Isolation**
-   - Each user only sees/edits their own data
-   - Filter by `request.user` in queries
-
-3. **Ownership Validation**
-   - Recipes linked to `created_by` user
-   - Meal plans linked to specific user
-   - Delete operations restricted to owners
-
-4. **Password Hashing**
-   - Django's built-in password hashing
-   - Custom password validation rules
-
-5. **Email Validation**
-   - Unique email enforcement
-   - Case-insensitive email checks
-   - Valid email format validation
-
-6. **CSRF Protection**
-   - Django CSRF token on forms
-   - Automatic token validation
-
-### Session Management
-- Django session framework
-- Login persistence
-- Secure logout
-
----
-
-## 📱 Available URLs/Routes
-
-### Public Routes
-- `/` - Homepage with recipe search
-- `/help/` - Help page
-
-### Authentication Routes (via Django Allauth)
-- `/accounts/signup/` - Registration
-- `/accounts/login/` - Login
-- `/accounts/logout/` - Logout
-- `/accounts/` - Account management
-
-### User Routes (Login Required)
-- `/profile/` - Profile setup/edit
-- `/dashboard/` - User dashboard
-
-
----
-
-## 🔧 Technologies & Dependencies
-
-### Backend
-- **Django 4.2.27** - Web framework
-- **Django Allauth 65.13.1** - Authentication
-- **Django Crispy Forms 2.5** - Form rendering
-- **Django Bootstrap v5 1.0.11** - Bootstrap integration
-
-### Database
-- **PostgreSQL** (via psycopg2) - Production database
-- **SQLite** - Development database
-
-### Cloud Storage
-- **Cloudinary 1.36.0** - Image storage and CDN
-- **dj3-cloudinary-storage 0.0.6** - Django Cloudinary integration
-
-### Frontend
-- **Bootstrap 5** - Responsive UI
-- **Django Summernote 0.8.20.0** - Rich text editor
-
-### Deployment
-- **Gunicorn 23.0.0** - WSGI application server
-- **WhiteNoise 6.11.0** - Static files serving
-- **dj-database-url 0.5.0** - Database URL parsing
-
-### Other
-- **python-decouple 3.8** - Environment variables
-- **Requests 2.32.5** - HTTP client
-- **OAuth 2.0** - Social authentication
-
----
-
-## 📊 Key Features Summary
-
-| Feature | Status | Details |
-|---------|--------|---------|
-| User Registration | ✅ Implemented | Custom form with validation |
-| Profile Management | ✅ Implemented | Health metrics, BMI, calorie calculation |
-| Recipe CRUD | ✅ Implemented | Full create, read, update, delete |
-| Meal Planning | ✅ Implemented | Daily meal slots, calorie tracking |
-| Nutrition Tracking | ✅ Implemented | Macro tracking, daily summaries |
-| Search & Filter | ✅ Implemented | By title, description, category |
-| User Authentication | ✅ Implemented | Django Allauth integration |
-| Image Upload | ✅ Implemented | Cloudinary integration |
-| Responsive Design | ✅ Implemented | Bootstrap 5 |
-
----
-
-## 🚀 Future Enhancement Opportunities
-
-Based on the current functionality, these features could be added:
-
-1. **Nutritional Analysis**
-   - Detailed macro breakdowns for full days
-   - Nutritional comparison to goals
-   - Charts and visualizations
-
-2. **Meal Prep Scheduling**
-   - Weekly meal prep planning
-   - Shopping lists from meal plans
-   - Bulk cooking recommendations
-
-3. **Social Features**
-   - Recipe sharing/downloading via pdf
-   - Community recipes
-   - User ratings and reviews
-
-4. **API Integration**
-   - Third-party nutrition databases
-   - Fitness app integration
-   - Mobile app support
-
-5. **Advanced Planning**
-   - Weekly meal plans
-   - Meal templates
-   - Dietary restriction filters
-   - Allergy management
-
-6. **Notifications & Reminders**
-   - Meal reminders
-   - Hydration reminders
-   - Weekly summary emails
-
-7. **Analytics**
-   - Consumption trends
-   - Health progress tracking
-   - Goal achievement statistics
-
-
 ## 👤 User Stories
-
 
 ### Persona 1: "Sarah – Health-Conscious Parent (Age 35)"
 
@@ -755,18 +186,25 @@ Based on the current functionality, these features could be added:
 - 🔹 As a privacy-conscious user, I want secure login so my health data stays private
 - 🔹 As a beginner cook, I want step-by-step instructions so recipes are easy to follow
 
----
 
-## [**Project Board**](/mealapp/static/mealapp/images/project_board_long.png)
 
--[List View](/mealapp/static/mealapp/images/project_board_listview.png)
+## **Project Board**
+
+![Project Board](/mealapp/static/mealapp/images/project_board_long.png)
+
+## **List View**
+
+-![List View](/mealapp/static/mealapp/images/project_board_listview.png)
 
 ## 🧱 Technical Architecture
 
-### [**ERD (Entity Relation Diagram)**](/mealapp/static/mealapp/images/HealthyMealPlanner.png)
+### **ERD (Entity Relation Diagram)**
 
-### [**Project Scope**](/mealapp/static/mealapp/images/mealplan.png)
+![ERD](/mealapp/static/mealapp/images/HealthyMealPlanner.png)
 
+### **Project Scope** 
+
+![Project scope](/mealapp/static/mealapp/images/mealplan.png)
 
 ### **Tech Stack**
 
@@ -782,13 +220,14 @@ Based on the current functionality, these features could be added:
 
 ### **Django Planner Project Structure**
 
-#### ** `mealplan`**
+#### **`mealplan`**
 
 **Handles:**
+
 - User registration, login, logout  
 - Profile creation & editing  
 - Storing user health metrics  
-- Calculating BMI & calorie goals 
+- Calculating BMI & calorie goals
 - Recipe CRUD operations  
 - Ingredient management  
 - Nutrition calculations  
@@ -803,11 +242,10 @@ Based on the current functionality, these features could be added:
 
 ## 🗄️ Database Models
 
-### 👤 **User Profile Model**
-
 ```python
 
-healthy_meal_planner/
+planner/
+│ 
 ├── mealapp/              # User authentication & main app
 │   ├── recipes/              # Recipe management
 │   ├── mealplans/            # Meal planning
@@ -904,33 +342,31 @@ Extends Django's built-in `User` via One-to-One relationship.
 
 ## 🎨 Design
 
-<details>
 
-<summary> 🧱 Wireframes</summary>
+##🧱 Wireframes
 
-[All devices](/mealapp/static/mealapp/images/wireframe_all_in_one.png)
+![All devices](/mealapp/static/mealapp/images/wireframe_all_in_one.png)
 
 ```ruby
  Homepage
 ```
 
-[Homepage](mealapp/static/mealapp/images/wireframe_home.png)
+![Homepage](mealapp/static/mealapp/images/wireframe_home.png)
 
 ```ruby
  Dashboard for user profile
 ```
 
-[Dashboard](mealapp/static//mealapp/images/wireframe_profile.png)
+![Dashboard](mealapp/static//mealapp/images/wireframe_profile.png)
 
 Help page
 
-[Help page](mealapp/static//mealapp/images/wireframe_help.png)
+![Help page](mealapp/static//mealapp/images/wireframe_help.png)
 
 Sign up page
 
-[Sign up page](mealapp/static/mealapp/images/wireframe_signup.png)
+![Sign up page](mealapp/static/mealapp/images/wireframe_signup.png)
 
-</details>
 ### Color Palette
 
 Designed for health, freshness, and clarity.
@@ -978,16 +414,30 @@ Designed for health, freshness, and clarity.
 
 #### Progress Bars
 
-[Visual calorie tracking (consumed/remaining)](/mealapp/static/mealapp/images/calories_mealplan.png)
--[Color-coded: green (under goal), orange (near limit), red (over limit)](/mealapp/static/mealapp/images/BMI_BMR.png)
+Visual calorie tracking (consumed/remaining)
+![vc](/mealapp/static/mealapp/images/calories_mealplan.png)
+
+Color-coded: green (under goal), orange (near limit), red (over limit)
+-![Color-coded: green (under goal), orange (near limit), red (over limit)](/mealapp/static/mealapp/images/BMI_BMR.png)
 
 **Planned Views:**
 
-- [**Dashboard:** Daily calorie summary, recent recipes, quick meal log](/mealapp/static/mealapp/images/dashboard_view.png)
-- [**Recipe List:** Grid/card layout with filters (category, calories)](/mealapp/static/mealapp/images/recipies_grid_homepage.png)
-- [**Recipe Detail:** Image, ingredients table, nutrition facts, instructions](/mealapp/static/mealapp/images/recipe_detail.png)
-- [**Meal Planner:** Calendar view with daily totals](/mealapp/static/mealapp/images/mealplan_user_list.png)
-- [**Profile:** User stats, BMI calculator, goal settings](/mealapp/static/mealapp/images/recipe_user_dashboard_updated.png)
+- **Dashboard:** Daily calorie summary, recent recipes, quick meal log
+
+![**Dashboard:** Daily calorie summary, recent recipes, quick meal log](/mealapp/static/mealapp/images/dashboard_view.png)
+
+- **Recipe List:** Grid/card layout with filters (category, calories)
+![**Recipe List:** Grid/card layout with filters (category, calories)](/mealapp/static/mealapp/images/recipies_grid_homepage.png)
+
+-**Recipe Detail:** Image, ingredients table, nutrition facts, instructions
+ ![**Recipe Detail:** Image, ingredients table, nutrition facts, instructions](/mealapp/static/mealapp/images/recipe_detail.png)
+
+-**Meal Planner:** Calendar view with daily totals
+ ![**Meal Planner:** Calendar view with daily totals](/mealapp/static/mealapp/images/mealplan_user_list.png)
+ 
+- **Profile:** User stats, BMI calculator, goal settings
+
+![**Profile:** User stats, BMI calculator, goal settings](/mealapp/static/mealapp/images/recipe_user_dashboard_updated.png)
 
 
 
@@ -1005,12 +455,17 @@ Users can create accounts, login securely, and manage profiles.
 
 **Key Functionality:**
 
-- [Register new account](/mealapp/static/mealapp/images/signup.png)
-- [Login](/mealapp/static/mealapp/images/login.png)
-- [Logout](/mealapp/static/mealapp/images/logout.png)
-- [Profile creation on first login](/mealapp/static/mealapp/images/profile.png)
-- [Redirection to Dashboard upon profile completion](/mealapp/static/mealapp/images/user_profile_completed.png)
-- [Login notification and dashboard landing](/mealapp/static/mealapp/images/signed%20in%20notification.png)
+- Register new account![:](/mealapp/static/mealapp/images/signup.png)
+- Login
+![Login](/mealapp/static/mealapp/images/login.png)
+- Logout
+![Logout](/mealapp/static/mealapp/images/logout.png)
+- Profile creation on first login
+![Profile creation on first login](/mealapp/static/mealapp/images/profile.png)
+- Redirection to Dashboard upon profile completion
+![Redirection to Dashboard upon profile completion](/mealapp/static/mealapp/images/user_profile_completed.png)
+- Login notification and dashboard landing
+![Login notification and dashboard landing](/mealapp/static/mealapp/images/signed%20in%20notification.png)
 
 
 
@@ -1035,11 +490,12 @@ Automatically calculates personalized daily calorie targets.
 
 **Key Functionality:**
 
-- [Auto-calculate on profile save](/mealapp/static/mealapp/images/BMI_BMR.png)
-- [Update when weight/activity changes](/mealapp/static/mealapp/images/calories_mealplan.png)
-- [Display in user dashboard](/mealapp/static/mealapp/images/recipe_user_dashboard_updated.png)
-
-
+- [Auto-calculate on profile save
+![Auto-calculate on profile save](/mealapp/static/mealapp/images/BMI_BMR.png)
+- Update when weight/activity changes
+![Update when weight/activity changes](/mealapp/static/mealapp/images/calories_mealplan.png)
+- Display in user dashboard
+![Display in user dashboard](/mealapp/static/mealapp/images/recipe_user_dashboard_updated.png)
 
 ### 3. **Recipe Management (CRUD)**
 
@@ -1054,15 +510,24 @@ Create, browse, edit, and delete custom recipes.
 
 **Key Functionality:**
 
-- [Add recipes with multiple ingredients](/mealapp/static/mealapp/images/recipies_grid_homepage.png)
-- [Upload recipe photos](/mealapp/static/mealapp/images/recipe_card.png)
-- [Create own recipe](/mealapp/static/mealapp/images/recipe_creation_form.png)
-- [View/delete own recipes](/mealapp/static/mealapp/images/recipe_CRUD.png)
-- [Edit/Update own recipe](/mealapp/static/mealapp/images/recipe_update.png)
-- [Recipe update confirmation](/mealapp/static/mealapp/images/recipe_user_dashboard_updated.png)
-- [View all recipes list(user-filtered)](/mealapp/static/mealapp/images/recipe_user_Confirmation_CRUD.png)
-- [View all recipes list public](/mealapp/static/mealapp/images/recipe_list.png)
-- [Filter by category (Breakfast/Lunch/Dinner/Snack)](/mealapp/static/mealapp/images/recipies_lunch.png)
+-Add recipes with multiple ingredients
+ ![Add recipes with multiple ingredients](/mealapp/static/mealapp/images/recipies_grid_homepage.png)
+- Upload recipe photos
+![Upload recipe photos](/mealapp/static/mealapp/images/recipe_card.png)
+- Create own recipe
+![Create own recipe](/mealapp/static/mealapp/images/recipe_creation_form.png)
+- View/delete own recipes
+![View/delete own recipes](/mealapp/static/mealapp/images/recipe_CRUD.png)
+-Edit/Update own recipe
+ ![Edit/Update own recipe](/mealapp/static/mealapp/images/recipe_update.png)
+- Recipe update confirmation
+![Recipe update confirmation](/mealapp/static/mealapp/images/recipe_user_dashboard_updated.png)
+- View all recipes list(user-filtered)
+![View all recipes list(user-filtered)](/mealapp/static/mealapp/images/recipe_user_Confirmation_CRUD.png)
+- View all recipes list public
+![View all recipes list public](/mealapp/static/mealapp/images/recipe_list.png)
+-Filter by category (Breakfast/Lunch/Dinner/Snack)
+ ![Filter by category (Breakfast/Lunch/Dinner/Snack)](/mealapp/static/mealapp/images/recipies_lunch.png)
 
 
 
@@ -1078,12 +543,14 @@ Log daily meals and monitor nutrition intake.
 
 **Key Functionality:**
 
-- [Add recipes to daily meal plan](/mealapp/static/mealapp/images/recipe_mealplan_user.png)
-- [View total calories consumed](/mealapp/static/mealapp/images/mealplan_recipe_deleted.png)
-- [Edit/remove logged meals](/mealapp/static/mealapp/images/recipe_mealplan_user.png)
-- [Recive confirmations for CRUD operations](/mealapp/static/mealapp/images/mealplan_deletion.png)
-
-
+- Add recipes to daily meal plan
+![Add recipes to daily meal plan](/mealapp/static/mealapp/images/recipe_mealplan_user.png)
+- View total calories consumed
+![View total calories consumed](/mealapp/static/mealapp/images/mealplan_recipe_deleted.png)
+-Edit/remove logged meals
+ ![Edit/remove logged meals](/mealapp/static/mealapp/images/recipe_mealplan_user.png)
+- Recive confirmations for CRUD operations
+![Recive confirmations for CRUD operations](/mealapp/static/mealapp/images/mealplan_deletion.png)
 
 ### 5. **Meal Planning Calendar**
 
@@ -1091,15 +558,17 @@ Plan meals in advance with visual calendar interface.
 
 **Implementation Details:**
 
-- [Date-based meal organization](/mealapp/static/mealapp/images/mealplan_list.png)
-- [Daily calorie summaries](/mealapp/static/mealapp/images/calories_mealplan.png)
+- Date-based meal organization
+![Date-based meal organization](/mealapp/static/mealapp/images/mealplan_list.png)
+- Daily calorie summaries
+![Daily calorie summaries](/mealapp/static/mealapp/images/calories_mealplan.png)
 - Week/month view options (future)
 
 **Key Functionality:**
 
-- [Select date and add recipes](/mealapp/static/mealapp/images/plan_creation.png)
-- [View weekly meal plan](/mealapp/static/mealapp/images/mealplan_user_list.png)
-- [Deletion of a meal plan](/mealapp/static/mealapp/images/mealplan_recipe_deleted.png)
+- ![Select date and add recipes](/mealapp/static/mealapp/images/plan_creation.png)
+- ![View weekly meal plan](/mealapp/static/mealapp/images/mealplan_user_list.png)
+- ![Deletion of a meal plan](/mealapp/static/mealapp/images/mealplan_recipe_deleted.png)
 - Export meal plan (future)
 
 
@@ -1110,29 +579,43 @@ Mobile-first, accessible across all devices.
 
 **Implementation Details:**
 
-- [CSS Grid and Flexbox layouts](/mealapp/static/mealapp/images/mobile_home.jpeg)
-- [Media queries for breakpoints](/mealapp/static/mealapp/images/mobile_mealplan_right.jpeg)
-- [Touch-friendly buttons on mobile](/mealapp/static/mealapp/images/mobile_mealplan_single.jpeg)
+- CSS Grid and Flexbox layouts
+![CSS Grid and Flexbox layouts](/mealapp/static/mealapp/images/mobile_home.jpeg)
+- Media queries for breakpoints
+![Media queries for breakpoints](/mealapp/static/mealapp/images/mobile_mealplan_right.jpeg)
+- Touch-friendly buttons on mobile
+![Touch-friendly buttons on mobile](/mealapp/static/mealapp/images/mobile_mealplan_single.jpeg)
 
 **Key Functionality:**
 
-- [Works on desktop, tablet, mobile](/mealapp/static/mealapp/images/mobile_meal_selection.jpeg)
-- [Optimized forms for mobile input](/mealapp/static/mealapp/images/create_recipe_mobile.jpeg)
-- [Readable text at all screen sizes](/mealapp/static/mealapp/images/create_recipe_mobile.jpeg)
+-Works on desktop, tablet, mobile
+ ![Works on desktop, tablet, mobile](/mealapp/static/mealapp/images/mobile_meal_selection.jpeg)
+- Optimized forms for mobile input
+![Optimized forms for mobile input](/mealapp/static/mealapp/images/create_recipe_mobile.jpeg)
+-[Readable text at all screen sizes
+ ![Readable text at all screen sizes](/mealapp/static/mealapp/images/create_recipe_mobile.jpeg)
 
 ### 7. **Admin Panel**
-- [Admin can access database and filter by users/userprofile/mealplan](/mealapp/static/mealapp/images/admin_home.png)
-- Admin can perfor CRUD on all models 
-- [View](/mealapp/static/mealapp/images/admin_recipe_db.png)
--[Edit](/mealapp/static/mealapp/images/admin_edit_user_profile.png)
--[Delete](/mealapp/static/mealapp/images/admin_delete_user.png)
--[Password change for users](/mealapp/static/mealapp/images/admin_password_users.png)
+
+- Admin can access database and filter by users/userprofile/mealplan
+![Admin can access database and filter by users/userprofile/mealplan](/mealapp/static/mealapp/images/admin_home.png)
+- Admin can perfor CRUD on all models
+![Admin can perfor CRUD on all models ](/mealapp/static/mealapp/images/admin_search_recipe.png)
+- View]
+![View](/mealapp/static/mealapp/images/admin_recipe_db.png)
+-Edit
+![Edit](/mealapp/static/mealapp/images/admin_edit_user_profile.png)
+-Delete
+![Delete](/mealapp/static/mealapp/images/admin_delete_user.png)
+-Password change for users
+![Password change for users](/mealapp/static/mealapp/images/admin_password_users.png)
 
 ## 🧪 Testing
 
 ### Manual Testing Table
 
 #### **Authentication & Profiles**
+
 | User Stories| Expected Results | Actual Results
 |--------------------------------|------------------|---------------|
 | User can register successfully |    Success       |   Success     |
@@ -1144,6 +627,7 @@ Mobile-first, accessible across all devices.
 | User can logout | Success | Success |
 
 #### **Recipe Management**
+
 | User Stories| Expected Results | Actual Results
 |--------------------------------|------------------|---------------|
 | User can create recipe with ingredients |    Success       |   Success     |
@@ -1155,6 +639,7 @@ Mobile-first, accessible across all devices.
 | Recipes display by category |    Success       |   Success     |
 
 #### **Meal Plan & Calorie Tracking**
+
 | User Stories| Expected Results | Actual Results
 |--------------------------------|------------------|---------------|
 | User can add recipe to meal plan |    Success       |   Success     |
@@ -1165,6 +650,7 @@ Mobile-first, accessible across all devices.
 | Meal plan persists across sessions |    Success       |   Success     |
 
 #### **Responsiveness**
+
 | User Stories| Expected Results | Actual Results
 |--------------------------------|------------------|---------------|
 | Layout works on mobile (375px) |    Success       |   Success     |
@@ -1188,15 +674,26 @@ tests/
 
 #### **Code Quality**
 
-- **PEP8 Compliance:** [All Python files](/mealapp/static/mealapp/images/CLI%20linter.png)
-- **HTML Validator (W3C):** [All templates](/mealapp/static/mealapp/images/html-checker-error.png)
--- [Error due to fontawsom icons](/mealapp/static/mealapp/images/html_checker_error2.png)
-- [Debugged](/mealapp/static/mealapp/images/html_checker_debug.png)
-- **CSS Validator (Jigsaw):** [All stylesheets](/mealapp/static/mealapp/images/W3C_CSS_validator.png)
-- [W3C warnings due to Bootstrap use](/mealapp/static/mealapp/images/W3C_validator_warnings.png)
-- **Accessibility (WAVE):** [All public pages](/mealapp/static/mealapp/images/WAVE.png)
+- **PEP8 Compliance:**  All Python files
+![All Python files](/mealapp/static/mealapp/images/CLI%20linter.png)
 
-#### **Performance [(Lighthouse)**](/mealapp/static/mealapp/images/lighthouse.png)
+- **HTML Validator (W3C):** All templates
+ ![All templates](/mealapp/static/mealapp/images/html-checker-error.png)
+
+--Error due to fontawsom icons
+ ![Error due to fontawsom icons](/mealapp/static/mealapp/images/html_checker_error2.png)
+
+- Debugged
+![Debugged](/mealapp/static/mealapp/images/html_checker_debug.png)
+- **CSS Validator (Jigsaw):**All stylesheets
+ ![All stylesheets](/mealapp/static/mealapp/images/W3C_CSS_validator.png)
+- W3C warnings due to Bootstrap use
+![W3C warnings due to Bootstrap use](/mealapp/static/mealapp/images/W3C_validator_warnings.png)
+- **Accessibility (WAVE):** All public pages
+![All public pages](/mealapp/static/mealapp/images/WAVE.png)
+
+#### **Performance (Lighthouse)**
+![(Lighthouse)**](/mealapp/static/mealapp/images/lighthouse.png)
 
 - Performance: Target 96+
 - Accessibility: Target 94+
@@ -1269,7 +766,8 @@ python manage.py runserver
 
 #### **Platform Options:**
 
--[Heroku](/mealapp/static/mealapp/images/deployment.png)
+-Heroku 
+![Heroku](/mealapp/static/mealapp/images/deployment.png)
 
 #### **Production Checklist:**
 
@@ -1405,14 +903,11 @@ Throughout the development of Healthy Meal Planner, AI tools were used to:
 
 -Copilot tests to run in shell handled edge cases (e.g., missing or invalid input data), improved coverage for custom model methods and signals and ensured compatibility with the chosen database backend
 
-For example, Copilot-generated tests for user creation were refined to check profile auto-creation and correct BMI calculation. 
-
+For example, Copilot-generated tests for user creation were refined to check profile auto-creation and correct BMI calculation.
 
 ## 📄 License
 
 This project is for learnig purposes and woould appreciate suggestions and contributions.
-
-
 
 ## 📞 Contact
 
@@ -1420,9 +915,4 @@ This project is for learnig purposes and woould appreciate suggestions and contr
 **Repository:** [github.com/darakhshanda/healthy_meal_planner](https://github.com/darakhshanda/healthy_meal_planner)  
 **Issues:** [Report a bug](https://github.com/darakhshanda/healthy_meal_planner/issues)
 
-
-
 **⭐ If you find this project helpful, please give it a star on GitHub!**
-
-
-
