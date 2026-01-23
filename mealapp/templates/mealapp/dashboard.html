@@ -33,9 +33,17 @@
                         <p><strong>BMI:</strong> {{ user_profile.bmi|default:"--" }}</p>
                         <p><strong>Total Daily Calories:</strong> {{ user_profile.daily_calorie_goal|default:"--" }}</p>
                         <p><strong>BMI Category:</strong>
-                            {% if user_profile.bmi < 18.5 %} Underweight {% elif user_profile.bmi >= 18.5 and
-                                user_profile.bmi < 25 %} Normal weight {% elif user_profile.bmi >= 25 and
-                                    user_profile.bmi < 30 %} Overweight {% elif user_profile.bmi >= 30 %} Obese {% endif %}</p>
+                        {% if user_profile.bmi %}
+                            {% if user_profile.bmi < 18.5 %} 
+                                <strong style="color:yellow;">Underweight</strong> 
+                                {% elif user_profile.bmi >= 18.5 and user_profile.bmi < 25 %} 
+                                <strong style="color:green;">Normal weight</strong> 
+                                 {% elif user_profile.bmi >= 25 and user_profile.bmi < 30 %} 
+                                <strong style="color:orange;">Overweight</strong> 
+                                    {% elif user_profile.bmi >= 30 %} 
+                                <strong style="color:red;">Obese</strong> 
+                                    {% endif %}</p>
+                            {% endif %}
                         {% else %}
                         <p class="text-muted">Profile not set up yet.</p>
                         {% endif %}
