@@ -2,20 +2,23 @@
 
 A Django-based meal preparation platform with calorie tracking, BMI calculation, and personalized recipe management. This can be a freesource for a comprehensive database to healthy recipies with customisation per user needs. Keeping track of your meals will be a easy job and once a recipe is store on profile, can be reused indefinitly on the account. User can change portion size to control calorie intake, change recipe ingredients and quantities to make better healthy choices. Profile will keep the trak of weight and BMI. Recipies are free to browse while to gain all benifits of the website user will have to sign up.
 
-🔗 **Live Link:** [Healthy Meal Planner](https://healthy-meal-planner-cc66090aa001.herokuapp.com/) 
+🔗 **Live Link:** [Healthy Meal Planner](https://healthy-meal-planner-cc66090aa001.herokuapp.com/)
 📂 **Repository:** [darakhshanda/healthy_meal_planner](https://github.com/darakhshanda/healthy_meal_planner)
+**Project Board:** [https://github.com/users/darakhshanda/projects/9/views/4]
 
----
-A responsive site layout enables easy navigation on all devices.
+A responsive site layout for easy navigation on different devices.
 
 ## Desktop
-<p><img width="1787" alt="desktop" src="https://github.com/"></p>
+
+<p><img width="1787" alt="desktop" src="/mealapp/static/mealapp/images/desktop_home.png></p>
 
 ## Tablet
-<p><img width="600" alt="tablet" src="https://github.com/"></p>
+
+<p><img width="600" alt="tablet" src="/mealapp/static/mealapp/images/tablet.png"></p>
 
 ## Mobile
-<p><img width="400" alt="iphone" src="https://github.com/"></p>
+
+<p><img width="400" alt="iphone" src="/mealapp/images/mobile_home.jpeg"></p>
 
 
 ## UX Design
@@ -26,9 +29,6 @@ A responsive site layout enables easy navigation on all devices.
 
 [**Lato**](https://fonts.google.com/specimen/Lato) was used for the primary headers and titles.
 
-
-
-
 ### Colour Palette ###
 ![screenshot](docs/images/swatch.png)
 
@@ -37,7 +37,7 @@ A simple colour palette was chosen to compliment the vibrant images of the band,
 
 
 ### Home Page Wireframe Design
-<img width="1043" alt="Home" src="https://github.com/mbriscoe/broken-lines-blog/assets/86828720/fc1c7075-0936-462b-a62c-97e1c3dc9bf1" style="width:70%;">
+<img width="1043" alt="Home" src="" style="width:70%;">
 
 ## 📑 Table of Contents
 
@@ -501,7 +501,7 @@ Methods:
 - servings (IntegerField)
 - prep_time_minutes (IntegerField)
 - cook_time_minutes (IntegerField)
-- ingredients (JSONField)
+- ingredients (TextField)
 - total_calories (FloatField)
 - protein (FloatField)
 - carbs (FloatField)
@@ -590,18 +590,7 @@ Methods:
 ### User Routes (Login Required)
 - `/profile/` - Profile setup/edit
 - `/dashboard/` - User dashboard
-- `/recipes/` - Recipe list
-- `/recipes/create/` - Create recipe
-- `/recipes/<id>/` - View recipe
-- `/recipes/<id>/edit/` - Edit recipe
-- `/recipes/<id>/delete/` - Delete recipe
-- `/recipes/user/<username>/` - User recipes
-- `/meal-plans/` - All meal plans
-- `/meal-plan/create/` - Create meal plan
-- `/meal-plan/<date>/` - View meal plan by date
-- `/meal-plan/<id>/` - View meal plan
-- `/meal-plan/<id>/update/` - Update meal plan
-- `/meal-plan/<id>/delete/` - Delete meal plan
+
 
 ---
 
@@ -1494,3 +1483,42 @@ This project is for learnig purposes and woould appreciate suggestions and contr
 ---
 
 **⭐ If you find this project helpful, please give it a star on GitHub!**
+
+---
+
+## 🤖 AI-Assisted Development: Key Reflections
+
+Throughout the development of Healthy Meal Planner, AI tools were leveraged to accelerate and enhance several aspects of the project. Notably, AI was used to:
+
+- Rapidly scaffold Django models, forms, and views, ensuring best practices and reducing boilerplate errors.
+- Generate and refine template logic for dynamic features such as BMI calculation, meal plan summaries, and responsive UI components.
+- Troubleshoot and resolve integration issues, especially around user authentication, signals, and form validation.
+- Suggest improvements for accessibility and mobile responsiveness, resulting in a more user-friendly experience across devices.
+- Automate the creation of test cases and documentation sections, improving project reliability and maintainability.
+
+
+## 🐞 AI in Bug Identification & Resolution
+
+AI played a pivotal role in identifying and resolving bugs throughout the project lifecycle. Key interventions included:
+
+- Detecting template syntax errors and suggesting precise fixes for HTML/CSS validation issues.
+- Diagnosing database compatibility problems (e.g., ArrayField with SQLite) and recommending alternative solutions.
+- Tracing logic errors in BMI/BMR calculations and improving category assignment logic.
+- Pinpointing integration issues in user authentication, signals, and form validation, with actionable debugging steps.
+- Highlighting accessibility and responsive design gaps, leading to targeted UI corrections.
+
+These AI-driven interventions accelerated troubleshooting, reduced downtime, and ensured a smoother development process, resulting in a more stable and user-friendly application.
+
+### 🧪 Copilot-Generated Unit Tests
+
+GitHub Copilot was instrumental in scaffolding initial Django unit tests for models, forms, and views. The generated tests provided a solid baseline for verifying core logic, such as BMI calculation, user creation, and form validation. Where needed, test cases were adjusted to:
+
+- Handle edge cases (e.g., missing or invalid input data)
+- Improve coverage for custom model methods and signals
+- Ensure compatibility with the chosen database backend
+
+For example, Copilot-generated tests for user creation were refined to check profile auto-creation and correct BMI calculation. This process deepened understanding of how test logic maps to application behavior, and highlighted the importance of adapting AI-generated code to project-specific requirements.
+
+The outcomes of using AI included faster prototyping, more consistent code quality, and the ability to focus on unique project features rather than repetitive tasks. AI support also enabled quick adaptation to feedback and streamlined the debugging process, ultimately contributing to a more robust and feature-rich application.
+
+---
