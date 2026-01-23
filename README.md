@@ -1,43 +1,27 @@
 # 🥗 Healthy Meal Planner
 
-A Django-based meal preparation platform with calorie tracking, BMI calculation, and personalized recipe management. This can be a freesource for a comprehensive database to healthy recipies with customisation per user needs. Keeping track of your meals will be a easy job and once a recipe is store on profile, can be reused indefinitly on the account. User can change portion size to control calorie intake, change recipe ingredients and quantities to make better healthy choices. Profile will keep the trak of weight and BMI. Recipies are free to browse while to gain all benifits of the website user will have to sign up.
+Is a meal preparation platform with calorie tracking, BMI calculation, and personalized recipe management. This can be a freesource for a comprehensive database to healthy recipies with customisation per user needs. Keeping track of your meals will be a easy job and once a recipe is store on profile, can be reused indefinitly on the account. User can change portion size to control calorie intake, change recipe ingredients and quantities to make better healthy choices. Profile will keep the trak of weight and BMI. Recipies are free to browse while to gain all benifits of the website user will have to sign up.
 
 🔗 **Live Link:** [Healthy Meal Planner](https://healthy-meal-planner-cc66090aa001.herokuapp.com/)
+
 📂 **Repository:** [darakhshanda/healthy_meal_planner](https://github.com/darakhshanda/healthy_meal_planner)
-**Project Board:** [https://github.com/users/darakhshanda/projects/9/views/4]
+
+ **Project Board:** [darakhshanda/projects](https://github.com/users/darakhshanda/projects/9/views/4)
 
 A responsive site layout for easy navigation on different devices.
 
-## Desktop
+## Desktop view
 
 <p><img width="1787" alt="desktop" src="/mealapp/static/mealapp/images/desktop_home.png></p>
 
-## Tablet
+## Tablet view
 
 <p><img width="600" alt="tablet" src="/mealapp/static/mealapp/images/tablet.png"></p>
 
-## Mobile
+## Mobile view
 
-<p><img width="400" alt="iphone" src="/mealapp/images/mobile_home.jpeg"></p>
+<p><img width="400" alt="iphone" src="/mealapp/static/mealapp/images/mobile_home.jpeg"></p>
 
-
-## UX Design
-
-### Typography
-
-[**Font Awesome**](https://fontawesome.com) icons were used for the site icons. For example, the social media icons in the footer of the pages.
-
-[**Lato**](https://fonts.google.com/specimen/Lato) was used for the primary headers and titles.
-
-### Colour Palette ###
-![screenshot](docs/images/swatch.png)
-
-A simple colour palette was chosen to compliment the vibrant images of the band, with a plain white page background, blue icons and a dark gray footer and individual blog page  header background. A simple red was chosen for the link hover to blog pages.
-
-
-
-### Home Page Wireframe Design
-<img width="1043" alt="Home" src="" style="width:70%;">
 
 ## 📑 Table of Contents
 
@@ -62,7 +46,7 @@ A simple colour palette was chosen to compliment the vibrant images of the band,
 - [Credits](#-credits)
 - [Acknowledgments](#-acknowledgments)
 
----
+
 
 ## 📖 Summary
 
@@ -91,11 +75,10 @@ This project solves:
 ### Unique Aspects
 
 - Automated BMI and calorie goal calculations
-- Ingredient-based nutrition tracking
+- Ingredient based nutrition tracking, when full scope achieved
 - Customizable recipe creation
 - Django-powered security and scalability
 
----
 
 ## 📌 Site Goals
 
@@ -657,7 +640,7 @@ Based on the current functionality, these features could be added:
    - Bulk cooking recommendations
 
 3. **Social Features**
-   - Recipe sharing between users
+   - Recipe sharing/downloading via pdf
    - Community recipes
    - User ratings and reviews
 
@@ -670,7 +653,7 @@ Based on the current functionality, these features could be added:
    - Weekly meal plans
    - Meal templates
    - Dietary restriction filters
-   - Allergen management
+   - Allergy management
 
 6. **Notifications & Reminders**
    - Meal reminders
@@ -682,9 +665,9 @@ Based on the current functionality, these features could be added:
    - Health progress tracking
    - Goal achievement statistics
 
----
 
 ## 👤 User Stories
+
 
 ### Persona 1: "Sarah – Health-Conscious Parent (Age 35)"
 
@@ -774,45 +757,43 @@ Based on the current functionality, these features could be added:
 
 ---
 
+## [**Project Board**](/mealapp/static/mealapp/images/project_board_long.png)
+
+-[List View](/mealapp/static/mealapp/images/project_board_listview.png)
+
 ## 🧱 Technical Architecture
+
+### [**ERD (Entity Relation Diagram)**](/mealapp/static/mealapp/images/HealthyMealPlanner.png)
+
+### [**Project Scope**](/mealapp/static/mealapp/images/mealplan.png)
+
 
 ### **Tech Stack**
 
-- **Backend:** Python 3.x, Django 5.0
+- **Backend:** Python 3.13, Django 5.0
 - **Frontend:** HTML5, CSS3, JavaScript  
 - **Database:**  
   - PostgreSQL (production)  
   - SQLite (development/testing)  
 - **Authentication:** Django built-in auth system (with custom user profile extension)
-- **Image Handling:** Pillow
+- **Image Handling:** Cloudinary
 
 ---
 
-### **Django Apps Structure**
+### **Django Planner Project Structure**
 
-#### **1. `users`**
+#### ** `mealplan`**
 
 **Handles:**
-
 - User registration, login, logout  
 - Profile creation & editing  
 - Storing user health metrics  
-- Calculating BMI & calorie goals  
-
-#### **2. `recipes`**
-
-**Handles:**
-
+- Calculating BMI & calorie goals 
 - Recipe CRUD operations  
 - Ingredient management  
 - Nutrition calculations  
 - Recipe categories  
 - Image uploads  
-
-#### **3. `calories`**
-
-**Handles:**
-
 - Daily calorie tracking  
 - Meal plan creation  
 - Consumed vs remaining calorie summaries  
@@ -865,7 +846,6 @@ Extends Django's built-in `User` via One-to-One relationship.
 | gender | CharField | M/F/Other |
 | height | FloatField | Height in cm |
 | weight | FloatField | Weight in kg |
-| activity_level | CharField | Sedentary, Light, Moderate, Active, Very Active |
 | daily_calorie_goal | IntegerField | Calculated using BMR + activity multiplier |
 | bmi | FloatField (property) | Calculated: weight / (height/100)² |
 
@@ -899,33 +879,7 @@ Extends Django's built-in `User` via One-to-One relationship.
 
 ---
 
-### 🧮 **Ingredient Model**
-
-#### **Ingredient Fields**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| name | CharField | Ingredient name |
-| calories_per_100g | FloatField | Calories per 100g |
-| protein_per_100g | FloatField | Protein per 100g |
-| carbs_per_100g | FloatField | Carbs per 100g |
-| fat_per_100g | FloatField | Fat per 100g |
-
----
-
-### ⚖️ **IngredientQuantity (Intermediate Model)**
-
-*Stores ingredient amounts per recipe with auto-calculated nutrition.*
-
-#### **Data Fields**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| recipe | ForeignKey(Recipe) | Associated recipe |
-| ingredient | ForeignKey(Ingredient) | Associated ingredient |
-| quantity_in_grams | FloatField | Amount used |
-
-#### **Auto-Calculated Properties**
+#### **Pre Calculated Properties**
 
 - `calories` = (quantity / 100) × calories_per_100g  
 - `protein` = (quantity / 100) × protein_per_100g  
@@ -950,6 +904,33 @@ Extends Django's built-in `User` via One-to-One relationship.
 
 ## 🎨 Design
 
+<details>
+
+<summary> 🧱 Wireframes</summary>
+
+[All devices](/mealapp/static/mealapp/images/wireframe_all_in_one.png)
+
+```ruby
+ Homepage
+```
+
+[Homepage](mealapp/static/mealapp/images/wireframe_home.png)
+
+```ruby
+ Dashboard for user profile
+```
+
+[Dashboard](mealapp/static//mealapp/images/wireframe_profile.png)
+
+Help page
+
+[Help page](mealapp/static//mealapp/images/wireframe_help.png)
+
+Sign up page
+
+[Sign up page](mealapp/static/mealapp/images/wireframe_signup.png)
+
+</details>
 ### Color Palette
 
 Designed for health, freshness, and clarity.
@@ -966,17 +947,11 @@ Designed for health, freshness, and clarity.
 
 ### Typography
 
-#### Primary Font: "Roboto"
+#### Primary Font: 'Segoe UI', Tahoma, Geneva, Verdana
 
 - Used for headings and navigation
 - Modern, clean, professional
 - Excellent web readability
-
-#### Secondary Font: "Open Sans"
-
-- Body text and descriptions
-- High legibility at small sizes
-- Friendly, approachable
 
 **Fallback:** Arial, sans-serif
 
@@ -1003,48 +978,18 @@ Designed for health, freshness, and clarity.
 
 #### Progress Bars
 
-- Visual calorie tracking (consumed/remaining)
-- Color-coded: green (under goal), orange (near limit), red (over limit)
-
----
-
-<details>
-
-<summary> 🧱 Wireframes</summary>
-
-[![All devices](mealapp/static/images/wireframe_all_in_one.png)](mealapp/static/images/wireframe_all_in_one.png)
-
-```ruby
- Homepage
-```
-
-[![Homepage](mealapp/static/images/wireframe_home.png)](mealapp/static/images/wireframe_home.png)
-
-```ruby
- Dashboard for user profile
-```
-
-[![Dashboard](mealapp/static/images/wireframe_profile.png)](mealapp/static/images/wireframe_profile.png)
-
-Help page
-
-[![Help page](mealapp/static/images/wireframe_help.png)](mealapp/static/images/wireframe_help.png)
-
-Sign up page
-
-[![Sign up page](mealapp/static/images/wireframe_signup.png)](mealapp/static/images/wireframe_signup.png)
-
-</details>
+[Visual calorie tracking (consumed/remaining)](/mealapp/static/mealapp/images/calories_mealplan.png)
+-[Color-coded: green (under goal), orange (near limit), red (over limit)](/mealapp/static/mealapp/images/BMI_BMR.png)
 
 **Planned Views:**
 
-- **Dashboard:** Daily calorie summary, recent recipes, quick meal log
-- **Recipe List:** Grid/card layout with filters (category, calories)
-- **Recipe Detail:** Image, ingredients table, nutrition facts, instructions
-- **Meal Planner:** Calendar view with daily totals
-- **Profile:** User stats, BMI calculator, goal settings
+- [**Dashboard:** Daily calorie summary, recent recipes, quick meal log](/mealapp/static/mealapp/images/dashboard_view.png)
+- [**Recipe List:** Grid/card layout with filters (category, calories)](/mealapp/static/mealapp/images/recipies_grid_homepage.png)
+- [**Recipe Detail:** Image, ingredients table, nutrition facts, instructions](/mealapp/static/mealapp/images/recipe_detail.png)
+- [**Meal Planner:** Calendar view with daily totals](/mealapp/static/mealapp/images/mealplan_user_list.png)
+- [**Profile:** User stats, BMI calculator, goal settings](/mealapp/static/mealapp/images/recipe_user_dashboard_updated.png)
 
----
+
 
 ## 🚀 Features
 
@@ -1060,12 +1005,14 @@ Users can create accounts, login securely, and manage profiles.
 
 **Key Functionality:**
 
-- Register new account
-- Login/Logout
-- Password reset via email
-- Profile creation on first login
+- [Register new account](/mealapp/static/mealapp/images/signup.png)
+- [Login](/mealapp/static/mealapp/images/login.png)
+- [Logout](/mealapp/static/mealapp/images/logout.png)
+- [Profile creation on first login](/mealapp/static/mealapp/images/profile.png)
+- [Redirection to Dashboard upon profile completion](/mealapp/static/mealapp/images/user_profile_completed.png)
+- [Login notification and dashboard landing](/mealapp/static/mealapp/images/signed%20in%20notification.png)
 
----
+
 
 ### 2. **BMI & Calorie Goal Calculator**
 
@@ -1077,20 +1024,22 @@ Automatically calculates personalized daily calorie targets.
 - Calorie goal using **Mifflin-St Jeor Equation:**
   - **BMR (Men):** 10 × weight + 6.25 × height − 5 × age + 5
   - **BMR (Women):** 10 × weight + 6.25 × height − 5 × age − 161
+
 - Activity multipliers:
-  - Sedentary: BMR × 1.2
+  - Sedentary: BMR × 1.2   (is taken into accoutn on this stage of project)
   - Light: BMR × 1.375
   - Moderate: BMR × 1.55
   - Active: BMR × 1.725
   - Very Active: BMR × 1.9
+  
 
 **Key Functionality:**
 
-- Auto-calculate on profile save
-- Update when weight/activity changes
-- Display in user dashboard
+- [Auto-calculate on profile save](/mealapp/static/mealapp/images/BMI_BMR.png)
+- [Update when weight/activity changes](/mealapp/static/mealapp/images/calories_mealplan.png)
+- [Display in user dashboard](/mealapp/static/mealapp/images/recipe_user_dashboard_updated.png)
 
----
+
 
 ### 3. **Recipe Management (CRUD)**
 
@@ -1099,39 +1048,25 @@ Create, browse, edit, and delete custom recipes.
 **Implementation Details:**
 
 - Django forms with validation
-- Image upload with Pillow
+- Image upload with Cloudinary
 - ManyToMany ingredient relationships
 - Auto-calculated nutrition totals
 
 **Key Functionality:**
 
-- Add recipes with multiple ingredients
-- Upload recipe photos
-- Edit/delete own recipes
-- View all recipes (public or user-filtered)
-- Filter by category (Breakfast/Lunch/Dinner/Snack)
+- [Add recipes with multiple ingredients](/mealapp/static/mealapp/images/recipies_grid_homepage.png)
+- [Upload recipe photos](/mealapp/static/mealapp/images/recipe_card.png)
+- [Create own recipe](/mealapp/static/mealapp/images/recipe_creation_form.png)
+- [View/delete own recipes](/mealapp/static/mealapp/images/recipe_CRUD.png)
+- [Edit/Update own recipe](/mealapp/static/mealapp/images/recipe_update.png)
+- [Recipe update confirmation](/mealapp/static/mealapp/images/recipe_user_dashboard_updated.png)
+- [View all recipes list(user-filtered)](/mealapp/static/mealapp/images/recipe_user_Confirmation_CRUD.png)
+- [View all recipes list public](/mealapp/static/mealapp/images/recipe_list.png)
+- [Filter by category (Breakfast/Lunch/Dinner/Snack)](/mealapp/static/mealapp/images/recipies_lunch.png)
 
----
 
-### 4. **Ingredient Database**
 
-Pre-populated ingredient list with nutritional values.
-
-**Implementation Details:**
-
-- Admin-managed ingredient library
-- Nutritional data per 100g standard
-- Extensible for user additions
-
-**Key Functionality:**
-
-- Search ingredients when creating recipes
-- View nutrition per ingredient
-- Add custom ingredients (future feature)
-
----
-
-### 5. **Calorie & Macro Tracking**
+### 4. **Meal Plan & Calrie Tracking**
 
 Log daily meals and monitor nutrition intake.
 
@@ -1143,91 +1078,101 @@ Log daily meals and monitor nutrition intake.
 
 **Key Functionality:**
 
-- Add recipes to daily meal plan
-- View total calories consumed
-- See macro breakdown (protein/carbs/fat)
-- Visual progress bars
-- Edit/remove logged meals
+- [Add recipes to daily meal plan](/mealapp/static/mealapp/images/recipe_mealplan_user.png)
+- [View total calories consumed](/mealapp/static/mealapp/images/mealplan_recipe_deleted.png)
+- [Edit/remove logged meals](/mealapp/static/mealapp/images/recipe_mealplan_user.png)
+- [Recive confirmations for CRUD operations](/mealapp/static/mealapp/images/mealplan_deletion.png)
 
----
 
-### 6. **Meal Planning Calendar**
+
+### 5. **Meal Planning Calendar**
 
 Plan meals in advance with visual calendar interface.
 
 **Implementation Details:**
 
-- Date-based meal organization
-- Daily calorie summaries
+- [Date-based meal organization](/mealapp/static/mealapp/images/mealplan_list.png)
+- [Daily calorie summaries](/mealapp/static/mealapp/images/calories_mealplan.png)
 - Week/month view options (future)
 
 **Key Functionality:**
 
-- Select date and add recipes
-- View weekly meal plan
-- Duplicate previous days' meals
+- [Select date and add recipes](/mealapp/static/mealapp/images/plan_creation.png)
+- [View weekly meal plan](/mealapp/static/mealapp/images/mealplan_user_list.png)
+- [Deletion of a meal plan](/mealapp/static/mealapp/images/mealplan_recipe_deleted.png)
 - Export meal plan (future)
 
----
 
-### 7. **Responsive Design**
+
+### 6. **Responsive Design**
 
 Mobile-first, accessible across all devices.
 
 **Implementation Details:**
 
-- CSS Grid and Flexbox layouts
-- Media queries for breakpoints
-- Touch-friendly buttons on mobile
+- [CSS Grid and Flexbox layouts](/mealapp/static/mealapp/images/mobile_home.jpeg)
+- [Media queries for breakpoints](/mealapp/static/mealapp/images/mobile_mealplan_right.jpeg)
+- [Touch-friendly buttons on mobile](/mealapp/static/mealapp/images/mobile_mealplan_single.jpeg)
 
 **Key Functionality:**
 
-- Works on desktop, tablet, mobile
-- Optimized forms for mobile input
-- Readable text at all screen sizes
+- [Works on desktop, tablet, mobile](/mealapp/static/mealapp/images/mobile_meal_selection.jpeg)
+- [Optimized forms for mobile input](/mealapp/static/mealapp/images/create_recipe_mobile.jpeg)
+- [Readable text at all screen sizes](/mealapp/static/mealapp/images/create_recipe_mobile.jpeg)
 
----
+### 7. **Admin Panel**
+- [Admin can access database and filter by users/userprofile/mealplan](/mealapp/static/mealapp/images/admin_home.png)
+- Admin can perfor CRUD on all models 
+- [View](/mealapp/static/mealapp/images/admin_recipe_db.png)
+-[Edit](/mealapp/static/mealapp/images/admin_edit_user_profile.png)
+-[Delete](/mealapp/static/mealapp/images/admin_delete_user.png)
+-[Password change for users](/mealapp/static/mealapp/images/admin_password_users.png)
 
 ## 🧪 Testing
 
-### Manual Testing Checklist
+### Manual Testing Table
 
 #### **Authentication & Profiles**
-
-- [x] User can register successfully
-- [x] User can login with correct credentials
-- [x] User receives error with wrong password
-- [x] Profile is auto-created on registration
-- [x] BMI calculates correctly
-- [x] Calorie goal updates when activity changes
-- [x] User can logout
+| User Stories| Expected Results | Actual Results
+|--------------------------------|------------------|---------------|
+| User can register successfully |    Success       |   Success     |
+| User can login with correct credentials | Success | Success |
+| User receives error with wrong password | Success | Success |
+| Profile is auto-directed on registration | Success | Success |
+| BMI calculates correctly | Success | Success |
+| Calorie goal updates when activity changes | Success | Success |
+| User can logout | Success | Success |
 
 #### **Recipe Management**
+| User Stories| Expected Results | Actual Results
+|--------------------------------|------------------|---------------|
+| User can create recipe with ingredients |    Success       |   Success     |
+| Recipe image uploads successfully |    Success       |   Success     |
+| Total calories auto-calculate |    Success       |   Success     |
+| Macros (protein/carbs/fat) sum correctly |    Success       |   Success     |
+| User can edit own recipes |    Success       |   Success     |
+| User can delete own recipes |    Success       |   Success     |
+| Recipes display by category |    Success       |   Success     |
 
-- [x] User can create recipe with ingredients
-- [x] Recipe image uploads successfully
-- [x] Total calories auto-calculate
-- [x] Macros (protein/carbs/fat) sum correctly
-- [x] User can edit own recipes
-- [x] User can delete own recipes
-- [x] Recipes display by category
-
-#### **Calorie Tracking**
-
-- [x] User can add recipe to meal plan
-- [x] Daily total calories calculate correctly
-- [x] Remaining calories display accurately
-- [x] User can remove meals from plan
-- [x] Meal plan persists across sessions
+#### **Meal Plan & Calorie Tracking**
+| User Stories| Expected Results | Actual Results
+|--------------------------------|------------------|---------------|
+| User can add recipe to meal plan |    Success       |   Success     |
+| Daily total calories calculate correctly |    Success       |   Success     |
+| Remaining calories display accurately |    Success       |   Success     |
+| Recipies can be added and removed from meal plan | |    Success       |   Success     |
+| User can remove mealplan from plan list |    Success       |   Success     |
+| Meal plan persists across sessions |    Success       |   Success     |
 
 #### **Responsiveness**
+| User Stories| Expected Results | Actual Results
+|--------------------------------|------------------|---------------|
+| Layout works on mobile (375px) |    Success       |   Success     |
+| Layout works on tablet (768px) |    Success       |   Success     |
+| Layout works on desktop (1920px) |    Success       |   Success     |
+| Forms are usable on touchscreens |    Success       |   Success     |
 
-- [x] Layout works on mobile (375px)
-- [x] Layout works on tablet (768px)
-- [x] Layout works on desktop (1920px)
-- [x] Forms are usable on touchscreens
 
----
 
 ### Automated Testing
 
@@ -1238,28 +1183,25 @@ Mobile-first, accessible across all devices.
 tests/
 ├── test_models.py    # BMI calculation, nutrition totals
 ├── test_views.py     # HTTP responses, authentication
-├── test_forms.py     # Form validation
+
 ```
-
-**Coverage Goals:**
-
-- Models: 90%+
-- Views: 80%+
-- Forms: 85%+
 
 #### **Code Quality**
 
-- **PEP8 Compliance:** All Python files
-- **HTML Validator (W3C):** All templates
-- **CSS Validator (Jigsaw):** All stylesheets
-- **Accessibility (WAVE):** All public pages
+- **PEP8 Compliance:** [All Python files](/mealapp/static/mealapp/images/CLI%20linter.png)
+- **HTML Validator (W3C):** [All templates](/mealapp/static/mealapp/images/html-checker-error.png)
+-- [Error due to fontawsom icons](/mealapp/static/mealapp/images/html_checker_error2.png)
+- [Debugged](/mealapp/static/mealapp/images/html_checker_debug.png)
+- **CSS Validator (Jigsaw):** [All stylesheets](/mealapp/static/mealapp/images/W3C_CSS_validator.png)
+- [W3C warnings due to Bootstrap use](/mealapp/static/mealapp/images/W3C_validator_warnings.png)
+- **Accessibility (WAVE):** [All public pages](/mealapp/static/mealapp/images/WAVE.png)
 
-#### **Performance (Lighthouse)**
+#### **Performance [(Lighthouse)**](/mealapp/static/mealapp/images/lighthouse.png)
 
-- Performance: Target 90+
-- Accessibility: Target 95+
-- Best Practices: Target 90+
-- SEO: Target 95+
+- Performance: Target 96+
+- Accessibility: Target 94+
+- Best Practices: Target 77+
+- SEO: Target 91+
 
 ### Known Bugs & Issues
 
@@ -1327,39 +1269,26 @@ python manage.py runserver
 
 #### **Platform Options:**
 
-- Heroku
-- Railway
-- PythonAnywhere
-- DigitalOcean
+-[Heroku](/mealapp/static/mealapp/images/deployment.png)
 
 #### **Production Checklist:**
 
-- [ ] Set `DEBUG = False`
-- [ ] Configure `ALLOWED_HOSTS`
-- [ ] Use PostgreSQL database
-- [ ] Set up static file serving (WhiteNoise/AWS S3)
-- [ ] Configure media file storage
-- [ ] Set secure `SECRET_KEY`
-- [ ] Enable HTTPS
-- [ ] Set up environment variables
-- [ ] Configure email backend (for password reset)
+- [x] Set `DEBUG = False`
+- [x] Configure `ALLOWED_HOSTS`
+- [x] Use PostgreSQL database
+- [x] Set up static file serving (WhiteNoise)
+- [x] Configure media file storage
+- [x] Set secure `SECRET_KEY`
+- [x] Enable HTTPS
+- [x] Set up environment variables
+- [x] Configure email backend (for password reset)
 
-#### **Environment Variables:**
-
-```bash
-SECRET_KEY=<random-50-char-string>
-DEBUG=False
-DATABASE_URL=<postgresql-connection-string>
-ALLOWED_HOSTS=yourdomain.com
-```
-
----
 
 ## 🛠️ Technologies Used
 
 ### **Languages**
 
-- **Python 3.11** – Backend logic
+- **Python 3.13** – Backend logic
 - **HTML5** – Structure
 - **CSS3** – Styling
 - **JavaScript** – Interactive elements
@@ -1370,7 +1299,6 @@ ALLOWED_HOSTS=yourdomain.com
 
 - **Django 5.0** – Web framework
 - **Django Crispy Forms** – Form rendering
-- **Pillow** – Image processing
 - **psycopg2** – PostgreSQL adapter
 
 #### **Database**
@@ -1389,7 +1317,6 @@ ALLOWED_HOSTS=yourdomain.com
 - **Git / GitHub** – Version control
 - **VS Code** – IDE
 - **Django Debug Toolbar** – Development debugging
-- **Postman** – API testing (if REST API added)
 
 ### **Hosting & Deployment**
 
@@ -1397,7 +1324,7 @@ ALLOWED_HOSTS=yourdomain.com
 - **WhiteNoise** – Static file serving
 - **Cloudinary / AWS S3** – Media file storage (optional)
 
----
+
 
 ## 🧠 Best Practices & Architecture Notes
 
@@ -1435,7 +1362,6 @@ ALLOWED_HOSTS=yourdomain.com
 - Integration with fitness trackers (Fitbit, Apple Health)
 - Multi-language support (i18n)
 
----
 
 ## 📚 Credits
 
@@ -1459,20 +1385,34 @@ ALLOWED_HOSTS=yourdomain.com
 - **Fonts:** Google Fonts (Roboto, Open Sans)
 - **Stock Images:** Unsplash, Pexels
 
----
+
 
 ## 🙏 Acknowledgments
 
 - **Code Institute / Mentor:** For project guidance and support
 - **Django Community:** For excellent documentation and support
+- **AI-Assisted Development:** Key Reflections
 
----
+Throughout the development of Healthy Meal Planner, AI tools were used to:
+
+- Suggested to refine template logic for dynamic features such as BMI calculation, meal plan summaries, and responsive UI components.
+- Troubleshoot and resolve integration issues, especially around user authentication, signals, and form validation.
+- Suggest improvements for accessibility and mobile responsiveness, resulting in a more user-friendly experience across devices.
+
+- Helped Detecting template syntax errors and suggesting multiple fixes for HTML/CSS validation issues.
+
+-These AI-driven interventions accelerated troubleshooting, reduced downtime, and ensured a smoother development process, resulting in a more stable application.
+
+-Copilot tests to run in shell handled edge cases (e.g., missing or invalid input data), improved coverage for custom model methods and signals and ensured compatibility with the chosen database backend
+
+For example, Copilot-generated tests for user creation were refined to check profile auto-creation and correct BMI calculation. 
+
 
 ## 📄 License
 
 This project is for learnig purposes and woould appreciate suggestions and contributions.
 
----
+
 
 ## 📞 Contact
 
@@ -1480,45 +1420,9 @@ This project is for learnig purposes and woould appreciate suggestions and contr
 **Repository:** [github.com/darakhshanda/healthy_meal_planner](https://github.com/darakhshanda/healthy_meal_planner)  
 **Issues:** [Report a bug](https://github.com/darakhshanda/healthy_meal_planner/issues)
 
----
+
 
 **⭐ If you find this project helpful, please give it a star on GitHub!**
 
----
-
-## 🤖 AI-Assisted Development: Key Reflections
-
-Throughout the development of Healthy Meal Planner, AI tools were leveraged to accelerate and enhance several aspects of the project. Notably, AI was used to:
-
-- Rapidly scaffold Django models, forms, and views, ensuring best practices and reducing boilerplate errors.
-- Generate and refine template logic for dynamic features such as BMI calculation, meal plan summaries, and responsive UI components.
-- Troubleshoot and resolve integration issues, especially around user authentication, signals, and form validation.
-- Suggest improvements for accessibility and mobile responsiveness, resulting in a more user-friendly experience across devices.
-- Automate the creation of test cases and documentation sections, improving project reliability and maintainability.
 
 
-## 🐞 AI in Bug Identification & Resolution
-
-AI played a pivotal role in identifying and resolving bugs throughout the project lifecycle. Key interventions included:
-
-- Detecting template syntax errors and suggesting precise fixes for HTML/CSS validation issues.
-- Diagnosing database compatibility problems (e.g., ArrayField with SQLite) and recommending alternative solutions.
-- Tracing logic errors in BMI/BMR calculations and improving category assignment logic.
-- Pinpointing integration issues in user authentication, signals, and form validation, with actionable debugging steps.
-- Highlighting accessibility and responsive design gaps, leading to targeted UI corrections.
-
-These AI-driven interventions accelerated troubleshooting, reduced downtime, and ensured a smoother development process, resulting in a more stable and user-friendly application.
-
-### 🧪 Copilot-Generated Unit Tests
-
-GitHub Copilot was instrumental in scaffolding initial Django unit tests for models, forms, and views. The generated tests provided a solid baseline for verifying core logic, such as BMI calculation, user creation, and form validation. Where needed, test cases were adjusted to:
-
-- Handle edge cases (e.g., missing or invalid input data)
-- Improve coverage for custom model methods and signals
-- Ensure compatibility with the chosen database backend
-
-For example, Copilot-generated tests for user creation were refined to check profile auto-creation and correct BMI calculation. This process deepened understanding of how test logic maps to application behavior, and highlighted the importance of adapting AI-generated code to project-specific requirements.
-
-The outcomes of using AI included faster prototyping, more consistent code quality, and the ability to focus on unique project features rather than repetitive tasks. AI support also enabled quick adaptation to feedback and streamlined the debugging process, ultimately contributing to a more robust and feature-rich application.
-
----
